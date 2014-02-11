@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		75BC68F718AAB2A5006D7647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68F618AAB2A5006D7647 /* Foundation.framework */; };
+		75BC68F918AAB2A5006D7647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68F818AAB2A5006D7647 /* CoreGraphics.framework */; };
+		75BC68FB18AAB2A5006D7647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68FA18AAB2A5006D7647 /* UIKit.framework */; };
+		75BC690118AAB2A5006D7647 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75BC68FF18AAB2A5006D7647 /* InfoPlist.strings */; };
+		75BC690318AAB2A5006D7647 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BC690218AAB2A5006D7647 /* main.m */; };
+		75BC690718AAB2A5006D7647 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BC690618AAB2A5006D7647 /* AppDelegate.m */; };
+		75BC690A18AAB2A5006D7647 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75BC690818AAB2A5006D7647 /* Main_iPhone.storyboard */; };
+		75BC690D18AAB2A5006D7647 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75BC690B18AAB2A5006D7647 /* Main_iPad.storyboard */; };
+		75BC691018AAB2A5006D7647 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BC690F18AAB2A5006D7647 /* ViewController.m */; };
+		75BC691218AAB2A5006D7647 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75BC691118AAB2A5006D7647 /* Images.xcassets */; };
+		75BC691918AAB2A5006D7647 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC691818AAB2A5006D7647 /* XCTest.framework */; };
+		75BC691A18AAB2A5006D7647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68F618AAB2A5006D7647 /* Foundation.framework */; };
+		75BC691B18AAB2A5006D7647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68FA18AAB2A5006D7647 /* UIKit.framework */; };
+		75BC692318AAB2A5006D7647 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75BC692118AAB2A5006D7647 /* InfoPlist.strings */; };
+		75BC692518AAB2A5006D7647 /* NeoniksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BC692418AAB2A5006D7647 /* NeoniksTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		75BC691C18AAB2A5006D7647 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75BC68EB18AAB2A5006D7647 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75BC68F218AAB2A5006D7647;
+			remoteInfo = Neoniks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		75BC68F318AAB2A5006D7647 /* Neoniks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neoniks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75BC68F618AAB2A5006D7647 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		75BC68F818AAB2A5006D7647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		75BC68FA18AAB2A5006D7647 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		75BC68FE18AAB2A5006D7647 /* Neoniks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Neoniks-Info.plist"; sourceTree = "<group>"; };
+		75BC690018AAB2A5006D7647 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		75BC690218AAB2A5006D7647 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		75BC690418AAB2A5006D7647 /* Neoniks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Neoniks-Prefix.pch"; sourceTree = "<group>"; };
+		75BC690518AAB2A5006D7647 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		75BC690618AAB2A5006D7647 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		75BC690918AAB2A5006D7647 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		75BC690C18AAB2A5006D7647 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		75BC690E18AAB2A5006D7647 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		75BC690F18AAB2A5006D7647 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		75BC691118AAB2A5006D7647 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		75BC691718AAB2A5006D7647 /* NeoniksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeoniksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75BC691818AAB2A5006D7647 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		75BC692018AAB2A5006D7647 /* NeoniksTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NeoniksTests-Info.plist"; sourceTree = "<group>"; };
+		75BC692218AAB2A5006D7647 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		75BC692418AAB2A5006D7647 /* NeoniksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeoniksTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		75BC68F018AAB2A5006D7647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75BC68F918AAB2A5006D7647 /* CoreGraphics.framework in Frameworks */,
+				75BC68FB18AAB2A5006D7647 /* UIKit.framework in Frameworks */,
+				75BC68F718AAB2A5006D7647 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75BC691418AAB2A5006D7647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75BC691918AAB2A5006D7647 /* XCTest.framework in Frameworks */,
+				75BC691B18AAB2A5006D7647 /* UIKit.framework in Frameworks */,
+				75BC691A18AAB2A5006D7647 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		75BC68EA18AAB2A5006D7647 = {
+			isa = PBXGroup;
+			children = (
+				75BC68FC18AAB2A5006D7647 /* Neoniks */,
+				75BC691E18AAB2A5006D7647 /* NeoniksTests */,
+				75BC68F518AAB2A5006D7647 /* Frameworks */,
+				75BC68F418AAB2A5006D7647 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		75BC68F418AAB2A5006D7647 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				75BC68F318AAB2A5006D7647 /* Neoniks.app */,
+				75BC691718AAB2A5006D7647 /* NeoniksTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		75BC68F518AAB2A5006D7647 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75BC68F618AAB2A5006D7647 /* Foundation.framework */,
+				75BC68F818AAB2A5006D7647 /* CoreGraphics.framework */,
+				75BC68FA18AAB2A5006D7647 /* UIKit.framework */,
+				75BC691818AAB2A5006D7647 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75BC68FC18AAB2A5006D7647 /* Neoniks */ = {
+			isa = PBXGroup;
+			children = (
+				75BC690518AAB2A5006D7647 /* AppDelegate.h */,
+				75BC690618AAB2A5006D7647 /* AppDelegate.m */,
+				75BC690818AAB2A5006D7647 /* Main_iPhone.storyboard */,
+				75BC690B18AAB2A5006D7647 /* Main_iPad.storyboard */,
+				75BC690E18AAB2A5006D7647 /* ViewController.h */,
+				75BC690F18AAB2A5006D7647 /* ViewController.m */,
+				75BC691118AAB2A5006D7647 /* Images.xcassets */,
+				75BC68FD18AAB2A5006D7647 /* Supporting Files */,
+			);
+			path = Neoniks;
+			sourceTree = "<group>";
+		};
+		75BC68FD18AAB2A5006D7647 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75BC68FE18AAB2A5006D7647 /* Neoniks-Info.plist */,
+				75BC68FF18AAB2A5006D7647 /* InfoPlist.strings */,
+				75BC690218AAB2A5006D7647 /* main.m */,
+				75BC690418AAB2A5006D7647 /* Neoniks-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		75BC691E18AAB2A5006D7647 /* NeoniksTests */ = {
+			isa = PBXGroup;
+			children = (
+				75BC692418AAB2A5006D7647 /* NeoniksTests.m */,
+				75BC691F18AAB2A5006D7647 /* Supporting Files */,
+			);
+			path = NeoniksTests;
+			sourceTree = "<group>";
+		};
+		75BC691F18AAB2A5006D7647 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75BC692018AAB2A5006D7647 /* NeoniksTests-Info.plist */,
+				75BC692118AAB2A5006D7647 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		75BC68F218AAB2A5006D7647 /* Neoniks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75BC692818AAB2A5006D7647 /* Build configuration list for PBXNativeTarget "Neoniks" */;
+			buildPhases = (
+				75BC68EF18AAB2A5006D7647 /* Sources */,
+				75BC68F018AAB2A5006D7647 /* Frameworks */,
+				75BC68F118AAB2A5006D7647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Neoniks;
+			productName = Neoniks;
+			productReference = 75BC68F318AAB2A5006D7647 /* Neoniks.app */;
+			productType = "com.apple.product-type.application";
+		};
+		75BC691618AAB2A5006D7647 /* NeoniksTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75BC692B18AAB2A5006D7647 /* Build configuration list for PBXNativeTarget "NeoniksTests" */;
+			buildPhases = (
+				75BC691318AAB2A5006D7647 /* Sources */,
+				75BC691418AAB2A5006D7647 /* Frameworks */,
+				75BC691518AAB2A5006D7647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				75BC691D18AAB2A5006D7647 /* PBXTargetDependency */,
+			);
+			name = NeoniksTests;
+			productName = NeoniksTests;
+			productReference = 75BC691718AAB2A5006D7647 /* NeoniksTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		75BC68EB18AAB2A5006D7647 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Andrei Vidrasco";
+				TargetAttributes = {
+					75BC691618AAB2A5006D7647 = {
+						TestTargetID = 75BC68F218AAB2A5006D7647;
+					};
+				};
+			};
+			buildConfigurationList = 75BC68EE18AAB2A5006D7647 /* Build configuration list for PBXProject "Neoniks" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 75BC68EA18AAB2A5006D7647;
+			productRefGroup = 75BC68F418AAB2A5006D7647 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				75BC68F218AAB2A5006D7647 /* Neoniks */,
+				75BC691618AAB2A5006D7647 /* NeoniksTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		75BC68F118AAB2A5006D7647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75BC690D18AAB2A5006D7647 /* Main_iPad.storyboard in Resources */,
+				75BC691218AAB2A5006D7647 /* Images.xcassets in Resources */,
+				75BC690A18AAB2A5006D7647 /* Main_iPhone.storyboard in Resources */,
+				75BC690118AAB2A5006D7647 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75BC691518AAB2A5006D7647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75BC692318AAB2A5006D7647 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		75BC68EF18AAB2A5006D7647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75BC691018AAB2A5006D7647 /* ViewController.m in Sources */,
+				75BC690718AAB2A5006D7647 /* AppDelegate.m in Sources */,
+				75BC690318AAB2A5006D7647 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75BC691318AAB2A5006D7647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75BC692518AAB2A5006D7647 /* NeoniksTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		75BC691D18AAB2A5006D7647 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 75BC68F218AAB2A5006D7647 /* Neoniks */;
+			targetProxy = 75BC691C18AAB2A5006D7647 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		75BC68FF18AAB2A5006D7647 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75BC690018AAB2A5006D7647 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		75BC690818AAB2A5006D7647 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75BC690918AAB2A5006D7647 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		75BC690B18AAB2A5006D7647 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75BC690C18AAB2A5006D7647 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		75BC692118AAB2A5006D7647 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75BC692218AAB2A5006D7647 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		75BC692618AAB2A5006D7647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		75BC692718AAB2A5006D7647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		75BC692918AAB2A5006D7647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Neoniks/Neoniks-Prefix.pch";
+				INFOPLIST_FILE = "Neoniks/Neoniks-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		75BC692A18AAB2A5006D7647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Neoniks/Neoniks-Prefix.pch";
+				INFOPLIST_FILE = "Neoniks/Neoniks-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		75BC692C18AAB2A5006D7647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Neoniks.app/Neoniks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Neoniks/Neoniks-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NeoniksTests/NeoniksTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		75BC692D18AAB2A5006D7647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Neoniks.app/Neoniks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Neoniks/Neoniks-Prefix.pch";
+				INFOPLIST_FILE = "NeoniksTests/NeoniksTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		75BC68EE18AAB2A5006D7647 /* Build configuration list for PBXProject "Neoniks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75BC692618AAB2A5006D7647 /* Debug */,
+				75BC692718AAB2A5006D7647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75BC692818AAB2A5006D7647 /* Build configuration list for PBXNativeTarget "Neoniks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75BC692918AAB2A5006D7647 /* Debug */,
+				75BC692A18AAB2A5006D7647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		75BC692B18AAB2A5006D7647 /* Build configuration list for PBXNativeTarget "NeoniksTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75BC692C18AAB2A5006D7647 /* Debug */,
+				75BC692D18AAB2A5006D7647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 75BC68EB18AAB2A5006D7647 /* Project object */;
+}
