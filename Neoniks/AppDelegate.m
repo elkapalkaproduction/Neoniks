@@ -7,12 +7,23 @@
 //
 
 #import "AppDelegate.h"
-
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    if (![userDefaults stringForKey:kLanguage]){
+		NSString* preferredLanguage = [NSLocale preferredLanguages][0];
+		preferredLanguage = [preferredLanguage isEqualToString:kRussianLanguageTag] ? kRussianLanguageTag : kEnglishLanguageTag;
+		[userDefaults setObject:preferredLanguage forKey:kLanguage];
+	}
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.viewController = [[LogoViewController alloc] initWithNibName:@"LogoViewController" bundle:nil];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    [self.navController setNavigationBarHidden:YES];
+    self.window.rootViewController = self.navController;
+    [self.window makeKeyAndVisible];    // Override point for customization after application launch.
     return YES;
 }
 							
