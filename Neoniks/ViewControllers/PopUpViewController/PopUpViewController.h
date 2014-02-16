@@ -15,6 +15,6 @@
 @end
 @interface PopUpViewController : UIViewController
 + (id)sharedManager;
-@property (nonatomic, assign) int currentPage;
+@property (nonatomic, assign) int curentPage;
 @property (nonatomic, retain) id <PopUpDelegate> delegate;
 @end

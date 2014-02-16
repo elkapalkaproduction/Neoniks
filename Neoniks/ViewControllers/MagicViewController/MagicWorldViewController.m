@@ -45,7 +45,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     for (int  i = 0; i<_icons.count; i++) {
-        [_icons[i] setImage:[Utils imageWithName:[NSString stringWithFormat:@"%d_magic",[[_icons objectAtIndex:i] tag]]] forState:UIControlStateNormal];
+        [_icons[i] setImage:[Utils imageWithName:[NSString stringWithFormat:@"%ld_magic",(long)[[_icons objectAtIndex:i] tag]]] forState:UIControlStateNormal];
     }
     _popUpTitle.image = [Utils imageWithName:@"29_title"];
 
@@ -106,7 +106,7 @@
 }
 - (IBAction)magic:(id)sender {
     [self hideAnimation];
-    [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:self selector:@selector(magicWithDelay:) userInfo:@{@"key": [NSNumber numberWithInt:[sender tag]]} repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:self selector:@selector(magicWithDelay:) userInfo:@{@"key": [NSNumber numberWithInt:(int)[sender tag]]} repeats:NO];
 }
 - (IBAction)close:(id)sender {
     [self hideAnimation];
@@ -114,7 +114,7 @@
 }
 -(void)magicWithDelay:(NSTimer *)userInfo{
     [userInfo userInfo];
-    [_delegate show:[[[userInfo userInfo] objectForKey:@"key"] integerValue]];
+    [_delegate show:(int)[[[userInfo userInfo] objectForKey:@"key"] integerValue]];
 }
 - (void)didReceiveMemoryWarning
 {

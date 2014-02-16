@@ -7,7 +7,7 @@
 		<key>nextPage</key>
 		<integer>2</integer>
 		<key>previousPage</key>
-		<integer>0</integer>
+		<integer>28</integer>
 	</dict>
 	<key>10</key>
 	<dict>
@@ -145,7 +145,7 @@
 	<key>28</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>0</integer>
+		<integer>1</integer>
 		<key>previousPage</key>
 		<integer>27</integer>
 	</dict>

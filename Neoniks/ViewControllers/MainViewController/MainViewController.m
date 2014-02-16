@@ -78,7 +78,7 @@
         [self.view addSubview:[[MagicWorldViewController sharedManager]view]];
     }else{
         [[PopUpViewController sharedManager] setDelegate:self];
-        [[PopUpViewController sharedManager] setCurrentPage:[sender tag]];
+        [[PopUpViewController sharedManager] setCurentPage:[sender tag]];
         [[[PopUpViewController sharedManager]view] setHidden:YES];
         [self.view addSubview:[[PopUpViewController sharedManager]view]];
     }
@@ -91,7 +91,7 @@
 -(void)show:(int)pageToShow{
     [[[MagicWorldViewController sharedManager] view] removeFromSuperview];
     [[PopUpViewController sharedManager] setDelegate:self];
-    [[PopUpViewController sharedManager] setCurrentPage:pageToShow];
+    [[PopUpViewController sharedManager] setCurentPage:pageToShow];
     [[[PopUpViewController sharedManager]view] setHidden:YES];
     [self.view addSubview:[[PopUpViewController sharedManager]view]];
 
@@ -104,7 +104,7 @@
 -(void)next:(int)pageToShow{
     [[[PopUpViewController sharedManager] view] removeFromSuperview];
     [[PopUpViewController sharedManager] setDelegate:self];
-    [[PopUpViewController sharedManager] setCurrentPage:pageToShow];
+    [[PopUpViewController sharedManager] setCurentPage:pageToShow];
     [[[PopUpViewController sharedManager]view] setHidden:YES];
     [self.view addSubview:[[PopUpViewController sharedManager]view]];
 }

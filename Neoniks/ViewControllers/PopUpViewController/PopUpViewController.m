@@ -46,7 +46,6 @@
 
 - (void)viewDidLoad
 {
-    _textView.frame = CGRectMake(522, 421-_textView.contentSize.height/2, 393, _textView.contentSize.height);
 
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -57,19 +56,19 @@
     }
     return nextPages;
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    _textView.text = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:AVLocalizedSystem(@"texts") ofType:@"plist"]] objectForKey:[NSString stringWithFormat:@"%d",_currentPage]];
+    _textView.text = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:AVLocalizedSystem(@"texts") ofType:@"plist"]] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]];
     _textView.textAlignment = NSTextAlignmentJustified;
     _textView.font = [UIFont fontWithName:@"Georgia" size:19];
-    _popUpArtImage.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%d_popup_art",_currentPage] ofType:@"png"]];
+    _popUpArtImage.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%d_popup_art",_curentPage] ofType:@"png"]];
     _learnMoreImage.image = [Utils imageWithName:@"learn_more"];
     [_yesButton setImage:[Utils imageWithName:@"yes"] forState:UIControlStateNormal];
-    _textView.frame = CGRectMake(522, 384-_textView.contentSize.height/2, 393, _textView.contentSize.height);
     
-    _popUpTitle.image = [Utils imageWithName:[NSString stringWithFormat:@"%d_title",_currentPage]];
-    nextPage = [[[[self nextPages] objectForKey:[NSString stringWithFormat:@"%d",_currentPage]] objectForKey:@"nextPage"] intValue];
-    prevPage = [[[[self nextPages] objectForKey:[NSString stringWithFormat:@"%d",_currentPage]] objectForKey:@"previousPage"] intValue];
+    _popUpTitle.image = [Utils imageWithName:[NSString stringWithFormat:@"%d_title",_curentPage]];
+    nextPage = [[[[self nextPages] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]] objectForKey:@"nextPage"] intValue];
+    prevPage = [[[[self nextPages] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]] objectForKey:@"previousPage"] intValue];
     _leftButton.hidden = prevPage == 0;
     _rightButton.hidden = nextPage == 0;
 

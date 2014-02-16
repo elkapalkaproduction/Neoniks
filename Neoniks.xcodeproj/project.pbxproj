@@ -133,6 +133,8 @@
 		7590FA7D18AD71CF000D3262 /* 7_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 7590FA6818AD71CF000D3262 /* 7_popup_art.png */; };
 		7590FA7E18AD71CF000D3262 /* 8_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 7590FA6918AD71CF000D3262 /* 8_popup_art.png */; };
 		7590FA7F18AD71CF000D3262 /* 9_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 7590FA6A18AD71CF000D3262 /* 9_popup_art.png */; };
+		7592527F18B1069A00FB706D /* 14_school.png in Resources */ = {isa = PBXBuildFile; fileRef = 7592527E18B1069A00FB706D /* 14_school.png */; };
+		7592528118B1071D00FB706D /* 14_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 7592528018B1071D00FB706D /* 14_popup_art.png */; };
 		75BC68F718AAB2A5006D7647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68F618AAB2A5006D7647 /* Foundation.framework */; };
 		75BC68F918AAB2A5006D7647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68F818AAB2A5006D7647 /* CoreGraphics.framework */; };
 		75BC68FB18AAB2A5006D7647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68FA18AAB2A5006D7647 /* UIKit.framework */; };
@@ -308,6 +310,8 @@
 		7590FA6818AD71CF000D3262 /* 7_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7_popup_art.png; sourceTree = "<group>"; };
 		7590FA6918AD71CF000D3262 /* 8_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8_popup_art.png; sourceTree = "<group>"; };
 		7590FA6A18AD71CF000D3262 /* 9_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9_popup_art.png; sourceTree = "<group>"; };
+		7592527E18B1069A00FB706D /* 14_school.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 14_school.png; sourceTree = "<group>"; };
+		7592528018B1071D00FB706D /* 14_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 14_popup_art.png; sourceTree = "<group>"; };
 		75BC68F318AAB2A5006D7647 /* Neoniks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neoniks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75BC68F618AAB2A5006D7647 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		75BC68F818AAB2A5006D7647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -494,6 +498,7 @@
 				7590FA5718AD71CF000D3262 /* 11_popup_art.png */,
 				7590FA5818AD71CF000D3262 /* 12_popup_art.png */,
 				7590FA5918AD71CF000D3262 /* 13_popup_art.png */,
+				7592528018B1071D00FB706D /* 14_popup_art.png */,
 				7590FA5A18AD71CF000D3262 /* 15_popup_art.png */,
 				7590FA5B18AD71CF000D3262 /* 17_popup_art.png */,
 				7590FA5C18AD71CF000D3262 /* 18_popup_art.png */,
@@ -651,6 +656,7 @@
 				758E9C6918AC186A00D3007A /* 10_waterfall.png */,
 				75905C5618AEC25000EBB2E3 /* 12_theater.png */,
 				758E9C6418AC14F200D3007A /* 13_cafe.png */,
+				7592527E18B1069A00FB706D /* 14_school.png */,
 				75BC694F18AAC304006D7647 /* 15_lantern_house.png */,
 				758E9C6518AC14F200D3007A /* 20_flying_saucer.png */,
 				75BC695018AAC304006D7647 /* 22_foam_castle.png */,
@@ -742,6 +748,7 @@
 				7590F99D18AD4DDF000D3262 /* 11_title_rus.png in Resources */,
 				758DE48418AF7BAE0000BD69 /* 7_magic_eng.png in Resources */,
 				7590F9B618AD4DDF000D3262 /* 23_title_eng.png in Resources */,
+				7592528118B1071D00FB706D /* 14_popup_art.png in Resources */,
 				758DE49218AF7BAE0000BD69 /* 21_magic_eng.png in Resources */,
 				7590F99B18AD4DDF000D3262 /* 10_title_rus.png in Resources */,
 				758DE49018AF7BAE0000BD69 /* 19_magic_eng.png in Resources */,
@@ -795,6 +802,7 @@
 				7590F9D218AD4DDF000D3262 /* 9_title_eng.png in Resources */,
 				75905C5718AEC25000EBB2E3 /* 12_theater.png in Resources */,
 				758DE48718AF7BAE0000BD69 /* 8_magic_rus.png in Resources */,
+				7592527F18B1069A00FB706D /* 14_school.png in Resources */,
 				7590F9D318AD4DDF000D3262 /* 9_title_rus.png in Resources */,
 				75BC695918AAC304006D7647 /* 6_language_rus.png in Resources */,
 				7590F9A118AD4DDF000D3262 /* 13_title_rus.png in Resources */,
