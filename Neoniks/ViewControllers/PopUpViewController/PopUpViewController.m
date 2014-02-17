@@ -71,6 +71,14 @@
     prevPage = [[[[self nextPages] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]] objectForKey:@"previousPage"] intValue];
     _leftButton.hidden = prevPage == 0;
     _rightButton.hidden = nextPage == 0;
+    if (_curentPage != 24 && _curentPage != 25) {
+        _popUpArtImage.frame = CGRectMake(112, _popUpArtImage.frame.origin.y, _popUpArtImage.frame.size.width, _popUpArtImage.frame.size.height);
+        _textView.frame = CGRectMake(522, _textView.frame.origin.y, _textView.frame.size.width, _textView.frame.size.height);
+    } else {
+        _popUpArtImage.frame = CGRectMake(522, _popUpArtImage.frame.origin.y, _popUpArtImage.frame.size.width, _popUpArtImage.frame.size.height);
+        _textView.frame = CGRectMake(112, _textView.frame.origin.y, _textView.frame.size.width, _textView.frame.size.height);
+
+    }
 
     
 }
@@ -101,7 +109,7 @@
     translationZ.fromValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width/2];
     translationZ.toValue = [NSNumber numberWithFloat:0];
     [adContentLayer addAnimation:translationZ forKey:@"transform.translation.z"];
-    _textView.frame = CGRectMake(522, 421-_textView.contentSize.height/2, 393, _textView.contentSize.height);
+    _textView.frame = CGRectMake(_textView.frame.origin.x, 421-_textView.contentSize.height/2, _textView.frame.size.width, _textView.contentSize.height);
 
 }
 -(void)hideAnimation{
