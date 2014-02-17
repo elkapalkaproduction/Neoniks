@@ -9,11 +9,12 @@
 #import "MainViewController.h"
 #import "PopUpViewController.h"
 #import "MagicWorldViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 @interface MainViewController () <PopUpDelegate,MagicWorldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *pageTitleButton;
 @property (weak, nonatomic) IBOutlet UIButton *languageButton;
-
 @end
 
 @implementation MainViewController
@@ -30,6 +31,7 @@
 - (void)viewDidLoad
 {
     [self updateLanguage];
+
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

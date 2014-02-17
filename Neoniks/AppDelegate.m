@@ -17,6 +17,9 @@
 		preferredLanguage = [preferredLanguage isEqualToString:kRussianLanguageTag] ? kRussianLanguageTag : kEnglishLanguageTag;
 		[userDefaults setObject:preferredLanguage forKey:kLanguage];
 	}
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"Magical" withExtension:@"mp3"] error:NULL];
+    self.audioPlayer.numberOfLoops = -1;
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[LogoViewController alloc] initWithNibName:@"LogoViewController" bundle:nil];

@@ -108,6 +108,17 @@
                         <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="Nf7-k8-4dK"/>
                     </connections>
                 </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2HN-TG-oNT" userLabel="Button - onCake05">
+                    <rect key="frame" x="499" y="248" width="45" height="85"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="05_desert.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="90b-5A-jFK"/>
+                    </connections>
+                </button>
                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6UA-As-ft1" userLabel="Button - onCake06">
                     <rect key="frame" x="310" y="336" width="89" height="86"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -172,6 +183,17 @@
                     </state>
                     <connections>
                         <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="3oV-zg-G5k"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="W4R-7i-xPi" userLabel="Button - onCake16">
+                    <rect key="frame" x="697" y="529" width="85" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="16_transportation.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="wNZ-4i-moI"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="U4z-ec-FqT" userLabel="Button - onCake20">
@@ -239,6 +261,7 @@
         <image name="01_banner_eng.png" width="529" height="172"/>
         <image name="02_lighthouse.png" width="140" height="168"/>
         <image name="04_ice_stadium.png" width="200" height="90"/>
+        <image name="05_desert.png" width="90" height="170"/>
         <image name="06_museum.png" width="179" height="172"/>
         <image name="07_naruke.png" width="274" height="191"/>
         <image name="10_waterfall.png" width="252" height="366"/>
@@ -246,6 +269,7 @@
         <image name="13_cafe.png" width="150" height="151"/>
         <image name="14_school.png" width="170" height="156"/>
         <image name="15_lantern_house.png" width="143" height="160"/>
+        <image name="16_transportation.png" width="170" height="100"/>
         <image name="1_book.png" width="136" height="137"/>
         <image name="20_flying_saucer.png" width="127" height="133"/>
         <image name="22_foam_castle.png" width="200" height="419"/>
