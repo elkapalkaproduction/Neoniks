@@ -80,7 +80,7 @@
         [self.view addSubview:[[MagicWorldViewController sharedManager]view]];
     }else{
         [[PopUpViewController sharedManager] setDelegate:self];
-        [[PopUpViewController sharedManager] setCurentPage:[sender tag]];
+        [[PopUpViewController sharedManager] setCurentPage:(int)[sender tag]];
         [[[PopUpViewController sharedManager]view] setHidden:YES];
         [self.view addSubview:[[PopUpViewController sharedManager]view]];
     }
