@@ -141,6 +141,8 @@
 		7595F5C418B281DA0091AF03 /* 05_desert.png in Resources */ = {isa = PBXBuildFile; fileRef = 7595F5C218B281DA0091AF03 /* 05_desert.png */; };
 		7595F5C518B281DA0091AF03 /* 16_transportation.png in Resources */ = {isa = PBXBuildFile; fileRef = 7595F5C318B281DA0091AF03 /* 16_transportation.png */; };
 		7595F5C718B284400091AF03 /* Magical.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7595F5C618B284400091AF03 /* Magical.mp3 */; };
+		75B3C96B18B51C0D00AA8AC5 /* 2_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */; };
+		75B3C96C18B51C0D00AA8AC5 /* 27_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */; };
 		75BC68F718AAB2A5006D7647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68F618AAB2A5006D7647 /* Foundation.framework */; };
 		75BC68F918AAB2A5006D7647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68F818AAB2A5006D7647 /* CoreGraphics.framework */; };
 		75BC68FB18AAB2A5006D7647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68FA18AAB2A5006D7647 /* UIKit.framework */; };
@@ -324,6 +326,8 @@
 		7595F5C218B281DA0091AF03 /* 05_desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05_desert.png; sourceTree = "<group>"; };
 		7595F5C318B281DA0091AF03 /* 16_transportation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16_transportation.png; sourceTree = "<group>"; };
 		7595F5C618B284400091AF03 /* Magical.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Magical.mp3; sourceTree = "<group>"; };
+		75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_popup_art.png; sourceTree = "<group>"; };
+		75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 27_popup_art.png; sourceTree = "<group>"; };
 		75BC68F318AAB2A5006D7647 /* Neoniks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neoniks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75BC68F618AAB2A5006D7647 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		75BC68F818AAB2A5006D7647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -524,7 +528,9 @@
 				7590FA6318AD71CF000D3262 /* 24_popup_art.png */,
 				7590FA6418AD71CF000D3262 /* 25_popup_art.png */,
 				7590FA6518AD71CF000D3262 /* 26_popup_art.png */,
+				75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */,
 				7590FA6618AD71CF000D3262 /* 28_popup_art.png */,
+				75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */,
 				758DE49A18AF821C0000BD69 /* 3_popup_art.png */,
 				758E2CAF18B3D8F000B23807 /* 4_popup_art.png */,
 				758E2CB018B3D8F000B23807 /* 5_popup_art.png */,
@@ -878,6 +884,7 @@
 				75BC695E18AAC304006D7647 /* 15_lantern_house.png in Resources */,
 				75BC695A18AAC304006D7647 /* 6_language_eng.png in Resources */,
 				7590FA7A18AD71CF000D3262 /* 26_popup_art.png in Resources */,
+				75B3C96C18B51C0D00AA8AC5 /* 27_popup_art.png in Resources */,
 				7590F9AC18AD4DDF000D3262 /* 19_title_eng.png in Resources */,
 				75BC695D18AAC304006D7647 /* 07_naruke.png in Resources */,
 				75BC695218AAC304006D7647 /* 01_banner_eng.png in Resources */,
@@ -892,6 +899,7 @@
 				7590F99F18AD4DDF000D3262 /* 12_title_rus.png in Resources */,
 				7590FA6F18AD71CF000D3262 /* 15_popup_art.png in Resources */,
 				7590F9CE18AD4DDF000D3262 /* 7_title_eng.png in Resources */,
+				75B3C96B18B51C0D00AA8AC5 /* 2_popup_art.png in Resources */,
 				7590F9BE18AD4DDF000D3262 /* 27_title_eng.png in Resources */,
 				758DE49518AF7BAE0000BD69 /* 26_magic_rus.png in Resources */,
 				75BC695518AAC304006D7647 /* 2_contributors.png in Resources */,
