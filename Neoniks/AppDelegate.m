@@ -19,7 +19,8 @@
 	}
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"Magical" withExtension:@"mp3"] error:NULL];
     self.audioPlayer.numberOfLoops = -1;
-
+    if (IS_PHONE)
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[LogoViewController alloc] initWithNibName:@"LogoViewController" bundle:nil];

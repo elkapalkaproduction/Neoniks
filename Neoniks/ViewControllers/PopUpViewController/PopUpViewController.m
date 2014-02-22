@@ -58,10 +58,12 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    self.view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
     [super viewWillAppear:animated];
     _textView.text = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:AVLocalizedSystem(@"texts") ofType:@"plist"]] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]];
     _textView.textAlignment = NSTextAlignmentJustified;
-    _textView.font = [UIFont fontWithName:@"Georgia" size:19];
+    _textView.font = [UIFont fontWithName:@"Georgia" size:IS_PHONE? IS_PHONE5?10:8.5:18];
     _popUpArtImage.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%d_popup_art",_curentPage] ofType:@"png"]];
     _learnMoreImage.image = [Utils imageWithName:@"learn_more"];
     [_yesButton setImage:[Utils imageWithName:@"yes"] forState:UIControlStateNormal];
@@ -72,11 +74,11 @@
     _leftButton.hidden = prevPage == 0;
     _rightButton.hidden = nextPage == 0;
     if (_curentPage != 24 && _curentPage != 25) {
-        _popUpArtImage.frame = CGRectMake(112, _popUpArtImage.frame.origin.y, _popUpArtImage.frame.size.width, _popUpArtImage.frame.size.height);
-        _textView.frame = CGRectMake(522, _textView.frame.origin.y, _textView.frame.size.width, _textView.frame.size.height);
+        _popUpArtImage.frame = CGRectMake(IS_PHONE?68:112, _popUpArtImage.frame.origin.y, _popUpArtImage.frame.size.width, _popUpArtImage.frame.size.height);
+        _textView.frame = CGRectMake(IS_PHONE?230:522, _textView.frame.origin.y, _textView.frame.size.width, _textView.frame.size.height);
     } else {
-        _popUpArtImage.frame = CGRectMake(522, _popUpArtImage.frame.origin.y, _popUpArtImage.frame.size.width, _popUpArtImage.frame.size.height);
-        _textView.frame = CGRectMake(112, _textView.frame.origin.y, _textView.frame.size.width, _textView.frame.size.height);
+        _popUpArtImage.frame = CGRectMake(IS_PHONE?IS_PHONE5?357:300:522, _popUpArtImage.frame.origin.y, _popUpArtImage.frame.size.width, _popUpArtImage.frame.size.height);
+        _textView.frame = CGRectMake(IS_PHONE?68:112, _textView.frame.origin.y, _textView.frame.size.width, _textView.frame.size.height);
 
     }
 
@@ -109,7 +111,7 @@
     translationZ.fromValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width/2];
     translationZ.toValue = [NSNumber numberWithFloat:0];
     [adContentLayer addAnimation:translationZ forKey:@"transform.translation.z"];
-    _textView.frame = CGRectMake(_textView.frame.origin.x, 421-_textView.contentSize.height/2, _textView.frame.size.width, _textView.contentSize.height);
+    _textView.frame = CGRectMake(_textView.frame.origin.x, 0.558*[UIScreen mainScreen].bounds.size.width-_textView.contentSize.height/2, _textView.frame.size.width, _textView.contentSize.height);
 
 }
 -(void)hideAnimation{

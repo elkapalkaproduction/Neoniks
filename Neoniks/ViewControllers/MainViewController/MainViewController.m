@@ -13,6 +13,9 @@
 #import <AVFoundation/AVFoundation.h>
 @interface MainViewController () <PopUpDelegate,MagicWorldDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *foamCasttleButton;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (weak, nonatomic) IBOutlet UIView *onCakeView;
 @property (weak, nonatomic) IBOutlet UIButton *pageTitleButton;
 @property (weak, nonatomic) IBOutlet UIButton *languageButton;
 @end
@@ -30,12 +33,23 @@
 
 - (void)viewDidLoad
 {
+
     [self updateLanguage];
 
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _backgroundImage.image = [UIImage imageNamed:IS_PHONE5? @"MainViewControllerBackground5.png":@"MainViewControllerBackground.png"];
+    _onCakeView.frame = CGRectMake(41, 0, _onCakeView.frame.size.width, _onCakeView.frame.size.height);
+    if (IS_PHONE5) {
+        _onCakeView.frame = CGRectMake(88, 0, _onCakeView.frame.size.width, _onCakeView.frame.size.height);
+        
+    } else{
+        _foamCasttleButton.frame = CGRectMake(_foamCasttleButton.frame.origin.x+30, _foamCasttleButton.frame.origin.y, _foamCasttleButton.frame.size.width, _foamCasttleButton.frame.size.height);
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

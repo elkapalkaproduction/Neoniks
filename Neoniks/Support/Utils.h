@@ -19,6 +19,8 @@
 
 #define IS_PHONE [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone
 
+#define IS_PHONE5 [UIScreen mainScreen].bounds.size.height == 568
+
 #define AVLocalizedSystem(string) [NSString stringWithFormat:@"%@_%@",string,kRussian? @"rus":@"eng"]
 
 #define kAnimationDuration 1
