@@ -241,7 +241,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="29" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bhU-ZP-qdM" userLabel="Button - onCake29">
-                    <rect key="frame" x="555" y="599" width="137" height="90"/>
+                    <rect key="frame" x="515" y="595" width="137" height="90"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" image="07_naruke.png">
