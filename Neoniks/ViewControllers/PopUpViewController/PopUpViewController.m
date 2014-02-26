@@ -43,6 +43,26 @@
     }
     return self;
 }
+- (IBAction)pinchGesture:(id)sender {
+    UIPinchGestureRecognizer *gestureRecognizer = (UIPinchGestureRecognizer *)sender;
+    
+    NSLog(@"*** Pinch: Scale: %f Velocity: %f", gestureRecognizer.scale, gestureRecognizer.velocity);
+    
+	UIFont *font = self.textView.font;
+	CGFloat pointSize = font.pointSize;
+	NSString *fontName = font.fontName;
+    
+	pointSize = ((gestureRecognizer.velocity > 0) ? 1 : -1) * 1 + pointSize;
+	
+	if (pointSize < 13) pointSize = 13;
+	if (pointSize > 42) pointSize = 42;
+	
+	self.textView.font = [UIFont fontWithName:fontName size:pointSize];
+	
+	// Save the new font size in the user defaults.
+    // (UserDefaults is my own wrapper around NSUserDefaults.)
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:pointSize] forKey:@"fontSizeIphone"];
+}
 
 - (void)viewDidLoad
 {
@@ -64,6 +84,10 @@
     _textView.text = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:AVLocalizedSystem(@"texts") ofType:@"plist"]] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]];
     _textView.textAlignment = NSTextAlignmentJustified;
     _textView.font = [UIFont fontWithName:@"Georgia" size:IS_PHONE? IS_PHONE5?10:8.5:18];
+//    if (IS_PHONE && [[[NSUserDefaults standardUserDefaults] objectForKey:@"fontSizeIphone"] floatValue]>0) {
+//        _textView.font = [UIFont fontWithName:@"Georgia" size:[[[NSUserDefaults standardUserDefaults] objectForKey:@"fontSizeIphone"] floatValue]];
+//
+//    }
     _popUpArtImage.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%d_popup_art",_curentPage] ofType:@"png"]];
     _learnMoreImage.image = [Utils imageWithName:@"learn_more"];
     [_yesButton setImage:[Utils imageWithName:@"yes"] forState:UIControlStateNormal];

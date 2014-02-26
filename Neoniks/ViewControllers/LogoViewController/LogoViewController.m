@@ -61,7 +61,7 @@
         [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
             _logoImageView.alpha = 0.f;
         } completion:^(BOOL finished) {
-            [[(AppDelegate *)[[UIApplication sharedApplication] delegate] audioPlayer] play];
+//            [[(AppDelegate *)[[UIApplication sharedApplication] delegate] audioPlayer] play];
             [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
                 _islandImageView.alpha = 1.f;
                 _waterfallImageView.alpha = 1.f;
