@@ -7,28 +7,36 @@
 		<key>nextPage</key>
 		<integer>2</integer>
 		<key>previousPage</key>
-		<integer>28</integer>
+		<integer>29</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>10</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>11</integer>
+		<integer>12</integer>
 		<key>previousPage</key>
-		<integer>9</integer>
+		<integer>6</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>11</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>12</integer>
+		<integer>17</integer>
 		<key>previousPage</key>
-		<integer>10</integer>
+		<integer>9</integer>
+		<key>isCharacter</key>
+		<true/>
 	</dict>
 	<key>12</key>
 	<dict>
 		<key>nextPage</key>
 		<integer>13</integer>
 		<key>previousPage</key>
-		<integer>11</integer>
+		<integer>10</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>13</key>
 	<dict>
@@ -36,6 +44,8 @@
 		<integer>14</integer>
 		<key>previousPage</key>
 		<integer>12</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>14</key>
 	<dict>
@@ -43,6 +53,8 @@
 		<integer>15</integer>
 		<key>previousPage</key>
 		<integer>13</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>15</key>
 	<dict>
@@ -50,20 +62,26 @@
 		<integer>16</integer>
 		<key>previousPage</key>
 		<integer>14</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>16</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>17</integer>
+		<integer>22</integer>
 		<key>previousPage</key>
 		<integer>15</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>17</key>
 	<dict>
 		<key>nextPage</key>
 		<integer>18</integer>
 		<key>previousPage</key>
-		<integer>16</integer>
+		<integer>11</integer>
+		<key>isCharacter</key>
+		<true/>
 	</dict>
 	<key>18</key>
 	<dict>
@@ -71,48 +89,53 @@
 		<integer>19</integer>
 		<key>previousPage</key>
 		<integer>17</integer>
+		<key>isCharacter</key>
+		<true/>
 	</dict>
 	<key>19</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>20</integer>
+		<integer>21</integer>
 		<key>previousPage</key>
 		<integer>18</integer>
+		<key>isCharacter</key>
+		<true/>
 	</dict>
 	<key>2</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>3</integer>
+		<integer>4</integer>
 		<key>previousPage</key>
 		<integer>1</integer>
-	</dict>
-	<key>20</key>
-	<dict>
-		<key>nextPage</key>
-		<integer>21</integer>
-		<key>previousPage</key>
-		<integer>19</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>21</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>22</integer>
+		<integer>26</integer>
 		<key>previousPage</key>
-		<integer>20</integer>
+		<integer>19</integer>
+		<key>isCharacter</key>
+		<true/>
 	</dict>
 	<key>22</key>
 	<dict>
 		<key>nextPage</key>
 		<integer>23</integer>
 		<key>previousPage</key>
-		<integer>21</integer>
+		<integer>16</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>23</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>26</integer>
+		<integer>29</integer>
 		<key>previousPage</key>
 		<integer>22</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>24</key>
 	<dict>
@@ -120,6 +143,8 @@
 		<integer>0</integer>
 		<key>previousPage</key>
 		<integer>0</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>25</key>
 	<dict>
@@ -127,13 +152,17 @@
 		<integer>0</integer>
 		<key>previousPage</key>
 		<integer>0</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>26</key>
 	<dict>
 		<key>nextPage</key>
 		<integer>27</integer>
 		<key>previousPage</key>
-		<integer>23</integer>
+		<integer>21</integer>
+		<key>isCharacter</key>
+		<true/>
 	</dict>
 	<key>27</key>
 	<dict>
@@ -141,34 +170,44 @@
 		<integer>28</integer>
 		<key>previousPage</key>
 		<integer>26</integer>
+		<key>isCharacter</key>
+		<true/>
 	</dict>
 	<key>28</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>1</integer>
+		<integer>3</integer>
 		<key>previousPage</key>
 		<integer>27</integer>
+		<key>isCharacter</key>
+		<true/>
 	</dict>
 	<key>29</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>0</integer>
+		<integer>1</integer>
 		<key>previousPage</key>
-		<integer>0</integer>
+		<integer>23</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>3</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>4</integer>
+		<integer>7</integer>
 		<key>previousPage</key>
-		<integer>2</integer>
+		<integer>28</integer>
+		<key>isCharacter</key>
+		<true/>
 	</dict>
 	<key>4</key>
 	<dict>
 		<key>nextPage</key>
 		<integer>5</integer>
 		<key>previousPage</key>
-		<integer>3</integer>
+		<integer>2</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>5</key>
 	<dict>
@@ -176,20 +215,26 @@
 		<integer>6</integer>
 		<key>previousPage</key>
 		<integer>4</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>6</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>7</integer>
+		<integer>10</integer>
 		<key>previousPage</key>
 		<integer>5</integer>
+		<key>isCharacter</key>
+		<false/>
 	</dict>
 	<key>7</key>
 	<dict>
 		<key>nextPage</key>
 		<integer>8</integer>
 		<key>previousPage</key>
-		<integer>6</integer>
+		<integer>3</integer>
+		<key>isCharacter</key>
+		<true/>
 	</dict>
 	<key>8</key>
 	<dict>
@@ -197,13 +242,17 @@
 		<integer>9</integer>
 		<key>previousPage</key>
 		<integer>7</integer>
+		<key>isCharacter</key>
+		<true/>
 	</dict>
 	<key>9</key>
 	<dict>
 		<key>nextPage</key>
-		<integer>10</integer>
+		<integer>11</integer>
 		<key>previousPage</key>
 		<integer>8</integer>
+		<key>isCharacter</key>
+		<true/>
 	</dict>
 </dict>
 </plist>

@@ -13,6 +13,7 @@
 #import <AVFoundation/AVFoundation.h>
 @interface MainViewController () <PopUpDelegate,MagicWorldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIImageView *characters;
 @property (weak, nonatomic) IBOutlet UIButton *foamCasttleButton;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UIView *onCakeView;
@@ -56,6 +57,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)updateLanguage{
+    [_characters setImage:[Utils imageWithName:@"characters"]];
     [_languageButton setImage:[Utils imageWithName:@"6_language"] forState:UIControlStateNormal];
     [_pageTitleButton setImage:[Utils imageWithName:@"01_banner"] forState:UIControlStateNormal];
 }
@@ -91,9 +93,11 @@
     if ([sender tag] == 29) {
         [[MagicWorldViewController sharedManager] setDelegate:self];
         [[[MagicWorldViewController sharedManager]view] setHidden:YES];
+        [[MagicWorldViewController sharedManager] setFromRightToLeft:NO];
         [self.view addSubview:[[MagicWorldViewController sharedManager]view]];
     }else{
         [[PopUpViewController sharedManager] setDelegate:self];
+        [[PopUpViewController sharedManager] setFromRightToLeft:NO];
         [[PopUpViewController sharedManager] setCurentPage:(int)[sender tag]];
         [[[PopUpViewController sharedManager]view] setHidden:YES];
         [self.view addSubview:[[PopUpViewController sharedManager]view]];
@@ -107,6 +111,7 @@
 -(void)show:(int)pageToShow{
     [[[MagicWorldViewController sharedManager] view] removeFromSuperview];
     [[PopUpViewController sharedManager] setDelegate:self];
+    [[PopUpViewController sharedManager] setFromRightToLeft:NO];
     [[PopUpViewController sharedManager] setCurentPage:pageToShow];
     [[[PopUpViewController sharedManager]view] setHidden:YES];
     [self.view addSubview:[[PopUpViewController sharedManager]view]];
@@ -117,14 +122,23 @@
 -(void)close{
     [[[PopUpViewController sharedManager] view] removeFromSuperview];
 }
--(void)next:(int)pageToShow{
+-(void)next:(int)pageToShow isPrev:(BOOL)prev{
+    [[[MagicWorldViewController sharedManager] view] removeFromSuperview];
     [[[PopUpViewController sharedManager] view] removeFromSuperview];
+    if (pageToShow == 29) {
+        [[MagicWorldViewController sharedManager] setDelegate:self];
+        [[[MagicWorldViewController sharedManager]view] setHidden:YES];
+        [[MagicWorldViewController sharedManager] setFromRightToLeft:prev];
+        [self.view addSubview:[[MagicWorldViewController sharedManager]view]];
+    } else {
     [[PopUpViewController sharedManager] setDelegate:self];
+    [[PopUpViewController sharedManager] setFromRightToLeft:prev];
+
     [[PopUpViewController sharedManager] setCurentPage:pageToShow];
     [[[PopUpViewController sharedManager]view] setHidden:YES];
     [self.view addSubview:[[PopUpViewController sharedManager]view]];
+    }
 }
-
 -(void)openBook{
     [[[PopUpViewController sharedManager] view] removeFromSuperview];
     [self goToBook:Nil];

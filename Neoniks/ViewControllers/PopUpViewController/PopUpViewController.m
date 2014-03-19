@@ -13,6 +13,7 @@
     int nextPage;
     int prevPage;
 }
+@property (strong, nonatomic) IBOutlet UIButton *galleryButton;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIImageView *popUpBackground;
@@ -90,11 +91,13 @@
 //    }
     _popUpArtImage.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%d_popup_art",_curentPage] ofType:@"png"]];
     _learnMoreImage.image = [Utils imageWithName:@"learn_more"];
+    [_galleryButton setImage:[Utils imageWithName:@"gallery"] forState:UIControlStateNormal];
     [_yesButton setImage:[Utils imageWithName:@"yes"] forState:UIControlStateNormal];
     
     _popUpTitle.image = [Utils imageWithName:[NSString stringWithFormat:@"%d_title",_curentPage]];
     nextPage = [[[[self nextPages] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]] objectForKey:@"nextPage"] intValue];
     prevPage = [[[[self nextPages] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]] objectForKey:@"previousPage"] intValue];
+    _galleryButton.hidden = ![[[[self nextPages] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]] objectForKey:@"isCharacter"] boolValue];
     _leftButton.hidden = prevPage == 0;
     _rightButton.hidden = nextPage == 0;
     if (_curentPage != 24 && _curentPage != 25) {
@@ -108,6 +111,7 @@
 
     
 }
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.view setHidden:NO];
@@ -120,13 +124,13 @@
     
     CABasicAnimation *rotationY = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
     rotationY.duration = kAnimationDuration;
-    rotationY.fromValue = [NSNumber numberWithFloat:M_PI_2];
+    rotationY.fromValue = [NSNumber numberWithFloat:_fromRightToLeft? -M_PI_2:M_PI_2];
     rotationY.toValue = [NSNumber numberWithFloat:0];
     [adContentLayer addAnimation:rotationY forKey:@"transform.rotation.y"];
     
     CABasicAnimation *translationX = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
     translationX.duration = kAnimationDuration;
-    translationX.fromValue = [NSNumber numberWithFloat:-adContentLayer.frame.size.width];
+    translationX.fromValue = [NSNumber numberWithFloat:_fromRightToLeft? adContentLayer.frame.size.width:-adContentLayer.frame.size.width];
     translationX.toValue = [NSNumber numberWithFloat:0];
     [adContentLayer addAnimation:translationX forKey:@"transform.translation.x"];
     
@@ -135,10 +139,11 @@
     translationZ.fromValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width/2];
     translationZ.toValue = [NSNumber numberWithFloat:0];
     [adContentLayer addAnimation:translationZ forKey:@"transform.translation.z"];
-    _textView.frame = CGRectMake(_textView.frame.origin.x, 0.558*[UIScreen mainScreen].bounds.size.width-_textView.contentSize.height/2, _textView.frame.size.width, _textView.contentSize.height);
+    CGSize textViewSize = [self.textView sizeThatFits:CGSizeMake(self.textView.frame.size.width, FLT_MAX)];
+    _textView.frame = CGRectMake(_textView.frame.origin.x, 0.558*[UIScreen mainScreen].bounds.size.width-textViewSize.height/2, _textView.frame.size.width, textViewSize.height);
 
 }
--(void)hideAnimation{
+-(void)hideAnimationToRight{
     CALayer *adContentLayer = self.contentView.layer;
     
     CATransform3D layerTransform = CATransform3DIdentity;
@@ -162,21 +167,49 @@
     translationZ.toValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width/2];
     [adContentLayer addAnimation:translationZ forKey:@"transform.translation.z"];
 }
+-(void)hideAnimationToLeft{
+    CALayer *adContentLayer = self.contentView.layer;
+    
+    CATransform3D layerTransform = CATransform3DIdentity;
+    layerTransform.m34 = 1.0 / 500;
+    adContentLayer.transform = layerTransform;
+    CABasicAnimation *rotationY = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
+    rotationY.duration = kAnimationDuration;
+    rotationY.fromValue = [NSNumber numberWithFloat:0];
+    rotationY.toValue = [NSNumber numberWithFloat:M_PI_2];
+    [adContentLayer addAnimation:rotationY forKey:@"transform.rotation.y"];
+    
+    CABasicAnimation *translationX = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+    translationX.duration = kAnimationDuration;
+    translationX.fromValue = [NSNumber numberWithFloat:0];
+    translationX.toValue = [NSNumber numberWithFloat:-adContentLayer.frame.size.width];
+    [adContentLayer addAnimation:translationX forKey:@"transform.translation.x"];
+    
+    CABasicAnimation *translationZ = [CABasicAnimation animationWithKeyPath:@"transform.translation.z"];
+    translationZ.duration = kAnimationDuration;
+    translationZ.fromValue = [NSNumber numberWithFloat:0];
+    translationZ.toValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width/2];
+    [adContentLayer addAnimation:translationZ forKey:@"transform.translation.z"];
+}
+- (IBAction)goToGallery:(id)sender {
+    nextPage = 29;
+    [self right:nil];
+}
 - (IBAction)close:(id)sender {
-    [self hideAnimation];
+    [self hideAnimationToRight];
     [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:_delegate selector:@selector(close) userInfo:Nil repeats:NO];
 }
 - (IBAction)right:(id)sender {
-    [self hideAnimation];
+    [self hideAnimationToRight];
     [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:self selector:@selector(righttWithDelay) userInfo:Nil repeats:NO];
 
 }
 - (IBAction)left:(id)sender {
-    [self hideAnimation];
+    [self hideAnimationToLeft];
     [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:self selector:@selector(leftWithDelay) userInfo:Nil repeats:NO];
 }
 - (IBAction)yesButton:(id)sender {
-    [self hideAnimation];
+    [self hideAnimationToRight];
     [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:self selector:@selector(yesWithDelay) userInfo:Nil repeats:NO];
 }
 
@@ -184,10 +217,10 @@
     [_delegate openBook];
 }
 -(void)leftWithDelay{
-    [_delegate next:prevPage];
+    [_delegate next:prevPage isPrev:YES];
 }
 -(void)righttWithDelay{
-    [_delegate next:nextPage];
+    [_delegate next:nextPage isPrev:NO];
 }
 - (void)didReceiveMemoryWarning
 {

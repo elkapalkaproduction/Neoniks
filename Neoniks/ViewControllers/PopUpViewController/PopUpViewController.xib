@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpViewController">
             <connections>
                 <outlet property="contentView" destination="5cS-Gp-5Cm" id="SL5-bo-JKS"/>
+                <outlet property="galleryButton" destination="C21-p2-esC" id="1XW-3A-jm0"/>
                 <outlet property="learnMoreImage" destination="9bj-Uj-teg" id="7DD-5o-jCd"/>
                 <outlet property="leftButton" destination="GGb-nl-dw8" id="Vo6-zY-zw6"/>
                 <outlet property="popUpArtImage" destination="fa0-im-JWM" id="xyw-1Z-KSs"/>
@@ -43,7 +44,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="etC-i9-4cT" userLabel="Button - right">
-                            <rect key="frame" x="510" y="147" width="29" height="25"/>
+                            <rect key="frame" x="510" y="170" width="29" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" image="right.png">
@@ -54,7 +55,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GGb-nl-dw8" userLabel="Button - left">
-                            <rect key="frame" x="29" y="147" width="29" height="25"/>
+                            <rect key="frame" x="29" y="170" width="29" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" image="left.png">
@@ -88,6 +89,16 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="C21-p2-esC">
+                            <rect key="frame" x="29" y="40" width="121" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="gallery_eng.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="goToGallery:" destination="-1" eventType="touchUpInside" id="QTc-tE-Cvr"/>
+                            </connections>
+                        </button>
                         <textView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" id="V98-xw-01Q">
                             <rect key="frame" x="230" y="75" width="281" height="203"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -119,6 +130,7 @@
     <resources>
         <image name="PopUpViewControllerBackground5.png" width="1136" height="640"/>
         <image name="cross.png" width="133" height="172"/>
+        <image name="gallery_eng.png" width="243" height="37"/>
         <image name="learn_more_rus.png" width="796" height="50"/>
         <image name="left.png" width="237" height="202"/>
         <image name="right.png" width="237" height="202"/>

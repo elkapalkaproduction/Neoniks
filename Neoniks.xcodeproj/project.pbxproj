@@ -152,6 +152,10 @@
 		7595F5C418B281DA0091AF03 /* 05_desert.png in Resources */ = {isa = PBXBuildFile; fileRef = 7595F5C218B281DA0091AF03 /* 05_desert.png */; };
 		7595F5C518B281DA0091AF03 /* 16_transportation.png in Resources */ = {isa = PBXBuildFile; fileRef = 7595F5C318B281DA0091AF03 /* 16_transportation.png */; };
 		7595F5C718B284400091AF03 /* Magical.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7595F5C618B284400091AF03 /* Magical.mp3 */; };
+		759DF44B18DA2F92006E1689 /* characters_eng.png in Resources */ = {isa = PBXBuildFile; fileRef = 759DF44918DA2F92006E1689 /* characters_eng.png */; };
+		759DF44C18DA2F92006E1689 /* characters_rus.png in Resources */ = {isa = PBXBuildFile; fileRef = 759DF44A18DA2F92006E1689 /* characters_rus.png */; };
+		759DF44F18DA31B6006E1689 /* gallery_eng.png in Resources */ = {isa = PBXBuildFile; fileRef = 759DF44D18DA31B6006E1689 /* gallery_eng.png */; };
+		759DF45018DA31B6006E1689 /* gallery_rus.png in Resources */ = {isa = PBXBuildFile; fileRef = 759DF44E18DA31B6006E1689 /* gallery_rus.png */; };
 		75B3C96B18B51C0D00AA8AC5 /* 2_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */; };
 		75B3C96C18B51C0D00AA8AC5 /* 27_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */; };
 		75BC68F718AAB2A5006D7647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68F618AAB2A5006D7647 /* Foundation.framework */; };
@@ -346,6 +350,10 @@
 		7595F5C218B281DA0091AF03 /* 05_desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05_desert.png; sourceTree = "<group>"; };
 		7595F5C318B281DA0091AF03 /* 16_transportation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16_transportation.png; sourceTree = "<group>"; };
 		7595F5C618B284400091AF03 /* Magical.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Magical.mp3; sourceTree = "<group>"; };
+		759DF44918DA2F92006E1689 /* characters_eng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = characters_eng.png; sourceTree = "<group>"; };
+		759DF44A18DA2F92006E1689 /* characters_rus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = characters_rus.png; sourceTree = "<group>"; };
+		759DF44D18DA31B6006E1689 /* gallery_eng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery_eng.png; sourceTree = "<group>"; };
+		759DF44E18DA31B6006E1689 /* gallery_rus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery_rus.png; sourceTree = "<group>"; };
 		75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_popup_art.png; sourceTree = "<group>"; };
 		75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 27_popup_art.png; sourceTree = "<group>"; };
 		75BC68F318AAB2A5006D7647 /* Neoniks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neoniks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -508,6 +516,8 @@
 				758E9C5418ABEB9D00D3007A /* right.png */,
 				758E9C5518ABEB9D00D3007A /* yes_eng.png */,
 				758E9C5618ABEB9D00D3007A /* yes_rus.png */,
+				759DF44D18DA31B6006E1689 /* gallery_eng.png */,
+				759DF44E18DA31B6006E1689 /* gallery_rus.png */,
 			);
 			path = PopUpViewController;
 			sourceTree = "<group>";
@@ -721,6 +731,8 @@
 				75BC694818AAC304006D7647 /* 5_news.png */,
 				75BC694918AAC304006D7647 /* 6_language_rus.png */,
 				75BC694A18AAC304006D7647 /* 6_language_eng.png */,
+				759DF44918DA2F92006E1689 /* characters_eng.png */,
+				759DF44A18DA2F92006E1689 /* characters_rus.png */,
 				7553CF2F18B9086200B53D48 /* MainViewControllerBackground~iphone.png */,
 				7553CF3118B9094000B53D48 /* MainViewControllerBackground5.png */,
 				75BC694B18AAC304006D7647 /* MainViewControllerBackground~ipad.png */,
@@ -794,7 +806,7 @@
 		75BC68EB18AAB2A5006D7647 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Andrei Vidrasco";
 				TargetAttributes = {
 					75BC68F218AAB2A5006D7647 = {
@@ -866,6 +878,7 @@
 				758DE48518AF7BAE0000BD69 /* 7_magic_rus.png in Resources */,
 				758E9C5A18ABEB9D00D3007A /* left.png in Resources */,
 				7590FA6D18AD71CF000D3262 /* 12_popup_art.png in Resources */,
+				759DF44C18DA2F92006E1689 /* characters_rus.png in Resources */,
 				7590F9BB18AD4DDF000D3262 /* 25_title_rus.png in Resources */,
 				758E9C6618AC14F200D3007A /* 02_lighthouse.png in Resources */,
 				7590F9B018AD4DDF000D3262 /* 20_title_eng.png in Resources */,
@@ -973,18 +986,21 @@
 				75B3C96B18B51C0D00AA8AC5 /* 2_popup_art.png in Resources */,
 				7590F9BE18AD4DDF000D3262 /* 27_title_eng.png in Resources */,
 				758DE49518AF7BAE0000BD69 /* 26_magic_rus.png in Resources */,
+				759DF45018DA31B6006E1689 /* gallery_rus.png in Resources */,
 				75BC695518AAC304006D7647 /* 2_contributors.png in Resources */,
 				758E2CB318B3D8F000B23807 /* 5_popup_art.png in Resources */,
 				7590F9C018AD4DDF000D3262 /* 28_title_eng.png in Resources */,
 				7590FA7018AD71CF000D3262 /* 17_popup_art.png in Resources */,
 				7590F9C718AD4DDF000D3262 /* 3_title_rus.png in Resources */,
 				7590F9B118AD4DDF000D3262 /* 20_title_rus.png in Resources */,
+				759DF44F18DA31B6006E1689 /* gallery_eng.png in Resources */,
 				75BC695718AAC304006D7647 /* 4_gift.png in Resources */,
 				7590F9B718AD4DDF000D3262 /* 23_title_rus.png in Resources */,
 				75BC695B18AAC304006D7647 /* MainViewControllerBackground~ipad.png in Resources */,
 				75BC690118AAB2A5006D7647 /* InfoPlist.strings in Resources */,
 				7590F9AE18AD4DDF000D3262 /* 1_title_eng.png in Resources */,
 				7590F9AA18AD4DDF000D3262 /* 18_title_eng.png in Resources */,
+				759DF44B18DA2F92006E1689 /* characters_eng.png in Resources */,
 				758E9C6A18AC186A00D3007A /* 10_waterfall.png in Resources */,
 				7590FA7718AD71CF000D3262 /* 23_popup_art.png in Resources */,
 				7595F5C518B281DA0091AF03 /* 16_transportation.png in Resources */,
@@ -1060,7 +1076,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1102,7 +1117,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1167,7 +1181,6 @@
 		75BC692C18AAB2A5006D7647 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Neoniks.app/Neoniks";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1190,7 +1203,6 @@
 		75BC692D18AAB2A5006D7647 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Neoniks.app/Neoniks";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

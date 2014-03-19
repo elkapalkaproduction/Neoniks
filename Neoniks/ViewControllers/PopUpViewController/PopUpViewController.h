@@ -10,11 +10,12 @@
 
 @protocol PopUpDelegate <NSObject>
 -(void)close;
--(void)next:(int)pageToShow;
+-(void)next:(int)pageToShow isPrev:(BOOL)prev;
 -(void)openBook;
 @end
 @interface PopUpViewController : UIViewController
 + (id)sharedManager;
 @property (nonatomic, assign) int curentPage;
-@property (nonatomic, retain) id <PopUpDelegate> delegate;
+@property (nonatomic, assign) BOOL fromRightToLeft;
+@property (nonatomic, strong) id <PopUpDelegate> delegate;
 @end

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
                 <outlet property="backgroundImage" destination="3tk-wG-HP0" id="onj-IH-bM4"/>
+                <outlet property="characters" destination="nbR-a6-M1M" id="kf0-XW-4xG"/>
                 <outlet property="foamCasttleButton" destination="HLt-tC-CiG" id="edF-Zo-N1L"/>
                 <outlet property="languageButton" destination="6gO-j7-4eZ" id="TNR-6O-C23"/>
                 <outlet property="onCakeView" destination="pR4-dl-Jbd" id="NxA-oy-8vT"/>
@@ -27,6 +28,10 @@
                     <rect key="frame" x="88" y="0.0" width="439" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characters_eng.png" id="nbR-a6-M1M">
+                            <rect key="frame" x="202" y="288" width="64" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v6l-yJ-nu2" userLabel="Button - onCake01">
                             <rect key="frame" x="131" y="0.0" width="132" height="43"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -135,17 +140,6 @@
                             </state>
                             <connections>
                                 <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="jzx-fr-9Z2"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gd4-O2-hMA" userLabel="Button - onCake20">
-                            <rect key="frame" x="60" y="227" width="32" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" image="20_flying_saucer.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="Zfq-ch-p80"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="29" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zwy-dC-26g" userLabel="Button - onCake29">
@@ -284,7 +278,6 @@
         <image name="15_lantern_house.png" width="143" height="160"/>
         <image name="16_transportation.png" width="170" height="100"/>
         <image name="1_book.png" width="136" height="137"/>
-        <image name="20_flying_saucer.png" width="127" height="133"/>
         <image name="22_foam_castle.png" width="200" height="419"/>
         <image name="23_bottomless_island.png" width="509" height="949"/>
         <image name="2_contributors.png" width="136" height="137"/>
@@ -293,5 +286,6 @@
         <image name="5_news.png" width="136" height="137"/>
         <image name="6_language_eng.png" width="136" height="137"/>
         <image name="MainViewControllerBackground.png" width="960" height="640"/>
+        <image name="characters_eng.png" width="170" height="63"/>
     </resources>
 </document>
