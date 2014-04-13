@@ -23,62 +23,31 @@
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @property (weak, nonatomic) IBOutlet UIButton *yesButton;
-
+@property (nonatomic, assign) int curentPage;
+@property (nonatomic, assign) BOOL fromRightToLeft;
+@property (nonatomic, weak) id <PopUpDelegate> delegate;
 @end
 
 @implementation PopUpViewController
 
-+ (id)sharedManager {
-    static PopUpViewController *sharedMyManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
-    });
-    return sharedMyManager;
-}
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+#pragma mark -
+#pragma mark - LifeCycle
+
+- (id)initWithPageNumber:(int)page fromRightAnimation:(BOOL)aBool delegate:(id)aDeletegate {
+    self = [super init];
     if (self) {
-        // Custom initialization
+        _curentPage = page;
+        _fromRightToLeft = aBool;
+        _delegate = aDeletegate;
     }
     return self;
 }
-- (IBAction)pinchGesture:(id)sender {
-    UIPinchGestureRecognizer *gestureRecognizer = (UIPinchGestureRecognizer *)sender;
-    
-    NSLog(@"*** Pinch: Scale: %f Velocity: %f", gestureRecognizer.scale, gestureRecognizer.velocity);
-    
-	UIFont *font = self.textView.font;
-	CGFloat pointSize = font.pointSize;
-	NSString *fontName = font.fontName;
-    
-	pointSize = ((gestureRecognizer.velocity > 0) ? 1 : -1) * 1 + pointSize;
-	
-	if (pointSize < 13) pointSize = 13;
-	if (pointSize > 42) pointSize = 42;
-	
-	self.textView.font = [UIFont fontWithName:fontName size:pointSize];
-	
-	// Save the new font size in the user defaults.
-    // (UserDefaults is my own wrapper around NSUserDefaults.)
-	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:pointSize] forKey:@"fontSizeIphone"];
-}
 
-- (void)viewDidLoad
-{
 
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
--(NSDictionary *)nextPages{
-    if (nextPages == nil) {
-        nextPages = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"nextPages" ofType:@"plist"]];
-    }
-    return nextPages;
-}
+#pragma mark -
+#pragma mark - ViewCycle
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
     
     self.view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
     [super viewWillAppear:animated];
@@ -108,124 +77,112 @@
         _textView.frame = CGRectMake(IS_PHONE?68:112, _textView.frame.origin.y, _textView.frame.size.width, _textView.frame.size.height);
 
     }
-
-    
 }
+
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.view setHidden:NO];
-    
-    CALayer *adContentLayer = self.contentView.layer;
-    CATransform3D layerTransform = CATransform3DIdentity;
-    layerTransform.m34 = 1.0 / 1000;
-    
-    adContentLayer.transform = layerTransform;
-    
-    CABasicAnimation *rotationY = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
-    rotationY.duration = kAnimationDuration;
-    rotationY.fromValue = [NSNumber numberWithFloat:_fromRightToLeft? -M_PI_2:M_PI_2];
-    rotationY.toValue = [NSNumber numberWithFloat:0];
-    [adContentLayer addAnimation:rotationY forKey:@"transform.rotation.y"];
-    
-    CABasicAnimation *translationX = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
-    translationX.duration = kAnimationDuration;
-    translationX.fromValue = [NSNumber numberWithFloat:_fromRightToLeft? adContentLayer.frame.size.width:-adContentLayer.frame.size.width];
-    translationX.toValue = [NSNumber numberWithFloat:0];
-    [adContentLayer addAnimation:translationX forKey:@"transform.translation.x"];
-    
-    CABasicAnimation *translationZ = [CABasicAnimation animationWithKeyPath:@"transform.translation.z"];
-    translationZ.duration = kAnimationDuration;
-    translationZ.fromValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width/2];
-    translationZ.toValue = [NSNumber numberWithFloat:0];
-    [adContentLayer addAnimation:translationZ forKey:@"transform.translation.z"];
+    [Utils animationForAppear:YES fromRight:_fromRightToLeft forView:self.contentView];
+
     CGSize textViewSize = [self.textView sizeThatFits:CGSizeMake(self.textView.frame.size.width, FLT_MAX)];
     _textView.frame = CGRectMake(_textView.frame.origin.x, 0.558*[UIScreen mainScreen].bounds.size.width-textViewSize.height/2, _textView.frame.size.width, textViewSize.height);
 
 }
--(void)hideAnimationToRight{
-    CALayer *adContentLayer = self.contentView.layer;
-    
-    CATransform3D layerTransform = CATransform3DIdentity;
-    layerTransform.m34 = 1.0 / 500;
-    adContentLayer.transform = layerTransform;
-    CABasicAnimation *rotationY = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
-    rotationY.duration = kAnimationDuration;
-    rotationY.fromValue = [NSNumber numberWithFloat:0];
-    rotationY.toValue = [NSNumber numberWithFloat:- M_PI_2];
-    [adContentLayer addAnimation:rotationY forKey:@"transform.rotation.y"];
-    
-    CABasicAnimation *translationX = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
-    translationX.duration = kAnimationDuration;
-    translationX.fromValue = [NSNumber numberWithFloat:0];
-    translationX.toValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width];
-    [adContentLayer addAnimation:translationX forKey:@"transform.translation.x"];
-    
-    CABasicAnimation *translationZ = [CABasicAnimation animationWithKeyPath:@"transform.translation.z"];
-    translationZ.duration = kAnimationDuration;
-    translationZ.fromValue = [NSNumber numberWithFloat:0];
-    translationZ.toValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width/2];
-    [adContentLayer addAnimation:translationZ forKey:@"transform.translation.z"];
+
+
+#pragma mark -
+#pragma mark - Custom Getters
+
+- (NSDictionary *)nextPages {
+    if (nextPages == nil) {
+        nextPages = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"nextPages" ofType:@"plist"]];
+    }
+    return nextPages;
 }
--(void)hideAnimationToLeft{
-    CALayer *adContentLayer = self.contentView.layer;
+
+
+#pragma mark -
+#pragma mark - IBActions
+
+- (IBAction)pinchGesture:(id)sender {
+    UIPinchGestureRecognizer *gestureRecognizer = (UIPinchGestureRecognizer *)sender;
     
-    CATransform3D layerTransform = CATransform3DIdentity;
-    layerTransform.m34 = 1.0 / 500;
-    adContentLayer.transform = layerTransform;
-    CABasicAnimation *rotationY = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
-    rotationY.duration = kAnimationDuration;
-    rotationY.fromValue = [NSNumber numberWithFloat:0];
-    rotationY.toValue = [NSNumber numberWithFloat:M_PI_2];
-    [adContentLayer addAnimation:rotationY forKey:@"transform.rotation.y"];
+    NSLog(@"*** Pinch: Scale: %f Velocity: %f", gestureRecognizer.scale, gestureRecognizer.velocity);
     
-    CABasicAnimation *translationX = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
-    translationX.duration = kAnimationDuration;
-    translationX.fromValue = [NSNumber numberWithFloat:0];
-    translationX.toValue = [NSNumber numberWithFloat:-adContentLayer.frame.size.width];
-    [adContentLayer addAnimation:translationX forKey:@"transform.translation.x"];
+	UIFont *font = self.textView.font;
+	CGFloat pointSize = font.pointSize;
+	NSString *fontName = font.fontName;
     
-    CABasicAnimation *translationZ = [CABasicAnimation animationWithKeyPath:@"transform.translation.z"];
-    translationZ.duration = kAnimationDuration;
-    translationZ.fromValue = [NSNumber numberWithFloat:0];
-    translationZ.toValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width/2];
-    [adContentLayer addAnimation:translationZ forKey:@"transform.translation.z"];
+	pointSize = ((gestureRecognizer.velocity > 0) ? 1 : -1) * 1 + pointSize;
+	
+	if (pointSize < 13) pointSize = 13;
+	if (pointSize > 42) pointSize = 42;
+	
+	self.textView.font = [UIFont fontWithName:fontName size:pointSize];
+	
+	// Save the new font size in the user defaults.
+    // (UserDefaults is my own wrapper around NSUserDefaults.)
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:pointSize] forKey:@"fontSizeIphone"];
 }
+
+
 - (IBAction)goToGallery:(id)sender {
     nextPage = 29;
     [self right:nil];
 }
+
+
 - (IBAction)close:(id)sender {
     [self hideAnimationToRight];
     [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:_delegate selector:@selector(close) userInfo:Nil repeats:NO];
 }
+
+
 - (IBAction)right:(id)sender {
     [self hideAnimationToRight];
     [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:self selector:@selector(righttWithDelay) userInfo:Nil repeats:NO];
 
 }
+
+
 - (IBAction)left:(id)sender {
     [self hideAnimationToLeft];
     [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:self selector:@selector(leftWithDelay) userInfo:Nil repeats:NO];
 }
+
+
 - (IBAction)yesButton:(id)sender {
     [self hideAnimationToRight];
     [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:self selector:@selector(yesWithDelay) userInfo:Nil repeats:NO];
 }
 
--(void)yesWithDelay{
+
+#pragma mark -
+#pragma mark - Private Methods
+
+- (void)yesWithDelay {
     [_delegate openBook];
 }
--(void)leftWithDelay{
+
+
+- (void)leftWithDelay {
     [_delegate next:prevPage isPrev:YES];
 }
--(void)righttWithDelay{
+
+
+- (void)righttWithDelay {
     [_delegate next:nextPage isPrev:NO];
 }
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+- (void)hideAnimationToRight {
+    [Utils animationForAppear:NO fromRight:YES forView:self.contentView];
+}
+
+
+- (void)hideAnimationToLeft {
+    [Utils animationForAppear:NO fromRight:NO forView:self.contentView];
 }
 
 @end

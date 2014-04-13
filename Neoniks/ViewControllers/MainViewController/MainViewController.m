@@ -9,8 +9,10 @@
 #import "MainViewController.h"
 #import "PopUpViewController.h"
 #import "MagicWorldViewController.h"
+#import "BookViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
+#import "ContentBookViewController.h"
 @interface MainViewController () <PopUpDelegate,MagicWorldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *characters;
@@ -19,29 +21,19 @@
 @property (weak, nonatomic) IBOutlet UIView *onCakeView;
 @property (weak, nonatomic) IBOutlet UIButton *pageTitleButton;
 @property (weak, nonatomic) IBOutlet UIButton *languageButton;
+
+@property (strong, nonatomic) PopUpViewController *popUpViewController;
+@property (strong, nonatomic) MagicWorldViewController *magicViewController;
 @end
 
 @implementation MainViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+#pragma mark -
+#pragma mark - ViewCycle
 
-- (void)viewDidLoad
-{
-
-    [self updateLanguage];
-
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self updateLanguage];
     _backgroundImage.image = [UIImage imageNamed:IS_PHONE5? @"MainViewControllerBackground5.png":@"MainViewControllerBackground.png"];
     _onCakeView.frame = CGRectMake(41, 0, _onCakeView.frame.size.width, _onCakeView.frame.size.height);
     if (IS_PHONE5) {
@@ -51,32 +43,64 @@
         _foamCasttleButton.frame = CGRectMake(_foamCasttleButton.frame.origin.x+30, _foamCasttleButton.frame.origin.y, _foamCasttleButton.frame.size.width, _foamCasttleButton.frame.size.height);
     }
 }
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+
+#pragma mark -
+#pragma mark - MagicWorld Delegate
+
+- (void)close {
+    [_magicViewController.view removeFromSuperview];
+    _magicViewController = nil;
+    [_popUpViewController.view removeFromSuperview];
+    _popUpViewController = nil;
 }
--(void)updateLanguage{
-    [_characters setImage:[Utils imageWithName:@"characters"]];
-    [_languageButton setImage:[Utils imageWithName:@"6_language"] forState:UIControlStateNormal];
-    [_pageTitleButton setImage:[Utils imageWithName:@"01_banner"] forState:UIControlStateNormal];
+
+
+- (void)next:(int)pageToShow isPrev:(BOOL)prev {
+    [self close];
+    if (pageToShow == 29) {
+        _magicViewController = [[MagicWorldViewController alloc] initWitFromRightAnimation:prev delegate:self];
+        [self.view addSubview:_magicViewController.view];
+    } else {
+        _popUpViewController = [[PopUpViewController alloc] initWithPageNumber:pageToShow fromRightAnimation:prev delegate:self];
+        [self.view addSubview:_popUpViewController.view];
+    }
 }
-#pragma mark - 
+
+
+- (void)openBook {
+    [self close];
+    [self goToBook:Nil];
+}
+
+
+#pragma mark -
 #pragma mark - IBActions
+
 - (IBAction)goToBook:(id)sender {
+//    ContentBookViewController *bookViewController = [[ContentBookViewController alloc] initWithPageNumber:1];
+    BookViewController *bookViewController = [[BookViewController alloc] init];
+    [self presentViewController:bookViewController animated:YES completion:NULL];
     //TODO: Go to book. if bookmark is saved, go to bookmark page, also go to first page
 }
+
+
 - (IBAction)goToAppleStoreGift:(id)sender {
     //TODO: Need Apple Store Gift Link
 }
+
+
 - (IBAction)goToNews:(id)sender {
     //TODO: Need news link. also make this with parents gates
 }
 
+
 - (IBAction)goToWriteReview:(id)sender {
     //TODO: Need Apple Store Review Link
-
 }
+
+
 - (IBAction)changeLanguage:(id)sender {
     if (kRussian) {
         kSetEnglish;
@@ -84,64 +108,23 @@
         kSetRussian;
     }
     [self updateLanguage];
-
-    //TODO: Changes Language
 }
-#pragma mark - 
-#pragma mark - On Cake Action
+
+
 - (IBAction)popUpWindows:(id)sender {
-    if ([sender tag] == 29) {
-        [[MagicWorldViewController sharedManager] setDelegate:self];
-        [[[MagicWorldViewController sharedManager]view] setHidden:YES];
-        [[MagicWorldViewController sharedManager] setFromRightToLeft:NO];
-        [self.view addSubview:[[MagicWorldViewController sharedManager]view]];
-    }else{
-        [[PopUpViewController sharedManager] setDelegate:self];
-        [[PopUpViewController sharedManager] setFromRightToLeft:NO];
-        [[PopUpViewController sharedManager] setCurentPage:(int)[sender tag]];
-        [[[PopUpViewController sharedManager]view] setHidden:YES];
-        [self.view addSubview:[[PopUpViewController sharedManager]view]];
-    }
+    [self next:[sender tag] isPrev:NO];
 }
-#pragma mark -
-#pragma mark - MagicWorld Delegate
--(void)closeWorld{
-    [[[MagicWorldViewController sharedManager] view] removeFromSuperview];
-}
--(void)show:(int)pageToShow{
-    [[[MagicWorldViewController sharedManager] view] removeFromSuperview];
-    [[PopUpViewController sharedManager] setDelegate:self];
-    [[PopUpViewController sharedManager] setFromRightToLeft:NO];
-    [[PopUpViewController sharedManager] setCurentPage:pageToShow];
-    [[[PopUpViewController sharedManager]view] setHidden:YES];
-    [self.view addSubview:[[PopUpViewController sharedManager]view]];
 
-}
 #pragma mark -
-#pragma mark - PopUp Delegate
--(void)close{
-    [[[PopUpViewController sharedManager] view] removeFromSuperview];
-}
--(void)next:(int)pageToShow isPrev:(BOOL)prev{
-    [[[MagicWorldViewController sharedManager] view] removeFromSuperview];
-    [[[PopUpViewController sharedManager] view] removeFromSuperview];
-    if (pageToShow == 29) {
-        [[MagicWorldViewController sharedManager] setDelegate:self];
-        [[[MagicWorldViewController sharedManager]view] setHidden:YES];
-        [[MagicWorldViewController sharedManager] setFromRightToLeft:prev];
-        [self.view addSubview:[[MagicWorldViewController sharedManager]view]];
-    } else {
-    [[PopUpViewController sharedManager] setDelegate:self];
-    [[PopUpViewController sharedManager] setFromRightToLeft:prev];
+#pragma mark - Private Methods
 
-    [[PopUpViewController sharedManager] setCurentPage:pageToShow];
-    [[[PopUpViewController sharedManager]view] setHidden:YES];
-    [self.view addSubview:[[PopUpViewController sharedManager]view]];
-    }
+
+- (void)updateLanguage {
+    [_characters setImage:[Utils imageWithName:@"characters"]];
+    [_languageButton setImage:[Utils imageWithName:@"6_language"] forState:UIControlStateNormal];
+    [_pageTitleButton setImage:[Utils imageWithName:@"01_banner"] forState:UIControlStateNormal];
 }
--(void)openBook{
-    [[[PopUpViewController sharedManager] view] removeFromSuperview];
-    [self goToBook:Nil];
-}
+
+
 
 @end

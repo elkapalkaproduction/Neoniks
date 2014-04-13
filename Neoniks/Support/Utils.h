@@ -29,4 +29,6 @@
 @interface Utils : NSObject
 +(UIImage *)imageWithName:(NSString *)name;
 +(UIButton *)buttonWithFrame:(CGRect)rect tag:(int)tag image:(UIImage *)image target:(id)target selector:(SEL)selector;
++ (void)animationForAppear:(BOOL)show fromRight:(BOOL)aRight forView:(UIView *)aView;
+
 @end

@@ -12,10 +12,10 @@
 -(void)close;
 -(void)next:(int)pageToShow isPrev:(BOOL)prev;
 -(void)openBook;
+
 @end
+
 @interface PopUpViewController : UIViewController
-+ (id)sharedManager;
-@property (nonatomic, assign) int curentPage;
-@property (nonatomic, assign) BOOL fromRightToLeft;
-@property (nonatomic, strong) id <PopUpDelegate> delegate;
+- (id)initWithPageNumber:(int)page fromRightAnimation:(BOOL)aBool delegate:(id)aDeletegate;
+
 @end

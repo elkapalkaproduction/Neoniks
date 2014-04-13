@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 @protocol MagicWorldDelegate <NSObject>
--(void)closeWorld;
--(void)show:(int)pageToShow;
+-(void)close;
 -(void)next:(int)pageToShow isPrev:(BOOL)prev;
 
 @end
+
 @interface MagicWorldViewController : UIViewController
-+ (id)sharedManager;
-@property (nonatomic, assign) BOOL fromRightToLeft;
-@property (nonatomic, retain) id <MagicWorldDelegate> delegate;
+- (id)initWitFromRightAnimation:(BOOL)aBool delegate:(id)aDeleagate;
 
 @end
