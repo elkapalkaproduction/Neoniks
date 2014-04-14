@@ -8,7 +8,7 @@
 
 #import "BookViewController.h"
 #import "ContentBookViewController.h"
-
+#import "AppDelegate.h"
 @interface BookViewController () <UIPageViewControllerDataSource>
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) IBOutlet UIButton *closeBookButton;
@@ -51,6 +51,7 @@
     return _array[i];
 }
 - (IBAction)closeBookAction:(id)sender {
+    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] audioPlayer] play];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

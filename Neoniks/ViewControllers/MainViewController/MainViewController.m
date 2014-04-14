@@ -13,6 +13,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 #import "ContentBookViewController.h"
+#import "AppDelegate.h"
 @interface MainViewController () <PopUpDelegate,MagicWorldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *characters;
@@ -81,6 +82,8 @@
 - (IBAction)goToBook:(id)sender {
 //    ContentBookViewController *bookViewController = [[ContentBookViewController alloc] initWithPageNumber:1];
     BookViewController *bookViewController = [[BookViewController alloc] init];
+    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] audioPlayer] pause];
+
     [self presentViewController:bookViewController animated:YES completion:NULL];
     //TODO: Go to book. if bookmark is saved, go to bookmark page, also go to first page
 }

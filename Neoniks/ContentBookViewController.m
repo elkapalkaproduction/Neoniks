@@ -17,7 +17,7 @@
 - (id)initWithPageNumber:(NSInteger)page {
     self = [super init];
     if (self) {
-        _url = [[NSBundle mainBundle] URLForResource:[NSString stringWithFormat:@"%d.rus",page] withExtension:@"html"];
+        _url = [[NSBundle mainBundle] URLForResource:[NSString stringWithFormat:@"%d.html",page] withExtension:@"html"];
 
 
     }
