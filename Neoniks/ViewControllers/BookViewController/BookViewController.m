@@ -12,57 +12,79 @@
 @interface BookViewController () <UIPageViewControllerDataSource>
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) IBOutlet UIButton *closeBookButton;
-@property (strong, nonatomic) NSArray *array;
+@property (strong, nonatomic) NSArray *chaptersDetails;
 @end
 
 @implementation BookViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ContentBookViewController *contentBook1 = [[ContentBookViewController alloc] initWithPageNumber:1];
-    ContentBookViewController *contentBook2 = [[ContentBookViewController alloc] initWithPageNumber:2];
-    ContentBookViewController *contentBook3 = [[ContentBookViewController alloc] initWithPageNumber:3];
-    ContentBookViewController *contentBook4 = [[ContentBookViewController alloc] initWithPageNumber:4];
-    ContentBookViewController *contentBook5 = [[ContentBookViewController alloc] initWithPageNumber:5];
-    ContentBookViewController *contentBook6 = [[ContentBookViewController alloc] initWithPageNumber:6];
-    _array = @[contentBook1, contentBook2, contentBook3, contentBook4, contentBook5, contentBook6];
+    NSURL *chaptersUrl = [Utils urlFromName:@"chapters" extension:@"plist"];
+    self.chaptersDetails = [[NSArray alloc] initWithContentsOfURL:chaptersUrl];
+    
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl
                                                               navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                             options:nil];
+    ContentBookViewController *firsPge = [[ContentBookViewController alloc] initWithPageNumber:1 chapter:1];
     [self.pageViewController.view setFrame:self.view.frame];
-    [self.pageViewController setViewControllers:@[contentBook1]
+    [self.pageViewController setViewControllers:@[firsPge]
                                       direction:UIPageViewControllerNavigationDirectionForward
                                        animated:YES
-                                     completion:nil]; 
+                                     completion:nil];
     self.pageViewController.dataSource = self;
     [self.view addSubview:self.pageViewController.view];
     [self.view bringSubviewToFront:_closeBookButton];
-
+    
 }
+- (NSDictionary *)loadPreviousPage:(NSInteger)pageNumber andChapter:(NSInteger)chapterNumber isPrevious:(NSInteger)prev{
+    NSInteger pagePrevious = pageNumber + prev;
+    NSInteger chapterPrevious = chapterNumber;
+    
+    if (pagePrevious > [self.chaptersDetails[chapterPrevious - 1] integerValue]) {
+        chapterPrevious++;
+        if (chapterPrevious - 1 < [self.chaptersDetails count]) {
+            pagePrevious = 1;
+        } else {
+            pagePrevious = 0;
+            chapterPrevious = 0;
+        }
+    } else if (pagePrevious < 1){
+        chapterPrevious--;
+        if (chapterPrevious > 0) {
+            pagePrevious = [self.chaptersDetails[chapterPrevious - 1] integerValue];
+        } else {
+            chapterPrevious = 0;
+            pagePrevious = 0;
+        }
+    }
+
+    return @{@"previousPage": [NSNumber numberWithInteger:pagePrevious],
+             @"previousChapter": [NSNumber numberWithInteger:chapterPrevious]};
+}
+
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSInteger i = [_array indexOfObject:viewController];
-    if (i > 0) i = i - 1; else return nil;
-    return _array[i];
+    return [self loadNext:-1 viewController:viewController];
 }
+- (UIViewController *)loadNext:(NSInteger)isNext viewController:(UIViewController *)vc{
+    ContentBookViewController *currentBook = (ContentBookViewController *)vc;
+    NSInteger currentPage = currentBook.page;
+    NSInteger currentChapter = currentBook.chapter;
+    NSDictionary *prevCoord = [self loadPreviousPage:currentPage andChapter:currentChapter isPrevious:isNext];
+    NSInteger toShowPage = [prevCoord[@"previousPage"] integerValue];
+    NSInteger toShowChapter = [prevCoord[@"previousChapter"] integerValue];
+    if (toShowPage == 0) {
+        return nil;
+    }
+    return [[ContentBookViewController alloc] initWithPageNumber:toShowPage chapter:toShowChapter];
 
+}
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    NSInteger i = [_array indexOfObject:viewController];
-    if (i < ([_array count])-1) i = i + 1; else return nil;
-    return _array[i];
+    return [self loadNext:1 viewController:viewController];
 }
 - (IBAction)closeBookAction:(id)sender {
     [[(AppDelegate *)[[UIApplication sharedApplication] delegate] audioPlayer] play];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)loadNextPage:(id)sender {
-    
-    NSLog(@"To right");
-}
-
-
-- (IBAction)loadPreviousPage:(id)sender {
-    NSLog(@"To left");
-}
 
 @end

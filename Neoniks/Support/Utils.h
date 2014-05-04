@@ -28,6 +28,7 @@
 
 @interface Utils : NSObject
 +(UIImage *)imageWithName:(NSString *)name;
++(NSURL *)urlFromName:(NSString *)name extension:(NSString *)extension;
 +(UIButton *)buttonWithFrame:(CGRect)rect tag:(int)tag image:(UIImage *)image target:(id)target selector:(SEL)selector;
 + (void)animationForAppear:(BOOL)show fromRight:(BOOL)aRight forView:(UIView *)aView;
 

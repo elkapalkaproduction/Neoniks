@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ContentBookViewController : UIViewController
-- (id)initWithPageNumber:(NSInteger)page;
-
+- (id)initWithPageNumber:(NSInteger)page chapter:(NSInteger)chapter;
+@property (assign, nonatomic) NSInteger chapter;
+@property (assign, nonatomic) NSInteger page;
 @end

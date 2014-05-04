@@ -12,6 +12,9 @@
 +(UIImage *)imageWithName:(NSString *)name{
    return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:AVLocalizedSystem(name) ofType:@"png"]];
 }
++(NSURL *)urlFromName:(NSString *)name extension:(NSString *)extension {
+    return [[NSBundle mainBundle] URLForResource:AVLocalizedSystem(name) withExtension:extension];
+}
 +(UIButton *)buttonWithFrame:(CGRect)rect tag:(int)tag image:(UIImage *)image target:(id)target selector:(SEL)selector{
     UIButton *button =[[UIButton alloc] initWithFrame:rect];
     [button setImage:image forState:UIControlStateNormal];

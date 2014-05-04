@@ -7,6 +7,7 @@
 //
 
 #import "ContentBookViewController.h"
+#import "Utils.h"
 
 @interface ContentBookViewController ()
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
@@ -14,10 +15,13 @@
 @end
 
 @implementation ContentBookViewController
-- (id)initWithPageNumber:(NSInteger)page {
+- (id)initWithPageNumber:(NSInteger)page chapter:(NSInteger)chapter{
     self = [super init];
     if (self) {
-        _url = [[NSBundle mainBundle] URLForResource:[NSString stringWithFormat:@"%d.html",page] withExtension:@"html"];
+        NSString *pagePath = [NSString stringWithFormat:@"%d_%d",chapter,page];
+        _chapter = chapter;
+        _page = page;
+        _url = [Utils urlFromName:pagePath extension:@"html"];
 
 
     }
