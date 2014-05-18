@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PageDetails.h"
+
 
 @interface ContentBookViewController : UIViewController
-- (id)initWithPageNumber:(NSInteger)page chapter:(NSInteger)chapter;
-@property (assign, nonatomic) NSInteger chapter;
-@property (assign, nonatomic) NSInteger page;
+- (instancetype)initWithPage:(PageDetails *)pageDetails;
+
+
+@property (strong, nonatomic) PageDetails *currentPage;
+
 @end

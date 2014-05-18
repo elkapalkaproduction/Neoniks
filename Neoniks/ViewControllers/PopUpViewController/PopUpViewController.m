@@ -7,12 +7,10 @@
 //
 
 #import "PopUpViewController.h"
+#import "UIButton+Helps.h"
 
-@interface PopUpViewController (){
-    NSDictionary *nextPages;
-    int nextPage;
-    int prevPage;
-}
+@interface PopUpViewController ()
+
 @property (strong, nonatomic) IBOutlet UIButton *galleryButton;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -23,9 +21,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @property (weak, nonatomic) IBOutlet UIButton *yesButton;
-@property (nonatomic, assign) int curentPage;
-@property (nonatomic, assign) BOOL fromRightToLeft;
-@property (nonatomic, weak) id <PopUpDelegate> delegate;
+@property (weak, nonatomic) id<PopUpDelegate> delegate;
+@property (assign, nonatomic) BOOL fromRightToLeft;
+@property (assign, nonatomic) NSInteger curentPage;
+@property (assign, nonatomic) NSInteger nextPage;
+@property (assign, nonatomic) NSInteger prevPage;
 @end
 
 @implementation PopUpViewController
@@ -49,56 +49,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    self.view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
     [super viewWillAppear:animated];
-    _textView.text = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:AVLocalizedSystem(@"texts") ofType:@"plist"]] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]];
-    _textView.textAlignment = NSTextAlignmentJustified;
-    _textView.font = [UIFont fontWithName:@"Georgia" size:IS_PHONE? IS_PHONE5?10:8.5:18];
-//    if (IS_PHONE && [[[NSUserDefaults standardUserDefaults] objectForKey:@"fontSizeIphone"] floatValue]>0) {
-//        _textView.font = [UIFont fontWithName:@"Georgia" size:[[[NSUserDefaults standardUserDefaults] objectForKey:@"fontSizeIphone"] floatValue]];
-//
-//    }
-    _popUpArtImage.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%d_popup_art",_curentPage] ofType:@"png"]];
-    _learnMoreImage.image = [Utils imageWithName:@"learn_more"];
-    [_galleryButton setImage:[Utils imageWithName:@"gallery"] forState:UIControlStateNormal];
-    [_yesButton setImage:[Utils imageWithName:@"yes"] forState:UIControlStateNormal];
-    
-    _popUpTitle.image = [Utils imageWithName:[NSString stringWithFormat:@"%d_title",_curentPage]];
-    nextPage = [[[[self nextPages] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]] objectForKey:@"nextPage"] intValue];
-    prevPage = [[[[self nextPages] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]] objectForKey:@"previousPage"] intValue];
-    _galleryButton.hidden = ![[[[self nextPages] objectForKey:[NSString stringWithFormat:@"%d",_curentPage]] objectForKey:@"isCharacter"] boolValue];
-    _leftButton.hidden = prevPage == 0;
-    _rightButton.hidden = nextPage == 0;
-    if (_curentPage != 24 && _curentPage != 25) {
-        _popUpArtImage.frame = CGRectMake(IS_PHONE?68:112, _popUpArtImage.frame.origin.y, _popUpArtImage.frame.size.width, _popUpArtImage.frame.size.height);
-        _textView.frame = CGRectMake(IS_PHONE?230:522, _textView.frame.origin.y, _textView.frame.size.width, _textView.frame.size.height);
-    } else {
-        _popUpArtImage.frame = CGRectMake(IS_PHONE?IS_PHONE5?357:300:522, _popUpArtImage.frame.origin.y, _popUpArtImage.frame.size.width, _popUpArtImage.frame.size.height);
-        _textView.frame = CGRectMake(IS_PHONE?68:112, _textView.frame.origin.y, _textView.frame.size.width, _textView.frame.size.height);
-
-    }
+    [self setupView];
 }
 
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.view setHidden:NO];
-    [Utils animationForAppear:YES fromRight:_fromRightToLeft forView:self.contentView];
-
-    CGSize textViewSize = [self.textView sizeThatFits:CGSizeMake(self.textView.frame.size.width, FLT_MAX)];
-    _textView.frame = CGRectMake(_textView.frame.origin.x, 0.558*[UIScreen mainScreen].bounds.size.width-textViewSize.height/2, _textView.frame.size.width, textViewSize.height);
-
-}
-
-
-#pragma mark -
-#pragma mark - Custom Getters
-
-- (NSDictionary *)nextPages {
-    if (nextPages == nil) {
-        nextPages = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"nextPages" ofType:@"plist"]];
-    }
-    return nextPages;
+    [self startAnimation];
 }
 
 
@@ -123,56 +81,61 @@
 	
 	// Save the new font size in the user defaults.
     // (UserDefaults is my own wrapper around NSUserDefaults.)
-	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:pointSize] forKey:@"fontSizeIphone"];
+	[[NSUserDefaults standardUserDefaults] setObject:@(pointSize) forKey:@"fontSizeIphone"];
 }
 
 
 - (IBAction)goToGallery:(id)sender {
-    nextPage = 29;
+    self.nextPage = 29;
     [self right:nil];
 }
 
 
 - (IBAction)close:(id)sender {
     [self hideAnimationToRight];
-    [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:_delegate selector:@selector(close) userInfo:Nil repeats:NO];
+    [self performSelector:@selector(close) withObject:nil afterDelay:kAnimationHide];
 }
 
 
 - (IBAction)right:(id)sender {
     [self hideAnimationToRight];
-    [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:self selector:@selector(righttWithDelay) userInfo:Nil repeats:NO];
-
+    [self performSelector:@selector(righttWithDelay) withObject:nil afterDelay:kAnimationHide];
 }
 
 
 - (IBAction)left:(id)sender {
     [self hideAnimationToLeft];
-    [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:self selector:@selector(leftWithDelay) userInfo:Nil repeats:NO];
+    [self performSelector:@selector(leftWithDelay) withObject:nil afterDelay:kAnimationHide];
 }
 
 
 - (IBAction)yesButton:(id)sender {
     [self hideAnimationToRight];
-    [NSTimer scheduledTimerWithTimeInterval:kAnimationHide target:self selector:@selector(yesWithDelay) userInfo:Nil repeats:NO];
+    [self performSelector:@selector(yesWithDelay) withObject:nil afterDelay:kAnimationHide];
 }
 
 
 #pragma mark -
 #pragma mark - Private Methods
 
+
+- (void)close {
+    [self.delegate close];
+}
+
+
 - (void)yesWithDelay {
-    [_delegate openBook];
+    [self.delegate openBook];
 }
 
 
 - (void)leftWithDelay {
-    [_delegate next:prevPage isPrev:YES];
+    [self.delegate next:self.prevPage isPrev:YES];
 }
 
 
 - (void)righttWithDelay {
-    [_delegate next:nextPage isPrev:NO];
+    [self.delegate next:self.nextPage isPrev:NO];
 }
 
 
@@ -184,5 +147,75 @@
 - (void)hideAnimationToLeft {
     [Utils animationForAppear:NO fromRight:NO forView:self.contentView];
 }
+
+
+- (void)setupView {
+    CGRect screenRect = [UIScreen mainScreen].bounds;
+    CGSize screenSize = CGSizeMake(CGRectGetHeight(screenRect), CGRectGetWidth(screenRect));
+    changeSize(screenSize, self.view);
+    [self setupText];
+    [self setupNextPages];
+    [self setupImages];
+    self.leftButton.hidden = self.prevPage == 0;
+    self.rightButton.hidden = self.nextPage == 0;
+    if (self.curentPage != 24 && self.curentPage != 25) {
+        setXFor(isIphone()?68:112, self.popUpArtImage);
+        setXFor(isIphone()?230:522, self.textView);
+    } else {
+        setXFor(isIphone()?isIphone5()?357:300:522, self.popUpArtImage);
+        setXFor(isIphone()?68:112, self.textView);
+        
+    }
+
+}
+
+
+- (void)setupNextPages {
+    NSURL *urlForText = [NSURL urlFromLocalizedName:@"nextPages" extension:@"plist"];
+    NSDictionary *allPages = [[NSDictionary alloc] initWithContentsOfURL:urlForText];
+    NSString *nextPagesKey = [NSString stringWithFormat:@"%d",self.curentPage];
+    NSDictionary *curentPage = allPages[nextPagesKey];
+    self.nextPage = [curentPage[@"nextPage"] intValue];
+    self.prevPage = [curentPage[@"previousPage"] intValue];
+    self.galleryButton.hidden = ![curentPage[@"isCharacter"] boolValue];
+
+
+}
+
+
+- (void)setupImages {
+    NSString *popupImageName = [NSString stringWithFormat:@"%d_popup_art",self.curentPage];
+    self.popUpArtImage.image = [UIImage imageWithLocalizedName:popupImageName];
+    self.learnMoreImage.image = [UIImage imageWithName:@"learn_more"];
+    [self.galleryButton setImage:[UIImage imageWithName:@"gallery"]];
+    [self.yesButton setImage:[UIImage imageWithName:@"yes"]];
+    NSString *popupTitleName = [NSString stringWithFormat:@"%d_title",self.curentPage];
+    self.popUpTitle.image = [UIImage imageWithName:popupTitleName];
+    
+}
+
+
+- (void)setupText {
+    NSURL *urlForText = [NSURL urlFromName:@"texts" extension:@"plist"];
+    NSDictionary *allTexts = [NSDictionary dictionaryWithContentsOfURL:urlForText];
+    NSString *currentPageKey = [NSString stringWithFormat:@"%d",self.curentPage];
+    self.textView.text = allTexts[currentPageKey];
+    self.textView.textAlignment = NSTextAlignmentJustified;
+    self.textView.font = [UIFont fontWithName:@"Georgia" size:isIphone()? isIphone5()?10:8.5:18];
+
+}
+
+
+- (void)startAnimation {
+    [self.view setHidden:NO];
+    [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView];
+    CGSize maximumSize = CGSizeMake(self.textView.frame.size.width, FLT_MAX);
+    CGSize textViewSize = [self.textView sizeThatFits:maximumSize];
+    CGFloat optimalHeight = textViewSize.height / 2;
+    CGRect screenSize = [UIScreen mainScreen].bounds;
+    setYFor(0.558*CGRectGetWidth(screenSize)-optimalHeight, self.textView);
+
+}
+
 
 @end

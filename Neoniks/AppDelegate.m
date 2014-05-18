@@ -11,15 +11,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    if (![userDefaults stringForKey:kLanguage]){
-		NSString* preferredLanguage = [NSLocale preferredLanguages][0];
-		preferredLanguage = [preferredLanguage isEqualToString:kRussianLanguageTag] ? kRussianLanguageTag : kEnglishLanguageTag;
-		[userDefaults setObject:preferredLanguage forKey:kLanguage];
-	}
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"Magical" withExtension:@"mp3"] error:NULL];
-    self.audioPlayer.numberOfLoops = -1;
-    if (IS_PHONE)
+    [Utils setupLanguage];
+    if (isIphone())
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.

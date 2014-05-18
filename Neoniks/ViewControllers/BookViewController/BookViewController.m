@@ -8,37 +8,172 @@
 
 #import "BookViewController.h"
 #import "ContentBookViewController.h"
-#import "AppDelegate.h"
-@interface BookViewController () <UIPageViewControllerDataSource>
+#import "AudioPlayer.h"
+#import "PageDetails.h"
+#import "NSURL+Helps.h"
+#import "UIPopoverController+iPhone.h"
+#import "BookmarksManager.h"
+#import "AllBookmarsViewController.h"
+
+@interface BookViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, AllBookmarksDelegate>
+@property (strong, nonatomic) IBOutlet UIButton *bookmarkPageButton;
+@property (strong, nonatomic) IBOutlet UILabel *maxPageLabel;
+@property (strong, nonatomic) IBOutlet UILabel *currentPageLabel;
+@property (strong, nonatomic) IBOutlet UISlider *sliderPreview;
+@property (strong, nonatomic) IBOutlet UIView *bottomView;
+@property (strong, nonatomic) IBOutlet UIView *topView;
+
+@property (strong, nonatomic) UIPopoverController *popoverControler;
+
 @property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (strong, nonatomic) IBOutlet UIButton *closeBookButton;
 @property (strong, nonatomic) NSArray *chaptersDetails;
+
+@property (assign, nonatomic) BOOL isShowedOnScreenSupportView;
+
 @end
 
 @implementation BookViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSURL *chaptersUrl = [Utils urlFromName:@"chapters" extension:@"plist"];
-    self.chaptersDetails = [[NSArray alloc] initWithContentsOfURL:chaptersUrl];
-    
-    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl
-                                                              navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
-                                                                            options:nil];
-    ContentBookViewController *firsPge = [[ContentBookViewController alloc] initWithPageNumber:1 chapter:1];
-    [self.pageViewController.view setFrame:self.view.frame];
-    [self.pageViewController setViewControllers:@[firsPge]
-                                      direction:UIPageViewControllerNavigationDirectionForward
-                                       animated:YES
-                                     completion:nil];
-    self.pageViewController.dataSource = self;
-    [self.view addSubview:self.pageViewController.view];
-    [self.view bringSubviewToFront:_closeBookButton];
+    [self setupSupportView];
+    [self setupPageViewController];
     
 }
-- (NSDictionary *)loadPreviousPage:(NSInteger)pageNumber andChapter:(NSInteger)chapterNumber isPrevious:(NSInteger)prev{
-    NSInteger pagePrevious = pageNumber + prev;
-    NSInteger chapterPrevious = chapterNumber;
+
+
+#pragma mark -
+#pragma mark - UIPageViewControllerDataSource
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+      viewControllerBeforeViewController:(UIViewController *)viewController {
+    return [self loadNext:-1 viewController:viewController];
+}
+
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+       viewControllerAfterViewController:(UIViewController *)viewController {
+    return [self loadNext:1 viewController:viewController];
+}
+
+
+- (void)pageViewController:(UIPageViewController *)pageViewController
+        didFinishAnimating:(BOOL)finished
+   previousViewControllers:(NSArray *)previousViewControllers
+       transitionCompleted:(BOOL)completed {
+    [self isChangedPage];
+    [self updateBookmarkInfo];
+    
+}
+
+
+#pragma mark -
+#pragma mark - IBActions
+
+- (IBAction)bookmarkThisPage:(id)sender {
+    PageDetails *currentPage = [self curentPageDetails];
+    NSInteger pageNumber = [self numberForPageDetails:currentPage];
+    [[BookmarksManager sharedManager] addOrRemoveBookmarkForPage:pageNumber];
+    [self updateBookmarkInfo];
+}
+
+
+- (IBAction)hideOrShowSupportView {
+    self.isShowedOnScreenSupportView = !self.isShowedOnScreenSupportView;
+    self.bottomView.hidden = self.topView.hidden = self.isShowedOnScreenSupportView;
+}
+
+
+- (IBAction)closeBookAction:(id)sender {
+    [[AudioPlayer sharedPlayer] play];
+    PageDetails *curentPage = [self curentPageDetails];
+    NSInteger curentPageNumber = [self numberForPageDetails:curentPage];
+    [[BookmarksManager sharedManager] setLastOpen:curentPageNumber];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
+- (IBAction)touchUpInside:(UISlider *)sender {
+    
+    NSInteger sliderValue = sender.value;
+    [self showPage:sliderValue];
+    
+    
+}
+
+
+- (IBAction)sliderChangeValue:(UISlider *)sender {
+    NSInteger sliderValue = sender.value;
+    self.currentPageLabel.text = [NSString stringWithFormat:@"%d", sliderValue];
+    
+}
+
+- (void)bookmarksRequiredToShow:(NSInteger)page {
+    [self showPage:page];
+    [self.popoverControler dismissPopoverAnimated:YES];
+}
+
+
+- (IBAction)allBookmarks:(UIButton *)sender {
+    NSString *nibName = NSStringFromClass([AllBookmarsViewController class]);
+    AllBookmarsViewController *bookmarkView = [[AllBookmarsViewController alloc] initWithNibName:nibName bundle:nil];
+    bookmarkView.delegate = self;
+    self.popoverControler = [[UIPopoverController alloc] initWithContentViewController:bookmarkView];
+    
+    [self.popoverControler presentPopoverFromRect:sender.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+#pragma mark - 
+#pragma mark - Private methods 
+
+- (UIViewController *)loadNext:(NSInteger)isNext viewController:(UIViewController *)vc{
+    ContentBookViewController *currentBook = (ContentBookViewController *)vc;
+    PageDetails *currentPage = currentBook.currentPage;
+    PageDetails *prevCoord = [self loadPreviousPage:currentPage isPrevious:isNext];
+    if (prevCoord.page == 0) {
+        return nil;
+    }
+    ContentBookViewController *prevBook = [[ContentBookViewController alloc] initWithPage:prevCoord];
+    return prevBook;
+    
+}
+
+
+- (NSInteger)numberOfPages {
+    NSInteger number = 0;
+    for (NSNumber *object in self.chaptersDetails) {
+        number += [object integerValue];
+    }
+    return number;
+}
+
+
+- (PageDetails *)pageDetailsForNumber:(NSInteger)number {
+    NSInteger chapter = 0;
+    NSInteger page = number;
+    while ([self.chaptersDetails[chapter] integerValue] < page) {
+        page -= [self.chaptersDetails[chapter] integerValue];
+        chapter++;
+    }
+    PageDetails *pageDetail = [[PageDetails alloc] initWithPage:page chapter:chapter + 1];
+    
+    return pageDetail;
+}
+
+
+- (NSInteger)numberForPageDetails:(PageDetails *)pageDetails {
+    NSInteger number = pageDetails.page;
+    NSInteger chapter = pageDetails.chapter - 1;
+    for (int i = 0; i < chapter; i++) {
+        number += [self.chaptersDetails[i] integerValue];
+    }
+    return number;
+}
+
+
+- (PageDetails *)loadPreviousPage:(PageDetails *)pageDetail isPrevious:(NSInteger)prev{
+    NSInteger pagePrevious = pageDetail.page + prev;
+    NSInteger chapterPrevious = pageDetail.chapter;
     
     if (pagePrevious > [self.chaptersDetails[chapterPrevious - 1] integerValue]) {
         chapterPrevious++;
@@ -57,33 +192,84 @@
             pagePrevious = 0;
         }
     }
-
-    return @{@"previousPage": [NSNumber numberWithInteger:pagePrevious],
-             @"previousChapter": [NSNumber numberWithInteger:chapterPrevious]};
+    PageDetails *page = [[PageDetails alloc] initWithPage:pagePrevious chapter:chapterPrevious];
+    
+    return page;
 }
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    return [self loadNext:-1 viewController:viewController];
+
+- (PageDetails *)curentPageDetails {
+    ContentBookViewController *contentBook = self.pageViewController.viewControllers[0];
+    return contentBook.currentPage;
 }
-- (UIViewController *)loadNext:(NSInteger)isNext viewController:(UIViewController *)vc{
-    ContentBookViewController *currentBook = (ContentBookViewController *)vc;
-    NSInteger currentPage = currentBook.page;
-    NSInteger currentChapter = currentBook.chapter;
-    NSDictionary *prevCoord = [self loadPreviousPage:currentPage andChapter:currentChapter isPrevious:isNext];
-    NSInteger toShowPage = [prevCoord[@"previousPage"] integerValue];
-    NSInteger toShowChapter = [prevCoord[@"previousChapter"] integerValue];
-    if (toShowPage == 0) {
-        return nil;
+
+
+- (void)setupSupportView {
+    self.isShowedOnScreenSupportView = NO;
+    NSURL *chaptersUrl = [NSURL urlFromName:@"chapters" extension:@"plist"];
+    self.chaptersDetails = [[NSArray alloc] initWithContentsOfURL:chaptersUrl];
+    NSInteger maximumPage = [self numberOfPages];
+    self.sliderPreview.maximumValue = maximumPage;
+    self.maxPageLabel.text = [NSString stringWithFormat:@"%d",maximumPage];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideOrShowSupportView)];
+    [self.view addGestureRecognizer:tapGesture];
+
+}
+
+
+- (void)setupPageViewController {
+    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl
+                                                              navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+                                                                            options:nil];
+    self.pageViewController.delegate = self;
+    NSInteger lastOpenPage = [[BookmarksManager sharedManager] lastOpen];
+    PageDetails *page = [self pageDetailsForNumber:lastOpenPage];
+    
+    ContentBookViewController *firsPge = [[ContentBookViewController alloc] initWithPage:page];
+    [self.pageViewController.view setFrame:self.view.frame];
+    [self.pageViewController setViewControllers:@[firsPge]
+                                      direction:UIPageViewControllerNavigationDirectionForward
+                                       animated:YES
+                                     completion:nil];
+    self.pageViewController.dataSource = self;
+    
+    [self.view addSubview:self.pageViewController.view];
+    [self.view sendSubviewToBack:self.pageViewController.view];
+    [self isChangedPage];
+
+}
+
+
+- (void)updateBookmarkInfo {
+    PageDetails *currentPage = [self curentPageDetails];
+    NSInteger pageNumber = [self numberForPageDetails:currentPage];
+
+    if ([[BookmarksManager sharedManager] bookmarkIsSaved:pageNumber]) {
+        [self.bookmarkPageButton setTitle:@"Unbookmark this page" forState:UIControlStateNormal];
+    } else {
+        [self.bookmarkPageButton setTitle:@"Bookmark this page" forState:UIControlStateNormal];
     }
-    return [[ContentBookViewController alloc] initWithPageNumber:toShowPage chapter:toShowChapter];
 
 }
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    return [self loadNext:1 viewController:viewController];
+
+
+- (void)isChangedPage {
+    PageDetails *curentPage = [self curentPageDetails];;
+    NSInteger page = [self numberForPageDetails:curentPage];
+    self.currentPageLabel.text = [NSString stringWithFormat:@"%d",page];
+    self.sliderPreview.value = page;
+    
+    
 }
-- (IBAction)closeBookAction:(id)sender {
-    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] audioPlayer] play];
-    [self dismissViewControllerAnimated:YES completion:NULL];
+
+
+- (void)showPage:(NSInteger)page {
+    ContentBookViewController *contentBook = self.pageViewController.viewControllers[0];
+    self.sliderPreview.value = page;
+    self.currentPageLabel.text = [NSString stringWithFormat:@"%d", page];
+    contentBook.currentPage = [self pageDetailsForNumber:page];
+    [self updateBookmarkInfo];
+
 }
 
 

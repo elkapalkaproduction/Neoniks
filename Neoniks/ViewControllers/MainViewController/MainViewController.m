@@ -10,13 +10,10 @@
 #import "PopUpViewController.h"
 #import "MagicWorldViewController.h"
 #import "BookViewController.h"
-#import <AudioToolbox/AudioToolbox.h>
-#import <AVFoundation/AVFoundation.h>
-#import "ContentBookViewController.h"
-#import "AppDelegate.h"
-@interface MainViewController () <PopUpDelegate,MagicWorldDelegate>
 
-@property (strong, nonatomic) IBOutlet UIImageView *characters;
+@interface MainViewController () <PopUpDelegate, MagicWorldDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *characters;
 @property (weak, nonatomic) IBOutlet UIButton *foamCasttleButton;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UIView *onCakeView;
@@ -32,40 +29,30 @@
 #pragma mark -
 #pragma mark - ViewCycle
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self updateLanguage];
-    _backgroundImage.image = [UIImage imageNamed:IS_PHONE5? @"MainViewControllerBackground5.png":@"MainViewControllerBackground.png"];
-    _onCakeView.frame = CGRectMake(41, 0, _onCakeView.frame.size.width, _onCakeView.frame.size.height);
-    if (IS_PHONE5) {
-        _onCakeView.frame = CGRectMake(88, 0, _onCakeView.frame.size.width, _onCakeView.frame.size.height);
-        
-    } else{
-        _foamCasttleButton.frame = CGRectMake(_foamCasttleButton.frame.origin.x+30, _foamCasttleButton.frame.origin.y, _foamCasttleButton.frame.size.width, _foamCasttleButton.frame.size.height);
-    }
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self updateImagesPosition];
 }
-
-
 
 #pragma mark -
 #pragma mark - MagicWorld Delegate
 
 - (void)close {
-    [_magicViewController.view removeFromSuperview];
-    _magicViewController = nil;
-    [_popUpViewController.view removeFromSuperview];
-    _popUpViewController = nil;
+    [self.magicViewController.view removeFromSuperview];
+    self.magicViewController = nil;
+    [self.popUpViewController.view removeFromSuperview];
+    self.popUpViewController = nil;
 }
 
 
-- (void)next:(int)pageToShow isPrev:(BOOL)prev {
+- (void)next:(NSInteger)pageToShow isPrev:(BOOL)prev {
     [self close];
     if (pageToShow == 29) {
-        _magicViewController = [[MagicWorldViewController alloc] initWitFromRightAnimation:prev delegate:self];
-        [self.view addSubview:_magicViewController.view];
+        self.magicViewController = [[MagicWorldViewController alloc] initWitFromRightAnimation:prev delegate:self];
+        [self.view addSubview:self.magicViewController.view];
     } else {
-        _popUpViewController = [[PopUpViewController alloc] initWithPageNumber:pageToShow fromRightAnimation:prev delegate:self];
-        [self.view addSubview:_popUpViewController.view];
+        self.popUpViewController = [[PopUpViewController alloc] initWithPageNumber:pageToShow fromRightAnimation:prev delegate:self];
+        [self.view addSubview:self.popUpViewController.view];
     }
 }
 
@@ -80,10 +67,9 @@
 #pragma mark - IBActions
 
 - (IBAction)goToBook:(id)sender {
-//    ContentBookViewController *bookViewController = [[ContentBookViewController alloc] initWithPageNumber:1];
     BookViewController *bookViewController = [[BookViewController alloc] init];
-    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] audioPlayer] pause];
-
+    [[AudioPlayer sharedPlayer] pause];
+    
     [self presentViewController:bookViewController animated:YES completion:NULL];
     //TODO: Go to book. if bookmark is saved, go to bookmark page, also go to first page
 }
@@ -105,10 +91,10 @@
 
 
 - (IBAction)changeLanguage:(id)sender {
-    if (kRussian) {
-        kSetEnglish;
+    if (isRussian()) {
+        setEnglishLanguage();
     } else {
-        kSetRussian;
+        setRussianLanguage();
     }
     [self updateLanguage];
 }
@@ -123,11 +109,27 @@
 
 
 - (void)updateLanguage {
-    [_characters setImage:[Utils imageWithName:@"characters"]];
-    [_languageButton setImage:[Utils imageWithName:@"6_language"] forState:UIControlStateNormal];
-    [_pageTitleButton setImage:[Utils imageWithName:@"01_banner"] forState:UIControlStateNormal];
+    [self.characters setImage:[UIImage imageWithName:@"characters"]];
+    [self.languageButton setImage:[UIImage imageWithName:@"6_language"]];
+    [self.pageTitleButton setImage:[UIImage imageWithName:@"01_banner"]];
 }
 
+- (void)updateImagesPosition {
+    [self updateLanguage];
+    NSString *backgroundImageName = @"MainViewControllerBackground.png";
+    if (isIphone5()) {
+        backgroundImageName = @"MainViewControllerBackground5.png";
+    }
+    self.backgroundImage.image = [UIImage imageNamed:backgroundImageName];
+    CGPoint onCakeOrigin = CGPointMake(41, 0);
+    if (isIphone5()) {
+        onCakeOrigin.x = 88;
+    } else{
+        moveViewHorizontalyWith(30, self.foamCasttleButton);
+    }
+    changePositon(onCakeOrigin, self.onCakeView);
+    
+}
 
 
 @end

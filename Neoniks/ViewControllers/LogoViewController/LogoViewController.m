@@ -8,7 +8,8 @@
 
 #import "LogoViewController.h"
 #import "MainViewController.h"
-#import "AppDelegate.h"
+#import "AudioPlayer.h"
+
 @interface LogoViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *islandImageView;
@@ -29,39 +30,59 @@
 
 @implementation LogoViewController
 
--(void) viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    _islandImageView.image = [UIImage imageNamed:IS_PHONE5? @"MainViewControllerBackground5.png":@"MainViewControllerBackground.png"];
-    [_logoImageView setImage:[Utils imageWithName:@"logo"]];
-    [_languageButton setImage:[Utils imageWithName:@"6_language"]];
-    [_pageTitleButton setImage:[Utils imageWithName:@"01_banner"]];
-    _onCakeView.frame = CGRectMake(41, 0, _onCakeView.frame.size.width, _onCakeView.frame.size.height);
-    if (IS_PHONE5) {
-        _onCakeView.frame = CGRectMake(88, 0, _onCakeView.frame.size.width, _onCakeView.frame.size.height);
-    } else{
-        _foamCasttleButton.frame = CGRectMake(_foamCasttleButton.frame.origin.x+30, _foamCasttleButton.frame.origin.y, _foamCasttleButton.frame.size.width, _foamCasttleButton.frame.size.height);
-    }
-
-    
-}
 - (void)viewDidLoad
 {
-    float timeInterval = 1.f;
-//    [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
-//        _logoImageView.alpha = 1.f;
-//    } completion:^(BOOL finished) {
-//        MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-//        [[self navigationController] pushViewController:viewController animated:NO];
-//    }];
-    
+    [super viewDidLoad];
+  
+    [self updateImages];
+    [self shortAnimation];
+	// Do any additional setup after loading the view, typically from a nib.
+}
 
+
+
+- (void)updateImages {
+    NSString *backgroundImageName = @"MainViewControllerBackground.png";
+    if (isIphone5()) {
+        backgroundImageName = @"MainViewControllerBackground5.png";
+    }
+    _islandImageView.image = [UIImage imageNamed:backgroundImageName];
+    [_logoImageView setImage:[UIImage imageWithName:@"logo"]];
+    [_languageButton setImage:[UIImage imageWithName:@"6_language"]];
+    [_pageTitleButton setImage:[UIImage imageWithName:@"01_banner"]];
+    CGPoint onCakeOrigin = CGPointMake(41, 0);
+    if (isIphone5()) {
+        onCakeOrigin.x = 88;
+    } else{
+        moveViewHorizontalyWith(30, self.foamCasttleButton);
+    }
+    changePositon(onCakeOrigin, self.onCakeView);
+    
+}
+
+
+- (void)shortAnimation {
+    float timeInterval = 1.f;
+    [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
+        _logoImageView.alpha = 1.f;
+    } completion:^(BOOL finished) {
+        MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+        [[self navigationController] pushViewController:viewController animated:NO];
+    }];
+    
+}
+
+
+- (void)longAnimation {
+    float timeInterval = 1.f;
+    
     [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
         _logoImageView.alpha = 1.f;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
             _logoImageView.alpha = 0.f;
         } completion:^(BOOL finished) {
-            [[(AppDelegate *)[[UIApplication sharedApplication] delegate] audioPlayer] play];
+            [[AudioPlayer sharedPlayer] play];
             [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
                 _islandImageView.alpha = 1.f;
                 _waterfallImageView.alpha = 1.f;
@@ -76,49 +97,49 @@
                             if (img.tag == 2) img.alpha = 1.f;
                         }
                     } completion:^(BOOL finished) {
-                            [UIView animateWithDuration:timeInterval*0.75f animations:^{
-                                for (UIImageView *img in _onCake) {
-                                    if (img.tag == 3) img.alpha = 1.f;
-                                }
+                        [UIView animateWithDuration:timeInterval*0.75f animations:^{
+                            for (UIImageView *img in _onCake) {
+                                if (img.tag == 3) img.alpha = 1.f;
+                            }
+                        } completion:^(BOOL finished) {
+                            [UIView animateWithDuration:timeInterval/5 animations:^{
+                                _leftSide1.alpha = 1.f;
                             } completion:^(BOOL finished) {
+                                [UIView animateWithDuration:timeInterval/5 animations:^{
+                                    _leftSide2.alpha = 1.f;
+                                } completion:^(BOOL finished) {
                                     [UIView animateWithDuration:timeInterval/5 animations:^{
-                                        _leftSide1.alpha = 1.f;
+                                        _leftSide3.alpha = 1.f;
                                     } completion:^(BOOL finished) {
                                         [UIView animateWithDuration:timeInterval/5 animations:^{
-                                            _leftSide2.alpha = 1.f;
+                                            _leftSide4.alpha = 1.f;
                                         } completion:^(BOOL finished) {
                                             [UIView animateWithDuration:timeInterval/5 animations:^{
-                                                _leftSide3.alpha = 1.f;
+                                                _leftSide5.alpha = 1.f;
                                             } completion:^(BOOL finished) {
-                                                [UIView animateWithDuration:timeInterval/5 animations:^{
-                                                    _leftSide4.alpha = 1.f;
+                                                [UIView animateWithDuration:timeInterval/2 animations:^{
+                                                    _languageButton.alpha = 1.f;
                                                 } completion:^(BOOL finished) {
-                                                    [UIView animateWithDuration:timeInterval/5 animations:^{
-                                                        _leftSide5.alpha = 1.f;
+                                                    [UIView animateWithDuration:timeInterval/2 animations:^{
+                                                        _pageTitleButton.alpha = 1.f;
                                                     } completion:^(BOOL finished) {
-                                                        [UIView animateWithDuration:timeInterval/2 animations:^{
-                                                            _languageButton.alpha = 1.f;
-                                                        } completion:^(BOOL finished) {
-                                                            [UIView animateWithDuration:timeInterval/2 animations:^{
-                                                                _pageTitleButton.alpha = 1.f;
-                                                            } completion:^(BOOL finished) {
-                                                                MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-                                                                [[self navigationController] pushViewController:viewController animated:NO];
-                                                            }];
-
-                                                        }];
-
+                                                        MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+                                                        [[self navigationController] pushViewController:viewController animated:NO];
                                                     }];
-
+                                                    
                                                 }];
-
+                                                
                                             }];
-
+                                            
                                         }];
-
+                                        
                                     }];
+                                    
                                 }];
+                                
+                            }];
                         }];
+                    }];
                     
                 }];
                 
@@ -126,14 +147,6 @@
         }];
     }];
     
-
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

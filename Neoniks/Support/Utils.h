@@ -7,29 +7,39 @@
 //
 #import <Foundation/Foundation.h>
 
-#define kLanguage @"PreferedLanguage"
-#define kRussianLanguageTag @"ru"
-#define kEnglishLanguageTag @"en"
+extern NSString * const kLanguage;
+extern NSString * const kRussianLanguageTag;
+extern NSString * const kEnglishLanguageTag;
 
-#define kRussian [[[NSUserDefaults standardUserDefaults] objectForKey:kLanguage] isEqualToString:kRussianLanguageTag]
-#define kEnglish [[[NSUserDefaults standardUserDefaults] objectForKey:kLanguage] isEqualToString:kEnglishLanguageTag]
-
-#define kSetEnglish [[NSUserDefaults standardUserDefaults] setObject:kEnglishLanguageTag forKey:kLanguage];
-#define kSetRussian [[NSUserDefaults standardUserDefaults] setObject:kRussianLanguageTag forKey:kLanguage];
-
-#define IS_PHONE [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone
-
-#define IS_PHONE5 [UIScreen mainScreen].bounds.size.height == 568
-
-#define AVLocalizedSystem(string) [NSString stringWithFormat:@"%@_%@",string,kRussian? @"rus":@"eng"]
 
 #define kAnimationDuration 1
 #define kAnimationHide kAnimationDuration/1.9
 
 @interface Utils : NSObject
-+(UIImage *)imageWithName:(NSString *)name;
-+(NSURL *)urlFromName:(NSString *)name extension:(NSString *)extension;
-+(UIButton *)buttonWithFrame:(CGRect)rect tag:(int)tag image:(UIImage *)image target:(id)target selector:(SEL)selector;
+
 + (void)animationForAppear:(BOOL)show fromRight:(BOOL)aRight forView:(UIView *)aView;
++ (void)setupLanguage;
+
+void changePositon(CGPoint point, UIView *view);
+void changeSize(CGSize size, UIView *view);
+
+void setXFor(CGFloat x, UIView *view);
+void setYFor(CGFloat y, UIView *view);
+
+void changeWidth(CGFloat width, UIView *view);
+void changeHeight(CGFloat height, UIView *view);
+
+void moveViewHorizontalyWith(CGFloat x, UIView *view);
+void moveViewVerticalyWith(CGFloat y, UIView *view);
+
+BOOL isIphone5();
+BOOL isIphone();
+
+BOOL isRussian();
+BOOL isEnglish();
+
+
+void setRussianLanguage();
+void setEnglishLanguage();
 
 @end

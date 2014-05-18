@@ -10,7 +10,7 @@
 
 @protocol PopUpDelegate <NSObject>
 -(void)close;
--(void)next:(int)pageToShow isPrev:(BOOL)prev;
+-(void)next:(NSInteger)pageToShow isPrev:(BOOL)prev;
 -(void)openBook;
 
 @end

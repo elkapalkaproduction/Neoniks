@@ -9,20 +9,18 @@
 #import "ContentBookViewController.h"
 #import "Utils.h"
 
-@interface ContentBookViewController ()
+@interface ContentBookViewController () <UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) NSURL *url;
 @end
 
 @implementation ContentBookViewController
-- (id)initWithPageNumber:(NSInteger)page chapter:(NSInteger)chapter{
+- (id)initWithPage:(PageDetails *)pageDetails{
     self = [super init];
     if (self) {
-        NSString *pagePath = [NSString stringWithFormat:@"%d_%d",chapter,page];
-        _chapter = chapter;
-        _page = page;
-        _url = [Utils urlFromName:pagePath extension:@"html"];
-
+        _currentPage = pageDetails;
+        NSString *pagePath = [NSString stringWithFormat:@"%d_%d",pageDetails.chapter, pageDetails.page];
+        _url = [NSURL urlFromName:pagePath extension:@"html"];
 
     }
     return self;
@@ -31,8 +29,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:_url];
-    [_webView loadRequest:urlRequest];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.url];
+    [self.webView loadRequest:urlRequest];
+}
+
+
+- (void)setCurrentPage:(PageDetails *)currentPage {
+    _currentPage = currentPage;
+    NSString *pagePath = [NSString stringWithFormat:@"%d_%d",currentPage.chapter, currentPage.page];
+    self.url = [NSURL urlFromName:pagePath extension:@"html"];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.url];
+    [self.webView loadRequest:urlRequest];
+
 }
 
 @end
