@@ -113,18 +113,11 @@
 }
 
 
-- (IBAction)touchUpInside:(UISlider *)sender {
-    
-    NSInteger sliderValue = sender.value;
-    [self showPage:sliderValue];
-    
-    
-}
-
-
 - (IBAction)sliderChangeValue:(UISlider *)sender {
     NSInteger sliderValue = sender.value;
     self.currentPageLabel.text = [NSString stringWithFormat:@"%d", sliderValue];
+    [self showPage:sliderValue];
+
     
 }
 
