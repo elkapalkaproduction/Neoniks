@@ -35,7 +35,7 @@
     [super viewDidLoad];
   
     [self updateImages];
-    [self longAnimation];
+    [self shortAnimation];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

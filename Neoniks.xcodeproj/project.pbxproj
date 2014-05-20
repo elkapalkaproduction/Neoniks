@@ -320,6 +320,9 @@
 		759DF44C18DA2F92006E1689 /* characters_rus.png in Resources */ = {isa = PBXBuildFile; fileRef = 759DF44A18DA2F92006E1689 /* characters_rus.png */; };
 		759DF44F18DA31B6006E1689 /* gallery_eng.png in Resources */ = {isa = PBXBuildFile; fileRef = 759DF44D18DA31B6006E1689 /* gallery_eng.png */; };
 		759DF45018DA31B6006E1689 /* gallery_rus.png in Resources */ = {isa = PBXBuildFile; fileRef = 759DF44E18DA31B6006E1689 /* gallery_rus.png */; };
+		75AB123E192BDFA4008DFD7B /* ContentOfBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AB123B192BDFA4008DFD7B /* ContentOfBookViewController.m */; };
+		75AB123F192BDFA4008DFD7B /* ContentOfBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75AB123C192BDFA4008DFD7B /* ContentOfBookViewController.xib */; };
+		75AB1240192BDFA4008DFD7B /* ContentOfBookViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75AB123D192BDFA4008DFD7B /* ContentOfBookViewController~ipad.xib */; };
 		75AE76FC19280F510085A26A /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AE76FB19280F510085A26A /* AudioPlayer.m */; };
 		75AE76FF19281F2F0085A26A /* UIButton+Helps.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AE76FE19281F2F0085A26A /* UIButton+Helps.m */; };
 		75AE7702192820450085A26A /* UIImage+Helps.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AE7701192820450085A26A /* UIImage+Helps.m */; };
@@ -693,6 +696,10 @@
 		759DF44A18DA2F92006E1689 /* characters_rus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = characters_rus.png; sourceTree = "<group>"; };
 		759DF44D18DA31B6006E1689 /* gallery_eng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery_eng.png; sourceTree = "<group>"; };
 		759DF44E18DA31B6006E1689 /* gallery_rus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery_rus.png; sourceTree = "<group>"; };
+		75AB123A192BDFA4008DFD7B /* ContentOfBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentOfBookViewController.h; sourceTree = "<group>"; };
+		75AB123B192BDFA4008DFD7B /* ContentOfBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentOfBookViewController.m; sourceTree = "<group>"; };
+		75AB123C192BDFA4008DFD7B /* ContentOfBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentOfBookViewController.xib; sourceTree = "<group>"; };
+		75AB123D192BDFA4008DFD7B /* ContentOfBookViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ContentOfBookViewController~ipad.xib"; sourceTree = "<group>"; };
 		75AE76FA19280F510085A26A /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioPlayer.h; path = Support/AudioPlayer.h; sourceTree = "<group>"; };
 		75AE76FB19280F510085A26A /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioPlayer.m; path = Support/AudioPlayer.m; sourceTree = "<group>"; };
 		75AE76FD19281F2F0085A26A /* UIButton+Helps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Helps.h"; path = "Support/UIButton+Helps.h"; sourceTree = "<group>"; };
@@ -1142,6 +1149,7 @@
 				7553CF1718B8FCAF00B53D48 /* MainViewController */,
 				7553CF1C18B8FCAF00B53D48 /* PopUpViewController */,
 				7553CF1218B8FCAF00B53D48 /* MagicViewController */,
+				75AB1239192BDFA4008DFD7B /* ContentOfBookViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1340,6 +1348,17 @@
 				7590FA6A18AD71CF000D3262 /* 9_popup_art.png */,
 			);
 			path = pop_up;
+			sourceTree = "<group>";
+		};
+		75AB1239192BDFA4008DFD7B /* ContentOfBookViewController */ = {
+			isa = PBXGroup;
+			children = (
+				75AB123A192BDFA4008DFD7B /* ContentOfBookViewController.h */,
+				75AB123B192BDFA4008DFD7B /* ContentOfBookViewController.m */,
+				75AB123C192BDFA4008DFD7B /* ContentOfBookViewController.xib */,
+				75AB123D192BDFA4008DFD7B /* ContentOfBookViewController~ipad.xib */,
+			);
+			path = ContentOfBookViewController;
 			sourceTree = "<group>";
 		};
 		75BC68EA18AAB2A5006D7647 = {
@@ -1668,6 +1687,7 @@
 				751CDC1519291DE2003FCA0F /* 7_5_eng.html in Resources */,
 				7590FA7818AD71CF000D3262 /* 24_popup_art.png in Resources */,
 				751CDC3419291DE2003FCA0F /* 12_2_rus.html in Resources */,
+				75AB1240192BDFA4008DFD7B /* ContentOfBookViewController~ipad.xib in Resources */,
 				751CDC0E19291DE2003FCA0F /* 5_6_eng.html in Resources */,
 				7590F9B918AD4DDF000D3262 /* 24_title_rus.png in Resources */,
 				758DE48D18AF7BAE0000BD69 /* 17_magic_rus.png in Resources */,
@@ -1740,6 +1760,7 @@
 				758E9C5918ABEB9D00D3007A /* learn_more_rus.png in Resources */,
 				758D916B18FA811400025523 /* BookViewController.xib in Resources */,
 				751CDC6219291DE2003FCA0F /* 7_6_rus.html in Resources */,
+				75AB123F192BDFA4008DFD7B /* ContentOfBookViewController.xib in Resources */,
 				75905C5518AEC24300EBB2E3 /* 04_ice_stadium.png in Resources */,
 				751CDC2019291DE2003FCA0F /* 9_2_eng.html in Resources */,
 				751CDBDC19291DE2003FCA0F /* 10_2_eng.html in Resources */,
@@ -1953,6 +1974,7 @@
 				75AE7702192820450085A26A /* UIImage+Helps.m in Sources */,
 				7553CF0318B8FBD800B53D48 /* Utils.m in Sources */,
 				7553CF2118B8FCAF00B53D48 /* LogoViewController.m in Sources */,
+				75AB123E192BDFA4008DFD7B /* ContentOfBookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

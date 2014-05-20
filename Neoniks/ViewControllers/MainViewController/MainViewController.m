@@ -10,7 +10,7 @@
 #import "PopUpViewController.h"
 #import "MagicWorldViewController.h"
 #import "BookViewController.h"
-
+#import "ContentOfBookViewController.h"
 @interface MainViewController () <PopUpDelegate, MagicWorldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *characters;

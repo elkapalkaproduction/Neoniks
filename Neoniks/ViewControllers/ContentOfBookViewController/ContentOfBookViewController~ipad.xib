@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContentOfBookViewController">
+            <connections>
+                <outlet property="contentOfBookTitle" destination="1EN-h4-IBU" id="Sek-SJ-ZDV"/>
+                <outlet property="contentView" destination="lJY-fK-WFa" id="Qjr-39-e7S"/>
+                <outlet property="view" destination="2" id="3"/>
+                <outletCollection property="chapters" destination="dTD-RY-IPc" id="xMX-Oz-6v1"/>
+                <outletCollection property="chapters" destination="iw9-ff-sfz" id="JJR-9w-AYL"/>
+                <outletCollection property="chapters" destination="y5T-eT-hM6" id="0TH-9u-2M8"/>
+                <outletCollection property="chapters" destination="CUv-cr-Hv1" id="7rN-DF-SB0"/>
+                <outletCollection property="chapters" destination="Vjq-tU-Lga" id="g5j-U0-K0W"/>
+                <outletCollection property="chapters" destination="jt2-De-FuN" id="Wom-Rz-VCI"/>
+                <outletCollection property="chapters" destination="BH4-Fe-ae3" id="LD4-33-Zv3"/>
+                <outletCollection property="chapters" destination="1Rw-IW-YtI" id="Qzs-Ft-dG2"/>
+                <outletCollection property="chapters" destination="FXw-Lz-mDo" id="7RK-kB-2wI"/>
+                <outletCollection property="chapters" destination="vfm-Wn-geh" id="qrF-kM-vlG"/>
+                <outletCollection property="chapters" destination="dhk-oE-tKM" id="Egh-hM-wvI"/>
+                <outletCollection property="chapters" destination="mbV-2u-6Cl" id="TlR-PE-ucW"/>
+                <outletCollection property="chapters" destination="ggK-UV-Jgu" id="tdf-QC-DUE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view hidden="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJY-fK-WFa">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PopUpViewControllerBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="StF-ng-0dZ">
+                            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="25_popup_art.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ttu-dg-ZMd">
+                            <rect key="frame" x="600" y="266" width="393" height="495"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHQ-UZ-S0S" userLabel="Button - cross">
+                            <rect key="frame" x="913" y="35" width="66" height="86"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" image="cross.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="close:" destination="-1" eventType="touchUpInside" id="IWk-XN-Ku6"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="25_title_eng.png" translatesAutoresizingMaskIntoConstraints="NO" id="1EN-h4-IBU" userLabel="Image View - Title">
+                            <rect key="frame" x="347" y="72" width="331" height="93"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </imageView>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTD-RY-IPc">
+                            <rect key="frame" x="100" y="196" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="XeJ-vW-wFN"/>
+                                <constraint firstAttribute="height" constant="35" id="cGj-4R-vpt"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iw9-ff-sfz">
+                            <rect key="frame" x="100" y="231" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="4nb-Yd-xo8"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="Kav-Bl-z1k"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5T-eT-hM6">
+                            <rect key="frame" x="100" y="266" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="FXM-df-JhG"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="Lww-gB-RBQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUv-cr-Hv1">
+                            <rect key="frame" x="100" y="301" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="21h-CC-77Y"/>
+                                <constraint firstAttribute="height" constant="35" id="2pz-ix-dgt"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjq-tU-Lga">
+                            <rect key="frame" x="100" y="336" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="LVR-GV-iVS"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="RRL-wq-irZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jt2-De-FuN">
+                            <rect key="frame" x="100" y="371" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="IGJ-7S-uXO"/>
+                                <constraint firstAttribute="height" constant="35" id="sOY-I6-Wj0" userLabel="Height - (≥35) - Button - Chapter 1. The Magic Fox"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BH4-Fe-ae3">
+                            <rect key="frame" x="100" y="406" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="CWd-Uy-Xiy"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="wwP-Yl-NeM"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Rw-IW-YtI">
+                            <rect key="frame" x="100" y="441" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="MsA-cJ-TTy"/>
+                                <constraint firstAttribute="height" constant="35" id="irg-xE-U4H"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXw-Lz-mDo">
+                            <rect key="frame" x="100" y="476" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="RMK-Bp-Mir"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="dXH-lX-9ek"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfm-Wn-geh">
+                            <rect key="frame" x="100" y="511" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="Gsn-Ct-qew"/>
+                                <constraint firstAttribute="height" constant="35" id="Xon-SB-667"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhk-oE-tKM">
+                            <rect key="frame" x="100" y="546" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="Gyn-7B-qeu"/>
+                                <constraint firstAttribute="height" constant="35" id="bXL-4n-Nfa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbV-2u-6Cl">
+                            <rect key="frame" x="100" y="581" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="Iul-EC-ZgR"/>
+                                <constraint firstAttribute="height" constant="35" id="Nrp-Gd-G82"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggK-UV-Jgu">
+                            <rect key="frame" x="100" y="615" width="225" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="UTe-rg-GlP"/>
+                                <constraint firstAttribute="height" constant="35" id="lfp-cS-dHa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <state key="normal" title="Chapter 1. The Magic Fox">
+                                <color key="titleColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="dTD-RY-IPc" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="0Mt-9w-v86"/>
+                        <constraint firstItem="Vjq-tU-Lga" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="0Rq-JF-sqc"/>
+                        <constraint firstItem="mbV-2u-6Cl" firstAttribute="top" secondItem="dhk-oE-tKM" secondAttribute="bottom" id="1oM-bh-z3d"/>
+                        <constraint firstAttribute="width" constant="1024" id="2Hz-cL-fYh"/>
+                        <constraint firstItem="iw9-ff-sfz" firstAttribute="top" secondItem="dTD-RY-IPc" secondAttribute="bottom" id="5Tu-yx-Xhh"/>
+                        <constraint firstItem="y5T-eT-hM6" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="6YH-PL-E02"/>
+                        <constraint firstItem="Vjq-tU-Lga" firstAttribute="top" secondItem="CUv-cr-Hv1" secondAttribute="bottom" id="7ol-6d-LEl"/>
+                        <constraint firstItem="ggK-UV-Jgu" firstAttribute="top" secondItem="dhk-oE-tKM" secondAttribute="bottom" constant="34" id="B2o-Rs-G7E"/>
+                        <constraint firstItem="CUv-cr-Hv1" firstAttribute="top" secondItem="y5T-eT-hM6" secondAttribute="bottom" id="C3D-jY-yoc"/>
+                        <constraint firstItem="1Rw-IW-YtI" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="HJl-9A-5Qs"/>
+                        <constraint firstItem="CUv-cr-Hv1" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="IC1-RP-xA2"/>
+                        <constraint firstItem="1Rw-IW-YtI" firstAttribute="top" secondItem="BH4-Fe-ae3" secondAttribute="bottom" id="JKI-CT-Vce"/>
+                        <constraint firstItem="ggK-UV-Jgu" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="Jxi-cD-J5K"/>
+                        <constraint firstItem="iw9-ff-sfz" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="UYZ-vQ-K7z"/>
+                        <constraint firstItem="y5T-eT-hM6" firstAttribute="top" secondItem="iw9-ff-sfz" secondAttribute="bottom" id="VGQ-In-Bcb"/>
+                        <constraint firstAttribute="height" constant="768" id="X5S-Wc-ZFX"/>
+                        <constraint firstItem="dhk-oE-tKM" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="ZIP-lt-Bjq"/>
+                        <constraint firstItem="FXw-Lz-mDo" firstAttribute="top" secondItem="1Rw-IW-YtI" secondAttribute="bottom" id="aUa-C3-yat"/>
+                        <constraint firstItem="vfm-Wn-geh" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="dWB-KW-aOh"/>
+                        <constraint firstItem="vfm-Wn-geh" firstAttribute="top" secondItem="FXw-Lz-mDo" secondAttribute="bottom" id="kFI-02-yil"/>
+                        <constraint firstItem="BH4-Fe-ae3" firstAttribute="top" secondItem="jt2-De-FuN" secondAttribute="bottom" id="kZF-QX-cyt"/>
+                        <constraint firstItem="jt2-De-FuN" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="lb6-PQ-Fbv"/>
+                        <constraint firstItem="dhk-oE-tKM" firstAttribute="top" secondItem="vfm-Wn-geh" secondAttribute="bottom" id="pYO-O0-mjh"/>
+                        <constraint firstItem="dTD-RY-IPc" firstAttribute="top" secondItem="lJY-fK-WFa" secondAttribute="top" constant="196" id="pdE-Dw-dti"/>
+                        <constraint firstItem="FXw-Lz-mDo" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="rQB-Zj-Jph"/>
+                        <constraint firstItem="jt2-De-FuN" firstAttribute="top" secondItem="Vjq-tU-Lga" secondAttribute="bottom" id="tzX-H2-GM1"/>
+                        <constraint firstItem="mbV-2u-6Cl" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="u1Q-Kb-yXH"/>
+                        <constraint firstItem="BH4-Fe-ae3" firstAttribute="leading" secondItem="lJY-fK-WFa" secondAttribute="leading" constant="100" id="yKB-TU-0cC"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="lJY-fK-WFa" firstAttribute="top" secondItem="2" secondAttribute="top" id="2XA-qe-r31"/>
+                <constraint firstAttribute="trailing" secondItem="lJY-fK-WFa" secondAttribute="trailing" id="ANG-ad-mvZ"/>
+                <constraint firstAttribute="bottom" secondItem="lJY-fK-WFa" secondAttribute="bottom" id="caF-yn-adw"/>
+                <constraint firstItem="lJY-fK-WFa" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="myY-fm-03k"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="25_popup_art.png" width="786" height="990"/>
+        <image name="25_title_eng.png" width="662" height="186"/>
+        <image name="PopUpViewControllerBackground.png" width="2048" height="1536"/>
+        <image name="cross.png" width="133" height="172"/>
+    </resources>
+</document>

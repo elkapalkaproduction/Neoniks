@@ -14,15 +14,16 @@
 #import "UIPopoverController+iPhone.h"
 #import "BookmarksManager.h"
 #import "AllBookmarsViewController.h"
+#import "ContentOfBookViewController.h"
 
-@interface BookViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, AllBookmarksDelegate>
+@interface BookViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, AllBookmarksDelegate, ContentOfBookDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *bookmarkPageButton;
 @property (strong, nonatomic) IBOutlet UILabel *maxPageLabel;
 @property (strong, nonatomic) IBOutlet UILabel *currentPageLabel;
 @property (strong, nonatomic) IBOutlet UISlider *sliderPreview;
 @property (strong, nonatomic) IBOutlet UIView *bottomView;
 @property (strong, nonatomic) IBOutlet UIView *topView;
-
+@property (strong, nonatomic) ContentOfBookViewController *bookViewController;
 @property (strong, nonatomic) UIPopoverController *popoverControler;
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
@@ -67,8 +68,27 @@
 }
 
 
+- (void)close {
+    [self.bookViewController.view removeFromSuperview];
+    self.bookViewController = nil;
+
+}
+
+- (void)relaod {
+    [self bookmarksRequiredToShow:[[BookmarksManager sharedManager] lastOpen]];
+}
+
+
 #pragma mark -
 #pragma mark - IBActions
+
+- (IBAction)chapters:(id)sender {
+    self.bookViewController = [[ContentOfBookViewController alloc] init];
+    self.bookViewController.delegate = self;
+    [self.view addSubview:self.bookViewController.view];
+
+}
+
 
 - (IBAction)bookmarkThisPage:(id)sender {
     PageDetails *currentPage = [self curentPageDetails];
@@ -207,7 +227,13 @@
 - (void)setupSupportView {
     self.isShowedOnScreenSupportView = NO;
     NSURL *chaptersUrl = [NSURL urlFromName:@"chapters" extension:@"plist"];
-    self.chaptersDetails = [[NSArray alloc] initWithContentsOfURL:chaptersUrl];
+    NSArray *tmpChapters = [[NSArray alloc] initWithContentsOfURL:chaptersUrl];
+    NSMutableArray *tmpMutableChapters = [[NSMutableArray alloc] init];
+    for (int i = 0; i < tmpChapters.count; i++) {
+        [tmpMutableChapters addObject:tmpChapters[i][@"pages"]];
+    }
+#warning Fix this shit
+    self.chaptersDetails = [NSArray arrayWithArray:tmpMutableChapters];
     NSInteger maximumPage = [self numberOfPages];
     self.sliderPreview.maximumValue = maximumPage;
     self.maxPageLabel.text = [NSString stringWithFormat:@"%d",maximumPage];

@@ -49,11 +49,11 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" id="kqm-L5-8IG">
-                    <rect key="frame" x="209" y="0.0" width="359" height="54"/>
+                    <rect key="frame" x="106" y="0.0" width="462" height="54"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xvp-LF-OiC" userLabel="Button - book">
-                            <rect key="frame" x="291" y="10" width="34" height="34"/>
+                            <rect key="frame" x="394" y="10" width="34" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" image="1_book.png">
@@ -64,7 +64,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QyT-xZ-R27">
-                            <rect key="frame" x="133" y="12" width="138" height="30"/>
+                            <rect key="frame" x="236" y="12" width="138" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Bookmark this page">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,13 +74,23 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WGZ-7g-ckH">
-                            <rect key="frame" x="20" y="12" width="98" height="30"/>
+                            <rect key="frame" x="123" y="12" width="98" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="All bookmarks">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="allBookmarks:" destination="-1" eventType="touchUpInside" id="Rnc-4i-AhO"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gj0-iF-i59">
+                            <rect key="frame" x="19" y="12" width="63" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Chapters">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="chapters:" destination="-1" eventType="touchUpInside" id="Ybh-G8-lge"/>
                             </connections>
                         </button>
                     </subviews>
