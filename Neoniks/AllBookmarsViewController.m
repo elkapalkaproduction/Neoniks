@@ -30,7 +30,14 @@
 - (NSArray *)chaptersDetails {
     if (!_chaptersDetails) {
         NSURL *chaptersUrl = [NSURL urlFromName:@"chapters" extension:@"plist"];
-        _chaptersDetails = [[NSArray alloc] initWithContentsOfURL:chaptersUrl];
+        NSArray *tmpChapters = [[NSArray alloc] initWithContentsOfURL:chaptersUrl];
+        NSMutableArray *tmpMutableChapters = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i<tmpChapters.count; i++) {
+            [tmpMutableChapters addObject:tmpChapters[i][@"pages"]];
+        }
+        
+        _chaptersDetails = [NSArray arrayWithArray:tmpMutableChapters];
     }
     return _chaptersDetails;
 }

@@ -132,8 +132,9 @@
     AllBookmarsViewController *bookmarkView = [[AllBookmarsViewController alloc] initWithNibName:nibName bundle:nil];
     bookmarkView.delegate = self;
     self.popoverControler = [[UIPopoverController alloc] initWithContentViewController:bookmarkView];
-    
-    [self.popoverControler presentPopoverFromRect:sender.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    UIButton *button = sender;
+    UIView *superView = button.superview;
+    [self.popoverControler presentPopoverFromRect:superView.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 #pragma mark - 
