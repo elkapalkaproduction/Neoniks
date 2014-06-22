@@ -24,6 +24,14 @@
 @property (strong, nonatomic) PopUpViewController *popUpViewController;
 @property (strong, nonatomic) MagicWorldViewController *magicViewController;
 
+@property (strong, nonatomic) IBOutlet UIImageView *header;
+@property (strong, nonatomic) IBOutlet UIButton *naruke;
+@property (strong, nonatomic) IBOutlet UIButton *site;
+@property (strong, nonatomic) IBOutlet UIButton *contributors;
+@property (strong, nonatomic) IBOutlet UIButton *gift;
+@property (strong, nonatomic) IBOutlet UIButton *rateUs;
+@property (strong, nonatomic) IBOutlet UIImageView *readTheBook;
+
 @end
 
 @implementation MainViewController
@@ -83,7 +91,7 @@
 }
 
 
-- (IBAction)goToNews:(id)sender {
+- (IBAction)goToSite:(id)sender {
     //TODO: Need news link. also make this with parents gates
 }
 
@@ -115,6 +123,13 @@
     [self.characters setImage:[UIImage imageWithName:@"characters"]];
     [self.languageButton setImage:[UIImage imageWithName:@"6_language"]];
     [self.pageTitleButton setImage:[UIImage imageWithName:@"01_banner"]];
+    [self.readTheBook setImage:[UIImage imageWithName:@"read_text"]];
+    [self.naruke setImage:[UIImage imageWithName:@"07_naruke"]];
+    [self.rateUs setImage:[UIImage imageWithName:@"rate"]];
+    [self.gift setImage:[UIImage imageWithName:@"gift"]];
+    [self.site setImage:[UIImage imageWithName:@"www"]];
+    [self.contributors setImage:[UIImage imageWithName:@"contributions"]];
+    [self.header setImage:[UIImage imageWithName:@"headings"]];
 }
 
 
@@ -129,7 +144,7 @@
     if (isIphone5()) {
         onCakeOrigin.x = 88;
     } else {
-        moveViewHorizontalyWith(30, self.foamCasttleButton);
+//        moveViewHorizontalyWith(-30, self.foamCasttleButton);
     }
     changePositon(onCakeOrigin, self.onCakeView);
 }

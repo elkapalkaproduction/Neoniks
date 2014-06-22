@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -7,11 +7,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
                 <outlet property="backgroundImage" destination="3tk-wG-HP0" id="onj-IH-bM4"/>
-                <outlet property="characters" destination="nbR-a6-M1M" id="kf0-XW-4xG"/>
+                <outlet property="contributors" destination="yAA-gd-4Fj" id="4tF-C9-0bm"/>
                 <outlet property="foamCasttleButton" destination="HLt-tC-CiG" id="edF-Zo-N1L"/>
+                <outlet property="gift" destination="qFp-DQ-4k0" id="mSh-hP-fII"/>
+                <outlet property="header" destination="kLY-zl-y3C" id="Qmf-1V-oLn"/>
                 <outlet property="languageButton" destination="6gO-j7-4eZ" id="TNR-6O-C23"/>
+                <outlet property="naruke" destination="zwy-dC-26g" id="RxM-Gw-8wC"/>
                 <outlet property="onCakeView" destination="pR4-dl-Jbd" id="NxA-oy-8vT"/>
                 <outlet property="pageTitleButton" destination="v6l-yJ-nu2" id="rGP-6v-jhE"/>
+                <outlet property="rateUs" destination="7K5-MG-MLL" id="tjC-iR-xbk"/>
+                <outlet property="readTheBook" destination="UEW-uv-nhV" id="PFI-h0-DV3"/>
+                <outlet property="site" destination="OIh-IK-U0F" id="Fgd-3A-2BM"/>
                 <outlet property="view" destination="1" id="dnp-mx-TTp"/>
             </connections>
         </placeholder>
@@ -28,12 +34,16 @@
                     <rect key="frame" x="88" y="0.0" width="439" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characters_eng.png" id="nbR-a6-M1M">
-                            <rect key="frame" x="202" y="288" width="64" height="24"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headings_eng.png" id="kLY-zl-y3C">
+                            <rect key="frame" x="25" y="-1" width="343" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page1_banner.png" id="Prp-Vm-puf">
+                            <rect key="frame" x="146" y="30" width="101" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v6l-yJ-nu2" userLabel="Button - onCake01">
-                            <rect key="frame" x="131" y="0.0" width="132" height="43"/>
+                            <rect key="frame" x="164" y="33" width="64" height="14"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" image="01_banner_eng.png">
@@ -44,7 +54,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HwM-uP-rNb" userLabel="Button - onCake02">
-                            <rect key="frame" x="204" y="43" width="35" height="42"/>
+                            <rect key="frame" x="204" y="52" width="25" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" image="02_lighthouse.png">
@@ -143,10 +153,10 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="29" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zwy-dC-26g" userLabel="Button - onCake29">
-                            <rect key="frame" x="202" y="255" width="69" height="48"/>
+                            <rect key="frame" x="202" y="255" width="65" height="57"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" image="07_naruke.png">
+                            <state key="normal" image="07_naruke_eng.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -154,7 +164,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HLt-tC-CiG" userLabel="Button - onCake22">
-                            <rect key="frame" x="0.0" y="112" width="50" height="107"/>
+                            <rect key="frame" x="0.0" y="61" width="89" height="175"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" image="22_foam_castle.png">
@@ -176,7 +186,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jmH-ce-MJC" userLabel="Button - onCake16">
-                            <rect key="frame" x="298" y="227" width="42" height="25"/>
+                            <rect key="frame" x="308" y="227" width="42" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" image="16_transportation.png">
@@ -186,16 +196,27 @@
                                 <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="CFF-8P-6zx"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OIh-IK-U0F" userLabel="Button - news">
+                            <rect key="frame" x="148" y="303" width="96" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" image="www_eng.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="goToSite:" destination="-1" eventType="touchUpInside" id="lmF-3O-5HH"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7K5-MG-MLL" userLabel="Button - review">
-                    <rect key="frame" x="10" y="186" width="34" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="498" y="257" width="81" height="71"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" image="3_review.png">
+                    <state key="normal" image="rate_eng.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -203,8 +224,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6gO-j7-4eZ" userLabel="Button - language">
-                    <rect key="frame" x="524" y="276" width="34" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="487" y="0.0" width="81" height="71"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" image="6_language_eng.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -214,7 +235,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cPS-OA-Vt8" userLabel="Button - book">
-                    <rect key="frame" x="10" y="10" width="34" height="34"/>
+                    <rect key="frame" x="10" y="224" width="88" height="96"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" image="1_book.png">
@@ -225,38 +246,31 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qFp-DQ-4k0" userLabel="Button - gift">
-                    <rect key="frame" x="10" y="54" width="34" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="446" y="257" width="81" height="71"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" image="4_gift.png">
+                    <state key="normal" image="gift_eng.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="goToAppleStoreGift:" destination="-1" eventType="touchUpInside" id="loK-4q-rhh"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OIh-IK-U0F" userLabel="Button - news">
-                    <rect key="frame" x="10" y="98" width="34" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" image="5_news.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="goToNews:" destination="-1" eventType="touchUpInside" id="MjY-M2-qPC"/>
-                    </connections>
-                </button>
                 <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yAA-gd-4Fj" userLabel="Button - contributors24">
-                    <rect key="frame" x="10" y="142" width="34" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="392" y="257" width="81" height="71"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" image="2_contributors.png">
+                    <state key="normal" image="contributions_eng.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="aEK-ca-IDy"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="read_text_eng.png" id="UEW-uv-nhV">
+                    <rect key="frame" x="23" y="296" width="62" height="10"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -265,27 +279,29 @@
         </view>
     </objects>
     <resources>
-        <image name="01_banner_eng.png" width="529" height="172"/>
+        <image name="01_banner_eng.png" width="258" height="54"/>
         <image name="02_lighthouse.png" width="140" height="168"/>
         <image name="04_ice_stadium.png" width="200" height="90"/>
         <image name="05_desert.png" width="90" height="170"/>
         <image name="06_museum.png" width="179" height="172"/>
-        <image name="07_naruke.png" width="274" height="191"/>
+        <image name="07_naruke_eng.png" width="324" height="287"/>
         <image name="10_waterfall.png" width="252" height="366"/>
         <image name="12_theater.png" width="100" height="104"/>
         <image name="13_cafe.png" width="150" height="151"/>
         <image name="14_school.png" width="170" height="156"/>
         <image name="15_lantern_house.png" width="143" height="160"/>
         <image name="16_transportation.png" width="170" height="100"/>
-        <image name="1_book.png" width="136" height="137"/>
-        <image name="22_foam_castle.png" width="200" height="419"/>
+        <image name="1_book.png" width="354" height="383"/>
+        <image name="22_foam_castle.png" width="355" height="699"/>
         <image name="23_bottomless_island.png" width="509" height="949"/>
-        <image name="2_contributors.png" width="136" height="137"/>
-        <image name="3_review.png" width="136" height="137"/>
-        <image name="4_gift.png" width="136" height="137"/>
-        <image name="5_news.png" width="136" height="137"/>
-        <image name="6_language_eng.png" width="136" height="137"/>
+        <image name="6_language_eng.png" width="324" height="287"/>
         <image name="MainViewControllerBackground.png" width="960" height="640"/>
-        <image name="characters_eng.png" width="170" height="63"/>
+        <image name="contributions_eng.png" width="324" height="287"/>
+        <image name="gift_eng.png" width="324" height="287"/>
+        <image name="headings_eng.png" width="1374" height="178"/>
+        <image name="page1_banner.png" width="406" height="135"/>
+        <image name="rate_eng.png" width="324" height="287"/>
+        <image name="read_text_eng.png" width="250" height="41"/>
+        <image name="www_eng.png" width="385" height="71"/>
     </resources>
 </document>
