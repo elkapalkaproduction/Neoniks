@@ -11,6 +11,7 @@
 #import "MagicWorldViewController.h"
 #import "BookViewController.h"
 #import "ContentOfBookViewController.h"
+
 @interface MainViewController () <PopUpDelegate, MagicWorldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *characters;
@@ -22,6 +23,7 @@
 
 @property (strong, nonatomic) PopUpViewController *popUpViewController;
 @property (strong, nonatomic) MagicWorldViewController *magicViewController;
+
 @end
 
 @implementation MainViewController
@@ -33,6 +35,7 @@
     [super viewDidLoad];
     [self updateImagesPosition];
 }
+
 
 #pragma mark -
 #pragma mark - MagicWorld Delegate
@@ -104,15 +107,16 @@
     [self next:[sender tag] isPrev:NO];
 }
 
+
 #pragma mark -
 #pragma mark - Private Methods
-
 
 - (void)updateLanguage {
     [self.characters setImage:[UIImage imageWithName:@"characters"]];
     [self.languageButton setImage:[UIImage imageWithName:@"6_language"]];
     [self.pageTitleButton setImage:[UIImage imageWithName:@"01_banner"]];
 }
+
 
 - (void)updateImagesPosition {
     [self updateLanguage];
@@ -124,12 +128,10 @@
     CGPoint onCakeOrigin = CGPointMake(41, 0);
     if (isIphone5()) {
         onCakeOrigin.x = 88;
-    } else{
+    } else {
         moveViewHorizontalyWith(30, self.foamCasttleButton);
     }
     changePositon(onCakeOrigin, self.onCakeView);
-    
 }
-
 
 @end

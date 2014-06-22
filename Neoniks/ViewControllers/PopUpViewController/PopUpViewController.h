@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @protocol PopUpDelegate <NSObject>
--(void)close;
--(void)next:(NSInteger)pageToShow isPrev:(BOOL)prev;
--(void)openBook;
+- (void)close;
+- (void)next:(NSInteger)pageToShow isPrev:(BOOL)prev;
+- (void)openBook;
 
 @end
 

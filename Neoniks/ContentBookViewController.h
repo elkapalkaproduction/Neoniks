@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "PageDetails.h"
 
-
 @interface ContentBookViewController : UIViewController
 - (instancetype)initWithPage:(PageDetails *)pageDetails;
 

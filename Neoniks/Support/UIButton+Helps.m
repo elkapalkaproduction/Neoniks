@@ -10,16 +10,6 @@
 
 @implementation UIButton (Helpers)
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-
 - (void)setImage:(UIImage *)image {
     [self setImage:image forState:UIControlStateNormal];
 }

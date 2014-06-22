@@ -11,17 +11,10 @@
 @interface BookmarksManager : NSObject
 
 + (instancetype)sharedManager;
-
 - (void)addOrRemoveBookmarkForPage:(NSInteger)page;
-
-
 - (BOOL)bookmarkIsSaved:(NSInteger)page;
-
 - (NSArray *)allBookmarks;
-
 - (void)setLastOpen:(NSInteger)last;
-
 - (NSInteger)lastOpen;
-
 
 @end

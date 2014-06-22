@@ -7,9 +7,9 @@
 //
 #import <Foundation/Foundation.h>
 
-extern NSString * const kLanguage;
-extern NSString * const kRussianLanguageTag;
-extern NSString * const kEnglishLanguageTag;
+UIKIT_EXTERN NSString *const kLanguage;
+UIKIT_EXTERN NSString *const kRussianLanguageTag;
+UIKIT_EXTERN NSString *const kEnglishLanguageTag;
 
 
 #define kAnimationDuration 1

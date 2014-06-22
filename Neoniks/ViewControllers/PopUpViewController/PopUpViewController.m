@@ -26,6 +26,7 @@
 @property (assign, nonatomic) NSInteger curentPage;
 @property (assign, nonatomic) NSInteger nextPage;
 @property (assign, nonatomic) NSInteger prevPage;
+
 @end
 
 @implementation PopUpViewController
@@ -40,6 +41,7 @@
         _fromRightToLeft = aBool;
         _delegate = aDeletegate;
     }
+    
     return self;
 }
 
@@ -118,7 +120,6 @@
 #pragma mark -
 #pragma mark - Private Methods
 
-
 - (void)close {
     [self.delegate close];
 }
@@ -159,11 +160,11 @@
     self.leftButton.hidden = self.prevPage == 0;
     self.rightButton.hidden = self.nextPage == 0;
     if (self.curentPage != 24 && self.curentPage != 25) {
-        setXFor(isIphone()?68:112, self.popUpArtImage);
-        setXFor(isIphone()?230:522, self.textView);
+        setXFor(isIphone() ? 68 : 112, self.popUpArtImage);
+        setXFor(isIphone() ? 230 : 522, self.textView);
     } else {
-        setXFor(isIphone()?isIphone5()?357:300:522, self.popUpArtImage);
-        setXFor(isIphone()?68:112, self.textView);
+        setXFor(isIphone() ? isIphone5() ? 357 : 300 : 522, self.popUpArtImage);
+        setXFor(isIphone() ? 68 : 112, self.textView);
         
     }
 
@@ -173,7 +174,7 @@
 - (void)setupNextPages {
     NSURL *urlForText = [NSURL urlFromLocalizedName:@"nextPages" extension:@"plist"];
     NSDictionary *allPages = [[NSDictionary alloc] initWithContentsOfURL:urlForText];
-    NSString *nextPagesKey = [NSString stringWithFormat:@"%d",self.curentPage];
+    NSString *nextPagesKey = [NSString stringWithFormat:@"%d", self.curentPage];
     NSDictionary *curentPage = allPages[nextPagesKey];
     self.nextPage = [curentPage[@"nextPage"] intValue];
     self.prevPage = [curentPage[@"previousPage"] intValue];
@@ -184,12 +185,12 @@
 
 
 - (void)setupImages {
-    NSString *popupImageName = [NSString stringWithFormat:@"%d_popup_art",self.curentPage];
+    NSString *popupImageName = [NSString stringWithFormat:@"%d_popup_art", self.curentPage];
     self.popUpArtImage.image = [UIImage imageWithLocalizedName:popupImageName];
     self.learnMoreImage.image = [UIImage imageWithName:@"learn_more"];
     [self.galleryButton setImage:[UIImage imageWithName:@"gallery"]];
     [self.yesButton setImage:[UIImage imageWithName:@"yes"]];
-    NSString *popupTitleName = [NSString stringWithFormat:@"%d_title",self.curentPage];
+    NSString *popupTitleName = [NSString stringWithFormat:@"%d_title", self.curentPage];
     self.popUpTitle.image = [UIImage imageWithName:popupTitleName];
     
 }
@@ -198,10 +199,10 @@
 - (void)setupText {
     NSURL *urlForText = [NSURL urlFromName:@"texts" extension:@"plist"];
     NSDictionary *allTexts = [NSDictionary dictionaryWithContentsOfURL:urlForText];
-    NSString *currentPageKey = [NSString stringWithFormat:@"%d",self.curentPage];
+    NSString *currentPageKey = [NSString stringWithFormat:@"%d", self.curentPage];
     self.textView.text = allTexts[currentPageKey];
     self.textView.textAlignment = NSTextAlignmentJustified;
-    self.textView.font = [UIFont fontWithName:@"Georgia" size:isIphone()? isIphone5()?10:8.5:18];
+    self.textView.font = [UIFont fontWithName:@"Georgia" size:isIphone() ? isIphone5() ? 10 : 8.5 : 18];
 
 }
 
@@ -214,8 +215,6 @@
     CGFloat optimalHeight = textViewSize.height / 2;
     CGRect screenSize = [UIScreen mainScreen].bounds;
     setYFor(0.558*CGRectGetWidth(screenSize)-optimalHeight, self.textView);
-
 }
-
 
 @end

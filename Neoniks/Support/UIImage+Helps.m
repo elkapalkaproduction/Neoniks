@@ -10,13 +10,16 @@
 
 @implementation UIImage (Helpers)
 
-+(UIImage *)imageWithName:(NSString *)name{
++ (UIImage *)imageWithName:(NSString *)name {
     NSString *localizedString = [NSString neoniksLocalizedString:name];
+    
     return [UIImage imageWithLocalizedName:localizedString];
 }
 
-+(UIImage *)imageWithLocalizedName:(NSString *)name {
+
++ (UIImage *)imageWithLocalizedName:(NSString *)name {
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"png"];
+    
     return [UIImage imageWithContentsOfFile:path];
     
 }

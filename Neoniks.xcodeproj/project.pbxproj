@@ -328,6 +328,9 @@
 		75AE7702192820450085A26A /* UIImage+Helps.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AE7701192820450085A26A /* UIImage+Helps.m */; };
 		75AE7705192821100085A26A /* NSURL+Helps.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AE7704192821100085A26A /* NSURL+Helps.m */; };
 		75AE77081928258C0085A26A /* NSString+Helps.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AE77071928258C0085A26A /* NSString+Helps.m */; };
+		75AFC66219446E79001AE141 /* StyleSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75AFC66119446E79001AE141 /* StyleSettings.plist */; };
+		75AFC666194483F4001AE141 /* ChapterDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AFC665194483F4001AE141 /* ChapterDetails.m */; };
+		75AFC6691944845F001AE141 /* ChaptersCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AFC6681944845F001AE141 /* ChaptersCollection.m */; };
 		75B3C96B18B51C0D00AA8AC5 /* 2_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */; };
 		75B3C96C18B51C0D00AA8AC5 /* 27_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */; };
 		75BC68F718AAB2A5006D7647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68F618AAB2A5006D7647 /* Foundation.framework */; };
@@ -710,6 +713,11 @@
 		75AE7704192821100085A26A /* NSURL+Helps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+Helps.m"; path = "Support/NSURL+Helps.m"; sourceTree = "<group>"; };
 		75AE77061928258C0085A26A /* NSString+Helps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Helps.h"; path = "Support/NSString+Helps.h"; sourceTree = "<group>"; };
 		75AE77071928258C0085A26A /* NSString+Helps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Helps.m"; path = "Support/NSString+Helps.m"; sourceTree = "<group>"; };
+		75AFC66119446E79001AE141 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
+		75AFC664194483F4001AE141 /* ChapterDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChapterDetails.h; path = Support/ChapterDetails.h; sourceTree = "<group>"; };
+		75AFC665194483F4001AE141 /* ChapterDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChapterDetails.m; path = Support/ChapterDetails.m; sourceTree = "<group>"; };
+		75AFC6671944845F001AE141 /* ChaptersCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChaptersCollection.h; path = Support/ChaptersCollection.h; sourceTree = "<group>"; };
+		75AFC6681944845F001AE141 /* ChaptersCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChaptersCollection.m; path = Support/ChaptersCollection.m; sourceTree = "<group>"; };
 		75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_popup_art.png; sourceTree = "<group>"; };
 		75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 27_popup_art.png; sourceTree = "<group>"; };
 		75BC68F318AAB2A5006D7647 /* Neoniks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neoniks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1361,9 +1369,27 @@
 			path = ContentOfBookViewController;
 			sourceTree = "<group>";
 		};
+		75AFC66319447E34001AE141 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				75AE76FD19281F2F0085A26A /* UIButton+Helps.h */,
+				75AE76FE19281F2F0085A26A /* UIButton+Helps.m */,
+				75AE7700192820450085A26A /* UIImage+Helps.h */,
+				75AE7701192820450085A26A /* UIImage+Helps.m */,
+				75AE7703192821100085A26A /* NSURL+Helps.h */,
+				75AE7704192821100085A26A /* NSURL+Helps.m */,
+				75AE77061928258C0085A26A /* NSString+Helps.h */,
+				75AE77071928258C0085A26A /* NSString+Helps.m */,
+				751CDC7A19294E0A003FCA0F /* UIPopoverController+iPhone.h */,
+				751CDC7B19294E0A003FCA0F /* UIPopoverController+iPhone.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		75BC68EA18AAB2A5006D7647 = {
 			isa = PBXGroup;
 			children = (
+				75AFC66119446E79001AE141 /* StyleSettings.plist */,
 				75BC68FC18AAB2A5006D7647 /* Neoniks */,
 				75BC691E18AAB2A5006D7647 /* NeoniksTests */,
 				75BC68F518AAB2A5006D7647 /* Frameworks */,
@@ -1410,18 +1436,13 @@
 				751CDC77192945C9003FCA0F /* AllBookmarsViewController.xib */,
 				756AEC571927CD0100DE8E6F /* PageDetails.h */,
 				756AEC581927CD0100DE8E6F /* PageDetails.m */,
+				75AFC664194483F4001AE141 /* ChapterDetails.h */,
+				75AFC665194483F4001AE141 /* ChapterDetails.m */,
+				75AFC6671944845F001AE141 /* ChaptersCollection.h */,
+				75AFC6681944845F001AE141 /* ChaptersCollection.m */,
 				7553CF0118B8FBD800B53D48 /* Utils.h */,
 				7553CF0218B8FBD800B53D48 /* Utils.m */,
-				75AE76FD19281F2F0085A26A /* UIButton+Helps.h */,
-				75AE76FE19281F2F0085A26A /* UIButton+Helps.m */,
-				75AE7700192820450085A26A /* UIImage+Helps.h */,
-				75AE7701192820450085A26A /* UIImage+Helps.m */,
-				75AE7703192821100085A26A /* NSURL+Helps.h */,
-				75AE7704192821100085A26A /* NSURL+Helps.m */,
-				75AE77061928258C0085A26A /* NSString+Helps.h */,
-				75AE77071928258C0085A26A /* NSString+Helps.m */,
-				751CDC7A19294E0A003FCA0F /* UIPopoverController+iPhone.h */,
-				751CDC7B19294E0A003FCA0F /* UIPopoverController+iPhone.m */,
+				75AFC66319447E34001AE141 /* Extensions */,
 				75AE76FA19280F510085A26A /* AudioPlayer.h */,
 				75AE76FB19280F510085A26A /* AudioPlayer.m */,
 				751CDC72192931C3003FCA0F /* BookmarksManager.h */,
@@ -1544,6 +1565,7 @@
 				75BC68EF18AAB2A5006D7647 /* Sources */,
 				75BC68F018AAB2A5006D7647 /* Frameworks */,
 				75BC68F118AAB2A5006D7647 /* Resources */,
+				OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */,
 			);
 			buildRules = (
 			);
@@ -1756,6 +1778,7 @@
 				7590F9CF18AD4DDF000D3262 /* 7_title_rus.png in Resources */,
 				758E9C6718AC14F200D3007A /* 13_cafe.png in Resources */,
 				751CDC3819291DE2003FCA0F /* 13_2_rus.html in Resources */,
+				75AFC66219446E79001AE141 /* StyleSettings.plist in Resources */,
 				7590F9AF18AD4DDF000D3262 /* 1_title_rus.png in Resources */,
 				758E9C5918ABEB9D00D3007A /* learn_more_rus.png in Resources */,
 				758D916B18FA811400025523 /* BookViewController.xib in Resources */,
@@ -1951,11 +1974,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Objective-Clean Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then \n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\" \nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\" \nfi\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		75BC68EF18AAB2A5006D7647 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75AFC666194483F4001AE141 /* ChapterDetails.m in Sources */,
 				75BC690718AAB2A5006D7647 /* AppDelegate.m in Sources */,
 				751CDC74192931C3003FCA0F /* BookmarksManager.m in Sources */,
 				758D916A18FA811400025523 /* BookViewController.m in Sources */,
@@ -1966,6 +2007,7 @@
 				751CDC78192945C9003FCA0F /* AllBookmarsViewController.m in Sources */,
 				751CDC7C19294E0A003FCA0F /* UIPopoverController+iPhone.m in Sources */,
 				756AEC591927CD0200DE8E6F /* PageDetails.m in Sources */,
+				75AFC6691944845F001AE141 /* ChaptersCollection.m in Sources */,
 				7553CF2A18B8FCAF00B53D48 /* PopUpViewController.m in Sources */,
 				75AE76FF19281F2F0085A26A /* UIButton+Helps.m in Sources */,
 				75AE7705192821100085A26A /* NSURL+Helps.m in Sources */,

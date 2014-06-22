@@ -9,6 +9,7 @@
 #import "LogoViewController.h"
 #import "MainViewController.h"
 #import "AudioPlayer.h"
+#import "ChaptersCollection.h"
 
 @interface LogoViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
@@ -30,15 +31,12 @@
 
 @implementation LogoViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-  
     [self updateImages];
     [self shortAnimation];
 	// Do any additional setup after loading the view, typically from a nib.
 }
-
 
 
 - (void)updateImages {
@@ -53,7 +51,7 @@
     CGPoint onCakeOrigin = CGPointMake(41, 0);
     if (isIphone5()) {
         onCakeOrigin.x = 88;
-    } else{
+    } else {
         moveViewHorizontalyWith(30, self.foamCasttleButton);
     }
     changePositon(onCakeOrigin, self.onCakeView);
@@ -102,25 +100,25 @@
                                 if (img.tag == 3) img.alpha = 1.f;
                             }
                         } completion:^(BOOL finished) {
-                            [UIView animateWithDuration:timeInterval/5 animations:^{
+                            [UIView animateWithDuration:timeInterval / 5 animations:^{
                                 _leftSide1.alpha = 1.f;
                             } completion:^(BOOL finished) {
-                                [UIView animateWithDuration:timeInterval/5 animations:^{
+                                [UIView animateWithDuration:timeInterval / 5 animations:^{
                                     _leftSide2.alpha = 1.f;
                                 } completion:^(BOOL finished) {
-                                    [UIView animateWithDuration:timeInterval/5 animations:^{
+                                    [UIView animateWithDuration:timeInterval / 5 animations:^{
                                         _leftSide3.alpha = 1.f;
                                     } completion:^(BOOL finished) {
-                                        [UIView animateWithDuration:timeInterval/5 animations:^{
+                                        [UIView animateWithDuration:timeInterval / 5 animations:^{
                                             _leftSide4.alpha = 1.f;
                                         } completion:^(BOOL finished) {
-                                            [UIView animateWithDuration:timeInterval/5 animations:^{
+                                            [UIView animateWithDuration:timeInterval / 5 animations:^{
                                                 _leftSide5.alpha = 1.f;
                                             } completion:^(BOOL finished) {
-                                                [UIView animateWithDuration:timeInterval/2 animations:^{
+                                                [UIView animateWithDuration:timeInterval / 2 animations:^{
                                                     _languageButton.alpha = 1.f;
                                                 } completion:^(BOOL finished) {
-                                                    [UIView animateWithDuration:timeInterval/2 animations:^{
+                                                    [UIView animateWithDuration:timeInterval / 2 animations:^{
                                                         _pageTitleButton.alpha = 1.f;
                                                     } completion:^(BOOL finished) {
                                                         MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];

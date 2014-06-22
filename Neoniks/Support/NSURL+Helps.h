@@ -10,7 +10,7 @@
 
 @interface NSURL (Helpers)
 
-+(NSURL *)urlFromName:(NSString *)name extension:(NSString *)extension;
-+(NSURL *)urlFromLocalizedName:(NSString *)name extension:(NSString *)extension;
++ (NSURL *)urlFromName:(NSString *)name extension:(NSString *)extension;
++ (NSURL *)urlFromLocalizedName:(NSString *)name extension:(NSString *)extension;
 
 @end

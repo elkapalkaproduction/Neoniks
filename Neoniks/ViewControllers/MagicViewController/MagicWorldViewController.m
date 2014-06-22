@@ -23,11 +23,12 @@
 #pragma mark - LifeCycle
 
 - (id)initWitFromRightAnimation:(BOOL)aBool delegate:(id)aDeleagate {
-    self =[super init];
+    self = [super init];
     if (self) {
         _delegate = aDeleagate;
         _fromRightToLeft = aBool;
     }
+    
     return self;
 }
 
@@ -79,7 +80,6 @@
 #pragma mark -
 #pragma mark - Private Methods
 
-
 - (void)close {
     [self.delegate close];
 }
@@ -116,15 +116,15 @@
     changeSize(screenSize, self.view);
     self.popUpTitle.image = [UIImage imageWithName:@"29_title"];
     NSDictionary *iphone5Frames;
-    if (isIphone5()){
+    if (isIphone5()) {
         NSURL *url = [NSURL urlFromName:@"ihpone5Frames" extension:@"plist"];
         iphone5Frames = [NSDictionary dictionaryWithContentsOfURL:url];
     }
-    for (UIButton *icon in self.icons){
-        NSString *iconName = [NSString stringWithFormat:@"%ld_magic",(long)[icon tag]];
+    for (UIButton *icon in self.icons) {
+        NSString *iconName = [NSString stringWithFormat:@"%ld_magic", (long)[icon tag]];
         [icon setImage:[UIImage imageWithName:iconName]];
         if (isIphone5()) {
-            NSString *key = [NSString stringWithFormat:@"%ld",(long)[icon tag]];
+            NSString *key = [NSString stringWithFormat:@"%ld", (long)[icon tag]];
             NSString *string = iphone5Frames[key];
             [icon setFrame:CGRectFromString(string)];
         }

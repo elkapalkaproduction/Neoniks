@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @protocol ContentOfBookDelegate <NSObject>
--(void)close;
--(void)relaod;
+- (void)close;
+- (void)relaod;
 
 @end
 

@@ -14,13 +14,14 @@
 #import "Utils.h"
 #import "PageDetails.h"
 #import "BookmarksManager.h"
+#import "ChaptersCollection.h"
 
 @interface ContentOfBookViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *chapters;
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIImageView *contentOfBookTitle;
-@property (strong, nonatomic) NSArray *chaptersDetails;
+@property (strong, nonatomic) ChaptersCollection *collection;
 
 @end
 
@@ -42,6 +43,18 @@
 }
 
 
+#pragma mark - 
+#pragma mark - Custom Accesors
+
+- (ChaptersCollection *)collection {
+    if (!_collection) {
+        _collection = [[ChaptersCollection alloc] init];
+    }
+    
+    return _collection;
+}
+
+
 #pragma mark -
 #pragma mark - IBActions
 
@@ -51,17 +64,12 @@
 }
 
 
-
-
 #pragma mark -
 #pragma mark - Private Methods
-
 
 - (void)close {
     [self.delegate close];
 }
-
-
 
 
 - (void)setupView {
@@ -75,29 +83,19 @@
 
 
 - (void)setupText {
-    NSURL *chaptersUrl = [NSURL urlFromName:@"chapters" extension:@"plist"];
-    NSArray *tmpChapters = [[NSArray alloc] initWithContentsOfURL:chaptersUrl];
-    NSMutableArray *tmpMutableChapters = [[NSMutableArray alloc] init];
-
-    for (int i = 0; i<tmpChapters.count; i++) {
-        NSString *string = tmpChapters[i][@"name"];
+    for (int i = 0; i<[self.collection numberOfChapters]; i++) {
+        NSString *string = [self.collection chapterNumber:i].chapterName;
         UIButton *button = (UIButton *)self.chapters[i];
         [button setTitle:string forState:UIControlStateNormal];
-        [tmpMutableChapters addObject:tmpChapters[i][@"pages"]];
         [button addTarget:self action:@selector(chapterSelected:) forControlEvents:UIControlEventTouchUpInside];
     }
-    
-    self.chaptersDetails = [NSArray arrayWithArray:tmpMutableChapters];
-
-#warning Fix this shit
-
 }
 
 
 - (IBAction)chapterSelected:(id)sender {
     NSInteger tag = [sender tag];
     PageDetails *pageDetails = [[PageDetails alloc] initWithPage:1 chapter:tag];
-    NSInteger chapterSelected = [self numberForPageDetails:pageDetails];
+    NSInteger chapterSelected = [self.collection numberForPageDetails:pageDetails];
     [[BookmarksManager sharedManager] setLastOpen:chapterSelected];
     [self close:nil];
     [self.delegate relaod];
@@ -109,16 +107,5 @@
     [Utils animationForAppear:YES fromRight:NO forView:self.contentView];
 
 }
-
-
-- (NSInteger)numberForPageDetails:(PageDetails *)pageDetails {
-    NSInteger number = pageDetails.page;
-    NSInteger chapter = pageDetails.chapter - 1;
-    for (int i = 0; i < chapter; i++) {
-        number += [self.chaptersDetails[i] integerValue];
-    }
-    return number;
-}
-
 
 @end

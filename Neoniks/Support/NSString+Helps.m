@@ -12,7 +12,7 @@
 
 + (NSString *)neoniksLocalizedString:(NSString *)input {
     NSString *string = (NSString *)input;
-    string = [NSString stringWithFormat:@"%@_%@",string,isRussian()? @"rus":@"eng"];
+    string = [NSString stringWithFormat:@"%@_%@", string,isRussian() ? @"rus" : @"eng"];
     
     return string;
 }

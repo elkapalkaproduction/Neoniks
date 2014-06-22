@@ -9,16 +9,13 @@
 
 #import "Utils.h"
 
-NSString * const kLanguage = @"PreferedLanguage";
-NSString * const kRussianLanguageTag = @"ru";
-NSString * const kEnglishLanguageTag = @"en";
-
+NSString *const kLanguage = @"PreferedLanguage";
+NSString *const kRussianLanguageTag = @"ru";
+NSString *const kEnglishLanguageTag = @"en";
 
 @implementation Utils
 
-
-
-+ (void)animationForAppear:(BOOL)show fromRight:(BOOL)aRight forView:(UIView *)aView{
++ (void)animationForAppear:(BOOL)show fromRight:(BOOL)aRight forView:(UIView *)aView {
     CALayer *adContentLayer = aView.layer;
     NSNumber *rotationYFromValue; NSNumber *rotationYToValue;
     NSNumber *rotationXFromValue; NSNumber *rotationXToValue;
@@ -33,7 +30,7 @@ NSString * const kEnglishLanguageTag = @"en";
         }
         rotationYFromValue = [NSNumber numberWithFloat:-M_PI_2 * factor];
         rotationXFromValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width * factor];
-        rotationZFromValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width/2];
+        rotationZFromValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width / 2];
         rotationYToValue = [NSNumber numberWithFloat:0];
         rotationXToValue = [NSNumber numberWithFloat:0];
         rotationZToValue = [NSNumber numberWithFloat:0];
@@ -50,7 +47,7 @@ NSString * const kEnglishLanguageTag = @"en";
         rotationZFromValue = [NSNumber numberWithFloat:0];
         rotationYToValue = [NSNumber numberWithFloat:-M_PI_2 * factor];
         rotationXToValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width * factor];
-        rotationZToValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width/2];
+        rotationZToValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width / 2];
         m34Value = 1.0 / 500;
     }
     CATransform3D layerTransform = CATransform3DIdentity;
@@ -78,9 +75,9 @@ NSString * const kEnglishLanguageTag = @"en";
 
 
 + (void)setupLanguage {
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    if (![userDefaults stringForKey:kLanguage]){
-		NSString* preferredLanguage = [NSLocale preferredLanguages][0];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (![userDefaults stringForKey:kLanguage]) {
+		NSString *preferredLanguage = [NSLocale preferredLanguages][0];
 		preferredLanguage = [preferredLanguage isEqualToString:kRussianLanguageTag] ? kRussianLanguageTag : kEnglishLanguageTag;
 		[userDefaults setObject:preferredLanguage forKey:kLanguage];
 	}
@@ -93,11 +90,14 @@ void changePositon(CGPoint point, UIView *view) {
     view.frame = frame;
 
 }
+
+
 void changeSize(CGSize size, UIView *view) {
     CGRect frame = view.frame;
     frame.size = size;
     view.frame = frame;
 }
+
 
 void setXFor(CGFloat x, UIView *view) {
     CGRect frame = view.frame;
@@ -105,6 +105,8 @@ void setXFor(CGFloat x, UIView *view) {
     view.frame = frame;
 
 }
+
+
 void setYFor(CGFloat y, UIView *view) {
     CGRect frame = view.frame;
     frame.origin.y = y;
@@ -112,17 +114,21 @@ void setYFor(CGFloat y, UIView *view) {
 
 }
 
+
 void changeWidth(CGFloat width, UIView *view) {
     CGRect frame = view.frame;
     frame.size.width = width;
     view.frame = frame;
 
 }
+
+
 void changeHeight(CGFloat height, UIView *view) {
     CGRect frame = view.frame;
     frame.size.height = height;
     view.frame = frame;
 }
+
 
 void moveViewHorizontalyWith(CGFloat x, UIView *view) {
     CGRect frame = view.frame;
@@ -130,6 +136,8 @@ void moveViewHorizontalyWith(CGFloat x, UIView *view) {
     view.frame = frame;
 
 }
+
+
 void moveViewVerticalyWith(CGFloat y, UIView *view) {
     CGRect frame = view.frame;
     frame.origin.y += y;
@@ -137,11 +145,13 @@ void moveViewVerticalyWith(CGFloat y, UIView *view) {
 
 }
 
+
 BOOL isIphone5() {
     static BOOL isIphon5;
     static BOOL isInitialized = NO;
     if (!isInitialized) {
         isIphon5 = [UIScreen mainScreen].bounds.size.height == 568;
+        isInitialized = YES;
     }
     
     return isIphon5;
@@ -153,6 +163,7 @@ BOOL isIphone() {
     static BOOL isInitialized = NO;
     if (!isInitialized) {
         isIphon5 = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
+        isInitialized = YES;
     }
     
     return isIphon5;

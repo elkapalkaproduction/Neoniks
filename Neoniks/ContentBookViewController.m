@@ -12,17 +12,18 @@
 @interface ContentBookViewController () <UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) NSURL *url;
+
 @end
 
 @implementation ContentBookViewController
-- (id)initWithPage:(PageDetails *)pageDetails{
+- (id)initWithPage:(PageDetails *)pageDetails {
     self = [super init];
     if (self) {
         _currentPage = pageDetails;
-        NSString *pagePath = [NSString stringWithFormat:@"%d_%d",pageDetails.chapter, pageDetails.page];
+        NSString *pagePath = [NSString stringWithFormat:@"%d_%d", pageDetails.chapter, pageDetails.page];
         _url = [NSURL urlFromName:pagePath extension:@"html"];
-
     }
+    
     return self;
 }
 
@@ -36,7 +37,7 @@
 
 - (void)setCurrentPage:(PageDetails *)currentPage {
     _currentPage = currentPage;
-    NSString *pagePath = [NSString stringWithFormat:@"%d_%d",currentPage.chapter, currentPage.page];
+    NSString *pagePath = [NSString stringWithFormat:@"%d_%d", currentPage.chapter, currentPage.page];
     self.url = [NSURL urlFromName:pagePath extension:@"html"];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.url];
     [self.webView loadRequest:urlRequest];

@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 @protocol MagicWorldDelegate <NSObject>
--(void)close;
--(void)next:(NSInteger)pageToShow isPrev:(BOOL)prev;
+- (void)close;
+- (void)next:(NSInteger)pageToShow isPrev:(BOOL)prev;
 
 @end
 

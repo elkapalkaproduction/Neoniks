@@ -9,15 +9,13 @@
 #import "BookmarksManager.h"
 #import "Utils.h"
 
+NSString *const allBookmarks = @"allBookmarks";
+NSString *const lastOpenPageKey = @"lastOpenPage";
 
-NSString * const allBookmarks = @"allBookmarks";
-NSString * const lastOpenPageKey = @"lastOpenPage";
-
-NSString * const allBookmarksRus = @"allBookmarksRus";
-NSString * const lastOpenPageKeyRus = @"lastOpenPageRus";
+NSString *const allBookmarksRus = @"allBookmarksRus";
+NSString *const lastOpenPageKeyRus = @"lastOpenPageRus";
 
 @implementation BookmarksManager
-
 
 + (instancetype)sharedManager {
     static BookmarksManager *sharedMyManager = nil;
@@ -25,8 +23,10 @@ NSString * const lastOpenPageKeyRus = @"lastOpenPageRus";
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
     });
+    
     return sharedMyManager;
 }
+
 
 - (void)addOrRemoveBookmarkForPage:(NSInteger)page {
     NSString *key = allBookmarks;
@@ -59,9 +59,11 @@ NSString * const lastOpenPageKeyRus = @"lastOpenPageRus";
     if (!bookmarks) {
         return NO;
     }
+    
     return [bookmarks containsObject:@(page)];
 
 }
+
 
 - (NSArray *)allBookmarks {
     NSString *key = allBookmarks;
@@ -94,6 +96,7 @@ NSString * const lastOpenPageKeyRus = @"lastOpenPageRus";
     if (![[NSUserDefaults standardUserDefaults] objectForKey:key]) {
         [[NSUserDefaults standardUserDefaults] setObject:@(1) forKey:key];
     }
+    
     return [[[NSUserDefaults standardUserDefaults] objectForKey:key] integerValue];
 }
 

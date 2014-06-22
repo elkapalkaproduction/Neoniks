@@ -12,7 +12,6 @@
 
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 
-
 @end
 
 @implementation AudioPlayer
@@ -23,8 +22,10 @@
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
     });
+    
     return sharedMyManager;
 }
+
 
 - (AVAudioPlayer *)audioPlayer {
     if (!_audioPlayer) {
@@ -32,6 +33,7 @@
         _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
         _audioPlayer.numberOfLoops = -1;
     }
+    
     return _audioPlayer;
 }
 

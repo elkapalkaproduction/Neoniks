@@ -10,7 +10,7 @@
 
 @interface UIImage (Helpers)
 
-+(UIImage *)imageWithName:(NSString *)name;
-+(UIImage *)imageWithLocalizedName:(NSString *)name;
++ (UIImage *)imageWithName:(NSString *)name;
++ (UIImage *)imageWithLocalizedName:(NSString *)name;
 
 @end

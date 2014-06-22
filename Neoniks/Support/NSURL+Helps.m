@@ -8,14 +8,17 @@
 
 #import "NSURL+Helps.h"
 #import "NSString+Helps.h"
+
 @implementation NSURL (Helpers)
 
-+(NSURL *)urlFromName:(NSString *)name extension:(NSString *)extension {
++ (NSURL *)urlFromName:(NSString *)name extension:(NSString *)extension {
     NSString *localizedString = [NSString neoniksLocalizedString:name];
+    
     return [NSURL urlFromLocalizedName:localizedString extension:extension];
 }
 
-+(NSURL *)urlFromLocalizedName:(NSString *)name extension:(NSString *)extension {
+
++ (NSURL *)urlFromLocalizedName:(NSString *)name extension:(NSString *)extension {
     return [[NSBundle mainBundle] URLForResource:name withExtension:extension];
 }
 

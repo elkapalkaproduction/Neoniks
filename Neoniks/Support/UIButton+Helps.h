@@ -11,4 +11,5 @@
 @interface UIButton (Helpers)
 
 - (void)setImage:(UIImage *)image;
+
 @end
