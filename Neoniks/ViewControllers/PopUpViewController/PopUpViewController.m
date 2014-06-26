@@ -8,6 +8,8 @@
 
 #import "PopUpViewController.h"
 #import "UIButton+Helps.h"
+#import "Utils.h"
+
 
 @interface PopUpViewController ()
 
@@ -170,7 +172,6 @@
 
     
 }
-
 
 
 - (void)startAnimation {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -8,15 +8,13 @@
             <connections>
                 <outlet property="contentView" destination="5cS-Gp-5Cm" id="SL5-bo-JKS"/>
                 <outlet property="galleryButton" destination="C21-p2-esC" id="1XW-3A-jm0"/>
-                <outlet property="learnMoreImage" destination="9bj-Uj-teg" id="7DD-5o-jCd"/>
                 <outlet property="leftButton" destination="GGb-nl-dw8" id="Vo6-zY-zw6"/>
                 <outlet property="popUpArtImage" destination="fa0-im-JWM" id="xyw-1Z-KSs"/>
                 <outlet property="popUpBackground" destination="aPV-k5-n58" id="LsY-UG-VJr"/>
                 <outlet property="popUpTitle" destination="7Fc-cZ-0M9" id="eVJ-Gs-i4f"/>
                 <outlet property="rightButton" destination="etC-i9-4cT" id="b3y-Zl-ZOC"/>
-                <outlet property="textView" destination="V98-xw-01Q" id="dW1-ec-wCe"/>
+                <outlet property="textImage" destination="ZUv-WU-gIj" id="tyZ-Hf-eUL"/>
                 <outlet property="view" destination="1" id="Qiv-WW-U9S"/>
-                <outlet property="yesButton" destination="Xf9-Iu-8db" id="qIE-SA-ftr"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,72 +22,29 @@
             <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="5cS-Gp-5Cm">
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5cS-Gp-5Cm">
                     <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PopUpViewControllerBackground5.png" id="aPV-k5-n58">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fon_pop_up_window_5.png" translatesAutoresizingMaskIntoConstraints="NO" id="aPV-k5-n58">
                             <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oQR-P9-Hkm" userLabel="Button - cross">
-                            <rect key="frame" x="509" y="15" width="33" height="43"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" image="cross.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="close:" destination="-1" eventType="touchUpInside" id="JTF-8m-tmz"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="etC-i9-4cT" userLabel="Button - right">
-                            <rect key="frame" x="510" y="170" width="29" height="25"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" image="right.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="right:" destination="-1" eventType="touchUpInside" id="FfT-MD-5Vj"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GGb-nl-dw8" userLabel="Button - left">
-                            <rect key="frame" x="29" y="170" width="29" height="25"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" image="left.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="left:" destination="-1" eventType="touchUpInside" id="9eK-Ju-VTd"/>
-                            </connections>
-                        </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7Fc-cZ-0M9" userLabel="Image View - Title">
-                            <rect key="frame" x="202" y="25" width="165" height="46"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Fc-cZ-0M9" userLabel="Image View - Title">
+                            <rect key="frame" x="202" y="31" width="164" height="46"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="learn_more_rus.png" id="9bj-Uj-teg">
-                            <rect key="frame" x="277" y="281" width="199" height="12"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xf9-Iu-8db" userLabel="Button - Yes">
-                            <rect key="frame" x="477" y="267" width="65" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                            <state key="normal" image="yes_eng.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="yesButton:" destination="-1" eventType="touchUpInside" id="gkC-s7-Cd8"/>
-                            </connections>
-                        </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fa0-im-JWM">
-                            <rect key="frame" x="68" y="80" width="154" height="198"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="5_popup_art.png" translatesAutoresizingMaskIntoConstraints="NO" id="fa0-im-JWM">
+                            <rect key="frame" x="198" y="80" width="172" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="C21-p2-esC">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="5_text_eng.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZUv-WU-gIj">
+                            <rect key="frame" x="154" y="81" width="258" height="157"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C21-p2-esC">
                             <rect key="frame" x="29" y="40" width="121" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="gallery_eng.png">
@@ -99,33 +54,64 @@
                                 <action selector="goToGallery:" destination="-1" eventType="touchUpInside" id="QTc-tE-Cvr"/>
                             </connections>
                         </button>
-                        <textView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" id="V98-xw-01Q">
-                            <rect key="frame" x="230" y="75" width="281" height="203"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <gestureRecognizers/>
-                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                            <color key="textColor" red="0.16078431900000001" green="0.039215687659999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="13"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQR-P9-Hkm" userLabel="Button - cross">
+                            <rect key="frame" x="406" y="59" width="15" height="15"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" image="cross.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="close:" destination="-1" eventType="touchUpInside" id="JTF-8m-tmz"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etC-i9-4cT" userLabel="Button - right">
+                            <rect key="frame" x="400" y="110" width="67" height="80"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" image="right.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="right:" destination="-1" eventType="touchUpInside" id="FfT-MD-5Vj"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGb-nl-dw8" userLabel="Button - left">
+                            <rect key="frame" x="101" y="110" width="67" height="80"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" image="left.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="left:" destination="-1" eventType="touchUpInside" id="9eK-Ju-VTd"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="320" id="BE8-sn-m6m"/>
+                        <constraint firstAttribute="width" constant="568" id="TAs-xT-1Ov"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="5cS-Gp-5Cm" secondAttribute="centerX" id="1p9-FF-aLE"/>
+                <constraint firstAttribute="centerY" secondItem="5cS-Gp-5Cm" secondAttribute="centerY" id="QjX-fJ-Mgl"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
-        <image name="PopUpViewControllerBackground5.png" width="1136" height="640"/>
+        <image name="5_popup_art.png" width="1148" height="1070"/>
+        <image name="5_text_eng.png" width="1148" height="698"/>
         <image name="cross.png" width="46" height="46"/>
+        <image name="fon_pop_up_window_5.png" width="1136" height="640"/>
         <image name="gallery_eng.png" width="243" height="37"/>
-        <image name="learn_more_rus.png" width="796" height="50"/>
         <image name="left.png" width="269" height="321"/>
         <image name="right.png" width="269" height="321"/>
-        <image name="yes_eng.png" width="259" height="142"/>
     </resources>
 </document>

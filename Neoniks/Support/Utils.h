@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Andrei Vidrasco. All rights reserved.
 //
 #import <Foundation/Foundation.h>
+#import "UIImage+Helps.h"
+#import "NSURL+Helps.h"
 
 UIKIT_EXTERN NSString *const kLanguage;
 UIKIT_EXTERN NSString *const kRussianLanguageTag;
