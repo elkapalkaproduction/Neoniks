@@ -13,14 +13,12 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *galleryButton;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIImageView *popUpBackground;
 @property (weak, nonatomic) IBOutlet UIImageView *popUpTitle;
-@property (weak, nonatomic) IBOutlet UIImageView *learnMoreImage;
+@property (weak, nonatomic) IBOutlet UIImageView *textImage;
 @property (weak, nonatomic) IBOutlet UIImageView *popUpArtImage;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
-@property (weak, nonatomic) IBOutlet UIButton *yesButton;
 @property (weak, nonatomic) id<PopUpDelegate> delegate;
 @property (assign, nonatomic) BOOL fromRightToLeft;
 @property (assign, nonatomic) NSInteger curentPage;
@@ -64,28 +62,6 @@
 
 #pragma mark -
 #pragma mark - IBActions
-
-- (IBAction)pinchGesture:(id)sender {
-    UIPinchGestureRecognizer *gestureRecognizer = (UIPinchGestureRecognizer *)sender;
-    
-    NSLog(@"*** Pinch: Scale: %f Velocity: %f", gestureRecognizer.scale, gestureRecognizer.velocity);
-    
-	UIFont *font = self.textView.font;
-	CGFloat pointSize = font.pointSize;
-	NSString *fontName = font.fontName;
-    
-	pointSize = ((gestureRecognizer.velocity > 0) ? 1 : -1) * 1 + pointSize;
-	
-	if (pointSize < 13) pointSize = 13;
-	if (pointSize > 42) pointSize = 42;
-	
-	self.textView.font = [UIFont fontWithName:fontName size:pointSize];
-	
-	// Save the new font size in the user defaults.
-    // (UserDefaults is my own wrapper around NSUserDefaults.)
-	[[NSUserDefaults standardUserDefaults] setObject:@(pointSize) forKey:@"fontSizeIphone"];
-}
-
 
 - (IBAction)goToGallery:(id)sender {
     self.nextPage = 29;
@@ -154,19 +130,16 @@
     CGRect screenRect = [UIScreen mainScreen].bounds;
     CGSize screenSize = CGSizeMake(CGRectGetHeight(screenRect), CGRectGetWidth(screenRect));
     changeSize(screenSize, self.view);
-    [self setupText];
     [self setupNextPages];
     [self setupImages];
     self.leftButton.hidden = self.prevPage == 0;
     self.rightButton.hidden = self.nextPage == 0;
-    if (self.curentPage != 24 && self.curentPage != 25) {
-        setXFor(isIphone() ? 68 : 112, self.popUpArtImage);
-        setXFor(isIphone() ? 230 : 522, self.textView);
-    } else {
-        setXFor(isIphone() ? isIphone5() ? 357 : 300 : 522, self.popUpArtImage);
-        setXFor(isIphone() ? 68 : 112, self.textView);
-        
-    }
+//    if (self.curentPage != 24 && self.curentPage != 25) {
+//        setXFor(isIphone() ? 68 : 112, self.popUpArtImage);
+//    } else {
+//        setXFor(isIphone() ? isIphone5() ? 357 : 300 : 522, self.popUpArtImage);
+//        
+//    }
 
 }
 
@@ -187,34 +160,22 @@
 - (void)setupImages {
     NSString *popupImageName = [NSString stringWithFormat:@"%d_popup_art", self.curentPage];
     self.popUpArtImage.image = [UIImage imageWithLocalizedName:popupImageName];
-    self.learnMoreImage.image = [UIImage imageWithName:@"learn_more"];
+    
     [self.galleryButton setImage:[UIImage imageWithName:@"gallery"]];
-    [self.yesButton setImage:[UIImage imageWithName:@"yes"]];
     NSString *popupTitleName = [NSString stringWithFormat:@"%d_title", self.curentPage];
     self.popUpTitle.image = [UIImage imageWithName:popupTitleName];
     
+    NSString *popupTextImage = [NSString stringWithFormat:@"%d_text", self.curentPage];
+    self.textImage.image = [UIImage imageWithName:popupTextImage];
+
+    
 }
 
-
-- (void)setupText {
-    NSURL *urlForText = [NSURL urlFromName:@"texts" extension:@"plist"];
-    NSDictionary *allTexts = [NSDictionary dictionaryWithContentsOfURL:urlForText];
-    NSString *currentPageKey = [NSString stringWithFormat:@"%d", self.curentPage];
-    self.textView.text = allTexts[currentPageKey];
-    self.textView.textAlignment = NSTextAlignmentJustified;
-    self.textView.font = [UIFont fontWithName:@"Georgia" size:isIphone() ? isIphone5() ? 10 : 8.5 : 18];
-
-}
 
 
 - (void)startAnimation {
     [self.view setHidden:NO];
     [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView];
-    CGSize maximumSize = CGSizeMake(self.textView.frame.size.width, FLT_MAX);
-    CGSize textViewSize = [self.textView sizeThatFits:maximumSize];
-    CGFloat optimalHeight = textViewSize.height / 2;
-    CGRect screenSize = [UIScreen mainScreen].bounds;
-    setYFor(0.558*CGRectGetWidth(screenSize)-optimalHeight, self.textView);
 }
 
 @end
