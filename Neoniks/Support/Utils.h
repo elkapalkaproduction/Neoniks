@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import "UIImage+Helps.h"
 #import "NSURL+Helps.h"
+#import "UIButton+Helps.h"
+#import "AudioPlayer.h"
 
 UIKIT_EXTERN NSString *const kLanguage;
 UIKIT_EXTERN NSString *const kRussianLanguageTag;
@@ -19,6 +21,7 @@ UIKIT_EXTERN NSString *const kEnglishLanguageTag;
 
 @interface Utils : NSObject
 
++ (void)animationForAppear:(BOOL)show forView:(UIView *)aView;
 + (void)animationForAppear:(BOOL)show fromRight:(BOOL)aRight forView:(UIView *)aView;
 + (void)setupLanguage;
 

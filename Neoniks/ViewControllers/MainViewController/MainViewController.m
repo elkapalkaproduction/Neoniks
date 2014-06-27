@@ -11,12 +11,14 @@
 #import "MagicWorldViewController.h"
 #import "BookViewController.h"
 #import "ContentOfBookViewController.h"
+#import "Utils.h"
 
 @interface MainViewController () <PopUpDelegate, MagicWorldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *characters;
 @property (weak, nonatomic) IBOutlet UIButton *foamCasttleButton;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (weak, nonatomic) IBOutlet UIImageView *shadowView;
 @property (weak, nonatomic) IBOutlet UIView *onCakeView;
 @property (weak, nonatomic) IBOutlet UIButton *pageTitleButton;
 @property (weak, nonatomic) IBOutlet UIButton *languageButton;
@@ -48,7 +50,10 @@
 #pragma mark -
 #pragma mark - MagicWorld Delegate
 
-- (void)close {
+- (void)closeWithShadow:(BOOL)withShadow {
+    if (withShadow) {
+        [Utils animationForAppear:NO forView:self.shadowView];
+    }
     [self.magicViewController.view removeFromSuperview];
     self.magicViewController = nil;
     [self.popUpViewController.view removeFromSuperview];
@@ -56,20 +61,34 @@
 }
 
 
-- (void)next:(NSInteger)pageToShow isPrev:(BOOL)prev {
-    [self close];
+- (void)close {
+    [self closeWithShadow:YES];
+}
+
+
+- (void)next:(NSInteger)pageToShow isPrev:(BOOL)prev isInitial:(BOOL)isIntial {
+    [self closeWithShadow:NO];
     if (pageToShow == 29) {
         self.magicViewController = [[MagicWorldViewController alloc] initWitFromRightAnimation:prev delegate:self];
         [self.view addSubview:self.magicViewController.view];
     } else {
-        self.popUpViewController = [[PopUpViewController alloc] initWithPageNumber:pageToShow fromRightAnimation:prev delegate:self];
+        PopUpParameters *param = [[PopUpParameters alloc] init];
+        param.isInitialView = isIntial;
+        param.curentPage = pageToShow;
+        param.fromRightToLeft = prev;
+        self.popUpViewController = [[PopUpViewController alloc] initWithPageNumber:param delegate:self];
         [self.view addSubview:self.popUpViewController.view];
     }
 }
 
 
+- (void)next:(NSInteger)pageToShow isPrev:(BOOL)prev {
+    [self next:pageToShow isPrev:prev isInitial:NO];
+}
+
+
 - (void)openBook {
-    [self close];
+    [self closeWithShadow:YES];
     [self goToBook:Nil];
 }
 
@@ -112,7 +131,8 @@
 
 
 - (IBAction)popUpWindows:(id)sender {
-    [self next:[sender tag] isPrev:NO];
+    [Utils animationForAppear:YES forView:self.shadowView];
+    [self next:[sender tag] isPrev:NO isInitial:YES];
 }
 
 

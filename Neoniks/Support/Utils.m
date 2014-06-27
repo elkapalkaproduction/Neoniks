@@ -15,7 +15,7 @@ NSString *const kEnglishLanguageTag = @"en";
 
 @implementation Utils
 
-+ (void)animationForAppear:(BOOL)show fromRight:(BOOL)aRight forView:(UIView *)aView {
++ (void)animationForAppear:(BOOL)show forView:(UIView *)aView {
     if (show) {
         [UIView animateWithDuration:1 animations:^{
             aView.alpha = 1.f;
@@ -25,62 +25,65 @@ NSString *const kEnglishLanguageTag = @"en";
             aView.alpha = 0.f;
         }];
     }
-//    [UIView animateWithDuration:1 animations:<#^(void)animations#>]
-//    CALayer *adContentLayer = aView.layer;
-//    NSNumber *rotationYFromValue; NSNumber *rotationYToValue;
-//    NSNumber *rotationXFromValue; NSNumber *rotationXToValue;
-//    NSNumber *rotationZFromValue; NSNumber *rotationZToValue;
-//    CGFloat m34Value;
-//    if (show) {
-//        NSInteger factor;
-//        if (aRight) {
-//            factor = 1;
-//        } else {
-//            factor = -1;
-//        }
-//        rotationYFromValue = [NSNumber numberWithFloat:-M_PI_2 * factor];
-//        rotationXFromValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width * factor];
-//        rotationZFromValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width / 2];
-//        rotationYToValue = [NSNumber numberWithFloat:0];
-//        rotationXToValue = [NSNumber numberWithFloat:0];
-//        rotationZToValue = [NSNumber numberWithFloat:0];
-//        m34Value = 1.0 / 1000;
-//    } else {
-//        NSInteger factor;
-//        if (aRight) {
-//            factor = 1;
-//        } else {
-//            factor = -1;
-//        }
-//        rotationYFromValue = [NSNumber numberWithFloat:0];
-//        rotationXFromValue = [NSNumber numberWithFloat:0];
-//        rotationZFromValue = [NSNumber numberWithFloat:0];
-//        rotationYToValue = [NSNumber numberWithFloat:-M_PI_2 * factor];
-//        rotationXToValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width * factor];
-//        rotationZToValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width / 2];
-//        m34Value = 1.0 / 500;
-//    }
-//    CATransform3D layerTransform = CATransform3DIdentity;
-//    layerTransform.m34 = m34Value;
-//    adContentLayer.transform = layerTransform;
-//    
-//    CABasicAnimation *rotationY = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
-//    rotationY.duration = kAnimationDuration;
-//    rotationY.fromValue = rotationYFromValue;
-//    rotationY.toValue = rotationYToValue;
-//    [adContentLayer addAnimation:rotationY forKey:@"transform.rotation.y"];
-//    
-//    CABasicAnimation *translationX = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
-//    translationX.duration = kAnimationDuration;
-//    translationX.fromValue = rotationXFromValue;
-//    translationX.toValue = rotationXToValue;
-//    [adContentLayer addAnimation:translationX forKey:@"transform.translation.x"];
-//    
-//    CABasicAnimation *translationZ = [CABasicAnimation animationWithKeyPath:@"transform.translation.z"];
-//    translationZ.duration = kAnimationDuration;
-//    translationZ.fromValue = rotationZFromValue;
-//    translationZ.toValue = rotationZToValue;
-//    [adContentLayer addAnimation:translationZ forKey:@"transform.translation.z"];
+}
+
+
++ (void)animationForAppear:(BOOL)show fromRight:(BOOL)aRight forView:(UIView *)aView {
+    CALayer *adContentLayer = aView.layer;
+    NSNumber *rotationYFromValue; NSNumber *rotationYToValue;
+    NSNumber *rotationXFromValue; NSNumber *rotationXToValue;
+    NSNumber *rotationZFromValue; NSNumber *rotationZToValue;
+    CGFloat m34Value;
+    if (show) {
+        NSInteger factor;
+        if (aRight) {
+            factor = 1;
+        } else {
+            factor = -1;
+        }
+        rotationYFromValue = [NSNumber numberWithFloat:-M_PI_2 * factor];
+        rotationXFromValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width * factor];
+        rotationZFromValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width / 2];
+        rotationYToValue = [NSNumber numberWithFloat:0];
+        rotationXToValue = [NSNumber numberWithFloat:0];
+        rotationZToValue = [NSNumber numberWithFloat:0];
+        m34Value = 1.0 / 1000;
+    } else {
+        NSInteger factor;
+        if (aRight) {
+            factor = 1;
+        } else {
+            factor = -1;
+        }
+        rotationYFromValue = [NSNumber numberWithFloat:0];
+        rotationXFromValue = [NSNumber numberWithFloat:0];
+        rotationZFromValue = [NSNumber numberWithFloat:0];
+        rotationYToValue = [NSNumber numberWithFloat:-M_PI_2 * factor];
+        rotationXToValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width * factor];
+        rotationZToValue = [NSNumber numberWithFloat:adContentLayer.frame.size.width / 2];
+        m34Value = 1.0 / 500;
+    }
+    CATransform3D layerTransform = CATransform3DIdentity;
+    layerTransform.m34 = m34Value;
+    adContentLayer.transform = layerTransform;
+    
+    CABasicAnimation *rotationY = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
+    rotationY.duration = kAnimationDuration;
+    rotationY.fromValue = rotationYFromValue;
+    rotationY.toValue = rotationYToValue;
+    [adContentLayer addAnimation:rotationY forKey:@"transform.rotation.y"];
+    
+    CABasicAnimation *translationX = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+    translationX.duration = kAnimationDuration;
+    translationX.fromValue = rotationXFromValue;
+    translationX.toValue = rotationXToValue;
+    [adContentLayer addAnimation:translationX forKey:@"transform.translation.x"];
+    
+    CABasicAnimation *translationZ = [CABasicAnimation animationWithKeyPath:@"transform.translation.z"];
+    translationZ.duration = kAnimationDuration;
+    translationZ.fromValue = rotationZFromValue;
+    translationZ.toValue = rotationZToValue;
+    [adContentLayer addAnimation:translationZ forKey:@"transform.translation.z"];
 }
 
 

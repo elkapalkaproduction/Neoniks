@@ -14,6 +14,7 @@
                 <outlet property="pageTitleButton" destination="aIh-bD-Lp3" id="dYr-f8-7ky"/>
                 <outlet property="rateUs" destination="sus-c3-Ueq" id="9NV-ow-UHf"/>
                 <outlet property="readTheBook" destination="yte-uO-eic" id="2sk-p1-sF4"/>
+                <outlet property="shadowView" destination="IQx-J7-r2l" id="SoN-LR-0nT"/>
                 <outlet property="site" destination="duc-Je-mXu" id="uLZ-If-IDJ"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
@@ -259,6 +260,10 @@
                     <rect key="frame" x="39" y="717" width="125" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fon_pop_up_window.png" id="IQx-J7-r2l">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -284,6 +289,7 @@
         <image name="6_language_eng.png" width="324" height="287"/>
         <image name="MainViewControllerBackground.png" width="2048" height="1536"/>
         <image name="contributions_eng.png" width="324" height="287"/>
+        <image name="fon_pop_up_window.png" width="2048" height="1536"/>
         <image name="gift_eng.png" width="324" height="287"/>
         <image name="headings_eng.png" width="1374" height="178"/>
         <image name="page1_banner.png" width="406" height="135"/>

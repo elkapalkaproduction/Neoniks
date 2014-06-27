@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PopUpParameters.h"
 
 @protocol PopUpDelegate <NSObject>
 - (void)close;
@@ -16,6 +17,6 @@
 @end
 
 @interface PopUpViewController : UIViewController
-- (id)initWithPageNumber:(int)page fromRightAnimation:(BOOL)aBool delegate:(id)aDeletegate;
+- (id)initWithPageNumber:(PopUpParameters *)param delegate:(id)aDeletegate;
 
 @end

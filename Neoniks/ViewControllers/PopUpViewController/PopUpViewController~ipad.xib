@@ -22,11 +22,11 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view alpha="0.0" contentMode="scaleToFill" id="lJY-fK-WFa">
+                <view contentMode="scaleToFill" id="lJY-fK-WFa">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fon_pop_up_window.png" id="StF-ng-0dZ">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_pop_up_window.png" id="StF-ng-0dZ">
                             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
@@ -99,8 +99,8 @@
     <resources>
         <image name="5_popup_art.png" width="1148" height="1070"/>
         <image name="5_text_eng.png" width="1148" height="698"/>
+        <image name="blue_pop_up_window.png" width="2048" height="1536"/>
         <image name="cross.png" width="46" height="46"/>
-        <image name="fon_pop_up_window.png" width="2048" height="1536"/>
         <image name="gallery_eng.png" width="243" height="37"/>
         <image name="left.png" width="269" height="321"/>
         <image name="right.png" width="269" height="321"/>

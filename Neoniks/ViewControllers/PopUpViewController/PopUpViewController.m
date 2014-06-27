@@ -24,6 +24,7 @@
 @property (weak, nonatomic) id<PopUpDelegate> delegate;
 @property (assign, nonatomic) BOOL fromRightToLeft;
 @property (assign, nonatomic) NSInteger curentPage;
+@property (assign, nonatomic) BOOL isInitialView;
 @property (assign, nonatomic) NSInteger nextPage;
 @property (assign, nonatomic) NSInteger prevPage;
 
@@ -34,11 +35,12 @@
 #pragma mark -
 #pragma mark - LifeCycle
 
-- (id)initWithPageNumber:(int)page fromRightAnimation:(BOOL)aBool delegate:(id)aDeletegate {
+- (id)initWithPageNumber:(PopUpParameters *)param delegate:(id)aDeletegate {
     self = [super init];
     if (self) {
-        _curentPage = page;
-        _fromRightToLeft = aBool;
+        _curentPage = param.curentPage;
+        _fromRightToLeft = param.fromRightToLeft;
+        _isInitialView = param.isInitialView;
         _delegate = aDeletegate;
     }
     
@@ -48,6 +50,16 @@
 
 #pragma mark -
 #pragma mark - ViewCycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    if (self.isInitialView) {
+        self.contentView.alpha = 0;
+    } else {
+        self.view.hidden = YES;
+    }
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     
@@ -72,7 +84,7 @@
 
 
 - (IBAction)close:(id)sender {
-    [self hideAnimationToRight];
+    [Utils animationForAppear:NO forView:self.contentView];
     [self performSelector:@selector(close) withObject:nil afterDelay:kAnimationHide];
 }
 
@@ -175,8 +187,12 @@
 
 
 - (void)startAnimation {
-    [self.view setHidden:NO];
-    [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView];
+    if (self.isInitialView) {
+        [Utils animationForAppear:YES forView:self.contentView];
+    } else {
+        [self.view setHidden:NO];
+        [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView];
+    }
 }
 
 @end
