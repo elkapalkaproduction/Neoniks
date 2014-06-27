@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>11</key>
+	<string>{{242, 206}, {87, 87}}</string>
+	<key>17</key>
+	<string>{{152, 42}, {87, 87}}</string>
+	<key>18</key>
+	<string>{{242, 42}, {87, 87}}</string>
+	<key>19</key>
+	<string>{{62, 42}, {87, 87}}</string>
+	<key>21</key>
+	<string>{{333, 206}, {87, 87}}</string>
+	<key>26</key>
+	<string>{{62, 124}, {87, 87}}</string>
+	<key>27</key>
+	<string>{{242, 124}, {87, 87}}</string>
+	<key>28</key>
+	<string>{{333, 124}, {87, 87}}</string>
+	<key>3</key>
+	<string>{{152, 206}, {87, 87}}</string>
+	<key>7</key>
+	<string>{{332, 42}, {87, 87}}</string>
+	<key>8</key>
+	<string>{{62, 206}, {87, 87}}</string>
+	<key>9</key>
+	<string>{{152, 124}, {87, 87}}</string>
+</dict>
+</plist>

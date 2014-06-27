@@ -7,13 +7,16 @@
 //
 
 #import "MagicWorldViewController.h"
+#import "Utils.h"
+#import "MagicWorldPortrait.h"
 
 @interface MagicWorldViewController ()
+
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UIImageView *popUpTitle;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *icons;
 @property (nonatomic, assign) BOOL fromRightToLeft;
 @property (nonatomic, weak) id <MagicWorldDelegate> delegate;
+@property (assign, nonatomic) BOOL isInitialView;
 
 @end
 
@@ -22,9 +25,10 @@
 #pragma mark -
 #pragma mark - LifeCycle
 
-- (id)initWitFromRightAnimation:(BOOL)aBool delegate:(id)aDeleagate {
+- (id)initWitFromRightAnimation:(BOOL)aBool isInitialView:(BOOL)isInitial delegate:(id)aDeleagate {
     self = [super init];
     if (self) {
+        _isInitialView = isInitial;
         _delegate = aDeleagate;
         _fromRightToLeft = aBool;
     }
@@ -36,6 +40,19 @@
 #pragma mark -
 #pragma mark - ViewCycle
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    if (self.isInitialView) {
+        self.contentView.alpha = 0;
+    } else {
+        self.view.hidden = YES;
+    }
+    [self setupView];
+    [self startAnimation];
+
+}
+
+
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
@@ -44,8 +61,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.view setHidden:NO];
-    [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView];
+    [self startAnimation];
 }
 
 
@@ -72,7 +88,7 @@
 
 
 - (IBAction)close:(id)sender {
-    [self hideAnimationToRight];
+    [Utils animationForAppear:NO forView:self.contentView];
     [self performSelector:@selector(close) withObject:nil afterDelay:kAnimationHide];
 }
 
@@ -115,21 +131,33 @@
     CGSize screenSize = CGSizeMake(CGRectGetHeight(screenRect), CGRectGetWidth(screenRect));
     changeSize(screenSize, self.view);
     self.popUpTitle.image = [UIImage imageWithName:@"29_title"];
-    NSDictionary *iphone5Frames;
-    if (isIphone5()) {
-        NSURL *url = [NSURL urlFromName:@"ihpone5Frames" extension:@"plist"];
-        iphone5Frames = [NSDictionary dictionaryWithContentsOfURL:url];
+    NSURL *url;
+    if (isIphone()) {
+        url = [NSURL urlFromLocalizedName:@"iphoneFrames" extension:@"plist"];
+    } else {
+        url = [NSURL urlFromLocalizedName:@"ipadFrames" extension:@"plist"];
     }
-    for (UIButton *icon in self.icons) {
-        NSString *iconName = [NSString stringWithFormat:@"%ld_magic", (long)[icon tag]];
-        [icon setImage:[UIImage imageWithName:iconName]];
-        if (isIphone5()) {
-            NSString *key = [NSString stringWithFormat:@"%ld", (long)[icon tag]];
-            NSString *string = iphone5Frames[key];
-            [icon setFrame:CGRectFromString(string)];
-        }
+    NSDictionary *frames = [NSDictionary dictionaryWithContentsOfURL:url];
+
+    for (NSString *key in frames) {
+        MagicWorldPortrait *portrait = [MagicWorldPortrait instantiate];
+        portrait.frame = CGRectFromString(frames[key]);
+        portrait.characterId = [key integerValue];
+        [portrait addTarget:self action:@selector(magic:) tag:[key integerValue]];
+        [self.contentView addSubview:portrait];
     }
 
 }
+
+
+- (void)startAnimation {
+    if (self.isInitialView) {
+        [Utils animationForAppear:YES forView:self.contentView];
+    } else {
+        [self.view setHidden:NO];
+        [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView];
+    }
+}
+
 
 @end

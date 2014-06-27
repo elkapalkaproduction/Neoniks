@@ -14,6 +14,6 @@
 @end
 
 @interface MagicWorldViewController : UIViewController
-- (id)initWitFromRightAnimation:(BOOL)aBool delegate:(id)aDeleagate;
+- (id)initWitFromRightAnimation:(BOOL)aBool isInitialView:(BOOL)isInitial delegate:(id)aDeleagate;
 
 @end

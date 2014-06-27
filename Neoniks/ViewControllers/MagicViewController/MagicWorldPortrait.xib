@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MagicWorldPortrait"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="LqB-Z9-40K" customClass="MagicWorldPortrait">
+            <rect key="frame" x="0.0" y="0.0" width="210" height="210"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLq-Lc-KWW">
+                    <rect key="frame" x="0.0" y="10" width="210" height="190"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="portrait.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait_17.png" translatesAutoresizingMaskIntoConstraints="NO" id="eWX-ES-V2S">
+                    <rect key="frame" x="0.0" y="10" width="210" height="190"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="11_name_eng.png" translatesAutoresizingMaskIntoConstraints="NO" id="gWs-vY-yI4">
+                    <rect key="frame" x="46" y="155" width="118" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="JLq-Lc-KWW" secondAttribute="trailing" id="1BF-Hb-ob1"/>
+                <constraint firstAttribute="bottom" secondItem="JLq-Lc-KWW" secondAttribute="bottom" constant="10" id="7oq-KK-nTO"/>
+                <constraint firstItem="eWX-ES-V2S" firstAttribute="leading" secondItem="LqB-Z9-40K" secondAttribute="leading" id="Aku-Sq-dBV"/>
+                <constraint firstAttribute="bottom" secondItem="eWX-ES-V2S" secondAttribute="bottom" constant="10" id="Bxi-er-VYX"/>
+                <constraint firstItem="JLq-Lc-KWW" firstAttribute="top" secondItem="LqB-Z9-40K" secondAttribute="top" constant="10" id="QBP-JS-KkA"/>
+                <constraint firstItem="JLq-Lc-KWW" firstAttribute="leading" secondItem="LqB-Z9-40K" secondAttribute="leading" id="dP7-ih-qH2"/>
+                <constraint firstItem="eWX-ES-V2S" firstAttribute="top" secondItem="LqB-Z9-40K" secondAttribute="top" constant="10" id="hWk-ex-KMb"/>
+                <constraint firstAttribute="trailing" secondItem="eWX-ES-V2S" secondAttribute="trailing" id="kXs-Tp-4jt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="button" destination="JLq-Lc-KWW" id="k5D-CY-uet"/>
+                <outlet property="characterImage" destination="eWX-ES-V2S" id="6Re-fD-aZ4"/>
+                <outlet property="characterName" destination="gWs-vY-yI4" id="cEQ-mA-4MP"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="11_name_eng.png" width="236" height="69"/>
+        <image name="portrait.png" width="420" height="382"/>
+        <image name="portrait_17.png" width="420" height="382"/>
+    </resources>
+</document>

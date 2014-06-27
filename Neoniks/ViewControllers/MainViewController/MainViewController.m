@@ -70,7 +70,8 @@
 - (void)next:(NSInteger)pageToShow isPrev:(BOOL)prev isInitial:(BOOL)isIntial {
     [self closeWithShadow:NO];
     if (pageToShow == 29) {
-        self.magicViewController = [[MagicWorldViewController alloc] initWitFromRightAnimation:prev delegate:self];
+        self.magicViewController = [[MagicWorldViewController alloc] initWitFromRightAnimation:prev isInitialView:isIntial delegate:self];
+        [self.view bringSubviewToFront:self.shadowView];
         [self.view addSubview:self.magicViewController.view];
     } else {
         PopUpParameters *param = [[PopUpParameters alloc] init];
@@ -79,8 +80,9 @@
         param.fromRightToLeft = prev;
         self.popUpViewController = [[PopUpViewController alloc] initWithPageNumber:param delegate:self];
         [self.view addSubview:self.popUpViewController.view];
+        [self.view bringSubviewToFront:self.readBookView];
+        
     }
-    [self.view bringSubviewToFront:self.readBookView];
 }
 
 
