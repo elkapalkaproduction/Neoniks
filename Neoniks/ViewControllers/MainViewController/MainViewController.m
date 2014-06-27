@@ -15,6 +15,7 @@
 
 @interface MainViewController () <PopUpDelegate, MagicWorldDelegate>
 
+@property (weak, nonatomic) IBOutlet UIView *readBookView;
 @property (weak, nonatomic) IBOutlet UIImageView *characters;
 @property (weak, nonatomic) IBOutlet UIButton *foamCasttleButton;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
@@ -79,6 +80,7 @@
         self.popUpViewController = [[PopUpViewController alloc] initWithPageNumber:param delegate:self];
         [self.view addSubview:self.popUpViewController.view];
     }
+    [self.view bringSubviewToFront:self.readBookView];
 }
 
 
