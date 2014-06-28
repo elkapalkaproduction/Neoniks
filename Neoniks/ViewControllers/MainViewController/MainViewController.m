@@ -81,6 +81,9 @@
         self.popUpViewController = [[PopUpViewController alloc] initWithPageNumber:param delegate:self];
         [self.view addSubview:self.popUpViewController.view];
         [self.view bringSubviewToFront:self.readBookView];
+        if (pageToShow == 24) {
+            [self.view bringSubviewToFront:self.site];
+        }
         
     }
 }
@@ -105,7 +108,6 @@
     [[AudioPlayer sharedPlayer] pause];
     
     [self presentViewController:bookViewController animated:YES completion:NULL];
-    //TODO: Go to book. if bookmark is saved, go to bookmark page, also go to first page
 }
 
 

@@ -10,7 +10,6 @@
 #import "UIButton+Helps.h"
 #import "Utils.h"
 
-
 @interface PopUpViewController ()
 
 @property (strong, nonatomic) IBOutlet UIButton *galleryButton;
@@ -140,6 +139,11 @@
 }
 
 
+- (BOOL)isContributorsPage {
+    return self.curentPage == 24; //&& self.curentPage != 25;
+}
+
+
 - (void)setupView {
     CGRect screenRect = [UIScreen mainScreen].bounds;
     CGSize screenSize = CGSizeMake(CGRectGetHeight(screenRect), CGRectGetWidth(screenRect));
@@ -148,13 +152,9 @@
     [self setupImages];
     self.leftButton.hidden = self.prevPage == 0;
     self.rightButton.hidden = self.nextPage == 0;
-//    if (self.curentPage != 24 && self.curentPage != 25) {
-//        setXFor(isIphone() ? 68 : 112, self.popUpArtImage);
-//    } else {
-//        setXFor(isIphone() ? isIphone5() ? 357 : 300 : 522, self.popUpArtImage);
-//        
-//    }
-
+    if ([self isContributorsPage]) {
+        self.popUpBackground.image = [UIImage imageNamed:@"fon_contributors"];
+    }
 }
 
 
@@ -165,7 +165,7 @@
     NSDictionary *curentPage = allPages[nextPagesKey];
     self.nextPage = [curentPage[@"nextPage"] intValue];
     self.prevPage = [curentPage[@"previousPage"] intValue];
-    self.galleryButton.hidden = ![curentPage[@"isCharacter"] boolValue];
+    self.galleryButton.hidden = YES;//![curentPage[@"isCharacter"] boolValue];
 
 
 }

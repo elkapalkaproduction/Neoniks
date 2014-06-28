@@ -25,29 +25,45 @@
 }
 
 
+- (id)initWithDict:(NSDictionary *)dict {
+    self.frame = CGRectFromString(dict[@"frame"]);
+    self.characterId = [dict[@"tag"] integerValue];
+    [self addTarget:dict[@"target"] action:NSSelectorFromString(dict[@"selector"])];
+    
+    return self;
+}
+
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     CGRect viewFrame = self.frame;
     CGFloat frameHeight = CGRectGetHeight(viewFrame);
-    CGFloat y = (30.f / 42.f) * frameHeight;
+    CGFloat y = (31.f / 42.f) * frameHeight;
     CGFloat width = (118.f / 210.f) * frameHeight;
     CGFloat height = (35.f / 210.f) * frameHeight;
     CGFloat x = 0.5 * (frameHeight - width);
 
     CGRect newRect = CGRectMake(x, y, width, height);
     self.characterName.frame = newRect;
+    self.button.frame = self.characterImage.frame;
+}
+
+
+- (void)updateImageWithCharacterId:(NSInteger)characterId {
+    self.characterImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"portrait_%d", characterId]];
+    self.characterName.image = [UIImage imageWithName:[NSString stringWithFormat:@"%d_name", characterId]];
+    self.button.tag = characterId;
 }
 
 
 - (void)setCharacterId:(NSInteger)characterId {
     _characterId = characterId;
-    self.characterImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"portrait_%d", characterId]];
-    self.characterName.image = [UIImage imageWithName:[NSString stringWithFormat:@"%d_name", characterId]];
+    [self updateImageWithCharacterId:characterId];
     
 }
 
-- (void)addTarget:(id)target action:(SEL)action tag:(NSInteger)tag {
-    self.button.tag = tag;
+
+- (void)addTarget:(id)target action:(SEL)action {
     [self.button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 }
 

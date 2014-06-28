@@ -10,7 +10,8 @@
 
 @interface MagicWorldPortrait : UIView
 + (instancetype)instantiate;
-- (void)addTarget:(id)target action:(SEL)action tag:(NSInteger)tag;
+- (id)initWithDict:(NSDictionary *)dict;
+- (void)addTarget:(id)target action:(SEL)action;
 
 @property (assign, nonatomic) NSInteger characterId;
 @property (strong, nonatomic) IBOutlet UIButton *button;

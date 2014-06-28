@@ -12,5 +12,6 @@
 
 + (NSURL *)urlFromName:(NSString *)name extension:(NSString *)extension;
 + (NSURL *)urlFromLocalizedName:(NSString *)name extension:(NSString *)extension;
++ (NSURL *)urlForFrames;
 
 @end

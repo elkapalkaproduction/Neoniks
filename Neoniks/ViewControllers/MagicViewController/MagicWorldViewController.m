@@ -48,14 +48,6 @@
         self.view.hidden = YES;
     }
     [self setupView];
-    [self startAnimation];
-
-}
-
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
 }
 
 
@@ -131,19 +123,14 @@
     CGSize screenSize = CGSizeMake(CGRectGetHeight(screenRect), CGRectGetWidth(screenRect));
     changeSize(screenSize, self.view);
     self.popUpTitle.image = [UIImage imageWithName:@"29_title"];
-    NSURL *url;
-    if (isIphone()) {
-        url = [NSURL urlFromLocalizedName:@"iphoneFrames" extension:@"plist"];
-    } else {
-        url = [NSURL urlFromLocalizedName:@"ipadFrames" extension:@"plist"];
-    }
-    NSDictionary *frames = [NSDictionary dictionaryWithContentsOfURL:url];
-
+    
+    NSDictionary *frames = [NSDictionary dictionaryWithContentsOfURL:[NSURL urlForFrames]];
     for (NSString *key in frames) {
-        MagicWorldPortrait *portrait = [MagicWorldPortrait instantiate];
-        portrait.frame = CGRectFromString(frames[key]);
-        portrait.characterId = [key integerValue];
-        [portrait addTarget:self action:@selector(magic:) tag:[key integerValue]];
+        NSDictionary *dict = @{@"tag" : key,
+                               @"frame" : frames[key],
+                               @"selector" : NSStringFromSelector(@selector(magic:)),
+                               @"target" : self};
+        MagicWorldPortrait *portrait = [[MagicWorldPortrait instantiate] initWithDict:dict];
         [self.contentView addSubview:portrait];
     }
 
@@ -158,6 +145,5 @@
         [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView];
     }
 }
-
 
 @end

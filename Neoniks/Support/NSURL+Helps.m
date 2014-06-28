@@ -8,6 +8,7 @@
 
 #import "NSURL+Helps.h"
 #import "NSString+Helps.h"
+#import "Utils.h"
 
 @implementation NSURL (Helpers)
 
@@ -20,6 +21,18 @@
 
 + (NSURL *)urlFromLocalizedName:(NSString *)name extension:(NSString *)extension {
     return [[NSBundle mainBundle] URLForResource:name withExtension:extension];
+}
+
+
++ (NSURL *)urlForFrames {
+    NSURL *url;
+    if (isIphone()) {
+        url = [NSURL urlFromLocalizedName:@"iphoneFrames" extension:@"plist"];
+    } else {
+        url = [NSURL urlFromLocalizedName:@"ipadFrames" extension:@"plist"];
+    }
+    
+    return url;
 }
 
 @end
