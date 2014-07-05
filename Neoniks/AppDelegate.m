@@ -12,7 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Utils setupLanguage];
-    if (isIphone())
+//    if (isIphone())
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.

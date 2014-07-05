@@ -11,6 +11,7 @@
 @protocol AllBookmarksDelegate <NSObject>
 
 - (void)bookmarksRequiredToShow:(NSInteger)page;
+- (void)updateBookmarkInfo;
 
 @end
 

@@ -9,7 +9,7 @@
 #import "ContentBookViewController.h"
 #import "Utils.h"
 
-@interface ContentBookViewController () <UIWebViewDelegate>
+@interface ContentBookViewController () <UIWebViewDelegate, UIGestureRecognizerDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) NSURL *url;
 
@@ -42,6 +42,21 @@
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.url];
     [self.webView loadRequest:urlRequest];
 
+}
+
+
+- (IBAction)tapGesture:(id)sender {
+    [self.delegate hideOrShowSupportView];
+}
+
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return YES;
+}
+
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
 }
 
 @end

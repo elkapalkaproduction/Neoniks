@@ -6,12 +6,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookViewController">
             <connections>
-                <outlet property="bookmarkPageButton" destination="1AK-nB-6RO" id="3pV-rA-CgP"/>
+                <outlet property="allBookmarkButton" destination="R7d-ko-J6E" id="wAU-js-4iP"/>
+                <outlet property="bookmarkPageButton" destination="DAs-Un-Ry3" id="wgC-mB-wQj"/>
                 <outlet property="bottomView" destination="9wb-nj-qhm" id="bK7-s3-EId"/>
-                <outlet property="currentPageLabel" destination="MYo-N3-o02" id="BTX-So-Ocj"/>
-                <outlet property="maxPageLabel" destination="BwV-EE-0RI" id="Xe2-mM-TyP"/>
+                <outlet property="exitButton" destination="ogx-J7-1ux" id="jI9-oH-vsD"/>
+                <outlet property="ribbonView" destination="HeW-l8-88e" id="WZg-jD-18q"/>
                 <outlet property="sliderPreview" destination="BOE-c5-XVB" id="EcT-pC-hJc"/>
-                <outlet property="topView" destination="VTd-2x-tJA" id="ypw-dS-SrM"/>
+                <outlet property="tableOfContentsButton" destination="gvg-hG-GMT" id="kzK-mU-m4z"/>
                 <outlet property="view" destination="iN0-l3-epB" id="rlW-kx-4cN"/>
             </connections>
         </placeholder>
@@ -20,16 +21,66 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view hidden="YES" contentMode="scaleToFill" id="HeW-l8-88e">
+                    <rect key="frame" x="881" y="-274" width="143" height="274"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ribbon.png" id="rpI-fS-lkZ">
+                            <rect key="frame" x="0.0" y="0.0" width="143" height="259"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ogx-J7-1ux">
+                            <rect key="frame" x="26" y="176" width="90" height="42"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            <state key="normal" image="exit_eng.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="closeBookAction:" destination="-1" eventType="touchUpInside" id="bNS-ey-uBE"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gvg-hG-GMT">
+                            <rect key="frame" x="26" y="20" width="90" height="42"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            <state key="normal" image="table_of_content_eng.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="chapters:" destination="-1" eventType="touchUpInside" id="ta0-lR-z8O"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DAs-Un-Ry3">
+                            <rect key="frame" x="26" y="124" width="90" height="42"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            <state key="normal" image="bookmark_eng.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="bookmarkThisPage:" destination="-1" eventType="touchUpInside" id="6An-kr-XsC"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R7d-ko-J6E">
+                            <rect key="frame" x="26" y="72" width="90" height="42"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            <state key="normal" image="all_bookmarks_eng.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="allBookmarks:" destination="-1" eventType="touchUpInside" id="j2W-t0-IQL"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="ntC-Zs-6Rg" appends="YES" id="y0z-fn-OZE"/>
+                    </connections>
+                </view>
                 <view contentMode="scaleToFill" id="9wb-nj-qhm">
                     <rect key="frame" x="0.0" y="698" width="1024" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BwV-EE-0RI">
-                            <rect key="frame" x="962" y="24" width="29" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="4" id="BOE-c5-XVB">
                             <rect key="frame" x="81" y="20" width="863" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -37,71 +88,33 @@
                                 <action selector="sliderChangeValue:" destination="-1" eventType="valueChanged" id="Igg-Vf-1sx"/>
                             </connections>
                         </slider>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MYo-N3-o02">
-                            <rect key="frame" x="34" y="24" width="29" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
-                <view contentMode="scaleToFill" id="VTd-2x-tJA">
-                    <rect key="frame" x="506" y="-20" width="488" height="108"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kg0-l9-plf">
-                            <rect key="frame" x="99" y="39" width="98" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="All bookmarks">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="allBookmarks:" destination="-1" eventType="touchUpInside" id="SI5-oR-TUW"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1AK-nB-6RO">
-                            <rect key="frame" x="233" y="39" width="138" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Bookmark this page">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="bookmarkThisPage:" destination="-1" eventType="touchUpInside" id="kGa-mP-snO"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8hF-ed-yCr" userLabel="Button - book">
-                            <rect key="frame" x="400" y="20" width="68" height="68"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" image="1_book.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="closeBookAction:" destination="-1" eventType="touchUpInside" id="kkz-Lj-rU0"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="r4e-IW-riI">
-                            <rect key="frame" x="12" y="39" width="63" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Chapters">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="chapters:" destination="-1" eventType="touchUpInside" id="E2M-DD-h4n"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <gestureRecognizers/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="4Ul-jW-QGG" appends="YES" id="fB0-ii-62B"/>
+            </connections>
         </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="ntC-Zs-6Rg">
+            <connections>
+                <action selector="dragRibbonDown:" destination="-1" id="Imh-1e-lfs"/>
+            </connections>
+        </panGestureRecognizer>
+        <tapGestureRecognizer id="4Ul-jW-QGG">
+            <connections>
+                <action selector="hideOrShowSupportView" destination="-1" id="EdI-xT-Qjm"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="1_book.png" width="354" height="383"/>
+        <image name="all_bookmarks_eng.png" width="180" height="84"/>
+        <image name="bookmark_eng.png" width="180" height="84"/>
+        <image name="exit_eng.png" width="180" height="84"/>
+        <image name="ribbon.png" width="286" height="518"/>
+        <image name="table_of_content_eng.png" width="180" height="84"/>
     </resources>
 </document>

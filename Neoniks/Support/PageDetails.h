@@ -14,5 +14,6 @@
 
 @property (assign, nonatomic) NSInteger page;
 @property (assign, nonatomic) NSInteger chapter;
+@property (strong, nonatomic) NSString *displayedName;
 
 @end

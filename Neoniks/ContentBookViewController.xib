@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -19,10 +19,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="width" constant="480" id="YoJ-NG-XX1"/>
                         <constraint firstAttribute="height" constant="320" id="gJF-5A-L7P"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="eg5-Nq-sHm" appends="YES" id="JOw-u5-ebr"/>
+                    </connections>
                 </webView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -34,5 +38,11 @@
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
+        <tapGestureRecognizer id="eg5-Nq-sHm">
+            <connections>
+                <action selector="tapGesture:" destination="-1" id="fWd-DB-oge"/>
+                <outlet property="delegate" destination="-1" id="iyG-8I-V3P"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

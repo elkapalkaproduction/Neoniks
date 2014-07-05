@@ -11,9 +11,11 @@
 #import "PageDetails.h"
 #import "NSURL+Helps.h"
 #import "ChaptersCollection.h"
+#import "BookmarksTableViewCell.h"
 
-@interface AllBookmarsViewController () <UITableViewDataSource, UITableViewDataSource>
+@interface AllBookmarsViewController () <UITableViewDataSource, UITableViewDataSource, BookmarksCellInteraction>
 @property (strong, nonatomic) NSArray *allBookmarks;
+@property (strong, nonatomic) IBOutlet UITableView *tableViewOutlet;
 @property (strong, nonatomic) ChaptersCollection *collection;
 
 @end
@@ -44,14 +46,17 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    BookmarksTableViewCell *cell = (BookmarksTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if (cell == nil) {
+        NSString *nibName = NSStringFromClass([BookmarksTableViewCell class]);
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
+        cell = [topLevelObjects objectAtIndex:0];
     }
     NSInteger pageNumber = [self.allBookmarks[indexPath.row] integerValue];
-    PageDetails *page = [self.collection pageDetailsForNumber:pageNumber];
-    NSString *string = [[NSString alloc] initWithFormat:@"Chapter: %d Page: %d", page.chapter, page.page];
-    cell.textLabel.text = string;
+    NSString *string = [[BookmarksManager sharedManager] nameStringForPage:pageNumber];
+    cell.delegate = self;
+    cell.textField.text = string;
+    cell.pageNumber = pageNumber;
     
     return cell;
 }
@@ -60,6 +65,29 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger pageNumber = [self.allBookmarks[indexPath.row] integerValue];
     [self.delegate bookmarksRequiredToShow:pageNumber];
+}
+
+
+- (void)removeBookmarkForCell:(BookmarksTableViewCell *)cell {
+    [[BookmarksManager sharedManager] addOrRemoveBookmarkForPage:cell.pageNumber];
+    self.allBookmarks = nil;
+    [self.tableViewOutlet reloadData];
+    [self.delegate updateBookmarkInfo];
+}
+
+
+- (void)startEditingForCell:(BookmarksTableViewCell *)cell {
+    if (cell.textField.userInteractionEnabled) {
+        cell.textField.borderStyle = UITextBorderStyleNone;
+        cell.textField.userInteractionEnabled = NO;
+        [cell.textField resignFirstResponder];
+        NSString *value = cell.textField.text;
+        [[BookmarksManager sharedManager] updateNameStringForPage:cell.pageNumber andName:value];
+    } else {
+        cell.textField.borderStyle = UITextBorderStyleRoundedRect;
+        cell.textField.userInteractionEnabled = YES;
+        [cell.textField becomeFirstResponder];
+    }
 }
 
 @end

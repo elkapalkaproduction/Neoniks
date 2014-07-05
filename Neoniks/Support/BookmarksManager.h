@@ -13,8 +13,12 @@
 + (instancetype)sharedManager;
 - (void)addOrRemoveBookmarkForPage:(NSInteger)page;
 - (BOOL)bookmarkIsSaved:(NSInteger)page;
+- (void)updateNameStringForPage:(NSInteger)page andName:(NSString *)name;
+- (NSString *)nameStringForPage:(NSInteger)page;
 - (NSArray *)allBookmarks;
 - (void)setLastOpen:(NSInteger)last;
 - (NSInteger)lastOpen;
 
 @end
+
+

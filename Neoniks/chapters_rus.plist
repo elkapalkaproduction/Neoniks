@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>pages</key>
-		<integer>7</integer>
+		<integer>8</integer>
 		<key>name</key>
 		<string>Глава 1. Волшебная лисичка</string>
 	</dict>
@@ -70,13 +70,13 @@
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>4</integer>
+		<integer>5</integer>
 		<key>name</key>
 		<string>Глава 12. Вдохновение и магия</string>
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>8</integer>
+		<integer>9</integer>
 		<key>name</key>
 		<string>Глава 13. Великое заклинание</string>
 	</dict>
