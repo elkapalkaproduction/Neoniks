@@ -166,7 +166,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
     AllBookmarsViewController *bookmarkView = [[AllBookmarsViewController alloc] initWithNibName:nibName bundle:nil];
     bookmarkView.delegate = self;
     self.popoverControler = [[UIPopoverController alloc] initWithContentViewController:bookmarkView];
-    self.popoverControler.popoverContentSize = bookmarkView.view.frame.size;
+    self.popoverControler.popoverContentSize = [self popoverSize];
     UIButton *button = sender;
     UIView *superView = button.superview;
     [self.popoverControler presentPopoverFromRect:superView.frame
@@ -205,16 +205,15 @@ const CGFloat ribbonDefaultHiddeY = 70;
 #pragma mark -
 #pragma mark - Private methods 
 
-- (CGRect)popoverSize {
-    CGPoint origin = CGPointZero;
+- (CGSize)popoverSize {
     CGSize size = CGSizeZero;
     if (isIphone()) {
-        size = CGSizeMake(320, 400);
+        size = CGSizeMake(320, 200);
     } else {
-        size = CGSizeMake(320, 400);
+        size = CGSizeMake(518, 400);
     }
     
-    return CGRectMake(origin.x, origin.y, size.width, size.height);
+    return size;
 }
 
 
