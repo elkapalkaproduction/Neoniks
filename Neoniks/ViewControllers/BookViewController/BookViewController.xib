@@ -22,17 +22,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view hidden="YES" contentMode="scaleToFill" id="9b2-5T-NXV">
-                    <rect key="frame" x="497" y="-162" width="71" height="162"/>
+                    <rect key="frame" x="497" y="-240" width="71" height="240"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ribbon.png" id="VWQ-y1-6ez">
-                            <rect key="frame" x="0.0" y="-10" width="71" height="129"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <rect key="frame" x="0.0" y="0.0" width="71" height="200"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Od7-OF-MGA">
-                            <rect key="frame" x="12" y="78" width="45" height="24"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            <rect key="frame" x="12" y="137" width="45" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="exit_eng.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -41,8 +41,8 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jst-nC-PSG">
-                            <rect key="frame" x="12" y="6" width="45" height="24"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            <rect key="frame" x="12" y="20" width="45" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="table_of_content_eng.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -51,8 +51,8 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wTT-Wo-lAB">
-                            <rect key="frame" x="12" y="58" width="45" height="24"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            <rect key="frame" x="12" y="98" width="45" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="bookmark_eng.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -61,8 +61,8 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GEK-ls-hlb">
-                            <rect key="frame" x="12" y="32" width="45" height="24"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            <rect key="frame" x="12" y="59" width="45" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="all_bookmarks_eng.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>

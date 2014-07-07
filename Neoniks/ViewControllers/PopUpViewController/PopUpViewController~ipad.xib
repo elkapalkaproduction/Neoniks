@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpViewController">
             <connections>
                 <outlet property="contentView" destination="lJY-fK-WFa" id="Qjr-39-e7S"/>
+                <outlet property="crossButton" destination="jHQ-UZ-S0S" id="9Us-qH-EfK"/>
                 <outlet property="galleryButton" destination="pgJ-Pc-ct5" id="3ot-pB-KAw"/>
                 <outlet property="leftButton" destination="2K1-s9-b6m" id="GJU-5c-ZBT"/>
                 <outlet property="popUpArtImage" destination="yqh-Sc-8da" id="i6q-8V-rvI"/>

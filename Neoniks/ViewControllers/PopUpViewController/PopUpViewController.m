@@ -13,6 +13,7 @@
 @interface PopUpViewController ()
 
 @property (strong, nonatomic) IBOutlet UIButton *galleryButton;
+@property (strong, nonatomic) IBOutlet UIButton *crossButton;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIImageView *popUpBackground;
 @property (weak, nonatomic) IBOutlet UIImageView *popUpTitle;
@@ -35,7 +36,12 @@
 #pragma mark - LifeCycle
 
 - (id)initWithPageNumber:(PopUpParameters *)param delegate:(id)aDeletegate {
-    self = [super init];
+    if (isIphone5()) {
+        self = [super initWithNibName:@"PopUpViewController5" bundle:nil];
+
+    } else {
+        self = [super init];
+    }
     if (self) {
         _curentPage = param.curentPage;
         _fromRightToLeft = param.fromRightToLeft;
@@ -52,6 +58,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     if (self.isInitialView) {
         self.contentView.alpha = 0;
     } else {
@@ -70,6 +77,10 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self startAnimation];
+    if ([self isContributorsPage]) {
+        [self adjustControllerForContributorsPage];
+    }
+
 }
 
 
@@ -140,7 +151,7 @@
 
 
 - (BOOL)isContributorsPage {
-    return self.curentPage == 24; //&& self.curentPage != 25;
+    return self.curentPage == 24;
 }
 
 
@@ -148,13 +159,11 @@
     CGRect screenRect = [UIScreen mainScreen].bounds;
     CGSize screenSize = CGSizeMake(CGRectGetHeight(screenRect), CGRectGetWidth(screenRect));
     changeSize(screenSize, self.view);
+
     [self setupNextPages];
     [self setupImages];
     self.leftButton.hidden = self.prevPage == 0;
     self.rightButton.hidden = self.nextPage == 0;
-    if ([self isContributorsPage]) {
-        self.popUpBackground.image = [UIImage imageNamed:@"fon_contributors"];
-    }
 }
 
 
@@ -193,6 +202,20 @@
         [self.view setHidden:NO];
         [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView];
     }
+}
+
+
+- (void)adjustControllerForContributorsPage {
+    self.popUpBackground.image = [UIImage contributorsBackgroundImage];
+    CGFloat crossX = CGRectGetWidth(self.view.frame) - 10 - CGRectGetWidth(self.crossButton.frame);
+    changePositon(CGPointMake(crossX, 10), self.crossButton);
+
+    if (!isIphone()) return;
+    
+    CGFloat popUpTitleX = CGRectGetWidth(self.view.frame) / 2 - CGRectGetWidth(self.popUpTitle.frame) / 2;
+    changePositon(CGPointMake(popUpTitleX, 37), self.popUpTitle);
+    self.textImage.center = self.view.center;
+
 }
 
 @end

@@ -41,7 +41,13 @@ NSString *const namedBookmarksRus = @"namedBookmarksRus";
         [bookmarks addObject:@(page)];
         ChaptersCollection *collection = [[ChaptersCollection alloc] init];
         PageDetails *pageDetails = [collection pageDetailsForNumber:page];
-        NSString *string = [[NSString alloc] initWithFormat:@"Chapter: %d Page: %d", pageDetails.chapter, page * 2 - 1];
+        NSString *unformattedString;
+        if (isRussian()) {
+            unformattedString = @"Глава: %d Страница: %d";
+        } else {
+            unformattedString = @"Chapter: %d Page: %d";
+        }
+        NSString *string = [[NSString alloc] initWithFormat:unformattedString, pageDetails.chapter, page * 2 - 1];
         [self updateNameStringForPage:page andName:string];
     }
     [[NSUserDefaults standardUserDefaults] setObject:bookmarks forKey:[self getKey]];

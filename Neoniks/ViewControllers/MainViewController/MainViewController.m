@@ -80,9 +80,14 @@
         param.fromRightToLeft = prev;
         self.popUpViewController = [[PopUpViewController alloc] initWithPageNumber:param delegate:self];
         [self.view addSubview:self.popUpViewController.view];
-        [self.view bringSubviewToFront:self.readBookView];
+        if (pageToShow != 24) {
+            [self.view bringSubviewToFront:self.readBookView];
+
+        }
         if (pageToShow == 24) {
+            [self.view bringSubviewToFront:self.shadowView];
             [self.view bringSubviewToFront:self.site];
+            [self.view bringSubviewToFront:self.popUpViewController.view];
         }
         
     }
@@ -161,17 +166,13 @@
 
 - (void)updateImagesPosition {
     [self updateLanguage];
+    CGPoint onCakeOrigin = CGPointMake(41, 0);
     NSString *backgroundImageName = @"MainViewControllerBackground.png";
     if (isIphone5()) {
         backgroundImageName = @"MainViewControllerBackground5.png";
+        onCakeOrigin.x = 88;
     }
     self.backgroundImage.image = [UIImage imageNamed:backgroundImageName];
-    CGPoint onCakeOrigin = CGPointMake(41, 0);
-    if (isIphone5()) {
-        onCakeOrigin.x = 88;
-    } else {
-//        moveViewHorizontalyWith(-30, self.foamCasttleButton);
-    }
     changePositon(onCakeOrigin, self.onCakeView);
 }
 

@@ -12,5 +12,6 @@
 
 + (UIImage *)imageWithName:(NSString *)name;
 + (UIImage *)imageWithLocalizedName:(NSString *)name;
++ (UIImage *)contributorsBackgroundImage;
 
 @end
