@@ -10,7 +10,7 @@
 #import "PopUpViewController.h"
 #import "MagicWorldViewController.h"
 #import "BookViewController.h"
-#import "ContentOfBookViewController.h"
+#import "TableOfContentsViewController.h"
 #import "Utils.h"
 
 @interface MainViewController () <PopUpDelegate, MagicWorldDelegate>

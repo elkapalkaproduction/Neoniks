@@ -36,13 +36,13 @@
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="5_popup_art.png" translatesAutoresizingMaskIntoConstraints="NO" id="0fr-3g-bWo">
-                            <rect key="frame" x="213" y="87" width="224" height="208"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="14_popup_art.png" translatesAutoresizingMaskIntoConstraints="NO" id="0fr-3g-bWo">
+                            <rect key="frame" x="190" y="60" width="272" height="254"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="5_text_eng.png" translatesAutoresizingMaskIntoConstraints="NO" id="ULq-PY-dcK">
-                            <rect key="frame" x="161" y="58" width="329" height="200"/>
+                            <rect key="frame" x="141" y="69" width="365" height="222"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRC-bA-ym5">
@@ -67,7 +67,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PG7-11-Un4" userLabel="Button - right">
-                            <rect key="frame" x="497" y="109" width="67" height="80"/>
+                            <rect key="frame" x="495" y="115" width="67" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" image="right.png">
@@ -78,7 +78,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eD-fs-QG4" userLabel="Button - left">
-                            <rect key="frame" x="77" y="109" width="67" height="80"/>
+                            <rect key="frame" x="78" y="115" width="67" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" image="left.png">
@@ -99,8 +99,8 @@
         </view>
     </objects>
     <resources>
+        <image name="14_popup_art.png" width="1148" height="1070"/>
         <image name="23_title_eng.png" width="662" height="186"/>
-        <image name="5_popup_art.png" width="1148" height="1070"/>
         <image name="5_text_eng.png" width="1148" height="698"/>
         <image name="cross.png" width="46" height="46"/>
         <image name="fon_pop_up_window_5.png" width="1136" height="640"/>

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Andrei Vidrasco. All rights reserved.
 //
 
-#import "ContentOfBookViewController.h"
+#import "TableOfContentsViewController.h"
 #import "UIButton+Helps.h"
 #import "UIImage+Helps.h"
 #import "NSURL+Helps.h"
@@ -16,7 +16,7 @@
 #import "BookmarksManager.h"
 #import "ChaptersCollection.h"
 
-@interface ContentOfBookViewController ()
+@interface TableOfContentsViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *chapters;
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation ContentOfBookViewController
+@implementation TableOfContentsViewController
 
 #pragma mark -
 #pragma mark - ViewCycle
@@ -34,12 +34,6 @@
     
     [super viewWillAppear:animated];
     [self setupView];
-}
-
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self startAnimation];
 }
 
 
@@ -59,18 +53,12 @@
 #pragma mark - IBActions
 
 - (IBAction)close:(id)sender {
-    [Utils animationForAppear:NO fromRight:YES forView:self.contentView];
-    [self performSelector:@selector(close) withObject:nil afterDelay:kAnimationHide];
+    [self.delegate close];
 }
 
 
 #pragma mark -
 #pragma mark - Private Methods
-
-- (void)close {
-    [self.delegate close];
-}
-
 
 - (void)setupView {
     CGRect screenRect = [UIScreen mainScreen].bounds;
@@ -99,13 +87,6 @@
     [[BookmarksManager sharedManager] setLastOpen:chapterSelected];
     [self close:nil];
     [self.delegate relaod];
-}
-
-
-- (void)startAnimation {
-    [self.view setHidden:NO];
-    [Utils animationForAppear:YES fromRight:NO forView:self.contentView];
-
 }
 
 @end

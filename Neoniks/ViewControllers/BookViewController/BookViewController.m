@@ -14,7 +14,7 @@
 #import "UIPopoverController+iPhone.h"
 #import "BookmarksManager.h"
 #import "AllBookmarsViewController.h"
-#import "ContentOfBookViewController.h"
+#import "TableOfContentsViewController.h"
 #import "ChaptersCollection.h"
 
 const CGFloat ribbonAnimationDuration = 1.f;
@@ -32,7 +32,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
 @property (strong, nonatomic) IBOutlet UIView *bottomView;
 @property (strong, nonatomic) IBOutlet UIView *ribbonView;
 
-@property (strong, nonatomic) ContentOfBookViewController *bookViewController;
+@property (strong, nonatomic) TableOfContentsViewController *bookViewController;
 @property (strong, nonatomic) UIPopoverController *popoverControler;
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) ChaptersCollection *collection;
@@ -84,7 +84,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
 
 
 - (void)close {
-    [self.bookViewController.view removeFromSuperview];
+    [self.bookViewController dismissViewControllerAnimated:YES completion:NULL];
     self.bookViewController = nil;
 
 }
@@ -107,9 +107,9 @@ const CGFloat ribbonDefaultHiddeY = 70;
 }
 
 
-- (ContentOfBookViewController *)bookViewController {
+- (TableOfContentsViewController *)bookViewController {
     if (!_bookViewController) {
-        _bookViewController = [[ContentOfBookViewController alloc] init];
+        _bookViewController = [[TableOfContentsViewController alloc] init];
     }
     
     return _bookViewController;
@@ -121,7 +121,8 @@ const CGFloat ribbonDefaultHiddeY = 70;
 
 - (IBAction)chapters:(id)sender {
     self.bookViewController.delegate = self;
-    [self.view addSubview:self.bookViewController.view];
+    [self presentViewController:self.bookViewController animated:YES completion:NULL];
+//    [self.view addSubview:self.bookViewController.view];
 
 }
 
