@@ -77,6 +77,8 @@
     [self startAnimation];
     if ([self isContributorsPage]) {
         [self adjustControllerForContributorsPage];
+    } else if ([self isWillPowerPage]) {
+        [self adjustControllerForWillPowerPage];
     }
 }
 
@@ -152,6 +154,11 @@
 }
 
 
+- (BOOL)isWillPowerPage {
+    return self.curentPage == 11;
+}
+
+
 - (void)setupView {
     CGRect screenRect = [UIScreen mainScreen].bounds;
     CGSize screenSize = CGSizeMake(CGRectGetHeight(screenRect), CGRectGetWidth(screenRect));
@@ -198,10 +205,17 @@
 }
 
 
+- (void)adjustControllerForWillPowerPage {
+    self.textImage.frame = self.popUpArtImage.frame;
+    
+}
+
+
 - (void)adjustControllerForContributorsPage {
     self.popUpBackground.image = [UIImage contributorsBackgroundImage];
-    CGFloat crossX = CGRectGetWidth(self.view.frame) - 10 - CGRectGetWidth(self.crossButton.frame);
-    changePositon(CGPointMake(crossX, 10), self.crossButton);
+    NSInteger distanceFromBorders = 20;
+    CGFloat crossX = CGRectGetWidth(self.view.frame) - distanceFromBorders - CGRectGetWidth(self.crossButton.frame);
+    changePositon(CGPointMake(crossX, distanceFromBorders), self.crossButton);
 
     if (!isIphone()) return;
 
