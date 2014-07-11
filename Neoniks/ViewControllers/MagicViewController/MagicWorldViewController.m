@@ -32,7 +32,7 @@
         _delegate = aDeleagate;
         _fromRightToLeft = aBool;
     }
-    
+
     return self;
 }
 
@@ -63,7 +63,6 @@
 - (IBAction)right:(id)sender {
     [self hideAnimationToRight];
     [self performSelector:@selector(righttWithDelay) withObject:nil afterDelay:kAnimationHide];
-    
 }
 
 
@@ -123,7 +122,7 @@
     CGSize screenSize = CGSizeMake(CGRectGetHeight(screenRect), CGRectGetWidth(screenRect));
     changeSize(screenSize, self.view);
     self.popUpTitle.image = [UIImage imageWithName:@"29_title"];
-    
+
     NSDictionary *frames = [NSDictionary dictionaryWithContentsOfURL:[NSURL urlForFrames]];
     for (NSString *key in frames) {
         NSDictionary *dict = @{@"tag" : key,
@@ -133,7 +132,6 @@
         MagicWorldPortrait *portrait = [[MagicWorldPortrait instantiate] initWithDict:dict];
         [self.contentView addSubview:portrait];
     }
-
 }
 
 

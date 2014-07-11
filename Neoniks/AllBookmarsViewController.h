@@ -17,6 +17,6 @@
 
 @interface AllBookmarsViewController : UIViewController
 
-@property (weak, nonatomic) id<AllBookmarksDelegate> delegate;
+@property (weak, nonatomic) id <AllBookmarksDelegate> delegate;
 
 @end

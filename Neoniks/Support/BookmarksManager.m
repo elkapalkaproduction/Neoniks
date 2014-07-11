@@ -25,9 +25,9 @@ NSString *const namedBookmarksRus = @"namedBookmarksRus";
     static BookmarksManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
-    });
-    
+                      sharedMyManager = [[self alloc] init];
+                  });
+
     return sharedMyManager;
 }
 
@@ -65,9 +65,8 @@ NSString *const namedBookmarksRus = @"namedBookmarksRus";
     if (!bookmarks) {
         return NO;
     }
-    
-    return [bookmarks containsObject:@(page)];
 
+    return [bookmarks containsObject:@(page)];
 }
 
 
@@ -77,7 +76,6 @@ NSString *const namedBookmarksRus = @"namedBookmarksRus";
     [bookmarks setObject:name forKey:[self generateKeyFromInt:page]];
     [[NSUserDefaults standardUserDefaults] setObject:bookmarks forKey:[self namedKey]];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
 }
 
 
@@ -88,7 +86,7 @@ NSString *const namedBookmarksRus = @"namedBookmarksRus";
 
 - (NSString *)nameStringForPage:(NSInteger)page {
     NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] objectForKey:[self namedKey]];
-    
+
     return dictionary[[self generateKeyFromInt:page]];
 }
 
@@ -99,18 +97,17 @@ NSString *const namedBookmarksRus = @"namedBookmarksRus";
 
 
 - (void)setLastOpen:(NSInteger)last {
-
     [[NSUserDefaults standardUserDefaults] setObject:@(last) forKey:[self getLastPageKey]];
 }
 
 
 - (NSInteger)lastOpen {
     NSString *key = [self getLastPageKey];
- 
+
     if (![[NSUserDefaults standardUserDefaults] objectForKey:key]) {
         [[NSUserDefaults standardUserDefaults] setObject:@(1) forKey:key];
     }
-    
+
     return [[[NSUserDefaults standardUserDefaults] objectForKey:key] integerValue];
 }
 
@@ -120,7 +117,7 @@ NSString *const namedBookmarksRus = @"namedBookmarksRus";
     if (isRussian()) {
         key = allBookmarksRus;
     }
-    
+
     return key;
 }
 
@@ -130,7 +127,7 @@ NSString *const namedBookmarksRus = @"namedBookmarksRus";
     if (isRussian()) {
         key = lastOpenPageKeyRus;
     }
-    
+
     return key;
 }
 
@@ -140,9 +137,8 @@ NSString *const namedBookmarksRus = @"namedBookmarksRus";
     if (isRussian()) {
         key = namedBookmarksRus;
     }
-    
-    return key;
 
+    return key;
 }
 
 @end

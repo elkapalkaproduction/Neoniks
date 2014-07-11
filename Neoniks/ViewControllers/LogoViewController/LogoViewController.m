@@ -35,7 +35,7 @@
     [super viewDidLoad];
     [self updateImages];
     [self shortAnimation];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
 }
 
 
@@ -55,96 +55,85 @@
         moveViewHorizontalyWith(30, self.foamCasttleButton);
     }
     changePositon(onCakeOrigin, self.onCakeView);
-    
 }
 
 
 - (void)shortAnimation {
     float timeInterval = 1.f;
     [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
-        _logoImageView.alpha = 1.f;
-    } completion:^(BOOL finished) {
-        MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-        [[self navigationController] pushViewController:viewController animated:NO];
-    }];
-    
+         _logoImageView.alpha = 1.f;
+     } completion:^(BOOL finished) {
+         MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+         [[self navigationController] pushViewController:viewController animated:NO];
+     }];
 }
 
 
 - (void)longAnimation {
     float timeInterval = 1.f;
-    
+
     [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
-        _logoImageView.alpha = 1.f;
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
-            _logoImageView.alpha = 0.f;
-        } completion:^(BOOL finished) {
-            [[AudioPlayer sharedPlayer] play];
-            [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
-                _islandImageView.alpha = 1.f;
-                _waterfallImageView.alpha = 1.f;
-            } completion:^(BOOL finished) {
-                [UIView animateWithDuration:timeInterval*0.75f animations:^{
-                    for (UIImageView *img in _onCake) {
-                        if (img.tag == 1) img.alpha = 1.f;
-                    }
-                } completion:^(BOOL finished) {
-                    [UIView animateWithDuration:timeInterval*0.75f animations:^{
+         _logoImageView.alpha = 1.f;
+     } completion:^(BOOL finished) {
+         [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
+              _logoImageView.alpha = 0.f;
+          } completion:^(BOOL finished) {
+              [[AudioPlayer sharedPlayer] play];
+              [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
+                   _islandImageView.alpha = 1.f;
+                   _waterfallImageView.alpha = 1.f;
+               } completion:^(BOOL finished) {
+                   [UIView animateWithDuration:timeInterval * 0.75f animations:^{
                         for (UIImageView *img in _onCake) {
-                            if (img.tag == 2) img.alpha = 1.f;
+                            if (img.tag == 1) img.alpha = 1.f;
                         }
                     } completion:^(BOOL finished) {
-                        [UIView animateWithDuration:timeInterval*0.75f animations:^{
-                            for (UIImageView *img in _onCake) {
-                                if (img.tag == 3) img.alpha = 1.f;
-                            }
-                        } completion:^(BOOL finished) {
-                            [UIView animateWithDuration:timeInterval / 5 animations:^{
-                                _leftSide1.alpha = 1.f;
-                            } completion:^(BOOL finished) {
-                                [UIView animateWithDuration:timeInterval / 5 animations:^{
-                                    _leftSide2.alpha = 1.f;
-                                } completion:^(BOOL finished) {
-                                    [UIView animateWithDuration:timeInterval / 5 animations:^{
-                                        _leftSide3.alpha = 1.f;
-                                    } completion:^(BOOL finished) {
-                                        [UIView animateWithDuration:timeInterval / 5 animations:^{
-                                            _leftSide4.alpha = 1.f;
+                        [UIView animateWithDuration:timeInterval * 0.75f animations:^{
+                             for (UIImageView *img in _onCake) {
+                                 if (img.tag == 2) img.alpha = 1.f;
+                             }
+                         } completion:^(BOOL finished) {
+                             [UIView animateWithDuration:timeInterval * 0.75f animations:^{
+                                  for (UIImageView *img in _onCake) {
+                                      if (img.tag == 3) img.alpha = 1.f;
+                                  }
+                              } completion:^(BOOL finished) {
+                                  [UIView animateWithDuration:timeInterval / 5 animations:^{
+                                       _leftSide1.alpha = 1.f;
+                                   } completion:^(BOOL finished) {
+                                       [UIView animateWithDuration:timeInterval / 5 animations:^{
+                                            _leftSide2.alpha = 1.f;
                                         } completion:^(BOOL finished) {
                                             [UIView animateWithDuration:timeInterval / 5 animations:^{
-                                                _leftSide5.alpha = 1.f;
-                                            } completion:^(BOOL finished) {
-                                                [UIView animateWithDuration:timeInterval / 2 animations:^{
-                                                    _languageButton.alpha = 1.f;
-                                                } completion:^(BOOL finished) {
-                                                    [UIView animateWithDuration:timeInterval / 2 animations:^{
-                                                        _pageTitleButton.alpha = 1.f;
-                                                    } completion:^(BOOL finished) {
-                                                        MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-                                                        [[self navigationController] pushViewController:viewController animated:NO];
-                                                    }];
-                                                    
-                                                }];
-                                                
-                                            }];
-                                            
+                                                 _leftSide3.alpha = 1.f;
+                                             } completion:^(BOOL finished) {
+                                                 [UIView animateWithDuration:timeInterval / 5 animations:^{
+                                                      _leftSide4.alpha = 1.f;
+                                                  } completion:^(BOOL finished) {
+                                                      [UIView animateWithDuration:timeInterval / 5 animations:^{
+                                                           _leftSide5.alpha = 1.f;
+                                                       } completion:^(BOOL finished) {
+                                                           [UIView animateWithDuration:timeInterval / 2 animations:^{
+                                                                _languageButton.alpha = 1.f;
+                                                            } completion:^(BOOL finished) {
+                                                                [UIView animateWithDuration:timeInterval / 2 animations:^{
+                                                                    _pageTitleButton.alpha = 1.f;
+                                                                } completion:^(BOOL finished) {
+                                                                    MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+                                                                    [[self navigationController] pushViewController:viewController animated:NO];
+                                                                }];
+                                                            }];
+                                                       }];
+                                                  }];
+                                             }];
                                         }];
-                                        
-                                    }];
-                                    
-                                }];
-                                
-                            }];
-                        }];
+                                   }];
+                              }];
+                         }];
                     }];
-                    
-                }];
-                
-            }];
-        }];
-    }];
-    
+               }];
+          }];
+     }];
 }
 
 @end

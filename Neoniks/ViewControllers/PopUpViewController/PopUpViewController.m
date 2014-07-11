@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *popUpArtImage;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
-@property (weak, nonatomic) id<PopUpDelegate> delegate;
+@property (weak, nonatomic) id <PopUpDelegate> delegate;
 @property (assign, nonatomic) BOOL fromRightToLeft;
 @property (assign, nonatomic) NSInteger curentPage;
 @property (assign, nonatomic) BOOL isInitialView;
@@ -38,7 +38,6 @@
 - (id)initWithPageNumber:(PopUpParameters *)param delegate:(id)aDeletegate {
     if (isIphone5()) {
         self = [super initWithNibName:@"PopUpViewController5" bundle:nil];
-
     } else {
         self = [super init];
     }
@@ -48,7 +47,7 @@
         _isInitialView = param.isInitialView;
         _delegate = aDeletegate;
     }
-    
+
     return self;
 }
 
@@ -68,7 +67,6 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
-    
     [super viewWillAppear:animated];
     [self setupView];
 }
@@ -80,7 +78,6 @@
     if ([self isContributorsPage]) {
         [self adjustControllerForContributorsPage];
     }
-
 }
 
 
@@ -174,24 +171,20 @@
     NSDictionary *curentPage = allPages[nextPagesKey];
     self.nextPage = [curentPage[@"nextPage"] intValue];
     self.prevPage = [curentPage[@"previousPage"] intValue];
-    self.galleryButton.hidden = YES;//![curentPage[@"isCharacter"] boolValue];
-
-
+    self.galleryButton.hidden = YES; //![curentPage[@"isCharacter"] boolValue];
 }
 
 
 - (void)setupImages {
     NSString *popupImageName = [NSString stringWithFormat:@"%d_popup_art", self.curentPage];
     self.popUpArtImage.image = [UIImage imageWithLocalizedName:popupImageName];
-    
+
     [self.galleryButton setImage:[UIImage imageWithName:@"gallery"]];
     NSString *popupTitleName = [NSString stringWithFormat:@"%d_title", self.curentPage];
     self.popUpTitle.image = [UIImage imageWithName:popupTitleName];
-    
+
     NSString *popupTextImage = [NSString stringWithFormat:@"%d_text", self.curentPage];
     self.textImage.image = [UIImage imageWithName:popupTextImage];
-
-    
 }
 
 
@@ -211,11 +204,10 @@
     changePositon(CGPointMake(crossX, 10), self.crossButton);
 
     if (!isIphone()) return;
-    
+
     CGFloat popUpTitleX = CGRectGetWidth(self.view.frame) / 2 - CGRectGetWidth(self.popUpTitle.frame) / 2;
     changePositon(CGPointMake(popUpTitleX, 37), self.popUpTitle);
     self.textImage.center = self.view.center;
-
 }
 
 @end

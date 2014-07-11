@@ -82,14 +82,12 @@
         [self.view addSubview:self.popUpViewController.view];
         if (pageToShow != 24) {
             [self.view bringSubviewToFront:self.readBookView];
-
         }
         if (pageToShow == 24) {
             [self.view bringSubviewToFront:self.shadowView];
             [self.view bringSubviewToFront:self.site];
             [self.view bringSubviewToFront:self.popUpViewController.view];
         }
-        
     }
 }
 
@@ -111,7 +109,7 @@
 - (IBAction)goToBook:(id)sender {
     BookViewController *bookViewController = [[BookViewController alloc] init];
     [[AudioPlayer sharedPlayer] pause];
-    
+
     [self presentViewController:bookViewController animated:YES completion:NULL];
 }
 

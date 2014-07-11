@@ -15,6 +15,6 @@
 @end
 
 @interface TableOfContentsViewController : UIViewController
-@property (weak, nonatomic) id<ContentOfBookDelegate> delegate;
+@property (weak, nonatomic) id <ContentOfBookDelegate> delegate;
 
 @end

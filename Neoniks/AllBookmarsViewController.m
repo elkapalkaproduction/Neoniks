@@ -26,7 +26,7 @@
     if (!_collection) {
         _collection = [[ChaptersCollection alloc] init];
     }
-    
+
     return _collection;
 }
 
@@ -35,7 +35,7 @@
     if (!_allBookmarks) {
         _allBookmarks = [[BookmarksManager sharedManager] allBookmarks];
     }
-    
+
     return _allBookmarks;
 }
 
@@ -57,7 +57,7 @@
     cell.delegate = self;
     cell.textField.text = string;
     cell.pageNumber = pageNumber;
-    
+
     return cell;
 }
 

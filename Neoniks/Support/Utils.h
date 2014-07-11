@@ -15,9 +15,8 @@ UIKIT_EXTERN NSString *const kLanguage;
 UIKIT_EXTERN NSString *const kRussianLanguageTag;
 UIKIT_EXTERN NSString *const kEnglishLanguageTag;
 
-
 #define kAnimationDuration 1
-#define kAnimationHide kAnimationDuration/1.9
+#define kAnimationHide kAnimationDuration / 1.9
 
 @interface Utils : NSObject
 
@@ -42,7 +41,6 @@ BOOL isIphone();
 
 BOOL isRussian();
 BOOL isEnglish();
-
 
 void setRussianLanguage();
 void setEnglishLanguage();

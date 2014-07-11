@@ -24,22 +24,21 @@
         ChapterDetails *details = [[ChapterDetails alloc] initWithDictionary:tmpChapters[i]];
         [tmpMutableChapters addObject:details];
     }
-    
+
     return [NSArray arrayWithArray:tmpMutableChapters];
 }
 
 
 - (NSArray *)setupChaptersEng {
     NSURL *chaptersUrl = [NSURL urlFromLocalizedName:@"chapters_eng" extension:@"plist"];
-    
+
     return [self setupChapter:chaptersUrl];
-    
 }
 
 
 - (NSArray *)setupChaptersRus {
     NSURL *chaptersUrl = [NSURL urlFromLocalizedName:@"chapters_rus" extension:@"plist"];
-    
+
     return [self setupChapter:chaptersUrl];
 }
 
@@ -48,7 +47,7 @@
     if (!_chaptersEng) {
         _chaptersEng = [self setupChaptersEng];
     }
-    
+
     return _chaptersEng;
 }
 
@@ -57,7 +56,7 @@
     if (!_chaptersRus) {
         _chaptersRus = [self setupChaptersRus];
     }
-    
+
     return _chaptersRus;
 }
 
@@ -68,16 +67,15 @@
     } else if (isEnglish()) {
         return self.chaptersEng;
     }
-    
+
     return nil;
 }
 
 
 - (NSInteger)numberOfChapters {
     NSArray *chapters = [self chapters];
-    
-    return [chapters count];
 
+    return [chapters count];
 }
 
 
@@ -87,15 +85,14 @@
     for (ChapterDetails *details in chapters) {
         number += details.numberOfPages;
     }
-    
+
     return number;
 }
 
 
 - (ChapterDetails *)chapterNumber:(NSInteger)number {
-    
     NSArray *chapters = [self chapters];
-    
+
     return chapters[number];
 }
 
@@ -111,7 +108,7 @@
     for (int i = 0; i < chapter; i++) {
         number += [self numberOfPagesInChapter:i];
     }
-    
+
     return number;
 }
 
@@ -119,13 +116,13 @@
 - (PageDetails *)pageDetailsForNumber:(NSInteger)number {
     NSInteger chapter = 0;
     NSInteger page = number;
-    
+
     while ([self numberOfPagesInChapter:chapter] < page) {
         page -= [self numberOfPagesInChapter:chapter];
         chapter++;
     }
     PageDetails *pageDetail = [[PageDetails alloc] initWithPage:page chapter:chapter + 1];
-    
+
     return pageDetail;
 }
 

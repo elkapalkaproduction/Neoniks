@@ -16,7 +16,7 @@
 @end
 
 @interface BookmarksTableViewCell : UITableViewCell
-@property (weak, nonatomic) id<BookmarksCellInteraction> delegate;
+@property (weak, nonatomic) id <BookmarksCellInteraction> delegate;
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (assign, nonatomic) NSInteger pageNumber;
 

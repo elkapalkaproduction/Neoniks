@@ -16,7 +16,7 @@
         _chapter = chapter;
         _page = page;
     }
-    
+
     return self;
 }
 

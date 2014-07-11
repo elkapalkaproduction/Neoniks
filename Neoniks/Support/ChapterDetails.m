@@ -16,7 +16,7 @@
         _numberOfPages = [dict[@"pages"] integerValue];
         _chapterName = dict[@"name"];
     }
-    
+
     return self;
 }
 

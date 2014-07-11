@@ -48,7 +48,6 @@ const CGFloat ribbonDefaultHiddeY = 70;
     [super viewDidLoad];
     [self setupSupportView];
     [self setupPageViewController];
-    
 }
 
 
@@ -79,14 +78,12 @@ const CGFloat ribbonDefaultHiddeY = 70;
        transitionCompleted:(BOOL)completed {
     [self isChangedPage];
     [self updateBookmarkInfo];
-    
 }
 
 
 - (void)close {
     [self.bookViewController dismissViewControllerAnimated:YES completion:NULL];
     self.bookViewController = nil;
-
 }
 
 
@@ -95,14 +92,14 @@ const CGFloat ribbonDefaultHiddeY = 70;
 }
 
 
-#pragma mark - 
+#pragma mark -
 #pragma mark - Accesors
 
 - (ChaptersCollection *)collection {
     if (!_collection) {
         _collection = [[ChaptersCollection alloc] init];
     }
-    
+
     return _collection;
 }
 
@@ -111,7 +108,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
     if (!_bookViewController) {
         _bookViewController = [[TableOfContentsViewController alloc] init];
     }
-    
+
     return _bookViewController;
 }
 
@@ -123,7 +120,6 @@ const CGFloat ribbonDefaultHiddeY = 70;
     self.bookViewController.delegate = self;
     [self presentViewController:self.bookViewController animated:YES completion:NULL];
 //    [self.view addSubview:self.bookViewController.view];
-
 }
 
 
@@ -182,10 +178,12 @@ const CGFloat ribbonDefaultHiddeY = 70;
     CGFloat translatedYPoint = [sender translationInView:self.view].y;
     UIView *ribbon = [sender view];
     switch ([sender state]) {
-        case UIGestureRecognizerStateBegan:
+        case UIGestureRecognizerStateBegan: {
             self.firstY = ribbon.center.y;
             break;
-        case UIGestureRecognizerStateEnded:{
+        }
+
+        case UIGestureRecognizerStateEnded: {
             CGFloat velocityY = (0.2 * [sender velocityInView:self.view].y);
             CGFloat finalY = translatedYPoint + velocityY;
             finalY = finalY < 0 ? ribbonDefaultHiddeY - CGRectGetHeight(ribbon.frame) : 0;
@@ -193,18 +191,20 @@ const CGFloat ribbonDefaultHiddeY = 70;
                 [[NSUserDefaults standardUserDefaults] setInteger:requiredNumberOfShowRibbonAnimated forKey:numberOfRibbonShowed];
             }
             [UIView animateWithDuration:0.4 animations:^{
-                setYFor(finalY, ribbon);
-            }];
+                 setYFor(finalY, ribbon);
+             }];
             break;
         }
-        default:
+
+        default: {
             break;
+        }
     }
 }
 
 
 #pragma mark -
-#pragma mark - Private methods 
+#pragma mark - Private methods
 
 - (CGSize)popoverSize {
     CGSize size = CGSizeZero;
@@ -213,7 +213,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
     } else {
         size = CGSizeMake(518, 400);
     }
-    
+
     return size;
 }
 
@@ -227,24 +227,25 @@ const CGFloat ribbonDefaultHiddeY = 70;
     if (numberOfShows == requiredNumberOfShowRibbonAnimated) {
         CGFloat duration = (ribbonDefaultHiddeY / ribbonHeight) * ribbonAnimationDuration;
         [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-            setYFor(finalY, self.ribbonView);
-        } completion:^(BOOL finished) {
-            setYFor(finalY, self.ribbonView);
-        }];
+             setYFor(finalY, self.ribbonView);
+         } completion:^(BOOL finished) {
+             setYFor(finalY, self.ribbonView);
+         }];
+
         return;
     }
     numberOfShows++;
     [[NSUserDefaults standardUserDefaults] setInteger:numberOfShows forKey:numberOfRibbonShowed];
-    
+
     [UIView animateWithDuration:ribbonAnimationDuration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        setYFor(0, self.ribbonView);
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:reverseDuration delay:ribbonAnimationDuration / 3 options:UIViewAnimationOptionCurveLinear animations:^{
-            setYFor(finalY, self.ribbonView);
-        } completion:^(BOOL finished) {
-            setYFor(finalY, self.ribbonView);
-        }];
-    }];
+         setYFor(0, self.ribbonView);
+     } completion:^(BOOL finished) {
+         [UIView animateWithDuration:reverseDuration delay:ribbonAnimationDuration / 3 options:UIViewAnimationOptionCurveLinear animations:^{
+              setYFor(finalY, self.ribbonView);
+          } completion:^(BOOL finished) {
+              setYFor(finalY, self.ribbonView);
+          }];
+     }];
 }
 
 
@@ -257,7 +258,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
     }
     ContentBookViewController *prevBook = [[ContentBookViewController alloc] initWithPage:prevCoord];
     prevBook.delegate = self;
-    
+
     return prevBook;
 }
 
@@ -265,7 +266,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
 - (PageDetails *)loadPreviousPage:(PageDetails *)pageDetail isPrevious:(NSInteger)prev {
     NSInteger pagePrevious = pageDetail.page + prev;
     NSInteger chapterPrevious = pageDetail.chapter;
-    
+
     if (pagePrevious > [self.collection chapterNumber:chapterPrevious - 1].numberOfPages) {
         chapterPrevious++;
         if (chapterPrevious - 1 < [self.collection numberOfChapters]) {
@@ -274,7 +275,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
             pagePrevious = 0;
             chapterPrevious = 0;
         }
-    } else if (pagePrevious < 1){
+    } else if (pagePrevious < 1) {
         chapterPrevious--;
         if (chapterPrevious > 0) {
             pagePrevious = [self.collection chapterNumber:chapterPrevious - 1].numberOfPages;
@@ -284,14 +285,14 @@ const CGFloat ribbonDefaultHiddeY = 70;
         }
     }
     PageDetails *page = [[PageDetails alloc] initWithPage:pagePrevious chapter:chapterPrevious];
-    
+
     return page;
 }
 
 
 - (PageDetails *)curentPageDetails {
     ContentBookViewController *contentBook = self.pageViewController.viewControllers[0];
-    
+
     return contentBook.currentPage;
 }
 
@@ -310,7 +311,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
     self.pageViewController.delegate = self;
     NSInteger lastOpenPage = [[BookmarksManager sharedManager] lastOpen];
     PageDetails *page = [self.collection pageDetailsForNumber:lastOpenPage];
-    
+
     ContentBookViewController *firsPge = [[ContentBookViewController alloc] initWithPage:page];
     firsPge.delegate = self;
     [self.pageViewController.view setFrame:self.view.frame];
@@ -319,12 +320,11 @@ const CGFloat ribbonDefaultHiddeY = 70;
                                        animated:YES
                                      completion:nil];
     self.pageViewController.dataSource = self;
-    
+
     [self.view addSubview:self.pageViewController.view];
     [self.view sendSubviewToBack:self.pageViewController.view];
     [self isChangedPage];
     [self updateLanguage];
-
 }
 
 
@@ -337,16 +337,13 @@ const CGFloat ribbonDefaultHiddeY = 70;
     } else {
         [self.bookmarkPageButton setImage:[UIImage imageWithName:@"bookmark"]];
     }
-
 }
 
 
 - (void)isChangedPage {
-    PageDetails *curentPage = [self curentPageDetails];;
+    PageDetails *curentPage = [self curentPageDetails];
     NSInteger page = [self.collection numberForPageDetails:curentPage];
     self.sliderPreview.value = page;
-    
-    
 }
 
 
@@ -364,8 +361,6 @@ const CGFloat ribbonDefaultHiddeY = 70;
     [self.tableOfContentsButton setImage:[UIImage imageWithName:@"table_of_content"]];
     [self.allBookmarkButton setImage:[UIImage imageWithName:@"all_bookmarks"]];
     [self.exitButton setImage:[UIImage imageWithName:@"exit"]];
-
-
 }
 
 @end

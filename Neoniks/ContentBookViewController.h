@@ -16,7 +16,7 @@
 @interface ContentBookViewController : UIViewController
 - (instancetype)initWithPage:(PageDetails *)pageDetails;
 
-@property (weak, nonatomic) id<contentBookProtocol> delegate;
+@property (weak, nonatomic) id <contentBookProtocol> delegate;
 
 @property (strong, nonatomic) PageDetails *currentPage;
 

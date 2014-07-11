@@ -31,20 +31,19 @@
 #pragma mark - ViewCycle
 
 - (void)viewWillAppear:(BOOL)animated {
-    
     [super viewWillAppear:animated];
     [self setupView];
 }
 
 
-#pragma mark - 
+#pragma mark -
 #pragma mark - Custom Accesors
 
 - (ChaptersCollection *)collection {
     if (!_collection) {
         _collection = [[ChaptersCollection alloc] init];
     }
-    
+
     return _collection;
 }
 
@@ -66,12 +65,11 @@
     changeSize(screenSize, self.view);
     [self setupText];
     self.contentOfBookTitle.image = [UIImage imageWithName:@"25_title"];
-    
 }
 
 
 - (void)setupText {
-    for (int i = 0; i<[self.collection numberOfChapters]; i++) {
+    for (int i = 0; i < [self.collection numberOfChapters]; i++) {
         NSString *string = [self.collection chapterNumber:i].chapterName;
         UIButton *button = (UIButton *)self.chapters[i];
         [button setTitle:string forState:UIControlStateNormal];

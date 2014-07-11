@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Andrei Vidrasco. All rights reserved.
 //
 
-
 #import "Utils.h"
 
 NSString *const kLanguage = @"PreferedLanguage";
@@ -18,12 +17,12 @@ NSString *const kEnglishLanguageTag = @"en";
 + (void)animationForAppear:(BOOL)show forView:(UIView *)aView {
     if (show) {
         [UIView animateWithDuration:1 animations:^{
-            aView.alpha = 1.f;
-        }];
+             aView.alpha = 1.f;
+         }];
     } else {
         [UIView animateWithDuration:1 animations:^{
-            aView.alpha = 0.f;
-        }];
+             aView.alpha = 0.f;
+         }];
     }
 }
 
@@ -66,19 +65,19 @@ NSString *const kEnglishLanguageTag = @"en";
     CATransform3D layerTransform = CATransform3DIdentity;
     layerTransform.m34 = m34Value;
     adContentLayer.transform = layerTransform;
-    
+
     CABasicAnimation *rotationY = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
     rotationY.duration = kAnimationDuration;
     rotationY.fromValue = rotationYFromValue;
     rotationY.toValue = rotationYToValue;
     [adContentLayer addAnimation:rotationY forKey:@"transform.rotation.y"];
-    
+
     CABasicAnimation *translationX = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
     translationX.duration = kAnimationDuration;
     translationX.fromValue = rotationXFromValue;
     translationX.toValue = rotationXToValue;
     [adContentLayer addAnimation:translationX forKey:@"transform.translation.x"];
-    
+
     CABasicAnimation *translationZ = [CABasicAnimation animationWithKeyPath:@"transform.translation.z"];
     translationZ.duration = kAnimationDuration;
     translationZ.fromValue = rotationZFromValue;
@@ -90,10 +89,10 @@ NSString *const kEnglishLanguageTag = @"en";
 + (void)setupLanguage {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if (![userDefaults stringForKey:kLanguage]) {
-		NSString *preferredLanguage = [NSLocale preferredLanguages][0];
-		preferredLanguage = [preferredLanguage isEqualToString:kRussianLanguageTag] ? kRussianLanguageTag : kEnglishLanguageTag;
-		[userDefaults setObject:preferredLanguage forKey:kLanguage];
-	}
+        NSString *preferredLanguage = [NSLocale preferredLanguages][0];
+        preferredLanguage = [preferredLanguage isEqualToString:kRussianLanguageTag] ? kRussianLanguageTag : kEnglishLanguageTag;
+        [userDefaults setObject:preferredLanguage forKey:kLanguage];
+    }
 }
 
 
@@ -101,7 +100,6 @@ void changePositon(CGPoint point, UIView *view) {
     CGRect frame = view.frame;
     frame.origin = point;
     view.frame = frame;
-
 }
 
 
@@ -116,7 +114,6 @@ void setXFor(CGFloat x, UIView *view) {
     CGRect frame = view.frame;
     frame.origin.x = x;
     view.frame = frame;
-
 }
 
 
@@ -124,7 +121,6 @@ void setYFor(CGFloat y, UIView *view) {
     CGRect frame = view.frame;
     frame.origin.y = y;
     view.frame = frame;
-
 }
 
 
@@ -132,7 +128,6 @@ void changeWidth(CGFloat width, UIView *view) {
     CGRect frame = view.frame;
     frame.size.width = width;
     view.frame = frame;
-
 }
 
 
@@ -147,7 +142,6 @@ void moveViewHorizontalyWith(CGFloat x, UIView *view) {
     CGRect frame = view.frame;
     frame.origin.x += x;
     view.frame = frame;
-
 }
 
 
@@ -155,7 +149,6 @@ void moveViewVerticalyWith(CGFloat y, UIView *view) {
     CGRect frame = view.frame;
     frame.origin.y += y;
     view.frame = frame;
-
 }
 
 
@@ -166,7 +159,7 @@ BOOL isIphone5() {
         isIphon5 = [UIScreen mainScreen].bounds.size.height == 568;
         isInitialized = YES;
     }
-    
+
     return isIphon5;
 }
 
@@ -178,22 +171,21 @@ BOOL isIphone() {
         isIphon5 = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
         isInitialized = YES;
     }
-    
-    return isIphon5;
 
+    return isIphon5;
 }
 
 
 BOOL isRussian() {
     NSString *savedLanguage = [[NSUserDefaults standardUserDefaults] objectForKey:kLanguage];
-    
+
     return [savedLanguage isEqualToString:kRussianLanguageTag];
 }
 
 
 BOOL isEnglish() {
     NSString *savedLanguage = [[NSUserDefaults standardUserDefaults] objectForKey:kLanguage];
-    
+
     return [savedLanguage isEqualToString:kEnglishLanguageTag];
 }
 

@@ -9,7 +9,7 @@
 #import "MagicWorldPortrait.h"
 #import "Utils.h"
 
-@interface MagicWorldPortrait()
+@interface MagicWorldPortrait ()
 
 @property (strong, nonatomic) IBOutlet UIImageView *characterImage;
 @property (strong, nonatomic) IBOutlet UIImageView *characterName;
@@ -19,8 +19,8 @@
 @implementation MagicWorldPortrait
 
 + (instancetype)instantiate {
-   NSString *nibName = NSStringFromClass([MagicWorldPortrait class]);
-    
+    NSString *nibName = NSStringFromClass([MagicWorldPortrait class]);
+
     return [[[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil] objectAtIndex:0];
 }
 
@@ -29,7 +29,7 @@
     self.frame = CGRectFromString(dict[@"frame"]);
     self.characterId = [dict[@"tag"] integerValue];
     [self addTarget:dict[@"target"] action:NSSelectorFromString(dict[@"selector"])];
-    
+
     return self;
 }
 
@@ -59,7 +59,6 @@
 - (void)setCharacterId:(NSInteger)characterId {
     _characterId = characterId;
     [self updateImageWithCharacterId:characterId];
-    
 }
 
 

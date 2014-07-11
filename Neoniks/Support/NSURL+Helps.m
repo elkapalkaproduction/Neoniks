@@ -14,7 +14,7 @@
 
 + (NSURL *)urlFromName:(NSString *)name extension:(NSString *)extension {
     NSString *localizedString = [NSString neoniksLocalizedString:name];
-    
+
     return [NSURL urlFromLocalizedName:localizedString extension:extension];
 }
 
@@ -31,7 +31,7 @@
     } else {
         url = [NSURL urlFromLocalizedName:@"ipadFrames" extension:@"plist"];
     }
-    
+
     return url;
 }
 

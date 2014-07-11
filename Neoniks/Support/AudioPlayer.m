@@ -20,9 +20,9 @@
     static AudioPlayer *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
-    });
-    
+                      sharedMyManager = [[self alloc] init];
+                  });
+
     return sharedMyManager;
 }
 
@@ -33,7 +33,7 @@
         _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
         _audioPlayer.numberOfLoops = -1;
     }
-    
+
     return _audioPlayer;
 }
 

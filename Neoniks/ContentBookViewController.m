@@ -23,7 +23,7 @@
         NSString *pagePath = [NSString stringWithFormat:@"%d_%d", pageDetails.chapter, pageDetails.page];
         _url = [NSURL urlFromName:pagePath extension:@"html"];
     }
-    
+
     return self;
 }
 
@@ -41,7 +41,6 @@
     self.url = [NSURL urlFromName:pagePath extension:@"html"];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.url];
     [self.webView loadRequest:urlRequest];
-
 }
 
 
