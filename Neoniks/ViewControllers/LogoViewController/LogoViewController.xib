@@ -1,36 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LogoViewController">
             <connections>
-                <outlet property="foamCasttleButton" destination="5Ix-AF-Alz" id="Exf-VK-xpt"/>
-                <outlet property="islandImageView" destination="ydh-qC-JRI" id="Vi6-GS-sni"/>
-                <outlet property="languageButton" destination="2uP-tg-Y2z" id="oVl-mI-e7K"/>
-                <outlet property="leftSide1" destination="KYB-cK-vOU" id="rHX-Hh-XL2"/>
-                <outlet property="leftSide2" destination="P0c-ZG-eO4" id="RwM-6u-mtG"/>
-                <outlet property="leftSide3" destination="Or2-pX-QGl" id="PT9-Uv-OAh"/>
-                <outlet property="leftSide4" destination="eO0-am-mj0" id="YOb-kf-JGg"/>
-                <outlet property="leftSide5" destination="ReX-JP-zN1" id="9H0-2m-qx0"/>
                 <outlet property="logoImageView" destination="Ihn-DZ-NzO" id="nSN-LJ-nwK"/>
-                <outlet property="onCakeView" destination="j1g-T0-isI" id="ZfR-Oj-n9S"/>
-                <outlet property="pageTitleButton" destination="pCr-Ai-4JX" id="9ey-rc-x24"/>
                 <outlet property="view" destination="1" id="UdU-c3-CH2"/>
-                <outlet property="waterfallImageView" destination="COm-7z-X9D" id="LBs-bm-6ul"/>
-                <outletCollection property="onCake" destination="kEn-4K-YzX" id="DVf-G9-HfZ"/>
-                <outletCollection property="onCake" destination="eR2-BP-n9D" id="NLv-9s-nXQ"/>
-                <outletCollection property="onCake" destination="6Cb-JM-OAW" id="sc6-X0-8AE"/>
-                <outletCollection property="onCake" destination="lbm-ir-Lpz" id="0dK-zu-LDW"/>
-                <outletCollection property="onCake" destination="V93-R7-Bnd" id="lb1-Qr-R2o"/>
-                <outletCollection property="onCake" destination="uNt-r4-Lvc" id="QBx-vv-4dQ"/>
-                <outletCollection property="onCake" destination="cm4-Cg-dYN" id="b0Z-HV-4ca"/>
-                <outletCollection property="onCake" destination="CPf-Xd-W92" id="RRW-dL-fpV"/>
-                <outletCollection property="onCake" destination="Wew-Tl-Som" id="dOy-Vj-jWe"/>
-                <outletCollection property="onCake" destination="jl2-YD-xXy" id="wQ3-aq-c4y"/>
-                <outletCollection property="onCake" destination="DBM-VR-mIX" id="B4J-XF-dCz"/>
-                <outletCollection property="onCake" destination="5Ix-AF-Alz" id="4DO-h2-nXd"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -42,99 +20,6 @@
                     <rect key="frame" x="159" y="64" width="250" height="191"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainViewControllerBackground.png" id="ydh-qC-JRI">
-                    <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                </imageView>
-                <view contentMode="scaleToFill" id="j1g-T0-isI">
-                    <rect key="frame" x="89" y="0.0" width="439" height="320"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01_banner_eng.png" id="pCr-Ai-4JX">
-                            <rect key="frame" x="131" y="0.0" width="132" height="43"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="02_lighthouse.png" id="Wew-Tl-Som">
-                            <rect key="frame" x="204" y="43" width="35" height="42"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="04_ice_stadium.png" id="jl2-YD-xXy">
-                            <rect key="frame" x="136" y="98" width="50" height="22"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="05_desert.png" id="CPf-Xd-W92">
-                            <rect key="frame" x="194" y="85" width="22" height="42"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="06_museum.png" id="DBM-VR-mIX">
-                            <rect key="frame" x="104" y="127" width="45" height="43"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10_waterfall.png" id="COm-7z-X9D">
-                            <rect key="frame" x="117" y="211" width="69" height="92"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="12_theater.png" id="lbm-ir-Lpz">
-                            <rect key="frame" x="256" y="193" width="25" height="26"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="13_cafe.png" id="V93-R7-Bnd">
-                            <rect key="frame" x="213" y="194" width="37" height="38"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="14_school.png" id="cm4-Cg-dYN">
-                            <rect key="frame" x="197" y="135" width="42" height="39"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="15_lantern_house.png" id="eR2-BP-n9D">
-                            <rect key="frame" x="265" y="151" width="36" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="16_transportation.png" id="6Cb-JM-OAW">
-                            <rect key="frame" x="298" y="227" width="42" height="25"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="07_naruke.png" id="uNt-r4-Lvc">
-                            <rect key="frame" x="202" y="255" width="69" height="48"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="22_foam_castle.png" id="5Ix-AF-Alz">
-                            <rect key="frame" x="0.0" y="112" width="50" height="107"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="23_bottomless_island.png" id="kEn-4K-YzX">
-                            <rect key="frame" x="318" y="20" width="127" height="237"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                </view>
-                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_book.png" id="KYB-cK-vOU">
-                    <rect key="frame" x="10" y="10" width="34" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2_contributors.png" id="eO0-am-mj0">
-                    <rect key="frame" x="10" y="142" width="34" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3_review.png" id="ReX-JP-zN1">
-                    <rect key="frame" x="10" y="186" width="34" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4_gift.png" id="P0c-ZG-eO4">
-                    <rect key="frame" x="10" y="54" width="34" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5_news.png" id="Or2-pX-QGl">
-                    <rect key="frame" x="10" y="98" width="34" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6_language_eng.png" id="2uP-tg-Y2z">
-                    <rect key="frame" x="524" y="276" width="34" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -143,27 +28,6 @@
         </view>
     </objects>
     <resources>
-        <image name="01_banner_eng.png" width="529" height="172"/>
-        <image name="02_lighthouse.png" width="140" height="168"/>
-        <image name="04_ice_stadium.png" width="200" height="90"/>
-        <image name="05_desert.png" width="90" height="170"/>
-        <image name="06_museum.png" width="179" height="172"/>
-        <image name="07_naruke.png" width="274" height="191"/>
-        <image name="10_waterfall.png" width="252" height="366"/>
-        <image name="12_theater.png" width="100" height="104"/>
-        <image name="13_cafe.png" width="150" height="151"/>
-        <image name="14_school.png" width="170" height="156"/>
-        <image name="15_lantern_house.png" width="143" height="160"/>
-        <image name="16_transportation.png" width="170" height="100"/>
-        <image name="1_book.png" width="136" height="137"/>
-        <image name="22_foam_castle.png" width="200" height="419"/>
-        <image name="23_bottomless_island.png" width="509" height="949"/>
-        <image name="2_contributors.png" width="136" height="137"/>
-        <image name="3_review.png" width="136" height="137"/>
-        <image name="4_gift.png" width="136" height="137"/>
-        <image name="5_news.png" width="136" height="137"/>
-        <image name="6_language_eng.png" width="136" height="137"/>
-        <image name="MainViewControllerBackground.png" width="960" height="640"/>
         <image name="logo_eng.png" width="1000" height="764"/>
     </resources>
 </document>

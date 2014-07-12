@@ -16,7 +16,6 @@
 NSString *const giftAppId = @"526641427";
 NSString *const rateAppId = @"526641427";
 
-
 @interface MainViewController () <PopUpDelegate, MagicWorldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *readBookView;
