@@ -13,5 +13,7 @@
 + (NSURL *)urlFromName:(NSString *)name extension:(NSString *)extension;
 + (NSURL *)urlFromLocalizedName:(NSString *)name extension:(NSString *)extension;
 + (NSURL *)urlForFrames;
++ (NSURL *)urlForSite;
++ (NSURL *)rateAppWithID:(NSString *)appId;
 
 @end

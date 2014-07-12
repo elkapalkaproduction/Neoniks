@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
@@ -56,7 +57,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQR-P9-Hkm" userLabel="Button - cross">
-                            <rect key="frame" x="422" y="32" width="15" height="15"/>
+                            <rect key="frame" x="415" y="25" width="30" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" image="cross.png">
@@ -102,7 +103,7 @@
         <image name="23_title_eng.png" width="662" height="186"/>
         <image name="5_popup_art.png" width="1148" height="1070"/>
         <image name="5_text_eng.png" width="1148" height="698"/>
-        <image name="cross.png" width="46" height="46"/>
+        <image name="cross.png" width="92" height="92"/>
         <image name="fon_pop_up_window_4.png" width="960" height="640"/>
         <image name="gallery_eng.png" width="243" height="37"/>
         <image name="left.png" width="269" height="321"/>

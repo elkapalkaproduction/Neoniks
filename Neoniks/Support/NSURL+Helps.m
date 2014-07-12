@@ -35,4 +35,18 @@
     return url;
 }
 
+
++ (NSURL *)urlForSite {
+    if (isRussian()) {
+        return [NSURL URLWithString:@"http://www.neoniki.ru"];
+    } else {
+        return [NSURL URLWithString:@"http://www.neoniks.com"];
+    }
+}
+
+
++ (NSURL *)rateAppWithID:(NSString *)appId {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8", appId]];
+}
+
 @end

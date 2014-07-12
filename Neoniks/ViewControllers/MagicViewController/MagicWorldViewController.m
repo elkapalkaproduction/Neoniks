@@ -61,61 +61,39 @@
 #pragma mark - IBActions
 
 - (IBAction)right:(id)sender {
-    [self hideAnimationToRight];
-    [self performSelector:@selector(righttWithDelay) withObject:nil afterDelay:kAnimationHide];
+    __weak MagicWorldViewController *weakSelf = self;
+    [Utils animationForAppear:NO fromRight:YES forView:self.contentView withCompletionBlock:^{
+        [weakSelf.delegate next:1 isPrev:NO];
+    }];
 }
 
 
 - (IBAction)left:(id)sender {
-    [self hideAnimationToLeft];
-    [self performSelector:@selector(leftWithDelay) withObject:nil afterDelay:kAnimationHide];
+    __weak MagicWorldViewController *weakSelf = self;
+    [Utils animationForAppear:NO fromRight:NO forView:self.contentView withCompletionBlock:^{
+        [weakSelf.delegate next:23 isPrev:YES];
+    }];
 }
 
 
 - (IBAction)magic:(id)sender {
-    [self hideAnimationToRight];
-    [self performSelector:@selector(magicWithDelay:) withObject:@([sender tag]) afterDelay:kAnimationHide];
+    __weak MagicWorldViewController *weakSelf = self;
+    [Utils animationForAppear:NO fromRight:YES forView:self.contentView withCompletionBlock:^{
+        [weakSelf.delegate next:[sender tag] isPrev:NO];
+    }];
 }
 
 
 - (IBAction)close:(id)sender {
-    [Utils animationForAppear:NO forView:self.contentView];
-    [self performSelector:@selector(close) withObject:nil afterDelay:kAnimationHide];
+    __weak MagicWorldViewController *weakSelf = self;
+    [Utils animationForAppear:NO forView:self.contentView withCompletionBlock:^(BOOL finished) {
+        [weakSelf.delegate close];
+    }];
 }
 
 
 #pragma mark -
 #pragma mark - Private Methods
-
-- (void)close {
-    [self.delegate close];
-}
-
-
-- (void)magicWithDelay:(NSNumber *)number {
-    [self.delegate next:[number integerValue] isPrev:NO];
-}
-
-
-- (void)leftWithDelay {
-    [self.delegate next:23 isPrev:YES];
-}
-
-
-- (void)righttWithDelay {
-    [self.delegate next:1 isPrev:NO];
-}
-
-
-- (void)hideAnimationToRight {
-    [Utils animationForAppear:NO fromRight:YES forView:self.contentView];
-}
-
-
-- (void)hideAnimationToLeft {
-    [Utils animationForAppear:NO fromRight:NO forView:self.contentView];
-}
-
 
 - (void)setupView {
     CGRect screenRect = [UIScreen mainScreen].bounds;
@@ -137,10 +115,14 @@
 
 - (void)startAnimation {
     if (self.isInitialView) {
-        [Utils animationForAppear:YES forView:self.contentView];
+        [Utils animationForAppear:YES forView:self.contentView withCompletionBlock:^(BOOL finished) {
+            
+        }];
     } else {
         [self.view setHidden:NO];
-        [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView];
+        [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView withCompletionBlock:^{
+            
+        }];
     }
 }
 

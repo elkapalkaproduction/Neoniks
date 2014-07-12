@@ -80,7 +80,7 @@ NSString *const namedBookmarksRus = @"namedBookmarksRus";
 
 
 - (NSString *)generateKeyFromInt:(NSInteger)number {
-    return [NSString stringWithFormat:@"page%d", number];
+    return [NSString stringWithFormat:@"page%ld", (long)number];
 }
 
 

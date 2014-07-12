@@ -20,7 +20,7 @@
     self = [super init];
     if (self) {
         _currentPage = pageDetails;
-        NSString *pagePath = [NSString stringWithFormat:@"%d_%d", pageDetails.chapter, pageDetails.page];
+        NSString *pagePath = [NSString stringWithFormat:@"%ld_%ld", (long)pageDetails.chapter, (long)pageDetails.page];
         _url = [NSURL urlFromName:pagePath extension:@"html"];
     }
 
@@ -37,7 +37,7 @@
 
 - (void)setCurrentPage:(PageDetails *)currentPage {
     _currentPage = currentPage;
-    NSString *pagePath = [NSString stringWithFormat:@"%d_%d", currentPage.chapter, currentPage.page];
+    NSString *pagePath = [NSString stringWithFormat:@"%ld_%ld", (long)currentPage.chapter, (long)currentPage.page];
     self.url = [NSURL urlFromName:pagePath extension:@"html"];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.url];
     [self.webView loadRequest:urlRequest];

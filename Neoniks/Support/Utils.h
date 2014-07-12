@@ -11,17 +11,14 @@
 #import "UIButton+Helps.h"
 #import "AudioPlayer.h"
 
-UIKIT_EXTERN NSString *const kLanguage;
-UIKIT_EXTERN NSString *const kRussianLanguageTag;
-UIKIT_EXTERN NSString *const kEnglishLanguageTag;
-
-#define kAnimationDuration 1
-#define kAnimationHide kAnimationDuration / 1.9
+NSString *const kLanguage;
+NSString *const kRussianLanguageTag;
+NSString *const kEnglishLanguageTag;
 
 @interface Utils : NSObject
 
-+ (void)animationForAppear:(BOOL)show forView:(UIView *)aView;
-+ (void)animationForAppear:(BOOL)show fromRight:(BOOL)aRight forView:(UIView *)aView;
++ (void)animationForAppear:(BOOL)show forView:(UIView *)aView withCompletionBlock:(void (^)(BOOL finished))completion;
++ (void)animationForAppear:(BOOL)show fromRight:(BOOL)aRight forView:(UIView *)aView withCompletionBlock:(void (^)(void))block;
 + (void)setupLanguage;
 
 void changePositon(CGPoint point, UIView *view);

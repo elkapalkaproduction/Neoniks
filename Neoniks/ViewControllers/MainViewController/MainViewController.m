@@ -13,6 +13,10 @@
 #import "TableOfContentsViewController.h"
 #import "Utils.h"
 
+NSString *const giftAppId = @"526641427";
+NSString *const rateAppId = @"526641427";
+
+
 @interface MainViewController () <PopUpDelegate, MagicWorldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *readBookView;
@@ -53,12 +57,11 @@
 
 - (void)closeWithShadow:(BOOL)withShadow {
     if (withShadow) {
-        [Utils animationForAppear:NO forView:self.shadowView];
+        [self closeAndHideShadow];
+    } else {
+        [self closeWithoutHidingShadow];
     }
-    [self.magicViewController.view removeFromSuperview];
-    self.magicViewController = nil;
-    [self.popUpViewController.view removeFromSuperview];
-    self.popUpViewController = nil;
+
 }
 
 
@@ -115,17 +118,18 @@
 
 
 - (IBAction)goToAppleStoreGift:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:giftAppId]];
     //TODO: Need Apple Store Gift Link
 }
 
 
 - (IBAction)goToSite:(id)sender {
-    //TODO: Need news link. also make this with parents gates
+    [[UIApplication sharedApplication] openURL:[NSURL urlForSite]];
 }
 
 
 - (IBAction)goToWriteReview:(id)sender {
-    //TODO: Need Apple Store Review Link
+    [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:rateAppId]];
 }
 
 
@@ -140,7 +144,12 @@
 
 
 - (IBAction)popUpWindows:(id)sender {
-    [Utils animationForAppear:YES forView:self.shadowView];
+    if (self.magicViewController || self.popUpViewController) {
+        return;
+    }
+    [Utils animationForAppear:YES forView:self.shadowView withCompletionBlock:^(BOOL finished) {
+        
+    }];
     [self next:[sender tag] isPrev:NO isInitial:YES];
 }
 
@@ -159,6 +168,25 @@
     [self.site setImage:[UIImage imageWithName:@"www"]];
     [self.contributors setImage:[UIImage imageWithName:@"contributions"]];
     [self.header setImage:[UIImage imageWithName:@"headings"]];
+}
+
+
+- (void)closeAndHideShadow {
+    __weak MainViewController *weakSelf = self;
+    [Utils animationForAppear:NO forView:self.shadowView withCompletionBlock:^(BOOL finished) {
+        [weakSelf.magicViewController.view removeFromSuperview];
+        weakSelf.magicViewController = nil;
+        [weakSelf.popUpViewController.view removeFromSuperview];
+        weakSelf.popUpViewController = nil;
+    }];
+}
+
+
+- (void)closeWithoutHidingShadow {
+    [self.magicViewController.view removeFromSuperview];
+    self.magicViewController = nil;
+    [self.popUpViewController.view removeFromSuperview];
+    self.popUpViewController = nil;
 }
 
 

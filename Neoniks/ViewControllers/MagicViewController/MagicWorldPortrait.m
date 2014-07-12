@@ -50,8 +50,8 @@
 
 
 - (void)updateImageWithCharacterId:(NSInteger)characterId {
-    self.characterImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"portrait_%d", characterId]];
-    self.characterName.image = [UIImage imageWithName:[NSString stringWithFormat:@"%d_name", characterId]];
+    self.characterImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"portrait_%ld", (long)characterId]];
+    self.characterName.image = [UIImage imageWithName:[NSString stringWithFormat:@"%ld_name", (long)characterId]];
     self.button.tag = characterId;
 }
 

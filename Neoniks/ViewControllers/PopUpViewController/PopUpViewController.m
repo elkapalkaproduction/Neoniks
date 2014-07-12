@@ -93,61 +93,36 @@
 
 
 - (IBAction)close:(id)sender {
-    [Utils animationForAppear:NO forView:self.contentView];
-    [self performSelector:@selector(close) withObject:nil afterDelay:kAnimationHide];
+    __weak PopUpViewController *weakSelf = self;
+    [Utils animationForAppear:NO forView:self.contentView withCompletionBlock:^(BOOL finished) {
+        weakSelf.view.hidden = YES;
+        [weakSelf.delegate close];
+    }];
 }
 
 
 - (IBAction)right:(id)sender {
-    [self hideAnimationToRight];
-    [self performSelector:@selector(righttWithDelay) withObject:nil afterDelay:kAnimationHide];
+    __weak PopUpViewController *weakSelf = self;
+    [Utils animationForAppear:NO fromRight:YES forView:self.contentView withCompletionBlock:^{
+        weakSelf.view.hidden = YES;
+
+        [weakSelf.delegate next:self.nextPage isPrev:NO];
+    }];
 }
 
 
 - (IBAction)left:(id)sender {
-    [self hideAnimationToLeft];
-    [self performSelector:@selector(leftWithDelay) withObject:nil afterDelay:kAnimationHide];
-}
+    __weak PopUpViewController *weakSelf = self;
+    [Utils animationForAppear:NO fromRight:NO forView:self.contentView withCompletionBlock:^{
+        weakSelf.view.hidden = YES;
 
-
-- (IBAction)yesButton:(id)sender {
-    [self hideAnimationToRight];
-    [self performSelector:@selector(yesWithDelay) withObject:nil afterDelay:kAnimationHide];
+        [weakSelf.delegate next:self.prevPage isPrev:YES];
+    }];
 }
 
 
 #pragma mark -
 #pragma mark - Private Methods
-
-- (void)close {
-    [self.delegate close];
-}
-
-
-- (void)yesWithDelay {
-    [self.delegate openBook];
-}
-
-
-- (void)leftWithDelay {
-    [self.delegate next:self.prevPage isPrev:YES];
-}
-
-
-- (void)righttWithDelay {
-    [self.delegate next:self.nextPage isPrev:NO];
-}
-
-
-- (void)hideAnimationToRight {
-    [Utils animationForAppear:NO fromRight:YES forView:self.contentView];
-}
-
-
-- (void)hideAnimationToLeft {
-    [Utils animationForAppear:NO fromRight:NO forView:self.contentView];
-}
-
 
 - (BOOL)isContributorsPage {
     return self.curentPage == 24;
@@ -174,7 +149,7 @@
 - (void)setupNextPages {
     NSURL *urlForText = [NSURL urlFromLocalizedName:@"nextPages" extension:@"plist"];
     NSDictionary *allPages = [[NSDictionary alloc] initWithContentsOfURL:urlForText];
-    NSString *nextPagesKey = [NSString stringWithFormat:@"%d", self.curentPage];
+    NSString *nextPagesKey = [NSString stringWithFormat:@"%ld", (long)self.curentPage];
     NSDictionary *curentPage = allPages[nextPagesKey];
     self.nextPage = [curentPage[@"nextPage"] intValue];
     self.prevPage = [curentPage[@"previousPage"] intValue];
@@ -183,24 +158,28 @@
 
 
 - (void)setupImages {
-    NSString *popupImageName = [NSString stringWithFormat:@"%d_popup_art", self.curentPage];
+    NSString *popupImageName = [NSString stringWithFormat:@"%ld_popup_art", (long)self.curentPage];
     self.popUpArtImage.image = [UIImage imageWithLocalizedName:popupImageName];
 
     [self.galleryButton setImage:[UIImage imageWithName:@"gallery"]];
-    NSString *popupTitleName = [NSString stringWithFormat:@"%d_title", self.curentPage];
+    NSString *popupTitleName = [NSString stringWithFormat:@"%ld_title", (long)self.curentPage];
     self.popUpTitle.image = [UIImage imageWithName:popupTitleName];
 
-    NSString *popupTextImage = [NSString stringWithFormat:@"%d_text", self.curentPage];
+    NSString *popupTextImage = [NSString stringWithFormat:@"%ld_text", (long)self.curentPage];
     self.textImage.image = [UIImage imageWithName:popupTextImage];
 }
 
 
 - (void)startAnimation {
     if (self.isInitialView) {
-        [Utils animationForAppear:YES forView:self.contentView];
+        [Utils animationForAppear:YES forView:self.contentView withCompletionBlock:^(BOOL finished) {
+            
+        }];
     } else {
         [self.view setHidden:NO];
-        [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView];
+        [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView withCompletionBlock:^{
+            
+        }];
     }
 }
 
@@ -213,7 +192,7 @@
 
 - (void)adjustControllerForContributorsPage {
     self.popUpBackground.image = [UIImage contributorsBackgroundImage];
-    NSInteger distanceFromBorders = 20;
+    NSInteger distanceFromBorders = 10;
     CGFloat crossX = CGRectGetWidth(self.view.frame) - distanceFromBorders - CGRectGetWidth(self.crossButton.frame);
     changePositon(CGPointMake(crossX, distanceFromBorders), self.crossButton);
 
