@@ -16,7 +16,7 @@
 #import "AllBookmarsViewController.h"
 #import "TableOfContentsViewController.h"
 #import "ChaptersCollection.h"
-#import "FlurryConfiguration.h"
+#import "AdsManager.h"
 
 const CGFloat ribbonAnimationDuration = 1.f;
 const NSInteger requiredNumberOfShowRibbonAnimated = 4;
@@ -143,7 +143,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
     NSInteger curentPageNumber = [self.collection numberForPageDetails:curentPage];
     [[BookmarksManager sharedManager] setLastOpen:curentPageNumber];
     [self dismissViewControllerAnimated:YES completion:NULL];
-    [FlurryConfiguration logEvent:FLURRY_BOOK_CLOSED];
+    [AdsManager logEvent:FLURRY_BOOK_CLOSED];
 }
 
 

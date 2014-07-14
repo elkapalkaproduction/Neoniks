@@ -36,7 +36,6 @@ typedef enum {
     FlurryLogLevelAll               //Highest level, outputs all log events
 } FlurryLogLevel;
 
-
 @interface Flurry : NSObject {
 }
 
@@ -231,7 +230,7 @@ typedef enum {
  * @param options passed launchOptions from the applicatin's didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  
  */
-+ (void) startSession:(NSString *)apiKey withOptions:(id)options;
++ (void)startSession:(NSString *)apiKey withOptions:(id)options;
 
 
 /*!
@@ -741,7 +740,5 @@ typedef enum {
  */
 + (void)setPushToken:(NSString *)pushToken;
 
-
 //@}
-
 @end

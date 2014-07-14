@@ -11,6 +11,7 @@
 #import "AudioPlayer.h"
 #import "ChaptersCollection.h"
 #import "UIImage+Helps.h"
+#import "AdsManager.h"
 
 @interface LogoViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
@@ -27,6 +28,11 @@
 }
 
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
+
+
 - (void)updateImages {
 
     [_logoImageView setImage:[UIImage imageWithName:@"logo"]];
@@ -38,13 +44,14 @@
     [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
          _logoImageView.alpha = 1.f;
      } completion:^(BOOL finished) {
-//         [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
-//             _logoImageView.alpha = 0.f;
-//         } completion:^(BOOL finished) {
-//             [[AudioPlayer sharedPlayer] play];
+         [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
+             _logoImageView.alpha = 0.f;
+         } completion:^(BOOL finished) {
+             [[AudioPlayer sharedPlayer] play];
+             [AdsManager showOnStartAds];
              MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
              [[self navigationController] pushViewController:viewController animated:NO];
-//         }];
+         }];
      }];
 }
 

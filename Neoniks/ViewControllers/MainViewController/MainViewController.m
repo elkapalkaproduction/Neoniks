@@ -12,7 +12,7 @@
 #import "BookViewController.h"
 #import "TableOfContentsViewController.h"
 #import "Utils.h"
-#import "FlurryConfiguration.h"
+#import "AdsManager.h"
 
 NSString *const giftAppId = @"526641427";
 NSString *const rateAppId = @"526641427";
@@ -87,7 +87,7 @@ NSString *const rateAppId = @"526641427";
             [self.view bringSubviewToFront:self.readBookView];
         }
         if (pageToShow == 24) {
-            [FlurryConfiguration logEvent:FLURRY_CONTRIBUTORS];
+            [AdsManager logEvent:FLURRY_CONTRIBUTORS];
             [self.view bringSubviewToFront:self.shadowView];
             [self.view bringSubviewToFront:self.site];
             [self.view bringSubviewToFront:self.popUpViewController.view];
@@ -97,7 +97,7 @@ NSString *const rateAppId = @"526641427";
 
 
 - (void)next:(NSInteger)pageToShow isPrev:(BOOL)prev {
-    [FlurryConfiguration logEvent:FLURRY_POPUP_WINDOWS_ARROW];
+    [AdsManager logEvent:FLURRY_POPUP_WINDOWS_ARROW];
     [self next:pageToShow isPrev:prev isInitial:NO];
 }
 
@@ -106,7 +106,7 @@ NSString *const rateAppId = @"526641427";
 #pragma mark - IBActions
 
 - (IBAction)goToBook:(id)sender {
-    [FlurryConfiguration logEvent:FLURRY_BOOK_OPEN];
+    [AdsManager logEvent:FLURRY_BOOK_OPEN];
     BookViewController *bookViewController = [[BookViewController alloc] init];
     [[AudioPlayer sharedPlayer] pause];
     [self presentViewController:bookViewController animated:YES completion:NULL];
@@ -114,7 +114,7 @@ NSString *const rateAppId = @"526641427";
 
 
 - (IBAction)goToAppleStoreGift:(id)sender {
-    [FlurryConfiguration logEvent:FLURRY_MAKE_GIFT];
+    [AdsManager logEvent:FLURRY_MAKE_GIFT];
     [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:giftAppId]];
 }
 
@@ -125,13 +125,13 @@ NSString *const rateAppId = @"526641427";
 
 
 - (IBAction)goToWriteReview:(id)sender {
-    [FlurryConfiguration logEvent:FLURRY_RATE_US];
+    [AdsManager logEvent:FLURRY_RATE_US];
     [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:rateAppId]];
 }
 
 
 - (IBAction)changeLanguage:(id)sender {
-    [FlurryConfiguration logEvent:FLURRY_LANGUAGE_CHANGED];
+    [AdsManager logEvent:FLURRY_LANGUAGE_CHANGED];
     if (isRussian()) {
         setEnglishLanguage();
     } else {
@@ -145,7 +145,7 @@ NSString *const rateAppId = @"526641427";
     if (self.magicViewController || self.popUpViewController) {
         return;
     }
-    [FlurryConfiguration logEvent:FLURRY_MAP];
+    [AdsManager logEvent:FLURRY_MAP];
     [Utils animationForAppear:YES forView:self.shadowView withCompletionBlock:^(BOOL finished) {
         
     }];
