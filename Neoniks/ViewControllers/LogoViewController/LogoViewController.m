@@ -38,13 +38,13 @@
     [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
          _logoImageView.alpha = 1.f;
      } completion:^(BOOL finished) {
-         [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
-             _logoImageView.alpha = 0.f;
-         } completion:^(BOOL finished) {
-             [[AudioPlayer sharedPlayer] play];
+//         [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
+//             _logoImageView.alpha = 0.f;
+//         } completion:^(BOOL finished) {
+//             [[AudioPlayer sharedPlayer] play];
              MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
              [[self navigationController] pushViewController:viewController animated:NO];
-         }];
+//         }];
      }];
 }
 

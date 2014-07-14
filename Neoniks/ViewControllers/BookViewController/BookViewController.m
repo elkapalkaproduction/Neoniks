@@ -16,6 +16,7 @@
 #import "AllBookmarsViewController.h"
 #import "TableOfContentsViewController.h"
 #import "ChaptersCollection.h"
+#import "FlurryConfiguration.h"
 
 const CGFloat ribbonAnimationDuration = 1.f;
 const NSInteger requiredNumberOfShowRibbonAnimated = 4;
@@ -32,7 +33,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
 @property (strong, nonatomic) IBOutlet UIView *bottomView;
 @property (strong, nonatomic) IBOutlet UIView *ribbonView;
 
-@property (strong, nonatomic) TableOfContentsViewController *bookViewController;
+@property (strong, nonatomic) TableOfContentsViewController *tableOfContentsViewController;
 @property (strong, nonatomic) UIPopoverController *popoverControler;
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) ChaptersCollection *collection;
@@ -81,9 +82,9 @@ const CGFloat ribbonDefaultHiddeY = 70;
 }
 
 
-- (void)close {
-    [self.bookViewController dismissViewControllerAnimated:YES completion:NULL];
-    self.bookViewController = nil;
+- (void)closeTableOfContents {
+    [self.tableOfContentsViewController dismissViewControllerAnimated:YES completion:NULL];
+    self.tableOfContentsViewController = nil;
 }
 
 
@@ -104,12 +105,12 @@ const CGFloat ribbonDefaultHiddeY = 70;
 }
 
 
-- (TableOfContentsViewController *)bookViewController {
-    if (!_bookViewController) {
-        _bookViewController = [[TableOfContentsViewController alloc] init];
+- (TableOfContentsViewController *)tableOfContentsViewController {
+    if (!_tableOfContentsViewController) {
+        _tableOfContentsViewController = [[TableOfContentsViewController alloc] init];
     }
 
-    return _bookViewController;
+    return _tableOfContentsViewController;
 }
 
 
@@ -117,9 +118,8 @@ const CGFloat ribbonDefaultHiddeY = 70;
 #pragma mark - IBActions
 
 - (IBAction)chapters:(id)sender {
-    self.bookViewController.delegate = self;
-    [self presentViewController:self.bookViewController animated:YES completion:NULL];
-//    [self.view addSubview:self.bookViewController.view];
+    self.tableOfContentsViewController.delegate = self;
+    [self presentViewController:self.tableOfContentsViewController animated:YES completion:NULL];
 }
 
 
@@ -143,6 +143,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
     NSInteger curentPageNumber = [self.collection numberForPageDetails:curentPage];
     [[BookmarksManager sharedManager] setLastOpen:curentPageNumber];
     [self dismissViewControllerAnimated:YES completion:NULL];
+    [FlurryConfiguration logEvent:FLURRY_BOOK_CLOSED];
 }
 
 

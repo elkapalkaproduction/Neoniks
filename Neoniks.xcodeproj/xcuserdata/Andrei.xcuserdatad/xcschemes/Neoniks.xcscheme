@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Neoniks.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "75D92883197455B100048B95"
+               BuildableName = "NeoniksFreeTests.xctest"
+               BlueprintName = "NeoniksFreeTests"
+               ReferencedContainer = "container:Neoniks.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

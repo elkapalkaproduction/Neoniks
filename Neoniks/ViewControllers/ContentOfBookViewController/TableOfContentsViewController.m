@@ -52,7 +52,7 @@
 #pragma mark - IBActions
 
 - (IBAction)close:(id)sender {
-    [self.delegate close];
+    [self.delegate closeTableOfContents];
 }
 
 

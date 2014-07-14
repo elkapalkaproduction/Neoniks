@@ -39,7 +39,7 @@
 
 
 - (void)play {
-    [self.audioPlayer play];
+//    [self.audioPlayer play];
 }
 
 

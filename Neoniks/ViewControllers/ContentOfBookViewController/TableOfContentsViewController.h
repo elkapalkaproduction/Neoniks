@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol ContentOfBookDelegate <NSObject>
-- (void)close;
+- (void)closeTableOfContents;
 - (void)relaod;
 
 @end
