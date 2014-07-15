@@ -12,6 +12,7 @@
 #import <AdColony/AdColony.h>
 #import "Chartboost.h"
 #import "PlayHavenSDK.h"
+#import "MKStoreManager.h"
 #endif
 
 //-- Flurry Keys
@@ -88,13 +89,46 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
 
 + (void)showOnStartAds {
 #ifdef NeoniksFree
-    [AdColony playVideoAdForZone:ADCOLONY_ON_START withDelegate:nil];
+    if ([MKStoreManager isFeaturePurchased:SUB_PRODUCT_ID]) {
+        return;
+    }
+//    [AdColony playVideoAdForZone:ADCOLONY_ON_START withDelegate:nil];
+//    [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
+//    [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
+//                                       secret:PLAYHAVEN_SECRET
+//                                    placement:PLAYHAVEN_PLACEMENT_ON_START
+//                                     delegate:nil] send];
+//
+#endif
+}
+
+
++ (void)showOnSaysNoAds {
+#ifdef NeoniksFree
+    if ([MKStoreManager isFeaturePurchased:SUB_PRODUCT_ID]) {
+        return;
+    }
+    [AdColony playVideoAdForZone:ADCOLONY_ON_SAYS_NO withDelegate:nil];
     [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
     [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
                                        secret:PLAYHAVEN_SECRET
-                                    placement:PLAYHAVEN_PLACEMENT_ON_START
+                                    placement:PLAYHAVEN_PLACEMENT_ON_SAYS_NO
                                      delegate:nil] send];
-//
+#endif
+}
+
+
++ (void)showOnTimerAds {
+#ifdef NeoniksFree
+    if ([MKStoreManager isFeaturePurchased:SUB_PRODUCT_ID]) {
+        return;
+    }
+    [AdColony playVideoAdForZone:ADCOLONY_ON_TIMER withDelegate:nil];
+    [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
+    [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
+                                       secret:PLAYHAVEN_SECRET
+                                    placement:PLAYHAVEN_PLACEMENT_ON_TIMER
+                                     delegate:nil] send];
 #endif
 }
 

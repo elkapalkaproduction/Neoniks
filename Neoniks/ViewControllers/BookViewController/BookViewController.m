@@ -17,6 +17,7 @@
 #import "TableOfContentsViewController.h"
 #import "ChaptersCollection.h"
 #import "AdsManager.h"
+#import "Utils.h"
 
 const CGFloat ribbonAnimationDuration = 1.f;
 const NSInteger requiredNumberOfShowRibbonAnimated = 4;
@@ -69,6 +70,13 @@ const CGFloat ribbonDefaultHiddeY = 70;
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
        viewControllerAfterViewController:(UIViewController *)viewController {
+#ifdef NeoniksFree
+    ContentBookViewController *book = (ContentBookViewController *)viewController;
+    if ([Utils isLockedPage:book.currentPage]) {
+        return nil;
+    }
+#endif
+    
     return [self loadNext:1 viewController:viewController];
 }
 
@@ -259,6 +267,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
     if (prevCoord.page == 0) {
         return nil;
     }
+
     ContentBookViewController *prevBook = [[ContentBookViewController alloc] initWithPage:prevCoord];
     prevBook.delegate = self;
 
@@ -351,9 +360,17 @@ const CGFloat ribbonDefaultHiddeY = 70;
 
 
 - (void)showPage:(NSInteger)page {
+    
     ContentBookViewController *contentBook = self.pageViewController.viewControllers[0];
     self.sliderPreview.value = page;
     contentBook.currentPage = [self.collection pageDetailsForNumber:page];
+#ifdef NeoniksFree
+    if ([Utils isLockedPage:contentBook.currentPage]) {
+        PageDetails *lockedPage = [[PageDetails alloc] initWithPage:1 chapter:3];
+        self.sliderPreview.value = [self.collection numberForPageDetails:lockedPage];
+        contentBook.currentPage = lockedPage;
+    }
+#endif
     [self updateBookmarkInfo];
 }
 

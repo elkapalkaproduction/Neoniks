@@ -10,10 +10,15 @@
 #import "NSURL+Helps.h"
 #import "UIButton+Helps.h"
 #import "AudioPlayer.h"
+#import "PageDetails.h"
 
 NSString *const kLanguage;
 NSString *const kRussianLanguageTag;
 NSString *const kEnglishLanguageTag;
+
+const NSInteger numberOfFreeChapters;
+#define SUB_PRODUCT_ID @"com.neoniks.free.unlock.fox"
+#define kMaxIdleTimeSeconds 60.0 * 10
 
 @interface Utils : NSObject
 
@@ -41,5 +46,9 @@ BOOL isEnglish();
 
 void setRussianLanguage();
 void setEnglishLanguage();
+
+#ifdef NeoniksFree
++ (BOOL)isLockedPage:(PageDetails *)page;
+#endif
 
 @end

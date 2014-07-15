@@ -8,14 +8,21 @@
 
 #import "AppDelegate.h"
 #import "AdsManager.h"
+#ifdef NeoniksFree
+#import "MKStoreManager.h"
+#endif
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Utils setupLanguage];
     [[AdsManager sharedManager] configure];
-
+#ifdef NeoniksFree
+    NSLog(@"%@", [[MKStoreManager sharedManager] pricesDictionary]);
+    [MKStoreManager sharedManager];
+#endif
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[LogoViewController alloc] initWithNibName:@"LogoViewController" bundle:nil];

@@ -8,6 +8,9 @@
 
 #import "Utils.h"
 
+#ifdef NeoniksFree
+#import "MKStoreManager.h"
+#endif
 NSString *const kLanguage = @"PreferedLanguage";
 NSString *const kRussianLanguageTag = @"ru";
 NSString *const kEnglishLanguageTag = @"en";
@@ -21,6 +24,7 @@ NSString *const YTo = @"YTo";
 NSString *const ZTo = @"ZTo";
 NSString *const m34 = @"m34";
 const CGFloat UtilsAnimationDuration = 0.8;
+const NSInteger numberOfFreeChapters = 2;
 
 @implementation Utils
 
@@ -228,5 +232,14 @@ void setRussianLanguage() {
 void setEnglishLanguage() {
     [[NSUserDefaults standardUserDefaults] setObject:kEnglishLanguageTag forKey:kLanguage];
 }
+
+
+#ifdef NeoniksFree
++ (BOOL)isLockedPage:(PageDetails *)page {
+    return page.chapter > numberOfFreeChapters && ![MKStoreManager isFeaturePurchased:SUB_PRODUCT_ID];
+}
+
+
+#endif
 
 @end

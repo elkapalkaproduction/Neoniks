@@ -38,6 +38,7 @@ NSString *const rateAppId = @"526641427";
 @property (strong, nonatomic) IBOutlet UIButton *gift;
 @property (strong, nonatomic) IBOutlet UIButton *rateUs;
 @property (strong, nonatomic) IBOutlet UIImageView *readTheBook;
+@property (strong, nonatomic) NSTimer *idleTimer;
 
 @end
 
@@ -49,6 +50,36 @@ NSString *const rateAppId = @"526641427";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self updateImagesPosition];
+    [self resetIdleTimer];
+}
+
+
+- (void)resetIdleTimer {
+    if (!self.idleTimer) {
+        self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:kMaxIdleTimeSeconds
+                                                          target:self
+                                                        selector:@selector(idleTimerExceeded)
+                                                        userInfo:nil
+                                                         repeats:NO];
+    } else {
+        if (fabs([self.idleTimer.fireDate timeIntervalSinceNow]) < kMaxIdleTimeSeconds - 1.0) {
+            [self.idleTimer setFireDate:[NSDate dateWithTimeIntervalSinceNow:kMaxIdleTimeSeconds]];
+        }
+    }
+}
+
+
+- (void)idleTimerExceeded {
+    self.idleTimer = nil;
+    [AdsManager showOnTimerAds];
+    [self resetIdleTimer];
+}
+
+
+- (UIResponder *)nextResponder {
+    [self resetIdleTimer];
+
+    return [super nextResponder];
 }
 
 
@@ -61,7 +92,6 @@ NSString *const rateAppId = @"526641427";
     } else {
         [self closeWithoutHidingShadow];
     }
-
 }
 
 
@@ -159,8 +189,7 @@ NSString *const rateAppId = @"526641427";
     }
     [AdsManager logEvent:FLURRY_MAP];
     [Utils animationForAppear:YES forView:self.shadowView withCompletionBlock:^(BOOL finished) {
-        
-    }];
+     }];
     [self next:[sender tag] isPrev:NO isInitial:YES];
 }
 
@@ -185,11 +214,11 @@ NSString *const rateAppId = @"526641427";
 - (void)closeAndHideShadow {
     __weak MainViewController *weakSelf = self;
     [Utils animationForAppear:NO forView:self.shadowView withCompletionBlock:^(BOOL finished) {
-        [weakSelf.magicViewController.view removeFromSuperview];
-        weakSelf.magicViewController = nil;
-        [weakSelf.popUpViewController.view removeFromSuperview];
-        weakSelf.popUpViewController = nil;
-    }];
+         [weakSelf.magicViewController.view removeFromSuperview];
+         weakSelf.magicViewController = nil;
+         [weakSelf.popUpViewController.view removeFromSuperview];
+         weakSelf.popUpViewController = nil;
+     }];
 }
 
 
