@@ -1087,6 +1087,7 @@
 		454E8C6D195CC8410052B9CC /* Icon-xxhdpi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-xxhdpi.png"; sourceTree = "<group>"; };
 		454E8C6E195CC8410052B9CC /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		454E8C6F195CC8410052B9CC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		457B06611975CEDF00A71E4F /* Neoniks copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Neoniks copy.entitlements"; sourceTree = "<group>"; };
 		7517995D19576E0A003155CE /* 22_foam_castle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 22_foam_castle.png; sourceTree = "<group>"; };
 		7517996119576EF2003155CE /* page1_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1_banner.png; sourceTree = "<group>"; };
 		7517996319576F1B003155CE /* 01_banner_eng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01_banner_eng.png; sourceTree = "<group>"; };
@@ -2521,6 +2522,7 @@
 		75BC68EA18AAB2A5006D7647 = {
 			isa = PBXGroup;
 			children = (
+				457B06611975CEDF00A71E4F /* Neoniks copy.entitlements */,
 				75AFC66119446E79001AE141 /* StyleSettings.plist */,
 				75BC68FC18AAB2A5006D7647 /* Neoniks */,
 				75BC68F518AAB2A5006D7647 /* Frameworks */,
@@ -2930,10 +2932,10 @@
 						DevelopmentTeam = H6QX82RNU5;
 					};
 					75D9289A1974560400048B95 = {
-						DevelopmentTeam = H6QX82RNU5;
+						DevelopmentTeam = 94G97SK366;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -4173,7 +4175,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = "Neoniks copy.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4205,7 +4207,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = "Neoniks copy.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
