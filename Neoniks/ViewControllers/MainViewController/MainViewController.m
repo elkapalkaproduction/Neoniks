@@ -105,9 +105,21 @@ NSString *const rateAppId = @"526641427";
 #pragma mark -
 #pragma mark - IBActions
 
+- (IBAction)enableSound:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        [[AudioPlayer sharedPlayer] pause];
+    } else {
+        [[AudioPlayer sharedPlayer] play];
+    }
+}
+
+
 - (IBAction)goToBook:(id)sender {
     [AdsManager logEvent:FLURRY_BOOK_OPEN];
     BookViewController *bookViewController = [[BookViewController alloc] init];
+    bookViewController.isPlayingSound = [[AudioPlayer sharedPlayer] isPlaying];
+
     [[AudioPlayer sharedPlayer] pause];
     [self presentViewController:bookViewController animated:YES completion:NULL];
 }

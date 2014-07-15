@@ -10,4 +10,6 @@
 
 @interface BookViewController : UIViewController
 
+@property (nonatomic) BOOL isPlayingSound;
+
 @end

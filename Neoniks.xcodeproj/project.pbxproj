@@ -435,6 +435,10 @@
 		75B29497195CA91C00A98815 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B29496195CA91C00A98815 /* cross.png */; };
 		75B3C96B18B51C0D00AA8AC5 /* 2_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */; };
 		75B3C96C18B51C0D00AA8AC5 /* 27_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */; };
+		75B744E919759D7300B8FDFC /* note-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B744E719759D7300B8FDFC /* note-100.png */; };
+		75B744EA19759D7300B8FDFC /* note-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B744E719759D7300B8FDFC /* note-100.png */; };
+		75B744EB19759D7300B8FDFC /* note-x100.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B744E819759D7300B8FDFC /* note-x100.png */; };
+		75B744EC19759D7300B8FDFC /* note-x100.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B744E819759D7300B8FDFC /* note-x100.png */; };
 		75BC68F718AAB2A5006D7647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68F618AAB2A5006D7647 /* Foundation.framework */; };
 		75BC68F918AAB2A5006D7647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68F818AAB2A5006D7647 /* CoreGraphics.framework */; };
 		75BC68FB18AAB2A5006D7647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC68FA18AAB2A5006D7647 /* UIKit.framework */; };
@@ -1501,6 +1505,8 @@
 		75B29496195CA91C00A98815 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
 		75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_popup_art.png; sourceTree = "<group>"; };
 		75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 27_popup_art.png; sourceTree = "<group>"; };
+		75B744E719759D7300B8FDFC /* note-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-100.png"; sourceTree = "<group>"; };
+		75B744E819759D7300B8FDFC /* note-x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-x100.png"; sourceTree = "<group>"; };
 		75BC68F318AAB2A5006D7647 /* Neoniks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neoniks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75BC68F618AAB2A5006D7647 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		75BC68F818AAB2A5006D7647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -2581,6 +2587,8 @@
 		75BC694118AAC304006D7647 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				75B744E719759D7300B8FDFC /* note-100.png */,
+				75B744E819759D7300B8FDFC /* note-x100.png */,
 				7517996119576EF2003155CE /* page1_banner.png */,
 				7517996319576F1B003155CE /* 01_banner_eng.png */,
 				7517996419576F1B003155CE /* 01_banner_rus.png */,
@@ -2877,6 +2885,7 @@
 				7544F59A196880BF00A66D18 /* 12_1_rus.html in Resources */,
 				7553CEFC18B8FBB900B53D48 /* nextPages.plist in Resources */,
 				7590FA7618AD71CF000D3262 /* 22_popup_art.png in Resources */,
+				75B744E919759D7300B8FDFC /* note-100.png in Resources */,
 				75BE32F0195E0D42009AF3EE /* 21_name_rus.png in Resources */,
 				454E8C71195CC8410052B9CC /* Icon-60@2x.png in Resources */,
 				7544F5CE196880BF00A66D18 /* 8_2_rus.html in Resources */,
@@ -3023,6 +3032,7 @@
 				454E8C7D195CC8410052B9CC /* Icon-Small.png in Resources */,
 				7544F5A8196880BF00A66D18 /* 1_1_rus.html in Resources */,
 				7544F57B196880BF00A66D18 /* 7_4_eng.html in Resources */,
+				75B744EB19759D7300B8FDFC /* note-x100.png in Resources */,
 				758DE48C18AF7BAE0000BD69 /* 17_magic_eng.png in Resources */,
 				7590F9BF18AD4DDF000D3262 /* 27_title_rus.png in Resources */,
 				7544F5D5196880BF00A66D18 /* 9_1_rus.html in Resources */,
@@ -3392,6 +3402,7 @@
 				75D928E91974560400048B95 /* left.png in Resources */,
 				75D928EA1974560400048B95 /* contributions_eng.png in Resources */,
 				75D928EB1974560400048B95 /* pencil.png in Resources */,
+				75B744EC19759D7300B8FDFC /* note-x100.png in Resources */,
 				75D928EC1974560400048B95 /* 13_9_rus.html in Resources */,
 				75D928ED1974560400048B95 /* MagicWorldViewController.xib in Resources */,
 				75D928EE1974560400048B95 /* portrait_27.png in Resources */,
@@ -3472,6 +3483,7 @@
 				75D929381974560400048B95 /* 26_title_eng.png in Resources */,
 				75D929391974560400048B95 /* portrait_8.png in Resources */,
 				75D9293A1974560400048B95 /* 27_text_rus.png in Resources */,
+				75B744EA19759D7300B8FDFC /* note-100.png in Resources */,
 				75D9293B1974560400048B95 /* chapters_eng.plist in Resources */,
 				75D9293C1974560400048B95 /* 13_1_rus.html in Resources */,
 				75D9293D1974560400048B95 /* 19_text_eng.png in Resources */,

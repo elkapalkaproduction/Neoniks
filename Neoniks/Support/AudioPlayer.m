@@ -39,12 +39,17 @@
 
 
 - (void)play {
-//    [self.audioPlayer play];
+    [self.audioPlayer play];
 }
 
 
 - (void)pause {
     [self.audioPlayer pause];
+}
+
+
+- (BOOL)isPlaying {
+    return [self.audioPlayer isPlaying];
 }
 
 @end

@@ -14,5 +14,6 @@
 + (instancetype)sharedPlayer;
 - (void)play;
 - (void)pause;
+- (BOOL)isPlaying;
 
 @end

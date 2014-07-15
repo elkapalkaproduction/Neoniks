@@ -138,7 +138,9 @@ const CGFloat ribbonDefaultHiddeY = 70;
 
 
 - (IBAction)closeBookAction:(id)sender {
-    [[AudioPlayer sharedPlayer] play];
+    if (self.isPlayingSound) {
+        [[AudioPlayer sharedPlayer] play];
+    }
     PageDetails *curentPage = [self curentPageDetails];
     NSInteger curentPageNumber = [self.collection numberForPageDetails:curentPage];
     [[BookmarksManager sharedManager] setLastOpen:curentPageNumber];

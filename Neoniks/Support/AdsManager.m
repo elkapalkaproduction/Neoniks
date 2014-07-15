@@ -53,10 +53,12 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_START = @"on_start";
 NSString *const PLAYHAVEN_PLACEMENT_ON_SAYS_NO = @"on_in_app_no";
 NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
 #ifdef NeoniksFree
+
 @interface AdsManager () <PHPublisherContentRequestDelegate>
 
 @end
 #endif
+
 @implementation AdsManager
 
 + (instancetype)sharedManager {
@@ -88,22 +90,16 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
 #ifdef NeoniksFree
     [AdColony playVideoAdForZone:ADCOLONY_ON_START withDelegate:nil];
     [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
-    [[AdsManager sharedManager] showPlayHaven];
-
+    [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
+                                       secret:PLAYHAVEN_SECRET
+                                    placement:PLAYHAVEN_PLACEMENT_ON_START
+                                     delegate:nil] send];
 //
 #endif
 }
 
 
 #ifdef NeoniksFree
-
-- (void)showPlayHaven {
-    [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
-                                       secret:PLAYHAVEN_SECRET
-                                    placement:PLAYHAVEN_PLACEMENT_ON_START
-                                     delegate:nil] send];
-}
-
 
 - (void)setupAdColony {
     NSArray *adColonyZoneIDs = @[ADCOLONY_ON_START,

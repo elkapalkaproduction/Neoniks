@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
@@ -272,6 +273,17 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z7q-Nv-XAc">
+                    <rect key="frame" x="13" y="20" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="note-100.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="note-x100.png"/>
+                    <connections>
+                        <action selector="enableSound:" destination="-1" eventType="touchUpInside" id="XiQ-kg-dPY"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -300,6 +312,8 @@
         <image name="fon_pop_up_window.png" width="2048" height="1536"/>
         <image name="gift_eng.png" width="324" height="287"/>
         <image name="headings_eng.png" width="1374" height="178"/>
+        <image name="note-100.png" width="100" height="109"/>
+        <image name="note-x100.png" width="100" height="109"/>
         <image name="page1_banner.png" width="406" height="135"/>
         <image name="rate_eng.png" width="324" height="287"/>
         <image name="read_text_eng.png" width="250" height="41"/>

@@ -51,10 +51,10 @@ typedef enum {
  **/
 typedef NSString PHPublisherContentDismissType;
 
-extern PHPublisherContentDismissType * const PHPublisherContentUnitTriggeredDismiss;           /**< Request was dismissed with a content unit dismiss dispatch. */
-extern PHPublisherContentDismissType * const PHPublisherNativeCloseButtonTriggeredDismiss;     /**< Request was dismissed by the user tapping the native close button. */
-extern PHPublisherContentDismissType * const PHPublisherApplicationBackgroundTriggeredDismiss; /**< Request was dismissed by the application entering the background */
-extern PHPublisherContentDismissType * const PHPublisherNoContentTriggeredDismiss;             /**< Request was dismissed before it was shown because the API response did not contain a content unit. */
+extern PHPublisherContentDismissType *const PHPublisherContentUnitTriggeredDismiss;            /**< Request was dismissed with a content unit dismiss dispatch. */
+extern PHPublisherContentDismissType *const PHPublisherNativeCloseButtonTriggeredDismiss;      /**< Request was dismissed by the user tapping the native close button. */
+extern PHPublisherContentDismissType *const PHPublisherApplicationBackgroundTriggeredDismiss;  /**< Request was dismissed by the application entering the background */
+extern PHPublisherContentDismissType *const PHPublisherNoContentTriggeredDismiss;              /**< Request was dismissed before it was shown because the API response did not contain a content unit. */
 
 /**
  * @internal
@@ -64,13 +64,13 @@ extern PHPublisherContentDismissType * const PHPublisherNoContentTriggeredDismis
  * button, and overlay window.
  **/
 @interface PHPublisherContentRequest : PHAPIRequest <PHContentViewDelegate, PHAPIRequestDelegate> {
-    NSString       *_placement;
-    BOOL            _animated;
+    NSString *_placement;
+    BOOL _animated;
     NSMutableArray *_contentViews;
-    BOOL            _showsOverlayImmediately;
-    UIButton       *_closeButton;
+    BOOL _showsOverlayImmediately;
+    UIButton *_closeButton;
 
-    UIView    *_overlayWindow;
+    UIView *_overlayWindow;
     PHContent *_content;
 
     PHPublisherContentRequestState _state;
@@ -99,18 +99,19 @@ extern PHPublisherContentDismissType * const PHPublisherNoContentTriggeredDismis
  **/
 + (id)requestForApp:(NSString *)token secret:(NSString *)secret placement:(NSString *)placement delegate:(id)delegate;
 
-@property (nonatomic,retain)    NSString       *placement;               /**< Placement id for this content request, this should correspond to one of the
+@property (nonatomic, retain)    NSString *placement;                    /**< Placement id for this content request, this should correspond to one of the
                                                                               placements set up for this game on the PlayHaven Dashboard */
-@property (nonatomic,assign)    BOOL            animated;                /**< Controls whether content unit transitions will be animated for this request */
-@property (nonatomic,readonly)  NSMutableArray *contentViews;            /**< Collection of PHContentViews being managed by this request */
-@property (nonatomic, assign)   BOOL            showsOverlayImmediately; /**< Controls whether or not the overlay will be shown immediately after PHAPIRequest#send.
+@property (nonatomic, assign)    BOOL animated;                          /**< Controls whether content unit transitions will be animated for this request */
+@property (nonatomic, readonly)  NSMutableArray *contentViews;            /**< Collection of PHContentViews being managed by this request */
+@property (nonatomic, assign)   BOOL showsOverlayImmediately;            /**< Controls whether or not the overlay will be shown immediately after PHAPIRequest#send.
                                                                               Defaults to NO */
-@property (nonatomic, readonly) UIView         *overlayWindow;           /**< Overlay view instance */
+@property (nonatomic, readonly) UIView *overlayWindow;                   /**< Overlay view instance */
 
 /**
  * Request the content unit from the API, but stop before actually displaying it until PHAPIRequest#send is called
  **/
 - (void)preload;
+
 @end
 
 /**
@@ -270,4 +271,5 @@ extern PHPublisherContentDismissType * const PHPublisherNoContentTriggeredDismis
  *   The purchase
  **/
 - (void)request:(PHPublisherContentRequest *)request makePurchase:(PHPurchase *)purchase;
+
 @end
