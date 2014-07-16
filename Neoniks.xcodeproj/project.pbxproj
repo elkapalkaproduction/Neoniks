@@ -2527,7 +2527,6 @@
 				75BC68FC18AAB2A5006D7647 /* Neoniks */,
 				75BC68F518AAB2A5006D7647 /* Frameworks */,
 				75BC68F418AAB2A5006D7647 /* Products */,
-				75D92A8A1974560400048B95 /* Neoniks copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2625,6 +2624,7 @@
 				751CDB2819291DC8003FCA0F /* chapters_eng.plist */,
 				751CDB2619291DC0003FCA0F /* chapters_rus.plist */,
 				75BC68FE18AAB2A5006D7647 /* Neoniks-Info.plist */,
+				75D92A8A1974560400048B95 /* Neoniks copy-Info.plist */,
 				7553CEF918B8FBB900B53D48 /* nextPages.plist */,
 				75BE3313195E13B1009AF3EE /* ipadFrames.plist */,
 				75BE3315195E15C9009AF3EE /* iphoneFrames.plist */,
@@ -2932,7 +2932,6 @@
 						DevelopmentTeam = H6QX82RNU5;
 					};
 					75D9289A1974560400048B95 = {
-						DevelopmentTeam = 94G97SK366;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -4176,8 +4175,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Neoniks copy.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrei Andrei (N5L3GQ97ZT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrei Andrei (N5L3GQ97ZT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -4208,8 +4207,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Neoniks copy.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrei Andrei (N5L3GQ97ZT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrei Andrei (N5L3GQ97ZT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

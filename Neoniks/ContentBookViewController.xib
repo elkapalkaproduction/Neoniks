@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContentBookViewController">
             <connections>
+                <outlet property="buyButton" destination="7Pc-Oc-rdU" id="cej-Hk-Hkt"/>
+                <outlet property="lockImage" destination="Hid-VI-ZAu" id="37r-CY-Vyu"/>
+                <outlet property="restoreButton" destination="QvJ-et-61v" id="cqQ-yC-mGR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="Eyi-6V-6O2" id="s4W-ND-6Fu"/>
             </connections>
@@ -28,11 +32,55 @@
                         <outletCollection property="gestureRecognizers" destination="eg5-Nq-sHm" appends="YES" id="JOw-u5-ebr"/>
                     </connections>
                 </webView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pc-Oc-rdU">
+                    <rect key="frame" x="140" y="12" width="200" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="LxR-I9-hiT"/>
+                        <constraint firstAttribute="width" constant="200" id="l7G-Gb-5eO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <state key="normal" title="Buy">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buy:" destination="-1" eventType="touchUpInside" id="xRU-SC-e7j"/>
+                    </connections>
+                </button>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hid-VI-ZAu">
+                    <rect key="frame" x="140" y="60" width="200" height="200"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="8Xm-Ns-Nqz"/>
+                        <constraint firstAttribute="width" constant="200" id="WfR-pq-yJy"/>
+                    </constraints>
+                </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QvJ-et-61v">
+                    <rect key="frame" x="140" y="260" width="200" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="7fM-CA-iJk"/>
+                        <constraint firstAttribute="height" constant="48" id="a1m-og-k5y"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <state key="normal" title="Востонавить">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="restore:" destination="-1" eventType="touchUpInside" id="fHD-NW-bWR"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="QvJ-et-61v" secondAttribute="centerX" id="7TS-Yr-8pU"/>
+                <constraint firstItem="Hid-VI-ZAu" firstAttribute="top" secondItem="7Pc-Oc-rdU" secondAttribute="bottom" id="G58-dQ-soA"/>
                 <constraint firstAttribute="centerX" secondItem="Eyi-6V-6O2" secondAttribute="centerX" id="JCe-8U-bC1"/>
+                <constraint firstAttribute="centerY" secondItem="Hid-VI-ZAu" secondAttribute="centerY" id="LyM-aZ-fEJ"/>
+                <constraint firstItem="QvJ-et-61v" firstAttribute="top" secondItem="Hid-VI-ZAu" secondAttribute="bottom" id="MvX-0g-VnC"/>
                 <constraint firstAttribute="centerY" secondItem="Eyi-6V-6O2" secondAttribute="centerY" id="Zgg-Bi-cgS"/>
+                <constraint firstAttribute="centerX" secondItem="Hid-VI-ZAu" secondAttribute="centerX" id="bzL-el-x43"/>
+                <constraint firstAttribute="centerX" secondItem="7Pc-Oc-rdU" secondAttribute="centerX" id="pmo-oh-trN"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -45,4 +93,7 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="lock.png" width="500" height="500"/>
+    </resources>
 </document>
