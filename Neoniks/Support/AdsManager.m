@@ -66,9 +66,9 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
     static AdsManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-                      sharedMyManager = [[self alloc] init];
-                  });
-
+        sharedMyManager = [[self alloc] init];
+    });
+    
     return sharedMyManager;
 }
 
@@ -92,13 +92,17 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
     if ([MKStoreManager isFeaturePurchased:SUB_PRODUCT_ID]) {
         return;
     }
-//    [AdColony playVideoAdForZone:ADCOLONY_ON_START withDelegate:nil];
-//    [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
-//    [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
-//                                       secret:PLAYHAVEN_SECRET
-//                                    placement:PLAYHAVEN_PLACEMENT_ON_START
-//                                     delegate:nil] send];
-//
+    if ([AdColony zoneStatusForZone:ADCOLONY_ON_START] == ADCOLONY_ZONE_STATUS_ACTIVE) {
+        [AdColony playVideoAdForZone:ADCOLONY_ON_START withDelegate:nil];
+        
+    } else {
+        [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
+        [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
+                                           secret:PLAYHAVEN_SECRET
+                                        placement:PLAYHAVEN_PLACEMENT_ON_START
+                                         delegate:nil] send];
+    }
+    
 #endif
 }
 
@@ -108,12 +112,15 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
     if ([MKStoreManager isFeaturePurchased:SUB_PRODUCT_ID]) {
         return;
     }
-    [AdColony playVideoAdForZone:ADCOLONY_ON_SAYS_NO withDelegate:nil];
-    [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
-    [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
-                                       secret:PLAYHAVEN_SECRET
-                                    placement:PLAYHAVEN_PLACEMENT_ON_SAYS_NO
-                                     delegate:nil] send];
+    if ([AdColony zoneStatusForZone:ADCOLONY_ON_SAYS_NO] == ADCOLONY_ZONE_STATUS_ACTIVE) {
+        [AdColony playVideoAdForZone:ADCOLONY_ON_SAYS_NO withDelegate:nil];
+    } else {
+        [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
+        [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
+                                           secret:PLAYHAVEN_SECRET
+                                        placement:PLAYHAVEN_PLACEMENT_ON_SAYS_NO
+                                         delegate:nil] send];
+    }
 #endif
 }
 
@@ -123,12 +130,16 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
     if ([MKStoreManager isFeaturePurchased:SUB_PRODUCT_ID]) {
         return;
     }
-    [AdColony playVideoAdForZone:ADCOLONY_ON_TIMER withDelegate:nil];
-    [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
-    [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
-                                       secret:PLAYHAVEN_SECRET
-                                    placement:PLAYHAVEN_PLACEMENT_ON_TIMER
-                                     delegate:nil] send];
+    if ([AdColony zoneStatusForZone:ADCOLONY_ON_TIMER] == ADCOLONY_ZONE_STATUS_ACTIVE) {
+        [AdColony playVideoAdForZone:ADCOLONY_ON_TIMER withDelegate:nil];
+    } else {
+        [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
+        [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
+                                           secret:PLAYHAVEN_SECRET
+                                        placement:PLAYHAVEN_PLACEMENT_ON_TIMER
+                                         delegate:nil] send];
+    }
+    
 #endif
 }
 
