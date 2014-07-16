@@ -99,9 +99,12 @@
 
 - (IBAction)buy:(id)sender {
     [SVProgressHUD show];
+    [AdsManager logEvent:FLURRY_IN_APP_CLICKED];
     [[MKStoreManager sharedManager] buyFeature:SUB_PRODUCT_ID onComplete:^(NSString *purchasedFeature, NSData *purchasedReceipt)
      {
          [SVProgressHUD dismiss];
+         [AdsManager logEvent:FLURRY_IN_APP_MADE];
+
          self.currentPage = self.currentPage;
      }
                                    onCancelled:^
@@ -116,9 +119,11 @@
 
 - (IBAction)restore:(id)sender {
     [SVProgressHUD show];
+    [AdsManager logEvent:FLURRY_IN_APP_CLICKED];
     [[MKStoreManager sharedManager] restorePreviousTransactionsOnComplete:^{
         [SVProgressHUD dismiss];
         self.currentPage = self.currentPage;
+        [AdsManager logEvent:FLURRY_IN_APP_MADE];
     } onError:^(NSError *error) {
         [SVProgressHUD dismiss];
         NSLog(@"User Cancelled Transaction");
