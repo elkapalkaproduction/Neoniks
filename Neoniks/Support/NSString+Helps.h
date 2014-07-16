@@ -11,5 +11,6 @@
 @interface NSString (Helpers)
 
 + (NSString *)neoniksLocalizedString:(NSString *)input;
++ (NSString *)thisIsFreeLocalized;
 
 @end

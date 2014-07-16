@@ -17,4 +17,13 @@
     return string;
 }
 
+
++ (NSString *)thisIsFreeLocalized {
+    if (isRussian()) {
+        return @" - БЕСПЛАТНО";
+    } else {
+        return @" - FREE";
+    }
+}
+
 @end

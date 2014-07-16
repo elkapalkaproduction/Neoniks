@@ -15,6 +15,7 @@
 #import "PageDetails.h"
 #import "BookmarksManager.h"
 #import "ChaptersCollection.h"
+#import "MKStoreManager.h"
 
 @interface TableOfContentsViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *chapters;
@@ -74,6 +75,22 @@
         UIButton *button = (UIButton *)self.chapters[i];
         [button setTitle:string forState:UIControlStateNormal];
         [button addTarget:self action:@selector(chapterSelected:) forControlEvents:UIControlEventTouchUpInside];
+#ifdef NeoniksFree
+        if ([MKStoreManager isFeaturePurchased:SUB_PRODUCT_ID]) {
+            continue;
+        }
+        if (i < numberOfFreeChapters) {
+            NSString *finalString = [string stringByAppendingString:[NSString thisIsFreeLocalized]];
+            NSMutableAttributedString *atributtedString = [[NSMutableAttributedString alloc] initWithString:finalString];
+            [atributtedString addAttribute:NSForegroundColorAttributeName
+                                     value:[UIColor colorWithRed:41.f / 255.f green:10.f / 255.f blue:0 alpha:1.f]
+                                     range:[finalString rangeOfString:string]];
+            [atributtedString addAttribute:NSForegroundColorAttributeName
+                                     value:[UIColor colorWithRed:34.f / 255.f green:132.f / 255.f blue:23.f / 255.f alpha:1.f]
+                         range:[finalString rangeOfString:[NSString thisIsFreeLocalized]]];
+            [button setAttributedTitle:atributtedString forState:UIControlStateNormal];
+        }
+#endif
     }
 }
 
