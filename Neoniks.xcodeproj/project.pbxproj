@@ -26,6 +26,7 @@
 		454E8C80195CC8410052B9CC /* Icon-xxhdpi.png in Resources */ = {isa = PBXBuildFile; fileRef = 454E8C6D195CC8410052B9CC /* Icon-xxhdpi.png */; };
 		454E8C81195CC8410052B9CC /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 454E8C6E195CC8410052B9CC /* Icon.png */; };
 		454E8C82195CC8410052B9CC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 454E8C6F195CC8410052B9CC /* Icon@2x.png */; };
+		457B0665197663EB00A71E4F /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457B0664197663EB00A71E4F /* AdColony.framework */; };
 		7517995E19576E0A003155CE /* 22_foam_castle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7517995D19576E0A003155CE /* 22_foam_castle.png */; };
 		7517996219576EF2003155CE /* page1_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 7517996119576EF2003155CE /* page1_banner.png */; };
 		7517996519576F1B003155CE /* 01_banner_eng.png in Resources */ = {isa = PBXBuildFile; fileRef = 7517996319576F1B003155CE /* 01_banner_eng.png */; };
@@ -1028,7 +1029,6 @@
 		75D92ABF197464A100048B95 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D92A9F1974640F00048B95 /* AudioToolbox.framework */; };
 		75D92AC0197464A100048B95 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D92A9D1974640400048B95 /* AdSupport.framework */; };
 		75D92AC1197464A500048B95 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D92A9B197463FA00048B95 /* libz.1.2.5.dylib */; };
-		75D92AC31974650200048B95 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D92AC21974650200048B95 /* AdColony.framework */; };
 		75D92AD619746CB300048B95 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 75D92AD219746CB300048B95 /* CHANGELOG.md */; };
 		75D92AD719746CB300048B95 /* libChartboost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D92AD419746CB300048B95 /* libChartboost.a */; };
 		75D92AD819746CB300048B95 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 75D92AD519746CB300048B95 /* README.md */; };
@@ -1088,6 +1088,7 @@
 		454E8C6E195CC8410052B9CC /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		454E8C6F195CC8410052B9CC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		457B06611975CEDF00A71E4F /* Neoniks copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Neoniks copy.entitlements"; sourceTree = "<group>"; };
+		457B0664197663EB00A71E4F /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdColony.framework; sourceTree = "<group>"; };
 		7517995D19576E0A003155CE /* 22_foam_castle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 22_foam_castle.png; sourceTree = "<group>"; };
 		7517996119576EF2003155CE /* page1_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1_banner.png; sourceTree = "<group>"; };
 		7517996319576F1B003155CE /* 01_banner_eng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01_banner_eng.png; sourceTree = "<group>"; };
@@ -1623,7 +1624,6 @@
 		75D92AAF1974647400048B95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		75D92AB11974647A00048B95 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		75D92AB31974647E00048B95 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		75D92AC21974650200048B95 /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdColony.framework; sourceTree = "<group>"; };
 		75D92ACD19746CB300048B95 /* CBMoreAppsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMoreAppsButton.h; sourceTree = "<group>"; };
 		75D92ACE19746CB300048B95 /* CBNewsfeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNewsfeed.h; sourceTree = "<group>"; };
 		75D92ACF19746CB300048B95 /* CBNewsfeedUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNewsfeedUI.h; sourceTree = "<group>"; };
@@ -1735,8 +1735,8 @@
 				75D92AB7197464A100048B95 /* QuartzCore.framework in Frameworks */,
 				75D92A911974597300048B95 /* SystemConfiguration.framework in Frameworks */,
 				75D92ABE197464A100048B95 /* AVFoundation.framework in Frameworks */,
+				457B0665197663EB00A71E4F /* AdColony.framework in Frameworks */,
 				75D92ABD197464A100048B95 /* CoreTelephony.framework in Frameworks */,
-				75D92AC31974650200048B95 /* AdColony.framework in Frameworks */,
 				75D928B51974560400048B95 /* CoreGraphics.framework in Frameworks */,
 				75D92ABA197464A100048B95 /* EventKit.framework in Frameworks */,
 				75D92ABB197464A100048B95 /* EventKitUI.framework in Frameworks */,
@@ -2542,13 +2542,13 @@
 		75BC68F518AAB2A5006D7647 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				457B0664197663EB00A71E4F /* AdColony.framework */,
 				75F2EE311974823E00EE843A /* CoreLocation.framework */,
 				75F2EE2F1974823900EE843A /* libz.dylib */,
 				75F2EE2D197481DF00EE843A /* CFNetwork.framework */,
 				75F2EDD119747FB400EE843A /* PlayheavenSDK */,
 				75D92AD919746D9300048B95 /* CoreData.framework */,
 				75D92ACC19746CB300048B95 /* Chartboost */,
-				75D92AC21974650200048B95 /* AdColony.framework */,
 				75D92AB31974647E00048B95 /* StoreKit.framework */,
 				75D92AB11974647A00048B95 /* Social.framework */,
 				75D92AAF1974647400048B95 /* QuartzCore.framework */,
@@ -2932,6 +2932,7 @@
 						DevelopmentTeam = H6QX82RNU5;
 					};
 					75D9289A1974560400048B95 = {
+						DevelopmentTeam = 94G97SK366;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -4087,7 +4088,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "0C9CB78F-0932-4F90-8E26-33F5B051CFAC";
+				PROVISIONING_PROFILE = "F7C2B97B-1F4B-474F-82A7-C1FA9FEB4D38";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -4121,7 +4122,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "0C9CB78F-0932-4F90-8E26-33F5B051CFAC";
+				PROVISIONING_PROFILE = "F7C2B97B-1F4B-474F-82A7-C1FA9FEB4D38";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -4175,8 +4176,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Neoniks copy.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Andrei Andrei (N5L3GQ97ZT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrei Andrei (N5L3GQ97ZT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Pavel Mamaev (94G97SK366)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pavel Mamaev (94G97SK366)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -4197,7 +4198,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Neoniks copy";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "F7C2B97B-1F4B-474F-82A7-C1FA9FEB4D38";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4207,8 +4208,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Neoniks copy.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Andrei Andrei (N5L3GQ97ZT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrei Andrei (N5L3GQ97ZT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Pavel Mamaev (94G97SK366)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pavel Mamaev (94G97SK366)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -4229,7 +4230,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Neoniks copy";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "F7C2B97B-1F4B-474F-82A7-C1FA9FEB4D38";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
