@@ -48,7 +48,8 @@
              _logoImageView.alpha = 0.f;
          } completion:^(BOOL finished) {
              [[AudioPlayer sharedPlayer] play];
-             [AdsManager showOnStartAds];
+             AdsManager *manager = [AdsManager sharedManager];
+             [manager showOnStartAds];
              MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
              [[self navigationController] pushViewController:viewController animated:NO];
          }];

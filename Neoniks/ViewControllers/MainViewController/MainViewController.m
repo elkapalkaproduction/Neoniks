@@ -71,7 +71,8 @@ NSString *const rateAppId = @"526641427";
 
 - (void)idleTimerExceeded {
     self.idleTimer = nil;
-    [AdsManager showOnTimerAds];
+    AdsManager *manager = [AdsManager sharedManager];
+    [manager showOnTimerAds];
     [self resetIdleTimer];
 }
 

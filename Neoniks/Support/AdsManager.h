@@ -27,8 +27,8 @@ NSString *const FLURRY_IN_APP_MADE;
 + (instancetype)sharedManager;
 - (void)configure;
 + (void)logEvent:(NSString *)eventName;
-+ (void)showOnStartAds;
-+ (void)showOnSaysNoAds;
-+ (void)showOnTimerAds;
+- (void)showOnStartAds;
+- (void)showOnSaysNoAds;
+- (void)showOnTimerAds;
 
 @end

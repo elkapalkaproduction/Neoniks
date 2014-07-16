@@ -141,7 +141,8 @@
 
 
 - (void)showAdsWithDelay {
-    [AdsManager showOnSaysNoAds];
+    AdsManager *manager = [AdsManager sharedManager];
+    [manager showOnSaysNoAds];
 
 }
 

@@ -13,6 +13,7 @@
 #import "Chartboost.h"
 #import "PlayHavenSDK.h"
 #import "MKStoreManager.h"
+#import "AudioPlayer.h"
 #endif
 
 //-- Flurry Keys
@@ -55,12 +56,15 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_SAYS_NO = @"on_in_app_no";
 NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
 #ifdef NeoniksFree
 
-@interface AdsManager () <PHPublisherContentRequestDelegate>
+@interface AdsManager () <PHPublisherContentRequestDelegate, AdColonyAdDelegate>
+
+@property (assign, nonatomic) BOOL isPlaying;
 
 @end
 #endif
 
 @implementation AdsManager
+
 
 + (instancetype)sharedManager {
     static AdsManager *sharedMyManager = nil;
@@ -87,14 +91,15 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
 }
 
 
-+ (void)showOnStartAds {
+- (void)showOnStartAds {
 #ifdef NeoniksFree
     if ([MKStoreManager isFeaturePurchased:SUB_PRODUCT_ID]) {
         return;
     }
     if ([AdColony zoneStatusForZone:ADCOLONY_ON_START] == ADCOLONY_ZONE_STATUS_ACTIVE) {
-        [AdColony playVideoAdForZone:ADCOLONY_ON_START withDelegate:nil];
-        
+        [AdColony playVideoAdForZone:ADCOLONY_ON_START withDelegate:self];
+        self.isPlaying = [[AudioPlayer sharedPlayer] isPlaying];
+        [[AudioPlayer sharedPlayer] pause];
     } else {
         [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
         [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
@@ -107,13 +112,16 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
 }
 
 
-+ (void)showOnSaysNoAds {
+- (void)showOnSaysNoAds {
 #ifdef NeoniksFree
     if ([MKStoreManager isFeaturePurchased:SUB_PRODUCT_ID]) {
         return;
     }
     if ([AdColony zoneStatusForZone:ADCOLONY_ON_SAYS_NO] == ADCOLONY_ZONE_STATUS_ACTIVE) {
-        [AdColony playVideoAdForZone:ADCOLONY_ON_SAYS_NO withDelegate:nil];
+        [AdColony playVideoAdForZone:ADCOLONY_ON_SAYS_NO withDelegate:self];
+        self.isPlaying = [[AudioPlayer sharedPlayer] isPlaying];
+        [[AudioPlayer sharedPlayer] pause];
+
     } else {
         [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
         [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
@@ -125,13 +133,15 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
 }
 
 
-+ (void)showOnTimerAds {
+- (void)showOnTimerAds {
 #ifdef NeoniksFree
     if ([MKStoreManager isFeaturePurchased:SUB_PRODUCT_ID]) {
         return;
     }
     if ([AdColony zoneStatusForZone:ADCOLONY_ON_TIMER] == ADCOLONY_ZONE_STATUS_ACTIVE) {
-        [AdColony playVideoAdForZone:ADCOLONY_ON_TIMER withDelegate:nil];
+        [AdColony playVideoAdForZone:ADCOLONY_ON_TIMER withDelegate:self];
+        self.isPlaying = [[AudioPlayer sharedPlayer] isPlaying];
+        [[AudioPlayer sharedPlayer] pause];
     } else {
         [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
         [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
@@ -177,6 +187,13 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
 
 - (void)request:(PHPublisherContentRequest *)request contentDidFailWithError:(NSError *)error {
     [self setupAdColony];
+}
+
+
+- (void)onAdColonyAdAttemptFinished:(BOOL)shown inZone:(NSString *)zoneID {
+    if (self.isPlaying) {
+        [[AudioPlayer sharedPlayer] play];
+    }
 }
 
 

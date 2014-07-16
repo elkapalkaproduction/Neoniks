@@ -16,7 +16,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Utils setupLanguage];
-    [[AdsManager sharedManager] configure];
+    AdsManager *adsManager = [AdsManager sharedManager];
+    [adsManager configure];
 #ifdef NeoniksFree
     NSLog(@"%@", [[MKStoreManager sharedManager] pricesDictionary]);
     [MKStoreManager sharedManager];
