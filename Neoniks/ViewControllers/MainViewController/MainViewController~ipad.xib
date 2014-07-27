@@ -38,7 +38,7 @@
                     <rect key="frame" x="170" y="20" width="687" height="89"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2VS-6E-K2j" userLabel="Button - gift">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2VS-6E-K2j" userLabel="Button - gift" customClass="NNKShapedButton">
                     <rect key="frame" x="790" y="638" width="162" height="143"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -60,7 +60,7 @@
                         <action selector="goToSite:" destination="-1" eventType="touchUpInside" id="kFz-3W-g6n"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sus-c3-Ueq" userLabel="Button - review">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sus-c3-Ueq" userLabel="Button - review" customClass="NNKShapedButton">
                     <rect key="frame" x="887" y="641" width="162" height="143"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -192,7 +192,7 @@
                         <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="wNZ-4i-moI"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Q9y-aa-263" userLabel="Button - onCake22">
+                <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Q9y-aa-263" userLabel="Button - onCake22" customClass="NNKShapedButton">
                     <rect key="frame" x="105" y="193" width="177" height="349"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -203,7 +203,7 @@
                         <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="C2Q-tJ-Kpe"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fvm-73-cfr" userLabel="Button - onCake23">
+                <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fvm-73-cfr" userLabel="Button - onCake23" customClass="NNKShapedButton">
                     <rect key="frame" x="729" y="101" width="254" height="474"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -214,7 +214,7 @@
                         <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="PMX-qw-qi1"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ucc-Kb-802" userLabel="Button - contributors24">
+                <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ucc-Kb-802" userLabel="Button - contributors24" customClass="NNKShapedButton">
                     <rect key="frame" x="684" y="641" width="162" height="143"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>

@@ -208,6 +208,8 @@
 		7544F5D6196880BF00A66D18 /* 9_2_rus.html in Resources */ = {isa = PBXBuildFile; fileRef = 7544F53F196880BF00A66D18 /* 9_2_rus.html */; };
 		7544F5D7196880BF00A66D18 /* 9_3_rus.html in Resources */ = {isa = PBXBuildFile; fileRef = 7544F540196880BF00A66D18 /* 9_3_rus.html */; };
 		7544F5D8196880BF00A66D18 /* 9_4_rus.html in Resources */ = {isa = PBXBuildFile; fileRef = 7544F541196880BF00A66D18 /* 9_4_rus.html */; };
+		754843F91984F08300A0E496 /* NNKShapedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 754843F81984F08300A0E496 /* NNKShapedButton.m */; };
+		754843FA1984F08300A0E496 /* NNKShapedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 754843F81984F08300A0E496 /* NNKShapedButton.m */; };
 		7553CEFC18B8FBB900B53D48 /* nextPages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7553CEF918B8FBB900B53D48 /* nextPages.plist */; };
 		7553CF0318B8FBD800B53D48 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7553CF0218B8FBD800B53D48 /* Utils.m */; };
 		7553CF2118B8FCAF00B53D48 /* LogoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7553CF0F18B8FCAF00B53D48 /* LogoViewController.m */; };
@@ -1273,6 +1275,8 @@
 		7544F53F196880BF00A66D18 /* 9_2_rus.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 9_2_rus.html; sourceTree = "<group>"; };
 		7544F540196880BF00A66D18 /* 9_3_rus.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 9_3_rus.html; sourceTree = "<group>"; };
 		7544F541196880BF00A66D18 /* 9_4_rus.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 9_4_rus.html; sourceTree = "<group>"; };
+		754843F71984F08300A0E496 /* NNKShapedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNKShapedButton.h; sourceTree = "<group>"; };
+		754843F81984F08300A0E496 /* NNKShapedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNKShapedButton.m; sourceTree = "<group>"; };
 		7553CEF918B8FBB900B53D48 /* nextPages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = nextPages.plist; path = Support/nextPages.plist; sourceTree = "<group>"; };
 		7553CF0118B8FBD800B53D48 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Support/Utils.h; sourceTree = "<group>"; };
 		7553CF0218B8FBD800B53D48 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = Support/Utils.m; sourceTree = "<group>"; };
@@ -2610,6 +2614,8 @@
 				75AE76FB19280F510085A26A /* AudioPlayer.m */,
 				751CDC72192931C3003FCA0F /* BookmarksManager.h */,
 				751CDC73192931C3003FCA0F /* BookmarksManager.m */,
+				754843F71984F08300A0E496 /* NNKShapedButton.h */,
+				754843F81984F08300A0E496 /* NNKShapedButton.m */,
 				7544F48F196880BE00A66D18 /* chapters_eng */,
 				7544F4E6196880BE00A66D18 /* chapters_rus */,
 				75BC693218AAB930006D7647 /* images */,
@@ -3952,6 +3958,7 @@
 				758D917718FA978800025523 /* ContentBookViewController.m in Sources */,
 				75AE76FC19280F510085A26A /* AudioPlayer.m in Sources */,
 				75BC690318AAB2A5006D7647 /* main.m in Sources */,
+				754843F91984F08300A0E496 /* NNKShapedButton.m in Sources */,
 				751CDC78192945C9003FCA0F /* AllBookmarsViewController.m in Sources */,
 				751CDC7C19294E0A003FCA0F /* UIPopoverController+iPhone.m in Sources */,
 				75D92A9919745AA600048B95 /* AdsManager.m in Sources */,
@@ -4008,6 +4015,7 @@
 				75F2EE1A19747FB400EE843A /* PHContent.m in Sources */,
 				75F2EE1B19747FB400EE843A /* PHContentView.m in Sources */,
 				75D928A61974560400048B95 /* PageDetails.m in Sources */,
+				754843FA1984F08300A0E496 /* NNKShapedButton.m in Sources */,
 				75D928A71974560400048B95 /* ChaptersCollection.m in Sources */,
 				75D928A81974560400048B95 /* PopUpViewController.m in Sources */,
 				75D928A91974560400048B95 /* UIButton+Helps.m in Sources */,

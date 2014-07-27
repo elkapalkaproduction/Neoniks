@@ -166,7 +166,7 @@
                                 <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="zRB-H1-9h8"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HLt-tC-CiG" userLabel="Button - onCake22">
+                        <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HLt-tC-CiG" userLabel="Button - onCake22" customClass="NNKShapedButton">
                             <rect key="frame" x="0.0" y="61" width="89" height="175"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -177,7 +177,7 @@
                                 <action selector="popUpWindows:" destination="-1" eventType="touchUpInside" id="JGq-a8-xL0"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AEa-Cu-7yr" userLabel="Button - onCake23">
+                        <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AEa-Cu-7yr" userLabel="Button - onCake23" customClass="NNKShapedButton">
                             <rect key="frame" x="318" y="20" width="127" height="237"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -215,7 +215,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7K5-MG-MLL" userLabel="Button - review">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7K5-MG-MLL" userLabel="Button - review" customClass="NNKShapedButton">
                     <rect key="frame" x="498" y="257" width="81" height="71"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -237,7 +237,7 @@
                         <action selector="changeLanguage:" destination="-1" eventType="touchUpInside" id="Q57-IH-3jH"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qFp-DQ-4k0" userLabel="Button - gift">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qFp-DQ-4k0" userLabel="Button - gift" customClass="NNKShapedButton">
                     <rect key="frame" x="446" y="257" width="81" height="71"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -248,7 +248,7 @@
                         <action selector="goToAppleStoreGift:" destination="-1" eventType="touchUpInside" id="loK-4q-rhh"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yAA-gd-4Fj" userLabel="Button - contributors24">
+                <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yAA-gd-4Fj" userLabel="Button - contributors24" customClass="NNKShapedButton">
                     <rect key="frame" x="392" y="257" width="81" height="71"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
