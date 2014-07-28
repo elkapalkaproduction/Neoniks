@@ -93,6 +93,14 @@
 
 
 - (IBAction)close:(id)sender {
+    NSURL *urlForText = [NSURL urlFromLocalizedName:@"nextPages" extension:@"plist"];
+    NSDictionary *allPages = [[NSDictionary alloc] initWithContentsOfURL:urlForText];
+    NSString *nextPagesKey = [NSString stringWithFormat:@"%ld", (long)self.curentPage];
+    NSDictionary *curentPage = allPages[nextPagesKey];
+    if ([curentPage[@"isCharacter"] boolValue]) {
+        [self goToGallery:nil];
+        return;
+    }
     __weak PopUpViewController *weakSelf = self;
     [Utils animationForAppear:NO forView:self.contentView withCompletionBlock:^(BOOL finished) {
         weakSelf.view.hidden = YES;
