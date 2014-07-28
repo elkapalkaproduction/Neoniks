@@ -4,19 +4,19 @@
 <array>
 	<dict>
 		<key>pages</key>
-		<integer>7</integer>
+		<integer>9</integer>
 		<key>name</key>
 		<string>Chapter 1. The Magic Fox</string>
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>7</integer>
+		<integer>10</integer>
 		<key>name</key>
 		<string>Chapter 2. A Strange Teacher</string>
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>3</integer>
+		<integer>5</integer>
 		<key>name</key>
 		<string>Chapter 3. The Obnoxious Sister</string>
 	</dict>
@@ -28,55 +28,55 @@
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>6</integer>
+		<integer>7</integer>
 		<key>name</key>
 		<string>Chapter 5. Sea Dog</string>
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>2</integer>
+		<integer>3</integer>
 		<key>name</key>
 		<string>Chapter 6. Harold the Dragon</string>
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>6</integer>
+		<integer>7</integer>
 		<key>name</key>
 		<string>Chapter 7. Fire Hockey</string>
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>8</integer>
+		<integer>9</integer>
 		<key>name</key>
 		<string>Chapter 8. Bottomless Island</string>
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>4</integer>
+		<integer>5</integer>
 		<key>name</key>
 		<string>Chapter 9. The Demonite Submarine</string>
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>6</integer>
+		<integer>7</integer>
 		<key>name</key>
 		<string>Chapter 10. Leoville and Leomen</string>
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>7</integer>
+		<integer>9</integer>
 		<key>name</key>
 		<string>Chapter 11. The Painted People</string>
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>4</integer>
+		<integer>6</integer>
 		<key>name</key>
 		<string>Chapter 12. Inspiration and Magic</string>
 	</dict>
 	<dict>
 		<key>pages</key>
-		<integer>8</integer>
+		<integer>9</integer>
 		<key>name</key>
 		<string>Chapter 13. The Spell</string>
 	</dict>
