@@ -1340,6 +1340,7 @@
 		454E8C6F195CC8410052B9CC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		457B06611975CEDF00A71E4F /* Neoniks copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Neoniks copy.entitlements"; sourceTree = "<group>"; };
 		457B0664197663EB00A71E4F /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdColony.framework; sourceTree = "<group>"; };
+		45C481C01993EF5C004E4907 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7517995D19576E0A003155CE /* 22_foam_castle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 22_foam_castle.png; sourceTree = "<group>"; };
 		7517996119576EF2003155CE /* page1_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1_banner.png; sourceTree = "<group>"; };
 		7517996319576F1B003155CE /* 01_banner_eng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01_banner_eng.png; sourceTree = "<group>"; };
@@ -3083,6 +3084,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 75BC68EA18AAB2A5006D7647;
 			productRefGroup = 75BC68F418AAB2A5006D7647 /* Products */;
@@ -4247,6 +4249,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				75BC690018AAB2A5006D7647 /* en */,
+				45C481C01993EF5C004E4907 /* ru */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -4287,7 +4290,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "0C9CB78F-0932-4F90-8E26-33F5B051CFAC";
 				SDKROOT = iphoneos;
@@ -4322,7 +4325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PROVISIONING_PROFILE = "0C9CB78F-0932-4F90-8E26-33F5B051CFAC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4377,8 +4380,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Neoniks copy.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Pavel Mamaev (94G97SK366)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pavel Mamaev (94G97SK366)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -4399,7 +4402,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Neoniks copy";
-				PROVISIONING_PROFILE = "0C9CB78F-0932-4F90-8E26-33F5B051CFAC";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4409,8 +4412,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Neoniks copy.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Pavel Mamaev (94G97SK366)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pavel Mamaev (94G97SK366)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -4431,7 +4434,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Neoniks copy";
-				PROVISIONING_PROFILE = "0C9CB78F-0932-4F90-8E26-33F5B051CFAC";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
