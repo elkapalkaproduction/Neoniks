@@ -3071,7 +3071,7 @@
 						DevelopmentTeam = 94G97SK366;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -4292,7 +4292,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "0C9CB78F-0932-4F90-8E26-33F5B051CFAC";
+				PROVISIONING_PROFILE = "5452B0F8-10BB-40FE-B794-391514660A4E";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -4326,7 +4326,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "0C9CB78F-0932-4F90-8E26-33F5B051CFAC";
+				PROVISIONING_PROFILE = "5452B0F8-10BB-40FE-B794-391514660A4E";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -4379,9 +4379,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = "Neoniks copy.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pavel Mamaev (94G97SK366)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -4402,7 +4401,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Neoniks copy";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5452B0F8-10BB-40FE-B794-391514660A4E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4411,9 +4410,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = "Neoniks copy.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pavel Mamaev (94G97SK366)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -4434,7 +4432,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Neoniks copy";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5452B0F8-10BB-40FE-B794-391514660A4E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

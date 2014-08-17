@@ -14,8 +14,8 @@
 #import "Utils.h"
 #import "AdsManager.h"
 
-NSString *const giftAppId = @"526641427";
-NSString *const rateAppId = @"526641427";
+NSString *const giftAppId = @"898695413";
+NSString *const rateAppId = @"898695413";
 
 @interface MainViewController () <PopUpDelegate, MagicWorldDelegate>
 
