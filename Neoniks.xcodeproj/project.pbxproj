@@ -397,6 +397,9 @@
 		454E8C81195CC8410052B9CC /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 454E8C6E195CC8410052B9CC /* Icon.png */; };
 		454E8C82195CC8410052B9CC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 454E8C6F195CC8410052B9CC /* Icon@2x.png */; };
 		457B0665197663EB00A71E4F /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457B0664197663EB00A71E4F /* AdColony.framework */; };
+		75122B8B19A7B43E0052B26E /* MobileAppTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75122B8A19A7B43E0052B26E /* MobileAppTracker.framework */; };
+		75122B8D19A7B4640052B26E /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75122B8C19A7B4640052B26E /* iAd.framework */; };
+		75122B8F19A7B4760052B26E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75122B8E19A7B4760052B26E /* MobileCoreServices.framework */; };
 		7517995E19576E0A003155CE /* 22_foam_castle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7517995D19576E0A003155CE /* 22_foam_castle.png */; };
 		7517996219576EF2003155CE /* page1_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 7517996119576EF2003155CE /* page1_banner.png */; };
 		7517996519576F1B003155CE /* 01_banner_eng.png in Resources */ = {isa = PBXBuildFile; fileRef = 7517996319576F1B003155CE /* 01_banner_eng.png */; };
@@ -1341,6 +1344,9 @@
 		457B06611975CEDF00A71E4F /* Neoniks copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Neoniks copy.entitlements"; sourceTree = "<group>"; };
 		457B0664197663EB00A71E4F /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdColony.framework; sourceTree = "<group>"; };
 		45C481C01993EF5C004E4907 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		75122B8A19A7B43E0052B26E /* MobileAppTracker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileAppTracker.framework; sourceTree = "<group>"; };
+		75122B8C19A7B4640052B26E /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		75122B8E19A7B4760052B26E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		7517995D19576E0A003155CE /* 22_foam_castle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 22_foam_castle.png; sourceTree = "<group>"; };
 		7517996119576EF2003155CE /* page1_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1_banner.png; sourceTree = "<group>"; };
 		7517996319576F1B003155CE /* 01_banner_eng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01_banner_eng.png; sourceTree = "<group>"; };
@@ -1829,6 +1835,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75122B8F19A7B4760052B26E /* MobileCoreServices.framework in Frameworks */,
+				75122B8D19A7B4640052B26E /* iAd.framework in Frameworks */,
 				75F2EE321974823E00EE843A /* CoreLocation.framework in Frameworks */,
 				75F2EE301974823900EE843A /* libz.dylib in Frameworks */,
 				75F2EE2E197481DF00EE843A /* CFNetwork.framework in Frameworks */,
@@ -1845,6 +1853,7 @@
 				75D928B61974560400048B95 /* UIKit.framework in Frameworks */,
 				75D92AB51974648900048B95 /* StoreKit.framework in Frameworks */,
 				75D92AB9197464A100048B95 /* MediaPlayer.framework in Frameworks */,
+				75122B8B19A7B43E0052B26E /* MobileAppTracker.framework in Frameworks */,
 				75D92ABF197464A100048B95 /* AudioToolbox.framework in Frameworks */,
 				75D92ABC197464A100048B95 /* CoreMedia.framework in Frameworks */,
 				75D92AD719746CB300048B95 /* libChartboost.a in Frameworks */,
@@ -2676,6 +2685,9 @@
 		75BC68F518AAB2A5006D7647 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75122B8E19A7B4760052B26E /* MobileCoreServices.framework */,
+				75122B8C19A7B4640052B26E /* iAd.framework */,
+				75122B8A19A7B43E0052B26E /* MobileAppTracker.framework */,
 				457B0664197663EB00A71E4F /* AdColony.framework */,
 				75F2EE311974823E00EE843A /* CoreLocation.framework */,
 				75F2EE2F1974823900EE843A /* libz.dylib */,

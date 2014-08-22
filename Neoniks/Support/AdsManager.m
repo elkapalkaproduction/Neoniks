@@ -14,6 +14,8 @@
 #import "PlayHavenSDK.h"
 #import "MKStoreManager.h"
 #import "AudioPlayer.h"
+#import <MobileAppTracker/MobileAppTracker.h>
+#import <AdSupport/AdSupport.h>
 #endif
 
 //-- Flurry Keys
@@ -79,9 +81,15 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
 
 - (void)configure {
     [Flurry startSession:FLURRY_API_KEY];
+
 #ifdef NeoniksFree
     [self setupPlayHaven];
     [self setupChartboost];
+    [MobileAppTracker initializeWithMATAdvertiserId:@"20460"
+                                   MATConversionKey:@"e76deeecd77756a4861d9a10389124c7"];
+    [MobileAppTracker setAppleAdvertisingIdentifier:[[ASIdentifierManager sharedManager] advertisingIdentifier]
+                         advertisingTrackingEnabled:[[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]];
+
 #endif
 }
 
@@ -198,5 +206,18 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
 
 
 #endif
+
+- (void)matDidBecomeActive {
+#ifdef NeoniksFree
+    [MobileAppTracker measureSession];
+#endif
+}
+
+
+- (void)matOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication {
+#ifdef NeoniksFree
+    [MobileAppTracker applicationDidOpenURL:[url absoluteString] sourceApplication:sourceApplication];
+#endif
+}
 
 @end

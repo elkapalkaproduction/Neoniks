@@ -30,5 +30,7 @@ NSString *const FLURRY_IN_APP_MADE;
 - (void)showOnStartAds;
 - (void)showOnSaysNoAds;
 - (void)showOnTimerAds;
+- (void)matDidBecomeActive;
+- (void)matOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication;
 
 @end
