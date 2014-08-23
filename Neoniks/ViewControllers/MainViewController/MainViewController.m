@@ -13,6 +13,7 @@
 #import "TableOfContentsViewController.h"
 #import "Utils.h"
 #import "AdsManager.h"
+#import "NNKParentAlertView.h"
 
 NSString *const giftAppId = @"898695413";
 NSString *const rateAppId = @"898695413";
@@ -157,19 +158,43 @@ NSString *const rateAppId = @"898695413";
 
 
 - (IBAction)goToAppleStoreGift:(id)sender {
+#ifdef NeoniksFree
     [AdsManager logEvent:FLURRY_MAKE_GIFT];
     [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:giftAppId]];
+#else
+    NNKParentAlertView *alertView = [[NNKParentAlertView alloc] initCustomPopWithFrame:self.view.frame completionBlock:^{
+        [AdsManager logEvent:FLURRY_MAKE_GIFT];
+        [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:giftAppId]];
+    }];;
+    [alertView showInView:self.view];
+#endif
 }
 
 
 - (IBAction)goToSite:(id)sender {
+#ifdef NeoniksFree
     [[UIApplication sharedApplication] openURL:[NSURL urlForSite]];
+#else
+    NNKParentAlertView *alertView = [[NNKParentAlertView alloc] initCustomPopWithFrame:self.view.frame completionBlock:^{
+        [[UIApplication sharedApplication] openURL:[NSURL urlForSite]];
+    }];;
+    [alertView showInView:self.view];
+#endif
 }
 
 
 - (IBAction)goToWriteReview:(id)sender {
+#ifdef NeoniksFree
     [AdsManager logEvent:FLURRY_RATE_US];
     [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:rateAppId]];
+#else
+    NNKParentAlertView *alertView = [[NNKParentAlertView alloc] initCustomPopWithFrame:self.view.frame completionBlock:^{
+        [AdsManager logEvent:FLURRY_RATE_US];
+        [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:rateAppId]];
+    }];;
+    [alertView showInView:self.view];
+#endif
+
 }
 
 

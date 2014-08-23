@@ -447,6 +447,15 @@
 		7553CF3018B9086200B53D48 /* MainViewControllerBackground~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7553CF2F18B9086200B53D48 /* MainViewControllerBackground~iphone.png */; };
 		7553CF3218B9094000B53D48 /* MainViewControllerBackground5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7553CF3118B9094000B53D48 /* MainViewControllerBackground5.png */; };
 		756AEC591927CD0200DE8E6F /* PageDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 756AEC581927CD0100DE8E6F /* PageDetails.m */; };
+		756BF8DD19A918220052BCDF /* AlertActionButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 756BF8D419A918220052BCDF /* AlertActionButton@2x.png */; };
+		756BF8DE19A918220052BCDF /* AlertActionButtonDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 756BF8D519A918220052BCDF /* AlertActionButtonDown@2x.png */; };
+		756BF8DF19A918220052BCDF /* AlertButtonCancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 756BF8D619A918220052BCDF /* AlertButtonCancel@2x.png */; };
+		756BF8E019A918220052BCDF /* AlertButtonCancelDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 756BF8D719A918220052BCDF /* AlertButtonCancelDown@2x.png */; };
+		756BF8E119A918220052BCDF /* NNKParentAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 756BF8D919A918220052BCDF /* NNKParentAlertView.m */; };
+		756BF8E219A918220052BCDF /* NNKParentAlertView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756BF8DA19A918220052BCDF /* NNKParentAlertView~ipad.xib */; };
+		756BF8E319A918220052BCDF /* CustomPopView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 756BF8DB19A918220052BCDF /* CustomPopView@2x.png */; };
+		756BF8E419A918220052BCDF /* DimScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 756BF8DC19A918220052BCDF /* DimScreen.png */; };
+		756BF8E919A933570052BCDF /* NNKParentAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756BF8E819A933570052BCDF /* NNKParentAlertView.xib */; };
 		758D916A18FA811400025523 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758D916818FA811400025523 /* BookViewController.m */; };
 		758D916B18FA811400025523 /* BookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758D916918FA811400025523 /* BookViewController.xib */; };
 		758D916D18FA812800025523 /* BookViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758D916C18FA812800025523 /* BookViewController~ipad.xib */; };
@@ -1403,6 +1412,16 @@
 		7553CF3118B9094000B53D48 /* MainViewControllerBackground5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainViewControllerBackground5.png; sourceTree = "<group>"; };
 		756AEC571927CD0100DE8E6F /* PageDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageDetails.h; path = Support/PageDetails.h; sourceTree = "<group>"; };
 		756AEC581927CD0100DE8E6F /* PageDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageDetails.m; path = Support/PageDetails.m; sourceTree = "<group>"; };
+		756BF8D419A918220052BCDF /* AlertActionButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlertActionButton@2x.png"; sourceTree = "<group>"; };
+		756BF8D519A918220052BCDF /* AlertActionButtonDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlertActionButtonDown@2x.png"; sourceTree = "<group>"; };
+		756BF8D619A918220052BCDF /* AlertButtonCancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlertButtonCancel@2x.png"; sourceTree = "<group>"; };
+		756BF8D719A918220052BCDF /* AlertButtonCancelDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlertButtonCancelDown@2x.png"; sourceTree = "<group>"; };
+		756BF8D819A918220052BCDF /* NNKParentAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNKParentAlertView.h; sourceTree = "<group>"; };
+		756BF8D919A918220052BCDF /* NNKParentAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNKParentAlertView.m; sourceTree = "<group>"; };
+		756BF8DA19A918220052BCDF /* NNKParentAlertView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "NNKParentAlertView~ipad.xib"; sourceTree = "<group>"; };
+		756BF8DB19A918220052BCDF /* CustomPopView@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CustomPopView@2x.png"; sourceTree = "<group>"; };
+		756BF8DC19A918220052BCDF /* DimScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DimScreen.png; sourceTree = "<group>"; };
+		756BF8E819A933570052BCDF /* NNKParentAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NNKParentAlertView.xib; sourceTree = "<group>"; };
 		758D916718FA811400025523 /* BookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookViewController.h; path = ViewControllers/BookViewController/BookViewController.h; sourceTree = "<group>"; };
 		758D916818FA811400025523 /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookViewController.m; path = ViewControllers/BookViewController/BookViewController.m; sourceTree = "<group>"; };
 		758D916918FA811400025523 /* BookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookViewController.xib; path = ViewControllers/BookViewController/BookViewController.xib; sourceTree = "<group>"; };
@@ -2361,6 +2380,23 @@
 			path = PopUpViewController;
 			sourceTree = "<group>";
 		};
+		756BF8D319A918220052BCDF /* CustomAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				756BF8D419A918220052BCDF /* AlertActionButton@2x.png */,
+				756BF8D519A918220052BCDF /* AlertActionButtonDown@2x.png */,
+				756BF8D619A918220052BCDF /* AlertButtonCancel@2x.png */,
+				756BF8D719A918220052BCDF /* AlertButtonCancelDown@2x.png */,
+				756BF8E819A933570052BCDF /* NNKParentAlertView.xib */,
+				756BF8DA19A918220052BCDF /* NNKParentAlertView~ipad.xib */,
+				756BF8DB19A918220052BCDF /* CustomPopView@2x.png */,
+				756BF8DC19A918220052BCDF /* DimScreen.png */,
+				756BF8D819A918220052BCDF /* NNKParentAlertView.h */,
+				756BF8D919A918220052BCDF /* NNKParentAlertView.m */,
+			);
+			path = CustomAlertView;
+			sourceTree = "<group>";
+		};
 		758DE43618AF6A140000BD69 /* magicWorldIcons */ = {
 			isa = PBXGroup;
 			children = (
@@ -2724,6 +2760,7 @@
 				4541B8711986F0A900522D5B /* chapters_rus */,
 				75BC690518AAB2A5006D7647 /* AppDelegate.h */,
 				75BC690618AAB2A5006D7647 /* AppDelegate.m */,
+				756BF8D319A918220052BCDF /* CustomAlertView */,
 				75B744ED1975A2EF00B8FDFC /* MKStoreKit */,
 				75B744FF1975A2EF00B8FDFC /* SVProgressHUD */,
 				7553CF0C18B8FCAF00B53D48 /* ViewControllers */,
@@ -3145,6 +3182,7 @@
 				758DE49218AF7BAE0000BD69 /* 21_magic_eng.png in Resources */,
 				4541BC5C19877A9F00522D5B /* 6_1_eng.html in Resources */,
 				7590F99B18AD4DDF000D3262 /* 10_title_rus.png in Resources */,
+				756BF8E019A918220052BCDF /* AlertButtonCancelDown@2x.png in Resources */,
 				4541BC4E19877A9F00522D5B /* 5_1_eng.html in Resources */,
 				4541BC8819877A9F00522D5B /* 9_4_eng.html in Resources */,
 				75AF42D21965F783009525D8 /* bookmarkCross.png in Resources */,
@@ -3183,6 +3221,7 @@
 				75BE32F6195E0D42009AF3EE /* 28_name_rus.png in Resources */,
 				75B29492195CA89700A98815 /* left.png in Resources */,
 				7517997F1957718F003155CE /* contributions_eng.png in Resources */,
+				756BF8E919A933570052BCDF /* NNKParentAlertView.xib in Resources */,
 				75AF42D71965F783009525D8 /* pencil.png in Resources */,
 				7553CF2518B8FCAF00B53D48 /* MagicWorldViewController.xib in Resources */,
 				75BE3306195E0D42009AF3EE /* portrait_27.png in Resources */,
@@ -3197,6 +3236,7 @@
 				75B29456195CA47500A98815 /* 15_text_eng.png in Resources */,
 				75BE3309195E0D42009AF3EE /* portrait_7.png in Resources */,
 				4541BC7E19877A9F00522D5B /* 8_8_eng.html in Resources */,
+				756BF8DE19A918220052BCDF /* AlertActionButtonDown@2x.png in Resources */,
 				75B29475195CA47500A98815 /* 5_text_rus.png in Resources */,
 				7590FA7118AD71CF000D3262 /* 18_popup_art.png in Resources */,
 				4541BA231986F0A900522D5B /* 7_2_rus.html in Resources */,
@@ -3211,6 +3251,7 @@
 				758DE48518AF7BAE0000BD69 /* 7_magic_rus.png in Resources */,
 				4541B9B51986F0A900522D5B /* 12_2_rus.html in Resources */,
 				4541B9E91986F0A900522D5B /* 2_1_rus.html in Resources */,
+				756BF8DF19A918220052BCDF /* AlertButtonCancel@2x.png in Resources */,
 				75BE32EA195E0D42009AF3EE /* 17_name_rus.png in Resources */,
 				7590FA6D18AD71CF000D3262 /* 12_popup_art.png in Resources */,
 				4541BA451986F0A900522D5B /* 9_3_rus.html in Resources */,
@@ -3418,6 +3459,7 @@
 				4541BBDE19877A9F00522D5B /* 10_5_eng.html in Resources */,
 				4541BC0219877A9F00522D5B /* 13_10_eng.html in Resources */,
 				4541BA351986F0A900522D5B /* 8_4_rus.html in Resources */,
+				756BF8E419A918220052BCDF /* DimScreen.png in Resources */,
 				4541BA3F1986F0A900522D5B /* 8_9_rus.html in Resources */,
 				4541BC6219877A9F00522D5B /* 7_1_eng.html in Resources */,
 				4541B9EF1986F0A900522D5B /* 2_4_rus.html in Resources */,
@@ -3507,6 +3549,7 @@
 				75AF42D11965F783009525D8 /* bookmark_rus.png in Resources */,
 				75B2946E195CA47500A98815 /* 2_text_eng.png in Resources */,
 				7590F9C618AD4DDF000D3262 /* 3_title_eng.png in Resources */,
+				756BF8DD19A918220052BCDF /* AlertActionButton@2x.png in Resources */,
 				75BE32F8195E0D42009AF3EE /* 3_name_rus.png in Resources */,
 				4541BC7A19877A9F00522D5B /* 8_6_eng.html in Resources */,
 				4541BA151986F0A900522D5B /* 5_5_rus.html in Resources */,
@@ -3558,11 +3601,13 @@
 				4541BC2A19877A9F00522D5B /* 2_1_eng.html in Resources */,
 				75AF42D51965F783009525D8 /* exit_eng.png in Resources */,
 				7590F9BE18AD4DDF000D3262 /* 27_title_eng.png in Resources */,
+				756BF8E219A918220052BCDF /* NNKParentAlertView~ipad.xib in Resources */,
 				758DE49518AF7BAE0000BD69 /* 26_magic_rus.png in Resources */,
 				4541B8021986F07C00522D5B /* chapters_eng.plist in Resources */,
 				759DF45018DA31B6006E1689 /* gallery_rus.png in Resources */,
 				758E2CB318B3D8F000B23807 /* 5_popup_art.png in Resources */,
 				75B29459195CA47500A98815 /* 16_text_rus.png in Resources */,
+				756BF8E319A918220052BCDF /* CustomPopView@2x.png in Resources */,
 				4541BC0419877A9F00522D5B /* 13_1_eng.html in Resources */,
 				4541BA2B1986F0A900522D5B /* 7_6_rus.html in Resources */,
 				75B16598195ED9ED007C5B41 /* 24_text_rus.png in Resources */,
@@ -4162,6 +4207,7 @@
 				758D916A18FA811400025523 /* BookViewController.m in Sources */,
 				7553CF2718B8FCAF00B53D48 /* MainViewController.m in Sources */,
 				758D917718FA978800025523 /* ContentBookViewController.m in Sources */,
+				756BF8E119A918220052BCDF /* NNKParentAlertView.m in Sources */,
 				75AE76FC19280F510085A26A /* AudioPlayer.m in Sources */,
 				75BC690318AAB2A5006D7647 /* main.m in Sources */,
 				754843F91984F08300A0E496 /* NNKShapedButton.m in Sources */,

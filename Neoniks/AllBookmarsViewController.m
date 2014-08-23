@@ -50,7 +50,7 @@
     if (cell == nil) {
         NSString *nibName = NSStringFromClass([BookmarksTableViewCell class]);
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
-        cell = [topLevelObjects objectAtIndex:0];
+        cell = topLevelObjects[0];
     }
     NSInteger pageNumber = [self.allBookmarks[indexPath.row] integerValue];
     NSString *string = [[BookmarksManager sharedManager] nameStringForPage:pageNumber];

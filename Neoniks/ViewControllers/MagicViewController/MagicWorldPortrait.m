@@ -21,7 +21,7 @@
 + (instancetype)instantiate {
     NSString *nibName = NSStringFromClass([MagicWorldPortrait class]);
 
-    return [[[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil] objectAtIndex:0];
+    return [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil][0];
 }
 
 

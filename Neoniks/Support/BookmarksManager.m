@@ -73,7 +73,7 @@ NSString *const namedBookmarksRus = @"namedBookmarksRus";
 - (void)updateNameStringForPage:(NSInteger)page andName:(NSString *)name {
     NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] objectForKey:[self namedKey]];
     NSMutableDictionary *bookmarks = [NSMutableDictionary dictionaryWithDictionary:dictionary];
-    [bookmarks setObject:name forKey:[self generateKeyFromInt:page]];
+    bookmarks[[self generateKeyFromInt:page]] = name;
     [[NSUserDefaults standardUserDefaults] setObject:bookmarks forKey:[self namedKey]];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
