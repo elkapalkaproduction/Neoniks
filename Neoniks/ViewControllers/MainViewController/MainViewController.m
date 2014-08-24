@@ -15,9 +15,13 @@
 #import "AdsManager.h"
 #import "NNKParentAlertView.h"
 
+#ifdef NeoniksFree
 NSString *const giftAppId = @"898695413";
 NSString *const rateAppId = @"898695413";
-
+#else
+NSString *const giftAppId = @"898695413";
+NSString *const rateAppId = @"898695413";
+#endif
 @interface MainViewController () <PopUpDelegate, MagicWorldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *readBookView;
