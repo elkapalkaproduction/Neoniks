@@ -16,11 +16,11 @@
 #import "NNKParentAlertView.h"
 
 #ifdef NeoniksFree
-NSString *const giftAppId = @"898695413";
-NSString *const rateAppId = @"898695413";
+NSString *const giftAppId = @"899196882";
+NSString *const rateAppId = @"899196882";
 #else
-NSString *const giftAppId = @"898695413";
-NSString *const rateAppId = @"898695413";
+NSString *const giftAppId = @"912236449";
+NSString *const rateAppId = @"912236449";
 #endif
 @interface MainViewController () <PopUpDelegate, MagicWorldDelegate>
 
