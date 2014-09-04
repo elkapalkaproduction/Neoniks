@@ -82,10 +82,10 @@
 
 - (void)updateLocalization {
     if (isEnglish()) {
-        [self.buyButton setTitle:@"Buy" forState:UIControlStateNormal];
+        [self.buyButton setTitle:@"Continue..." forState:UIControlStateNormal];
         [self.restoreButton setTitle:@"Restore" forState:UIControlStateNormal];
     } else {
-        [self.buyButton setTitle:@"Купить" forState:UIControlStateNormal];
+        [self.buyButton setTitle:@"Продолжить..." forState:UIControlStateNormal];
         [self.restoreButton setTitle:@"Восстановить" forState:UIControlStateNormal];
     }
 }
