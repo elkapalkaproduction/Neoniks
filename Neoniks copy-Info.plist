@@ -60,9 +60,21 @@
 				<string>neoniks-bookfree</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb748048795274108</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.1</string>
+	<key>FacebookAppID</key>
+	<string>748048795274108</string>
+	<key>FacebookDisplayName</key>
+	<string>Neoniks: Magical Adventure Free</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>

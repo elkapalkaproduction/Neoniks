@@ -667,6 +667,7 @@
 		75B29497195CA91C00A98815 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B29496195CA91C00A98815 /* cross.png */; };
 		75B3B52C19D1F18E000B1659 /* OpenUrlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B3B52B19D1F18E000B1659 /* OpenUrlHandler.m */; };
 		75B3B52D19D1F18E000B1659 /* OpenUrlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B3B52B19D1F18E000B1659 /* OpenUrlHandler.m */; };
+		75B3B6FE19D2110D000B1659 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B3B6FD19D2110D000B1659 /* FacebookSDK.framework */; };
 		75B3C96B18B51C0D00AA8AC5 /* 2_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */; };
 		75B3C96C18B51C0D00AA8AC5 /* 27_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */; };
 		75B744E919759D7300B8FDFC /* note-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B744E719759D7300B8FDFC /* note-100.png */; };
@@ -1646,6 +1647,7 @@
 		75B29496195CA91C00A98815 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
 		75B3B52A19D1F18E000B1659 /* OpenUrlHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUrlHandler.h; sourceTree = "<group>"; };
 		75B3B52B19D1F18E000B1659 /* OpenUrlHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUrlHandler.m; sourceTree = "<group>"; };
+		75B3B6FD19D2110D000B1659 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_popup_art.png; sourceTree = "<group>"; };
 		75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 27_popup_art.png; sourceTree = "<group>"; };
 		75B744E719759D7300B8FDFC /* note-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-100.png"; sourceTree = "<group>"; };
@@ -1871,6 +1873,7 @@
 				75D92ABD197464A100048B95 /* CoreTelephony.framework in Frameworks */,
 				75D928B51974560400048B95 /* CoreGraphics.framework in Frameworks */,
 				75D92ABA197464A100048B95 /* EventKit.framework in Frameworks */,
+				75B3B6FE19D2110D000B1659 /* FacebookSDK.framework in Frameworks */,
 				75D92ABB197464A100048B95 /* EventKitUI.framework in Frameworks */,
 				75D92AB61974648C00048B95 /* Social.framework in Frameworks */,
 				75D928B61974560400048B95 /* UIKit.framework in Frameworks */,
@@ -2725,6 +2728,7 @@
 		75BC68F518AAB2A5006D7647 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75B3B6FD19D2110D000B1659 /* FacebookSDK.framework */,
 				75122B8E19A7B4760052B26E /* MobileCoreServices.framework */,
 				75122B8C19A7B4640052B26E /* iAd.framework */,
 				75122B8A19A7B43E0052B26E /* MobileAppTracker.framework */,
