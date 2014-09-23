@@ -152,7 +152,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
     PageDetails *curentPage = [self curentPageDetails];
     NSInteger curentPageNumber = [self.collection numberForPageDetails:curentPage];
     [[BookmarksManager sharedManager] setLastOpen:curentPageNumber];
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self.navigationController popViewControllerAnimated:YES];
     [AdsManager logEvent:FLURRY_BOOK_CLOSED];
 }
 

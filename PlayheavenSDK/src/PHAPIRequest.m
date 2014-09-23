@@ -319,10 +319,8 @@ static NSString *sPlayHavenCustomUDID;
 - (NSDictionary *)signedParameters
 {
     if (_signedParameters == nil) {
-        CGRect  screenBounds = [[UIScreen mainScreen] applicationFrame];
-        BOOL    isLandscape  = UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]);
-        CGFloat screenWidth  = (isLandscape) ? CGRectGetHeight(screenBounds) : CGRectGetWidth(screenBounds);
-        CGFloat screenHeight = (!isLandscape) ? CGRectGetHeight(screenBounds) : CGRectGetWidth(screenBounds);
+        CGFloat screenWidth  = [Utils screenSize].width;
+        CGFloat screenHeight = [Utils screenSize].height;
         CGFloat screenScale  = [[UIScreen mainScreen] scale];
 
         NSString *preferredLanguage = ([[NSLocale preferredLanguages] count] > 0) ?

@@ -665,6 +665,8 @@
 		75B29492195CA89700A98815 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B29490195CA89700A98815 /* left.png */; };
 		75B29493195CA89700A98815 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B29491195CA89700A98815 /* right.png */; };
 		75B29497195CA91C00A98815 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B29496195CA91C00A98815 /* cross.png */; };
+		75B3B52C19D1F18E000B1659 /* OpenUrlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B3B52B19D1F18E000B1659 /* OpenUrlHandler.m */; };
+		75B3B52D19D1F18E000B1659 /* OpenUrlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B3B52B19D1F18E000B1659 /* OpenUrlHandler.m */; };
 		75B3C96B18B51C0D00AA8AC5 /* 2_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */; };
 		75B3C96C18B51C0D00AA8AC5 /* 27_popup_art.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */; };
 		75B744E919759D7300B8FDFC /* note-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B744E719759D7300B8FDFC /* note-100.png */; };
@@ -1642,6 +1644,8 @@
 		75B29490195CA89700A98815 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
 		75B29491195CA89700A98815 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
 		75B29496195CA91C00A98815 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
+		75B3B52A19D1F18E000B1659 /* OpenUrlHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUrlHandler.h; sourceTree = "<group>"; };
+		75B3B52B19D1F18E000B1659 /* OpenUrlHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUrlHandler.m; sourceTree = "<group>"; };
 		75B3C96918B51C0D00AA8AC5 /* 2_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_popup_art.png; sourceTree = "<group>"; };
 		75B3C96A18B51C0D00AA8AC5 /* 27_popup_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 27_popup_art.png; sourceTree = "<group>"; };
 		75B744E719759D7300B8FDFC /* note-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-100.png"; sourceTree = "<group>"; };
@@ -2787,6 +2791,8 @@
 				75AF42DE196604A3009525D8 /* BookmarksTableViewCell.xib */,
 				7553CF0118B8FBD800B53D48 /* Utils.h */,
 				7553CF0218B8FBD800B53D48 /* Utils.m */,
+				75B3B52A19D1F18E000B1659 /* OpenUrlHandler.h */,
+				75B3B52B19D1F18E000B1659 /* OpenUrlHandler.m */,
 				75D92A9719745AA600048B95 /* AdsManager.h */,
 				75D92A9819745AA600048B95 /* AdsManager.m */,
 				75AFC66319447E34001AE141 /* Extensions */,
@@ -4207,6 +4213,7 @@
 				758D916A18FA811400025523 /* BookViewController.m in Sources */,
 				7553CF2718B8FCAF00B53D48 /* MainViewController.m in Sources */,
 				758D917718FA978800025523 /* ContentBookViewController.m in Sources */,
+				75B3B52C19D1F18E000B1659 /* OpenUrlHandler.m in Sources */,
 				756BF8E119A918220052BCDF /* NNKParentAlertView.m in Sources */,
 				75AE76FC19280F510085A26A /* AudioPlayer.m in Sources */,
 				75BC690318AAB2A5006D7647 /* main.m in Sources */,
@@ -4262,6 +4269,7 @@
 				75B745061975A2EF00B8FDFC /* MKSKSubscriptionProduct.m in Sources */,
 				75D928A31974560400048B95 /* main.m in Sources */,
 				75D928A41974560400048B95 /* AllBookmarsViewController.m in Sources */,
+				75B3B52D19D1F18E000B1659 /* OpenUrlHandler.m in Sources */,
 				75D928A51974560400048B95 /* UIPopoverController+iPhone.m in Sources */,
 				75D92A9A19745AA600048B95 /* AdsManager.m in Sources */,
 				75F2EE1A19747FB400EE843A /* PHContent.m in Sources */,

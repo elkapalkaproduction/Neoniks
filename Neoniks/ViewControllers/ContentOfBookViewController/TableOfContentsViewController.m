@@ -61,9 +61,7 @@
 #pragma mark - Private Methods
 
 - (void)setupView {
-    CGRect screenRect = [UIScreen mainScreen].bounds;
-    CGSize screenSize = CGSizeMake(CGRectGetHeight(screenRect), CGRectGetWidth(screenRect));
-    changeSize(screenSize, self.view);
+    changeSize([Utils screenSize], self.view);
     [self setupText];
     self.contentOfBookTitle.image = [UIImage imageWithName:@"25_title"];
 }

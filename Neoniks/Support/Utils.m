@@ -190,7 +190,7 @@ BOOL isIphone5() {
     static BOOL isIphon5;
     static BOOL isInitialized = NO;
     if (!isInitialized) {
-        isIphon5 = [UIScreen mainScreen].bounds.size.height != 480 && isIphone();
+        isIphon5 = [Utils screenSize].height != 480 && isIphone();
         isInitialized = YES;
     }
 
@@ -231,6 +231,16 @@ void setRussianLanguage() {
 
 void setEnglishLanguage() {
     [[NSUserDefaults standardUserDefaults] setObject:kEnglishLanguageTag forKey:kLanguage];
+}
+
+
++ (CGSize)screenSize {
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    if ((NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1) && UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+        return CGSizeMake(screenSize.height, screenSize.width);
+    } else {
+        return screenSize;
+    }
 }
 
 

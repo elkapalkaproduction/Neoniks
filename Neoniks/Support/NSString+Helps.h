@@ -12,5 +12,6 @@
 
 + (NSString *)neoniksLocalizedString:(NSString *)input;
 + (NSString *)thisIsFreeLocalized;
++ (NSString *)urlScheme;
 
 @end

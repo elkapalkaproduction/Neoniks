@@ -8,9 +8,18 @@
 
 #import "AppDelegate.h"
 #import "AdsManager.h"
+#import "OpenUrlHandler.h"
+#import "MainViewController.h"
 #ifdef NeoniksFree
 #import "MKStoreManager.h"
 #endif
+
+@interface AppDelegate ()
+
+@property (nonatomic, strong) NSString *supportedURLScheme;
+@property (strong, nonatomic) MainViewController *viewController;
+
+@end
 
 @implementation AppDelegate
 
@@ -26,8 +35,10 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[LogoViewController alloc] initWithNibName:@"LogoViewController" bundle:nil];
+    LogoViewController *logoViewController = [[LogoViewController alloc] initWithNibName:@"LogoViewController" bundle:nil];
+    self.viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    [self.navController pushViewController:logoViewController animated:NO];
     [self.navController setNavigationBarHidden:YES];
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];    // Override point for customization after application launch.
@@ -67,9 +78,34 @@
 
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([[url scheme] isEqualToString:self.supportedURLScheme]) {
+        if ([[url host] isEqualToString:@"place"]) {
+            [[OpenUrlHandler sharedHandler] parsePlaces:[url path]
+                               withNavigationController:self.navController];
+            
+        } else if ([[url host] isEqualToString:@"traditions"]) {
+            [[OpenUrlHandler sharedHandler] parseTraditions:[url path]
+                                   withNavigationController:self.navController];
+            
+        } else if ([[url host] isEqualToString:@"character"]) {
+            [[OpenUrlHandler sharedHandler] parseCharacters:[url path]
+                                   withNavigationController:self.navController];
+        }
+        
+        return YES;
+    }
     [[AdsManager sharedManager] matOpenURL:url sourceApplication:sourceApplication];
     
     return YES;
+}
+
+
+- (NSString *)supportedURLScheme {
+    if (!_supportedURLScheme) {
+        _supportedURLScheme = [NSString urlScheme];
+    }
+    
+    return _supportedURLScheme;
 }
 
 @end

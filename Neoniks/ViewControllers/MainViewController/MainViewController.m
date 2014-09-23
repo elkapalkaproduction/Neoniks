@@ -157,7 +157,8 @@ NSString *const rateAppId = @"912236449";
     bookViewController.isPlayingSound = [[AudioPlayer sharedPlayer] isPlaying];
 
     [[AudioPlayer sharedPlayer] pause];
-    [self presentViewController:bookViewController animated:YES completion:NULL];
+    [self.navigationController pushViewController:bookViewController animated:YES];
+//    [self presentViewController:bookViewController animated:YES completion:NULL];
 }
 
 
@@ -213,14 +214,19 @@ NSString *const rateAppId = @"912236449";
 }
 
 
+- (void)showPopUpWithTag:(NSNumber *)tag {
+    [Utils animationForAppear:YES forView:self.shadowView withCompletionBlock:^(BOOL finished) {
+    }];
+    [self next:[tag integerValue] isPrev:NO isInitial:YES];
+}
+
 - (IBAction)popUpWindows:(id)sender {
     if (self.magicViewController || self.popUpViewController) {
         return;
     }
     [AdsManager logEvent:FLURRY_MAP];
-    [Utils animationForAppear:YES forView:self.shadowView withCompletionBlock:^(BOOL finished) {
-     }];
-    [self next:[sender tag] isPrev:NO isInitial:YES];
+    NSInteger tag = [sender tag];
+    [self showPopUpWithTag:@(tag)];
 }
 
 

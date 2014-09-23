@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MainViewController : UIViewController
+- (void)close;
+- (void)showPopUpWithTag:(NSNumber *)tag;
 
 @end

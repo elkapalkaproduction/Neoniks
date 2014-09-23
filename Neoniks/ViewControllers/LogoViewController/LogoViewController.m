@@ -7,9 +7,7 @@
 //
 
 #import "LogoViewController.h"
-#import "MainViewController.h"
 #import "AudioPlayer.h"
-#import "ChaptersCollection.h"
 #import "UIImage+Helps.h"
 #import "AdsManager.h"
 
@@ -28,8 +26,9 @@
 }
 
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[AudioPlayer sharedPlayer] play];
 }
 
 
@@ -47,11 +46,9 @@
          [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
              _logoImageView.alpha = 0.f;
          } completion:^(BOOL finished) {
-             [[AudioPlayer sharedPlayer] play];
              AdsManager *manager = [AdsManager sharedManager];
              [manager showOnStartAds];
-             MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-             [[self navigationController] pushViewController:viewController animated:NO];
+             [self.navigationController popToRootViewControllerAnimated:NO];
          }];
      }];
 }

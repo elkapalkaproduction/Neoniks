@@ -26,4 +26,13 @@
     }
 }
 
+
++ (NSString *)urlScheme {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSArray *CFBundleURLTypes = infoDictionary[@"CFBundleURLTypes"];
+    NSDictionary *firstRow = CFBundleURLTypes[0];
+    NSArray *CFBundleURLSchemes = firstRow[@"CFBundleURLSchemes"];
+    return CFBundleURLSchemes[0];
+}
+
 @end

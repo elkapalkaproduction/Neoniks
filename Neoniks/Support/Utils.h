@@ -47,6 +47,8 @@ BOOL isEnglish();
 void setRussianLanguage();
 void setEnglishLanguage();
 
++ (CGSize)screenSize;
+
 #ifdef NeoniksFree
 + (BOOL)isLockedPage:(PageDetails *)page;
 #endif

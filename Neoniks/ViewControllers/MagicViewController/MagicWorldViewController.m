@@ -96,9 +96,7 @@
 #pragma mark - Private Methods
 
 - (void)setupView {
-    CGRect screenRect = [UIScreen mainScreen].bounds;
-    CGSize screenSize = CGSizeMake(CGRectGetHeight(screenRect), CGRectGetWidth(screenRect));
-    changeSize(screenSize, self.view);
+    changeSize([Utils screenSize], self.view);
     self.popUpTitle.image = [UIImage imageWithName:@"29_title"];
 
     NSDictionary *frames = [NSDictionary dictionaryWithContentsOfURL:[NSURL urlForFrames]];
