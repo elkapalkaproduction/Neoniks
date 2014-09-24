@@ -26,7 +26,7 @@
     [navigationController popToRootViewControllerAnimated:NO];
     MainViewController *viewController = (MainViewController *)[navigationController topViewController];
     [viewController close];
-    [viewController performSelector:@selector(showPopUpWithTag:) withObject:@10 afterDelay:1.f];
+    [viewController performSelector:@selector(showPopUpWithTag:) withObject:@(tag) afterDelay:1.f];
 }
 
 - (void)parseCharacters:(NSString *)character withNavigationController:(UINavigationController *)navigationController {
