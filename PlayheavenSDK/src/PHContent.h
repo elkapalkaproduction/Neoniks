@@ -40,12 +40,12 @@ typedef enum {
  * SDK
  **/
 @interface PHContent : NSObject {
-    NSDictionary           *_frameDict;
-    NSURL                  *_URL;
+    NSDictionary *_frameDict;
+    NSURL *_URL;
     PHContentTransitionType _transition;
-    NSDictionary           *_context;
-    NSTimeInterval          _closeButtonDelay;
-    NSString               *_closeButtonURLPath;
+    NSDictionary *_context;
+    NSTimeInterval _closeButtonDelay;
+    NSString *_closeButtonURLPath;
 }
 
 /**
@@ -61,13 +61,12 @@ typedef enum {
  **/
 + (id)contentWithDictionary:(NSDictionary *)dictionaryRepresentation;
 
-
-@property (nonatomic, retain) NSURL         *URL;                 /**< Content template URL */
-@property (nonatomic, retain) NSDictionary  *context;             /**< Content unit context object, this is what is sent to the
+@property (nonatomic, retain) NSURL *URL;                         /**< Content template URL */
+@property (nonatomic, retain) NSDictionary *context;              /**< Content unit context object, this is what is sent to the
                                                                        content template after a ph://loadContext dispatch */
 @property (nonatomic, assign) NSTimeInterval closeButtonDelay;    /**< Amount of time (in seconds) to wait after displaying the
                                                                        overlay before showing the native close button */
-@property (nonatomic, copy)   NSString      *closeButtonURLPath;  /**< The URL that should be pinged when the native close button is used */
+@property (nonatomic, copy)   NSString *closeButtonURLPath;       /**< The URL that should be pinged when the native close button is used */
 @property (nonatomic, assign) PHContentTransitionType transition; /**< Transition type, see PHContentTransitionType above */
 
 /**
@@ -89,4 +88,5 @@ typedef enum {
  *   The new frameDict
  **/
 - (void)setFramesWithDictionary:(NSDictionary *)frameDict;
+
 @end

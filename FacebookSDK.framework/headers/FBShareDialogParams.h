@@ -24,6 +24,7 @@
  @abstract Deprecated. Use `FBLinkShareParams` instead.
  */
 __attribute__((deprecated))
+
 @interface FBShareDialogParams : FBLinkShareParams
 
 @end

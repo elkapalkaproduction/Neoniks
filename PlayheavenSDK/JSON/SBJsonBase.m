@@ -1,20 +1,20 @@
 /*
  Copyright (C) 2009 Stig Brautaset. All rights reserved.
- 
+
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
- 
+
  * Redistributions of source code must retain the above copyright notice, this
    list of conditions and the following disclaimer.
- 
+
  * Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
    and/or other materials provided with the distribution.
- 
+
  * Neither the name of the author nor the names of its contributors may be used
    to endorse or promote products derived from this software without specific
    prior written permission.
- 
+
  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -28,8 +28,7 @@
  */
 
 #import "SBJsonBase.h"
-NSString * PH_SBJSONERRORDOMAIN_CONST = @"org.brautaset.JSON.ErrorDomain";
-
+NSString *PH_SBJSONERRORDOMAIN_CONST = @"org.brautaset.JSON.ErrorDomain";
 
 @implementation PH_SBJSONBASE_CLASS
 
@@ -38,35 +37,37 @@ NSString * PH_SBJSONERRORDOMAIN_CONST = @"org.brautaset.JSON.ErrorDomain";
 
 - (id)init {
     self = [super init];
-    if (self)
-        self.maxDepth = 512;
+    if (self) self.maxDepth = 512;
+
     return self;
 }
+
 
 - (void)dealloc {
     [errorTrace release];
     [super dealloc];
 }
 
-- (void)addErrorWithCode:(NSUInteger)code description:(NSString*)str {
+
+- (void)addErrorWithCode:(NSUInteger)code description:(NSString *)str {
     NSDictionary *userInfo;
     if (!errorTrace) {
         errorTrace = [NSMutableArray new];
         userInfo = [NSDictionary dictionaryWithObject:str forKey:NSLocalizedDescriptionKey];
-        
     } else {
         userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                     str, NSLocalizedDescriptionKey,
                     [errorTrace lastObject], NSUnderlyingErrorKey,
                     nil];
     }
-    
+
     NSError *error = [NSError errorWithDomain:PH_SBJSONERRORDOMAIN_CONST code:code userInfo:userInfo];
 
     [self willChangeValueForKey:@"errorTrace"];
     [errorTrace addObject:error];
     [self didChangeValueForKey:@"errorTrace"];
 }
+
 
 - (void)clearErrorTrace {
     [self willChangeValueForKey:@"errorTrace"];

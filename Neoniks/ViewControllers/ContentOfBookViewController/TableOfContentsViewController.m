@@ -85,7 +85,7 @@
                                      range:[finalString rangeOfString:string]];
             [atributtedString addAttribute:NSForegroundColorAttributeName
                                      value:[UIColor colorWithRed:34.f / 255.f green:132.f / 255.f blue:23.f / 255.f alpha:1.f]
-                         range:[finalString rangeOfString:[NSString thisIsFreeLocalized]]];
+                                     range:[finalString rangeOfString:[NSString thisIsFreeLocalized]]];
             [button setAttributedTitle:atributtedString forState:UIControlStateNormal];
         }
 #endif

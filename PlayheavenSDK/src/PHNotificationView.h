@@ -39,8 +39,8 @@
     NSString *_secret;
     NSString *_placement;
 
-    NSDictionary               *_notificationData;
-    PHNotificationRenderer     *_notificationRenderer;
+    NSDictionary *_notificationData;
+    PHNotificationRenderer *_notificationRenderer;
     PHPublisherMetadataRequest *_request;
 }
 
@@ -86,7 +86,7 @@
  **/
 - (id)initWithApp:(NSString *)app secret:(NSString *)secret placement:(NSString *)placement;
 
-@property (nonatomic,retain) NSDictionary *notificationData; /**< Getter/setter with notification data returned from the last request to the API */
+@property (nonatomic, retain) NSDictionary *notificationData; /**< Getter/setter with notification data returned from the last request to the API */
 
 /**
  * Retrieve latest notification data from the API and redraw the
@@ -105,4 +105,5 @@
  * Resets the notification data and hides the notification view
  **/
 - (void)clear;
+
 @end

@@ -29,8 +29,7 @@
  @discussion
 
  */
-typedef NS_ENUM(NSUInteger, FBAppEventsFlushBehavior) {
-
+typedef NS_ENUM (NSUInteger, FBAppEventsFlushBehavior) {
     /*! Flush automatically: periodically (once a minute or every 100 logged events) and always at app reactivation. */
     FBAppEventsFlushBehaviorAuto = 0,
 
@@ -38,7 +37,6 @@ typedef NS_ENUM(NSUInteger, FBAppEventsFlushBehavior) {
      events are persisted and re-established at activation, but they will only be written with an
      explicit call to `flush`. */
     FBAppEventsFlushBehaviorExplicitOnly,
-
 };
 
 /*
@@ -48,14 +46,13 @@ typedef NS_ENUM(NSUInteger, FBAppEventsFlushBehavior) {
 /*! NSNotificationCenter name indicating a result of a failed log flush attempt */
 FBSDK_EXTERN NSString *const FBAppEventsLoggingResultNotification;
 
-
 // Predefined event names for logging events common to many apps.  Logging occurs through the `logEvent` family of methods on `FBAppEvents`.
 // Common event parameters are provided in the `FBAppEventsParameterNames*` constants.
 
 // General purpose
 
-/*! Deprecated: use [FBAppEvents activateApp] instead. */
-FBSDK_EXTERN NSString *const FBAppEventNameActivatedApp __attribute__ ((deprecated("use [FBAppEvents activateApp] instead")));
+
+FBSDK_EXTERN NSString *const FBAppEventNameActivatedApp __attribute__((deprecated("use [FBAppEvents activateApp] instead")));
 
 /*! Log this event when a user has completed registration with the app. */
 FBSDK_EXTERN NSString *const FBAppEventNameCompletedRegistration;
@@ -86,8 +83,8 @@ FBSDK_EXTERN NSString *const FBAppEventNameInitiatedCheckout;
 /*! Log this event when the user has entered their payment info. */
 FBSDK_EXTERN NSString *const FBAppEventNameAddedPaymentInfo;
 
-/*! Deprecated: use [FBAppEvents logPurchase:currency:] or [FBAppEvents logPurchase:currency:parameters:] instead */
-FBSDK_EXTERN NSString *const FBAppEventNamePurchased __attribute__ ((deprecated("use [FBAppEvents logPurchase:currency:] or [FBAppEvents logPurchase:currency:parameters:] instead")));
+
+FBSDK_EXTERN NSString *const FBAppEventNamePurchased __attribute__((deprecated("use [FBAppEvents logPurchase:currency:] or [FBAppEvents logPurchase:currency:parameters:] instead")));
 
 // Gaming related
 
@@ -99,8 +96,6 @@ FBSDK_EXTERN NSString *const FBAppEventNameUnlockedAchievement;
 
 /*! Log this event when the user has spent app credits.  The valueToSum passed to logEvent should be the number of credits spent. */
 FBSDK_EXTERN NSString *const FBAppEventNameSpentCredits;
-
-
 
 // Predefined event name parameters for common additional information to accompany events logged through the `logEvent` family
 // of methods on `FBAppEvents`.  Common event names are provided in the `FBAppEventName*` constants.
@@ -138,20 +133,17 @@ FBSDK_EXTERN NSString *const FBAppEventParameterNameLevel;
 /*! Parameter key used to specify a description appropriate to the event being logged.  E.g., the name of the achievement unlocked in the `FBAppEventNameAchievementUnlocked` event. */
 FBSDK_EXTERN NSString *const FBAppEventParameterNameDescription;
 
-
-
 // Predefined values to assign to event parameters that accompany events logged through the `logEvent` family
 // of methods on `FBAppEvents`.  Common event parameters are provided in the `FBAppEventParameterName*` constants.
 
 /*! Yes-valued parameter value to be used with parameter keys that need a Yes/No value */
 FBSDK_EXTERN NSString *const FBAppEventParameterValueYes;
 
-/*! No-valued parameter value to be used with parameter keys that need a Yes/No value */
+
 FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
 
-
 /*!
- 
+
  @class FBAppEvents
 
  @abstract
@@ -207,7 +199,7 @@ FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
  */
 
 /*!
- 
+
  @method
 
  @abstract
@@ -220,7 +212,7 @@ FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
 + (void)logEvent:(NSString *)eventName;
 
 /*!
- 
+
  @method
 
  @abstract
@@ -235,9 +227,8 @@ FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
 + (void)logEvent:(NSString *)eventName
       valueToSum:(double)valueToSum;
 
-
 /*!
- 
+
  @method
 
  @abstract
@@ -256,7 +247,7 @@ FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
       parameters:(NSDictionary *)parameters;
 
 /*!
- 
+
  @method
 
  @abstract
@@ -279,9 +270,8 @@ FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
       valueToSum:(double)valueToSum
       parameters:(NSDictionary *)parameters;
 
-
 /*!
- 
+
  @method
 
  @abstract
@@ -309,13 +299,12 @@ FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
       parameters:(NSDictionary *)parameters
          session:(FBSession *)session;
 
-
 /*
  * Purchase logging
  */
 
 /*!
- 
+
  @method
 
  @abstract
@@ -335,7 +324,7 @@ FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
            currency:(NSString *)currency;
 
 /*!
- 
+
  @method
 
  @abstract
@@ -362,7 +351,7 @@ FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
          parameters:(NSDictionary *)parameters;
 
 /*!
- 
+
  @method
 
  @abstract
@@ -396,16 +385,16 @@ FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
  @method
 
  @abstract This method has been replaced by [FBSettings limitEventAndDataUsage] */
-+ (BOOL)limitEventUsage __attribute__ ((deprecated("use [FBSettings limitEventAndDataUsage] instead")));
++ (BOOL)limitEventUsage __attribute__((deprecated("use [FBSettings limitEventAndDataUsage] instead")));
 
 /*!
  @method
- 
+
  @abstract This method has been replaced by [FBSettings setLimitEventUsage] */
-+ (void)setLimitEventUsage:(BOOL)limitEventUsage __attribute__ ((deprecated("use [FBSettings setLimitEventAndDataUsage] instead")));
++ (void)setLimitEventUsage:(BOOL)limitEventUsage __attribute__((deprecated("use [FBSettings setLimitEventAndDataUsage] instead")));
 
 /*!
- 
+
  @method
 
  @abstract
@@ -429,7 +418,7 @@ FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
  */
 
 /*!
- 
+
  @method
 
  @abstract
@@ -438,7 +427,7 @@ FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
 + (FBAppEventsFlushBehavior)flushBehavior;
 
 /*!
- 
+
  @method
 
  @abstract
@@ -480,9 +469,8 @@ FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
  */
 + (NSString *)loggingOverrideAppID;
 
-
 /*!
- 
+
  @method
 
  @abstract

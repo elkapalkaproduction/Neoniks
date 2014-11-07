@@ -22,13 +22,13 @@
 #import "PHNotificationRenderer.h"
 
 @implementation PHNotificationRenderer
-- (void)drawNotification:(NSDictionary *)notificationData inRect:(CGRect)rect
-{
+- (void)drawNotification:(NSDictionary *)notificationData inRect:(CGRect)rect {
     // Does nothing
 }
 
-- (CGSize)sizeForNotification:(NSDictionary *)notificationData
-{
+
+- (CGSize)sizeForNotification:(NSDictionary *)notificationData {
     return CGSizeZero;
 }
+
 @end

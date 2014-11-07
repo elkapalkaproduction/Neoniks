@@ -23,18 +23,19 @@
 #import "PHConstants.h"
 
 @implementation PHPublisherSubContentRequest
+
 @synthesize source   = _source;
 @synthesize callback = _callback;
 
-- (NSString *)urlPath
-{
-    return PH_URL(/v3/publisher/content/);
+- (NSString *)urlPath {
+    return PH_URL( / v3 / publisher / content / );
 }
 
-- (void)dealloc
-{
+
+- (void)dealloc {
     [_callback release], _callback = nil;
 
     [super dealloc];
 }
+
 @end

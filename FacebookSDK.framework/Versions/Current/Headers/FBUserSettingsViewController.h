@@ -96,7 +96,7 @@
  @abstract
  The permissions to request if the user logs in via this view.
  */
-@property (nonatomic, copy) NSArray *permissions __attribute__((deprecated));
+@property (nonatomic, copy) NSArray * permissions __attribute__((deprecated));
 
 /*!
  @abstract

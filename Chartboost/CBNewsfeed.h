@@ -21,7 +21,7 @@ typedef void (^CBStoryRetrieveMessagesFailureBlock)(NSError *error, NSDictionary
  * Set the CBNewsfeed delegate to be able to receive notification
  * of various events.
  */
-@property (nonatomic, weak) id<CBNewsfeedDelegate> delegate;
+@property (nonatomic, weak) id <CBNewsfeedDelegate> delegate;
 
 /**
  * Override how often the CBNewsfeed should attempt to get
@@ -29,7 +29,7 @@ typedef void (^CBStoryRetrieveMessagesFailureBlock)(NSError *error, NSDictionary
  *
  * Default is 60 seconds; set to 0 to disable background fetch.
  *
- * Cannot be set to less than 60 seconds unless disabling.  If set to 
+ * Cannot be set to less than 60 seconds unless disabling.  If set to
  * less than 60 seconds will use default fetch time of 60 seconds.
  */
 @property (nonatomic, assign) NSUInteger fetchTime;
@@ -247,7 +247,7 @@ typedef void (^CBStoryRetrieveMessagesFailureBlock)(NSError *error, NSDictionary
  * Implement to decide if the CBstory object should
  * automatically display a notification UI.
  *
- * @param CBStory 
+ * @param CBStory
  */
 - (BOOL)shouldAutomaticallyDisplayNotificationUI:(CBStory *)message;
 

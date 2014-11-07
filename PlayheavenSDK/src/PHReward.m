@@ -22,15 +22,16 @@
 #import "PHReward.h"
 
 @implementation PHReward
+
 @synthesize name     = _reward;
 @synthesize quantity = _quantity;
 @synthesize receipt  = _receipt;
 
-- (void)dealloc
-{
+- (void)dealloc {
     [_reward release], _reward = nil;
     [_receipt release], _receipt = nil;
 
     [super dealloc];
 }
+
 @end

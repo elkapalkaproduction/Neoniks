@@ -25,7 +25,6 @@
  * Facebook Login Dialog interface for start the facebook webView login dialog.
  * It start pop-ups prompting for credentials and permissions.
  */
-
 @interface FBLoginDialog : FBDialog
 
 - (instancetype)initWithURL:(NSString *)loginURL

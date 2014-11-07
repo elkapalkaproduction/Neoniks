@@ -12,15 +12,15 @@
 @implementation OpenUrlHandler
 
 + (instancetype)sharedHandler {
-    
     static id sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
-    });
-    
+                      sharedMyManager = [[self alloc] init];
+                  });
+
     return sharedMyManager;
 }
+
 
 - (void)showPopUpWithTag:(NSInteger)tag navigationController:(UINavigationController *)navigationController {
     [navigationController popToRootViewControllerAnimated:NO];
@@ -29,6 +29,7 @@
     [viewController performSelector:@selector(showPopUpWithTag:) withObject:@(tag) afterDelay:1.f];
 }
 
+
 - (void)parseCharacters:(NSString *)character withNavigationController:(UINavigationController *)navigationController {
     if ([character isEqual:@"/phoebe"]) {
         [self showPopUpWithTag:17 navigationController:navigationController];
@@ -36,7 +37,6 @@
         [self showPopUpWithTag:7 navigationController:navigationController];
     } else if ([character isEqual:@"/bubba"]) {
         [self showPopUpWithTag:10 navigationController:navigationController];
-
     }
 }
 

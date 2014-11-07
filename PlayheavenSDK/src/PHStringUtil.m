@@ -29,53 +29,52 @@ typedef struct {
 
 static HTMLEntityPair gEntityTable[] = {
     // C0 Controls and Basic Latin
-    { 34, @"&quot;" },
-    { 38, @"&amp;" },
-    { 39, @"&apos;" },
-    { 60, @"&lt;" },
-    { 62, @"&gt;" },
+    {34, @"&quot;"},
+    {38, @"&amp;"},
+    {39, @"&apos;"},
+    {60, @"&lt;"},
+    {62, @"&gt;"},
 
     // Latin Extended-A
-    { 338, @"&OElig;" },
-    { 339, @"&oelig;" },
-    { 352, @"&Scaron;" },
-    { 353, @"&scaron;" },
-    { 376, @"&Yuml;" },
+    {338, @"&OElig;"},
+    {339, @"&oelig;"},
+    {352, @"&Scaron;"},
+    {353, @"&scaron;"},
+    {376, @"&Yuml;"},
 
     // Spacing Modifier Letters
-    { 710, @"&circ;" },
-    { 732, @"&tilde;" },
+    {710, @"&circ;"},
+    {732, @"&tilde;"},
 
     // General Punctuation
-    { 8194, @"&ensp;" },
-    { 8195, @"&emsp;" },
-    { 8201, @"&thinsp;" },
-    { 8204, @"&zwnj;" },
-    { 8205, @"&zwj;" },
-    { 8206, @"&lrm;" },
-    { 8207, @"&rlm;" },
-    { 8211, @"&ndash;" },
-    { 8212, @"&mdash;" },
-    { 8216, @"&lsquo;" },
-    { 8217, @"&rsquo;" },
-    { 8218, @"&sbquo;" },
-    { 8220, @"&ldquo;" },
-    { 8221, @"&rdquo;" },
-    { 8222, @"&bdquo;"  },
-    { 8224, @"&dagger;" },
-    { 8225, @"&Dagger;" },
-    { 8240, @"&permil;" },
-    { 8249, @"&lsaquo;" },
-    { 8250, @"&rsaquo;" },
-    { 8364, @"&euro;" },
+    {8194, @"&ensp;"},
+    {8195, @"&emsp;"},
+    {8201, @"&thinsp;"},
+    {8204, @"&zwnj;"},
+    {8205, @"&zwj;"},
+    {8206, @"&lrm;"},
+    {8207, @"&rlm;"},
+    {8211, @"&ndash;"},
+    {8212, @"&mdash;"},
+    {8216, @"&lsquo;"},
+    {8217, @"&rsquo;"},
+    {8218, @"&sbquo;"},
+    {8220, @"&ldquo;"},
+    {8221, @"&rdquo;"},
+    {8222, @"&bdquo;"},
+    {8224, @"&dagger;"},
+    {8225, @"&Dagger;"},
+    {8240, @"&permil;"},
+    {8249, @"&lsaquo;"},
+    {8250, @"&rsaquo;"},
+    {8364, @"&euro;"},
 };
 
 static const char *gBase64MappingWebSafe = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
 
-static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityTable)
-{
-    const unichar        *character   = (const unichar *) voidCharacter;
-    const HTMLEntityPair *entityTable = (const HTMLEntityPair *) voidEntityTable;
+static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityTable) {
+    const unichar *character   = (const unichar *)voidCharacter;
+    const HTMLEntityPair *entityTable = (const HTMLEntityPair *)voidEntityTable;
     int result;
 
     if (*character < entityTable->character) {
@@ -94,9 +93,8 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
 // NOTE: Left intact for backwards-quirkiness.
 // Any service-facing input should continue to use this method,
 // so as not to encourage backwards-incompatible service behavior.
-+ (NSString *)stringWithQueryQuirky:(NSDictionary *)params
-{
-    NSArray         *keys  = [params allKeys];
++ (NSString *)stringWithQueryQuirky:(NSDictionary *)params {
+    NSArray *keys  = [params allKeys];
     NSMutableString *query = [NSMutableString string];
 
     NSUInteger i, n = [keys count];
@@ -104,13 +102,11 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
         NSString *key = [keys objectAtIndex:i];
         id item = [params objectForKey:key];
 
-        if (![item isKindOfClass:[NSString class]])
-        {
+        if (![item isKindOfClass:[NSString class]]) {
             if ([item respondsToSelector:@selector(stringValue)]) {
                 item = [item stringValue];
-            }
-            else {
-                item = (NSString *) item;
+            } else {
+                item = (NSString *)item;
             }
         }
 
@@ -122,9 +118,9 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
     return query;
 }
 
-+ (NSString *)stringWithQuery:(NSDictionary *)params
-{
-    NSArray         *keys  = [params allKeys];
+
++ (NSString *)stringWithQuery:(NSDictionary *)params {
+    NSArray *keys  = [params allKeys];
     NSMutableString *query = [NSMutableString string];
 
     NSUInteger i, n = [keys count];
@@ -137,14 +133,12 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
         if (value != [NSNull null]) {
             if ([value respondsToSelector:@selector(stringValue)]) {
                 stringValue = [value stringValue];
-            }
-            else {
-                stringValue = (NSString *) value;
+            } else {
+                stringValue = (NSString *)value;
             }
 
             stringValue = [PHStringUtil stringByUrlEncodingString:stringValue];
-        }
-        else {
+        } else {
             stringValue = @"";
         }
 
@@ -156,8 +150,8 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
     return query;
 }
 
-+ (NSString *)stringByHtmlEscapingString:(NSString *)input
-{
+
++ (NSString *)stringByHtmlEscapingString:(NSString *)input {
     NSUInteger inputLength = [input length];
 
     if (!inputLength) {
@@ -165,8 +159,8 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
     }
 
     NSMutableString *result      = [NSMutableString string];
-    NSMutableData   *outputData  = [NSMutableData dataWithCapacity:sizeof(unichar) * inputLength];
-    const unichar   *inputBuffer = CFStringGetCharactersPtr((CFStringRef) input);
+    NSMutableData *outputData  = [NSMutableData dataWithCapacity:sizeof(unichar) * inputLength];
+    const unichar *inputBuffer = CFStringGetCharactersPtr((CFStringRef)input);
 
     if (!inputBuffer) {
         NSMutableData *inputData = [NSMutableData dataWithLength:inputLength * sizeof(UniChar)];
@@ -217,12 +211,12 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
     return result;
 }
 
-+ (NSString *)stringByUrlEncodingString:(NSString *)input
-{
+
++ (NSString *)stringByUrlEncodingString:(NSString *)input {
     CFStringRef value = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                (CFStringRef) input,
+                                                                (CFStringRef)input,
                                                                 NULL,
-                                                                (CFStringRef) @"!*'();:@&=+$,/?%#[]",
+                                                                (CFStringRef)@"!*'();:@&=+$,/?%#[]",
                                                                 kCFStringEncodingUTF8);
 
     NSString *result = [NSString stringWithString:(NSString *)value];
@@ -231,14 +225,14 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
     return result;
 }
 
-+ (NSString *)stringByUrlDecodingString:(NSString *)input
-{
+
++ (NSString *)stringByUrlDecodingString:(NSString *)input {
     return [input stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
-+ (NSString *)uuid
-{
-    CFUUIDRef   uuid    = CFUUIDCreate(kCFAllocatorDefault);
+
++ (NSString *)uuid {
+    CFUUIDRef uuid    = CFUUIDCreate(kCFAllocatorDefault);
     CFStringRef uuidRef = CFUUIDCreateString(kCFAllocatorDefault, uuid);
     CFRelease(uuid);
 
@@ -248,10 +242,10 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
     return [self b64DigestForString:result];
 }
 
-+ (NSData *)dataDigestForString:(NSString *)input
-{
+
++ (NSData *)dataDigestForString:(NSString *)input {
     const char *cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
-    NSData     *data = [NSData dataWithBytes:cstr length:[input length]];
+    NSData *data = [NSData dataWithBytes:cstr length:[input length]];
 
     uint8_t digest[CC_SHA1_DIGEST_LENGTH];
     CC_SHA1(data.bytes, data.length, digest);
@@ -259,9 +253,9 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
     return [NSData dataWithBytes:digest length:CC_SHA1_DIGEST_LENGTH];
 }
 
-+ (NSString *)base64EncodedStringForData:(NSData *)data
-{
-    NSUInteger     b64EncodedLength = (data.length * 8 + 5) / 6;
+
++ (NSString *)base64EncodedStringForData:(NSData *)data {
+    NSUInteger b64EncodedLength = (data.length * 8 + 5) / 6;
     NSMutableData *result = [NSMutableData dataWithLength:b64EncodedLength];
 
     int resultLength = result.length;
@@ -284,30 +278,35 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
         }
 
         switch (dataLength) {
-            case 2:
+            case 2: {
                 resultChars[0] = gBase64MappingWebSafe[dataChars[0] >> 2];
                 resultChars[1] = gBase64MappingWebSafe[((dataChars[0] & 0x03) << 4) + (dataChars[1] >> 4)];
                 resultChars[2] = gBase64MappingWebSafe[(dataChars[1] & 0x0f) << 2];
                 //resultChars  += 3;
                 //resultLength -= 3;
                 break;
-            case 1:
+            }
+
+            case 1: {
                 resultChars[0] = gBase64MappingWebSafe[dataChars[0] >> 2];
                 resultChars[1] = gBase64MappingWebSafe[(dataChars[0] & 0x03) << 4];
                 //resultChars  += 2;
                 //resultLength -= 2;
                 break;
-            default:
+            }
+
+            default: {
                 break;
+            }
         }
     }
 
     return [[[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding] autorelease];
 }
 
-+ (NSString *)hexEncodedStringForData:(NSData *)data
-{
-    const uint8_t   *bytes  = data.bytes;
+
++ (NSString *)hexEncodedStringForData:(NSData *)data {
+    const uint8_t *bytes  = data.bytes;
     NSMutableString *result = [NSMutableString stringWithCapacity:2 * data.length];
 
     for (NSUInteger i = 0; i < data.length; i++) {
@@ -317,22 +316,22 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
     return result;
 }
 
-+ (NSString *)hexDigestForString:(NSString *)input
-{
+
++ (NSString *)hexDigestForString:(NSString *)input {
     return [self hexEncodedStringForData:[self dataDigestForString:input]];
 }
 
-+ (NSString *)b64DigestForString:(NSString *)input
-{
+
++ (NSString *)b64DigestForString:(NSString *)input {
     return [self base64EncodedStringForData:[self dataDigestForString:input]];
 }
 
-+ (NSDictionary *)dictionaryWithQueryString:(NSString *)input
-{
+
++ (NSDictionary *)dictionaryWithQueryString:(NSString *)input {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
 
     if (input != nil) {
-        NSScanner      *scanner    = [[NSScanner alloc] initWithString:input];
+        NSScanner *scanner    = [[NSScanner alloc] initWithString:input];
         NSCharacterSet *delimiters = [NSCharacterSet characterSetWithCharactersInString:@"&;"];
 
         while (![scanner isAtEnd]) {
@@ -354,4 +353,5 @@ static int CompareEntityPairs(const void *voidCharacter, const void *voidEntityT
 
     return result;
 }
+
 @end

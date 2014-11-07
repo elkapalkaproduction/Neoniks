@@ -36,14 +36,14 @@
  * transitions.
  **/
 @interface PHContentView : UIView <UIWebViewDelegate, PHURLLoaderDelegate> {
-    PHContent                *_content;
-    UIInterfaceOrientation    _orientation;
-    id<PHContentViewDelegate> _delegate; // TODO: Change these to id<PHContentViewDelegate>
+    PHContent *_content;
+    UIInterfaceOrientation _orientation;
+    id <PHContentViewDelegate> _delegate; // TODO: Change these to id<PHContentViewDelegate>
 
     UIWebView *_webView;
-    BOOL       _willAnimate;
+    BOOL _willAnimate;
 
-    NSMutableDictionary     *_redirects;
+    NSMutableDictionary *_redirects;
     UIActivityIndicatorView *_activityView;
     UIView *_targetView;
 }
@@ -76,10 +76,10 @@
  **/
 - (id)initWithContent:(PHContent *)content;
 
-@property(nonatomic, retain) PHContent *content;    /**< Sets the PHContent instance for this view, PHContent defines the
+@property (nonatomic, retain) PHContent *content;    /**< Sets the PHContent instance for this view, PHContent defines the
                                                          template, transition, frame size, and context for this content unit */
-@property(nonatomic, assign) UIView    *targetView; /**< When shown, the content view will attempt to attach itself to this view. Defaults to nil */
-@property(nonatomic, assign) id<PHContentViewDelegate> delegate; /**< Content view delegate */
+@property (nonatomic, assign) UIView *targetView;   /**< When shown, the content view will attempt to attach itself to this view. Defaults to nil */
+@property (nonatomic, assign) id <PHContentViewDelegate> delegate; /**< Content view delegate */
 
 /**
  * Show the content unit, with animation. Loads the content template as well
@@ -135,6 +135,7 @@
  *   Returns \c YES if the callback javascript executes without throwing an exception, \c NO otherwise
  **/
 - (BOOL)sendCallback:(NSString *)callback withResponse:(id)response error:(id)error;
+
 @end
 
 /**
@@ -192,4 +193,5 @@
  *   The desired border color
  **/
 - (UIColor *)borderColorForContentView:(PHContentView *)contentView;
+
 @end

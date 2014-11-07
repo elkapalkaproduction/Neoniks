@@ -67,14 +67,13 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
 
 @implementation AdsManager
 
-
 + (instancetype)sharedManager {
     static AdsManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
-    });
-    
+                      sharedMyManager = [[self alloc] init];
+                  });
+
     return sharedMyManager;
 }
 
@@ -115,7 +114,7 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
                                         placement:PLAYHAVEN_PLACEMENT_ON_START
                                          delegate:nil] send];
     }
-    
+
 #endif
 }
 
@@ -129,7 +128,6 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
         [AdColony playVideoAdForZone:ADCOLONY_ON_SAYS_NO withDelegate:self];
         self.isPlaying = [[AudioPlayer sharedPlayer] isPlaying];
         [[AudioPlayer sharedPlayer] pause];
-
     } else {
         [[Chartboost sharedChartboost] showInterstitial:CBLocationStartup];
         [[PHPublisherContentRequest requestForApp:PLAYHAVEN_TOKEN
@@ -157,7 +155,7 @@ NSString *const PLAYHAVEN_PLACEMENT_ON_TIMER = @"on_timer";
                                         placement:PLAYHAVEN_PLACEMENT_ON_TIMER
                                          delegate:nil] send];
     }
-    
+
 #endif
 }
 

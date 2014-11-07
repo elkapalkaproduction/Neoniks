@@ -23,7 +23,7 @@
 
  @abstract Specifies the position of the auxiliary view relative to the like button.
  */
-typedef NS_ENUM(NSUInteger, FBLikeControlAuxiliaryPosition)
+typedef NS_ENUM (NSUInteger, FBLikeControlAuxiliaryPosition)
 {
     /*! The auxiliary view is inline with the like button. */
     FBLikeControlAuxiliaryPositionInline,
@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, FBLikeControlAuxiliaryPosition)
 /*!
  @abstract Converts an FBLikeControlAuxiliaryPosition to an NSString.
  */
-FBSDK_EXTERN NSString *NSStringFromFBLikeControlAuxiliaryPosition(FBLikeControlAuxiliaryPosition auxiliaryPosition);
+FBSDK_EXTERN NSString * NSStringFromFBLikeControlAuxiliaryPosition(FBLikeControlAuxiliaryPosition auxiliaryPosition);
 
 /*!
  @typedef NS_ENUM(NSUInteger, FBLikeControlHorizontalAlignment)
@@ -44,7 +44,7 @@ FBSDK_EXTERN NSString *NSStringFromFBLikeControlAuxiliaryPosition(FBLikeControlA
  @abstract Specifies the horizontal alignment for FBLikeControlStyleStandard with
  FBLikeControlAuxiliaryPositionTop or FBLikeControlAuxiliaryPositionBottom.
  */
-typedef NS_ENUM(NSUInteger, FBLikeControlHorizontalAlignment)
+typedef NS_ENUM (NSUInteger, FBLikeControlHorizontalAlignment)
 {
     /*! The subviews are left aligned. */
     FBLikeControlHorizontalAlignmentLeft,
@@ -57,14 +57,14 @@ typedef NS_ENUM(NSUInteger, FBLikeControlHorizontalAlignment)
 /*!
  @abstract Converts an FBLikeControlHorizontalAlignment to an NSString.
  */
-FBSDK_EXTERN NSString *NSStringFromFBLikeControlHorizontalAlignment(FBLikeControlHorizontalAlignment horizontalAlignment);
+FBSDK_EXTERN NSString * NSStringFromFBLikeControlHorizontalAlignment(FBLikeControlHorizontalAlignment horizontalAlignment);
 
 /*!
  @typedef NS_ENUM (NSUInteger, FBLikeControlStyle)
 
  @abstract Specifies the style of a like control.
  */
-typedef NS_ENUM(NSUInteger, FBLikeControlStyle)
+typedef NS_ENUM (NSUInteger, FBLikeControlStyle)
 {
     /*! Displays the button and the social sentence. */
     FBLikeControlStyleStandard = 0,
@@ -77,7 +77,7 @@ typedef NS_ENUM(NSUInteger, FBLikeControlStyle)
 /*!
  @abstract Converts an FBLikeControlStyle to an NSString.
  */
-FBSDK_EXTERN NSString *NSStringFromFBLikeControlStyle(FBLikeControlStyle style);
+FBSDK_EXTERN NSString * NSStringFromFBLikeControlStyle(FBLikeControlStyle style);
 
 /*!
  @class FBLikeControl

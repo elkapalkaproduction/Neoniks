@@ -23,11 +23,10 @@
 //  3. This notice may not be removed or altered from any source distribution.
 
 //  As a side note on using this code, you might consider giving some credit to me by
-//	1) linking my website from your app's website 
-//	2) or crediting me inside the app's credits page 
+//	1) linking my website from your app's website
+//	2) or crediting me inside the app's credits page
 //	3) or a tweet mentioning @mugunthkumar
 //	4) A paypal donation to mugunth.kumar@gmail.com
-
 
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
@@ -36,18 +35,18 @@
 @interface MKSKSubscriptionProduct : NSObject
 
 @property (nonatomic, copy) void (^onSubscriptionVerificationFailed)();
-@property (nonatomic, copy) void (^onSubscriptionVerificationCompleted)(NSNumber* isActive);
+@property (nonatomic, copy) void (^onSubscriptionVerificationCompleted)(NSNumber *isActive);
 @property (nonatomic, strong) NSData *receipt;
 @property (nonatomic, readonly) NSDictionary *verifiedReceiptDictionary;
-@property (nonatomic, assign) int subscriptionDays; 
+@property (nonatomic, assign) int subscriptionDays;
 @property (nonatomic, strong) NSString *productId;
 @property (nonatomic, strong) NSURLConnection *theConnection;
 @property (nonatomic, strong) NSMutableData *dataFromConnection;
 
+- (void)verifyReceiptOnComplete:(void (^)(NSNumber *))completionBlock
+                        onError:(void (^)(NSError *))errorBlock;
 
-- (void) verifyReceiptOnComplete:(void (^)(NSNumber*)) completionBlock
-                         onError:(void (^)(NSError*)) errorBlock;
+- (BOOL)isSubscriptionActive;
+- (id)initWithProductId:(NSString *)productId subscriptionDays:(int)days;
 
--(BOOL) isSubscriptionActive;
--(id) initWithProductId:(NSString*) productId subscriptionDays:(int) days;
 @end

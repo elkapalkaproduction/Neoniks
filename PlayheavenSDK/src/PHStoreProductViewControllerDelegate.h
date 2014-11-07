@@ -52,5 +52,6 @@
  *   Some kind of BOOL
  **/
 - (BOOL)showProductId:(NSString *)productId;
+
 @end
 #endif

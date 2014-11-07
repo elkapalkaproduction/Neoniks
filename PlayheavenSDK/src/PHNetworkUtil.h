@@ -79,4 +79,5 @@
  *   An ODIN1 representation of \c macBytes
  **/
 - (NSString *)ODIN1ForMACBytes:(CFDataRef)macBytes;
+
 @end

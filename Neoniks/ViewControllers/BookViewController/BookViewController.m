@@ -76,7 +76,7 @@ const CGFloat ribbonDefaultHiddeY = 70;
         return nil;
     }
 #endif
-    
+
     return [self loadNext:1 viewController:viewController];
 }
 
@@ -360,7 +360,6 @@ const CGFloat ribbonDefaultHiddeY = 70;
 
 
 - (void)showPage:(NSInteger)page {
-    
     ContentBookViewController *contentBook = self.pageViewController.viewControllers[0];
     self.sliderPreview.value = page;
     contentBook.currentPage = [self.collection pageDetailsForNumber:page];

@@ -78,4 +78,5 @@
                      caption:(NSString *)caption
                  description:(NSString *)description
                      picture:(NSURL *)picture;
+
 @end

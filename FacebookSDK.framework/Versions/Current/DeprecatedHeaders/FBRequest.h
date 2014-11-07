@@ -24,7 +24,7 @@
 #import "FBSDKMacros.h"
 
 /*! The base URL used for graph requests */
-FBSDK_EXTERN NSString *const FBGraphBasePath __attribute__((deprecated));
+FBSDK_EXTERN NSString * const FBGraphBasePath __attribute__((deprecated));
 
 // up-front decl's
 @protocol FBRequestDelegate;
@@ -43,7 +43,7 @@ FBSDK_EXTERN NSString *const FBGraphBasePath __attribute__((deprecated));
 
  @deprecated
  */
-typedef NSUInteger FBRequestState __attribute__((deprecated));
+typedef NSUInteger FBRequestState __attribute__ ((deprecated));
 
 /*!
  @class FBRequest
@@ -71,19 +71,19 @@ typedef NSUInteger FBRequestState __attribute__((deprecated));
 
  */
 @interface FBRequest : NSObject {
-@private
-    id<FBRequestDelegate> _delegate;
-    NSString *            _url;
-    NSString *            _versionPart;
-    NSURLConnection *     _connection;
-    NSMutableData *       _responseText;
+    @private
+    id <FBRequestDelegate> _delegate;
+    NSString *_url;
+    NSString *_versionPart;
+    NSURLConnection *_connection;
+    NSMutableData *_responseText;
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-    FBRequestState        _state;
+    FBRequestState _state;
 #pragma GCC diagnostic pop
-    NSError *             _error;
-    BOOL                  _sessionDidExpire;
-    id<FBGraphObject>     _graphObject;
+    NSError *_error;
+    BOOL _sessionDidExpire;
+    id <FBGraphObject> _graphObject;
 }
 
 /*!
@@ -159,7 +159,7 @@ typedef NSUInteger FBRequestState __attribute__((deprecated));
  */
 - (instancetype)initForPostWithSession:(FBSession *)session
                              graphPath:(NSString *)graphPath
-                           graphObject:(id<FBGraphObject>)graphObject;
+                           graphObject:(id <FBGraphObject> )graphObject;
 
 /*!
  @abstract
@@ -218,7 +218,7 @@ typedef NSUInteger FBRequestState __attribute__((deprecated));
  the object initiliazation. Make any required modifications prior to
  sending the request.
  */
-@property (nonatomic, retain) id<FBGraphObject> graphObject;
+@property (nonatomic, retain) id <FBGraphObject> graphObject;
 
 /*!
  @methodgroup Instance methods
@@ -226,16 +226,16 @@ typedef NSUInteger FBRequestState __attribute__((deprecated));
 
 /*!
  @method
- 
+
  @abstract
  Overrides the default version for a single request
- 
+
  @discussion
  The SDK automatically prepends a version part, such as "v2.0" to API paths in order to simplify API versioning
- for applications. Sometimes it is preferable to explicitly set the version for a request, which can be 
+ for applications. Sometimes it is preferable to explicitly set the version for a request, which can be
  accomplished in one of two ways. The first is to call this method and set an override version part. The second
  is approach is to include the version part in the api path, for example @"v2.0/me/friends"
- 
+
  @param version   This is a string in the form @"v2.0" which will be used for the version part of an API path
  */
 - (void)overrideVersionPartWith:(NSString *)version;
@@ -391,7 +391,7 @@ typedef NSUInteger FBRequestState __attribute__((deprecated));
  */
 + (FBRequest *)requestForPostStatusUpdate:(NSString *)message
                                     place:(id)place
-                                     tags:(id<NSFastEnumeration>)tags;
+                                     tags:(id <NSFastEnumeration> )tags;
 
 /*!
  @method
@@ -503,7 +503,7 @@ typedef NSUInteger FBRequestState __attribute__((deprecated));
  posting an open graph object (without an action), consider using `requestForPostOpenGraphObject:`
  */
 + (FBRequest *)requestForPostWithGraphPath:(NSString *)graphPath
-                               graphObject:(id<FBGraphObject>)graphObject;
+                               graphObject:(id <FBGraphObject> )graphObject;
 
 /*!
  @method
@@ -544,7 +544,7 @@ typedef NSUInteger FBRequestState __attribute__((deprecated));
 
  @param object           The Open Graph object to create. Some common expected fields include "title", "image", "url", etc.
  */
-+ (FBRequest *)requestForPostOpenGraphObject:(id<FBOpenGraphObject>)object;
++ (FBRequest *)requestForPostOpenGraphObject:(id <FBOpenGraphObject> )object;
 
 /*!
  @method
@@ -590,7 +590,7 @@ typedef NSUInteger FBRequestState __attribute__((deprecated));
 
  @param object      The Open Graph object to update the existing object with.
  */
-+ (FBRequest *)requestForUpdateOpenGraphObject:(id<FBOpenGraphObject>)object;
++ (FBRequest *)requestForUpdateOpenGraphObject:(id <FBOpenGraphObject> )object;
 
 /*!
  @method

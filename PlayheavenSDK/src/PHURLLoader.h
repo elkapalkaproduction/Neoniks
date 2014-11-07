@@ -41,12 +41,12 @@
  * Used to prevent Safari from showing up when loading iTunes store links.
  **/
 @interface PHURLLoader : NSObject {
-    id<PHURLLoaderDelegate> _delegate;
+    id <PHURLLoaderDelegate> _delegate;
     NSURLConnection *_connection;
-    NSURL           *_targetURL;
-    NSInteger        _totalRedirects;
-    BOOL             _opensFinalURLOnDevice;
-    id               _context;
+    NSURL *_targetURL;
+    NSInteger _totalRedirects;
+    BOOL _opensFinalURLOnDevice;
+    id _context;
 }
 
 /**
@@ -56,7 +56,7 @@
  * @param delegate
  *   The delegate
  **/
-+ (void)invalidateAllLoadersWithDelegate:(id<PHURLLoaderDelegate>)delegate;
++ (void)invalidateAllLoadersWithDelegate:(id <PHURLLoaderDelegate> )delegate;
 
 /**
  * Opens and returns PHURLLoader instance for the URL string \c url
@@ -67,13 +67,12 @@
  * @return
  *   The returned PHURLLoader opened with the string URL
  **/
-+ (PHURLLoader *)openDeviceURL:(NSString*)url;
++ (PHURLLoader *)openDeviceURL:(NSString *)url;
 
-
-@property (nonatomic, assign) id<PHURLLoaderDelegate> delegate; /**< The delegate, see PHURLLoaderDelegate for supported methods */
+@property (nonatomic, assign) id <PHURLLoaderDelegate> delegate; /**< The delegate, see PHURLLoaderDelegate for supported methods */
 @property (nonatomic, retain) NSURL *targetURL;                 /**< The target URL, will be updated as redirects are followed */
-@property (nonatomic, assign) BOOL   opensFinalURLOnDevice;     /**< Controls whether or not targetURL will be opened on the device. Default \c YES */
-@property (nonatomic, retain) id     context;                   /**< Context object. Often used to pass along callback information for dispatches. Default nil \c */
+@property (nonatomic, assign) BOOL opensFinalURLOnDevice;       /**< Controls whether or not targetURL will be opened on the device. Default \c YES */
+@property (nonatomic, retain) id context;                       /**< Context object. Often used to pass along callback information for dispatches. Default nil \c */
 
 /**
  * Follows redirects, starting with PHURLLoader.targetURL
@@ -84,6 +83,7 @@
  * Stops following redirects and unassigns the delegate
  **/
 - (void)invalidate;
+
 @end
 
 /**
@@ -111,4 +111,5 @@
  *   The loader
  **/
 - (void)loaderFailed:(PHURLLoader *)loader;
+
 @end

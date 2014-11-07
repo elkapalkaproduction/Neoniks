@@ -48,9 +48,11 @@ static NSString *sPlayHavenCustomUDID;
 
 - (void)didSucceedWithResponse:(NSDictionary *)responseData;
 - (void)didFailWithError:(NSError *)error;
+
 @end
 
 @implementation PHAPIRequest
+
 @synthesize token    = _token;
 @synthesize secret   = _secret;
 @synthesize delegate = _delegate;
@@ -58,9 +60,8 @@ static NSString *sPlayHavenCustomUDID;
 @synthesize hashCode = _hashCode;
 @synthesize additionalParameters = _additionalParameters;
 
-+ (void)initialize
-{
-    if  (self == [PHAPIRequest class]) {
++ (void)initialize {
+    if (self == [PHAPIRequest class]) {
         [[PHNetworkUtil sharedInstance] checkDNSResolutionForURLPath:PH_BASE_URL];
         [[PHNetworkUtil sharedInstance] checkDNSResolutionForURLPath:PH_CONTENT_ADDRESS];
 #ifdef PH_USE_NETWORK_FIXTURES
@@ -69,8 +70,8 @@ static NSString *sPlayHavenCustomUDID;
     }
 }
 
-+ (NSMutableSet *)allRequests
-{
+
++ (NSMutableSet *)allRequests {
     static NSMutableSet *allRequests = nil;
 
     if (allRequests == nil) {
@@ -80,8 +81,8 @@ static NSString *sPlayHavenCustomUDID;
     return allRequests;
 }
 
-+ (void)cancelAllRequestsWithDelegate:(id<PHAPIRequestDelegate>)delegate
-{
+
++ (void)cancelAllRequestsWithDelegate:(id <PHAPIRequestDelegate> )delegate {
     NSEnumerator *allRequests = [[PHAPIRequest allRequests] objectEnumerator];
     PHAPIRequest *request = nil;
 
@@ -96,25 +97,26 @@ static NSString *sPlayHavenCustomUDID;
     [canceledRequests makeObjectsPerformSelector:@selector(cancel)];
 }
 
-+ (int)cancelRequestWithHashCode:(int)hashCode
-{
+
++ (int)cancelRequestWithHashCode:(int)hashCode {
     PHAPIRequest *request = [self requestWithHashCode:hashCode];
     if (!!request) {
         [request cancel];
 
         return 1;
     }
+
     return 0;
 }
 
-+ (NSString *)base64SignatureWithString:(NSString *)string
-{
+
++ (NSString *)base64SignatureWithString:(NSString *)string {
     return [PHStringUtil b64DigestForString:string];
 }
 
-+ (NSString *)expectedSignatureValueForResponse:(NSString *)responseString nonce:(NSString *)nonce secret:(NSString *)secret
-{
-    const char   *cKey = [secret cStringUsingEncoding:NSUTF8StringEncoding];
+
++ (NSString *)expectedSignatureValueForResponse:(NSString *)responseString nonce:(NSString *)nonce secret:(NSString *)secret {
+    const char *cKey = [secret cStringUsingEncoding:NSUTF8StringEncoding];
     unsigned char cHMAC[CC_SHA1_DIGEST_LENGTH];
 
     CCHmacContext context;
@@ -145,9 +147,9 @@ static NSString *sPlayHavenCustomUDID;
     return [localSignature stringByPaddingToLength:length withString:@"=" startingAtIndex:0];
 }
 
-+ (NSString *)session
-{
-    @synchronized (self) {
+
++ (NSString *)session {
+    @synchronized(self) {
         if (sPlayHavenSession == nil) {
             UIPasteboard *pasteboard = [UIPasteboard pasteboardWithName:kSessionPasteboard create:NO];
             sPlayHavenSession = [[NSString alloc] initWithString:([pasteboard string] == nil ? @"" : [pasteboard string])];
@@ -157,49 +159,50 @@ static NSString *sPlayHavenCustomUDID;
     return (!!sPlayHavenSession) ? sPlayHavenSession : @"";
 }
 
-+ (void)setSession:(NSString *)session
-{
-    @synchronized (self) {
+
++ (void)setSession:(NSString *)session {
+    @synchronized(self) {
         if (![session isEqualToString:sPlayHavenSession]) {
             UIPasteboard *pasteboard = [UIPasteboard pasteboardWithName:kSessionPasteboard create:YES];
-            [pasteboard setString:((session!= nil) ? session : @"")];
+            [pasteboard setString:((session != nil) ? session : @"")];
             [sPlayHavenSession release];
             sPlayHavenSession = (!!session) ? [[NSString alloc] initWithString:session] : nil;
         }
     }
 }
 
-+ (BOOL)optOutStatus
-{
+
++ (BOOL)optOutStatus {
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"PlayHavenOptOutStatus"];
 }
 
-+ (void)setOptOutStatus:(BOOL)yesOrNo
-{
+
++ (void)setOptOutStatus:(BOOL)yesOrNo {
     [[NSUserDefaults standardUserDefaults] setBool:yesOrNo forKey:@"PlayHavenOptOutStatus"];
 }
 
-+ (NSString *)pluginIdentifier
-{
-    @synchronized (self) {
+
++ (NSString *)pluginIdentifier {
+    @synchronized(self) {
         if (sPlayHavenPluginIdentifier == nil ||
             [sPlayHavenPluginIdentifier isEqualToString:@""]) {
-                [sPlayHavenPluginIdentifier autorelease];
-                sPlayHavenPluginIdentifier = [[NSString alloc] initWithFormat:@"ios"];
+            [sPlayHavenPluginIdentifier autorelease];
+            sPlayHavenPluginIdentifier = [[NSString alloc] initWithFormat:@"ios"];
         }
     }
 
     return sPlayHavenPluginIdentifier;
 }
 
-+ (void)setPluginIdentifier:(NSString *)identifier
-{
-    @synchronized (self) {
+
++ (void)setPluginIdentifier:(NSString *)identifier {
+    @synchronized(self) {
         [sPlayHavenPluginIdentifier autorelease];
 
         if (!identifier || [identifier isEqual:[NSNull null]] || [identifier isEqualToString:@""]) {
             PH_LOG(@"Setting the plugin identifier to nil or an empty string will result in using the default value: \"ios\"", nil);
             sPlayHavenPluginIdentifier = nil;
+
             return;
         }
 
@@ -213,31 +216,30 @@ static NSString *sPlayHavenCustomUDID;
                                                              range:NSMakeRange(0, [identifier length])
                                                       withTemplate:@""];
 
-        if ([string length] > 42)
-            string = [string substringToIndex:42];
+        if ([string length] > 42) string = [string substringToIndex:42];
 
         if (error || !string) {
             PH_LOG(@"There was an error setting the plugin identifier. Using the default value: \"ios\"", nil);
             string = nil;
         }
 
-
         sPlayHavenPluginIdentifier = [string retain];
     }
 }
 
-+ (NSString *)customUDID
-{
+
++ (NSString *)customUDID {
     return sPlayHavenCustomUDID;
 }
 
-+ (void)setCustomUDID:(NSString *)customUDID
-{
-    @synchronized (self) {
+
++ (void)setCustomUDID:(NSString *)customUDID {
+    @synchronized(self) {
         [sPlayHavenCustomUDID autorelease];
 
         if (!customUDID || [customUDID isEqual:[NSNull null]] || [customUDID isEqualToString:@""]) {
             sPlayHavenCustomUDID = nil;
+
             return;
         }
 
@@ -260,31 +262,31 @@ static NSString *sPlayHavenCustomUDID;
     }
 }
 
-- (void)setCustomUDID:(NSString *)customUDID
-{
+
+- (void)setCustomUDID:(NSString *)customUDID {
     [PHAPIRequest setCustomUDID:customUDID];
 }
 
-- (NSString *)customUDID
-{
+
+- (NSString *)customUDID {
     return [PHAPIRequest customUDID];
 }
 
-+ (id)requestForApp:(NSString *)token secret:(NSString *)secret
-{
+
++ (id)requestForApp:(NSString *)token secret:(NSString *)secret {
     return [[[[self class] alloc] initWithApp:token secret:secret] autorelease];
 }
 
-+ (id)requestWithHashCode:(int)hashCode
-{
+
++ (id)requestWithHashCode:(int)hashCode {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"hashCode == %d", hashCode];
-    NSSet       *resultSet = [[self allRequests] filteredSetUsingPredicate:predicate];
+    NSSet *resultSet = [[self allRequests] filteredSetUsingPredicate:predicate];
 
     return [resultSet anyObject];
 }
 
-- (id)initWithApp:(NSString *)token secret:(NSString *)secret
-{
+
+- (id)initWithApp:(NSString *)token secret:(NSString *)secret {
     self = [self init];
     if (self) {
         _token  = [token copy];
@@ -294,18 +296,18 @@ static NSString *sPlayHavenCustomUDID;
     return self;
 }
 
-- (id)init
-{
+
+- (id)init {
     self = [super init];
     if (self) {
         [[PHAPIRequest allRequests] addObject:self];
     }
 
-    return  self;
+    return self;
 }
 
-- (NSURL *)URL
-{
+
+- (NSURL *)URL {
     if (_URL == nil) {
         NSString *urlString = [NSString stringWithFormat:@"%@?%@",
                                [self urlPath],
@@ -316,15 +318,15 @@ static NSString *sPlayHavenCustomUDID;
     return _URL;
 }
 
-- (NSDictionary *)signedParameters
-{
+
+- (NSDictionary *)signedParameters {
     if (_signedParameters == nil) {
         CGFloat screenWidth  = [Utils screenSize].width;
         CGFloat screenHeight = [Utils screenSize].height;
         CGFloat screenScale  = [[UIScreen mainScreen] scale];
 
         NSString *preferredLanguage = ([[NSLocale preferredLanguages] count] > 0) ?
-                                            [[NSLocale preferredLanguages] objectAtIndex:0] : nil;
+            [[NSLocale preferredLanguages] objectAtIndex:0] : nil;
 
         NSMutableDictionary *combinedParams = [[NSMutableDictionary alloc] init];
 
@@ -339,7 +341,7 @@ static NSString *sPlayHavenCustomUDID;
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
 #if PH_USE_AD_SUPPORT == 1
         if ([ASIdentifierManager class]) {
-            NSUUID   *uuid            = [[ASIdentifierManager sharedManager] advertisingIdentifier];
+            NSUUID *uuid            = [[ASIdentifierManager sharedManager] advertisingIdentifier];
             NSString *uuidString      = [uuid UUIDString];
             NSNumber *trackingEnabled = [NSNumber numberWithBool:[[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]];
             [combinedParams setValue:uuidString forKey:@"d_ifa"];
@@ -372,50 +374,50 @@ static NSString *sPlayHavenCustomUDID;
         NSBundle *mainBundle = [NSBundle bundleForClass:[self class]];
 
         NSString
-            *nonce         = [PHStringUtil uuid],
-            *session       = [PHAPIRequest session],
-            *gid           = PHGID(),
-            *signatureHash = [NSString stringWithFormat:@"%@:%@:%@:%@:%@",
-                                    self.token, [PHAPIRequest session],
-                                    PHGID(), nonce, self.secret],
-            *signature     = [PHAPIRequest base64SignatureWithString:signatureHash],
-            *appId         = [[mainBundle infoDictionary] objectForKey:@"CFBundleIdentifier"],
-            *appVersion    = [[mainBundle infoDictionary] objectForKey:@"CFBundleVersion"],
-            *hardware      = [[UIDevice currentDevice] hardware],
-            *os            = [NSString stringWithFormat:@"%@ %@",
-                                    [[UIDevice currentDevice] systemName],
-                                    [[UIDevice currentDevice] systemVersion]],
-            *languages     = preferredLanguage;
+        *nonce         = [PHStringUtil uuid],
+        *session       = [PHAPIRequest session],
+        *gid           = PHGID(),
+        *signatureHash = [NSString stringWithFormat:@"%@:%@:%@:%@:%@",
+                          self.token, [PHAPIRequest session],
+                          PHGID(), nonce, self.secret],
+        *signature     = [PHAPIRequest base64SignatureWithString:signatureHash],
+        *appId         = [[mainBundle infoDictionary] objectForKey:@"CFBundleIdentifier"],
+        *appVersion    = [[mainBundle infoDictionary] objectForKey:@"CFBundleVersion"],
+        *hardware      = [[UIDevice currentDevice] hardware],
+        *os            = [NSString stringWithFormat:@"%@ %@",
+                          [[UIDevice currentDevice] systemName],
+                          [[UIDevice currentDevice] systemVersion]],
+        *languages     = preferredLanguage;
 
         if (!appVersion) appVersion = @"NA";
 
         NSNumber
-            *idiom      = [NSNumber numberWithInt:(int)UI_USER_INTERFACE_IDIOM()],
-            *connection = [NSNumber numberWithInt:PHNetworkStatus()],
-            *width      = [NSNumber numberWithFloat:screenWidth],
-            *height     = [NSNumber numberWithFloat:screenHeight],
-            *scale      = [NSNumber numberWithFloat:screenScale];
+        *idiom      = [NSNumber numberWithInt:(int)UI_USER_INTERFACE_IDIOM()],
+        *connection = [NSNumber numberWithInt:PHNetworkStatus()],
+        *width      = [NSNumber numberWithFloat:screenWidth],
+        *height     = [NSNumber numberWithFloat:screenHeight],
+        *scale      = [NSNumber numberWithFloat:screenScale];
 
         [combinedParams addEntriesFromDictionary:self.additionalParameters];
 
         NSDictionary *signatureParams =
-             [NSDictionary dictionaryWithObjectsAndKeys:
-                                 self.token,     @"token",
-                                 signature,      @"signature",
-                                 nonce,          @"nonce",
-                                 appId,          @"app",
-                                 hardware,       @"hardware",
-                                 os,             @"os",
-                                 idiom,          @"idiom",
-                                 appVersion,     @"app_version",
-                                 connection,     @"connection",
-                                 PH_SDK_VERSION, @"sdk-ios",
-                                 languages,      @"languages",
-                                 session,        @"session",
-                                 gid,            @"gid",
-                                 width,          @"width",
-                                 height,         @"height",
-                                 scale,          @"scale", nil];
+            [NSDictionary dictionaryWithObjectsAndKeys:
+             self.token,     @"token",
+             signature,      @"signature",
+             nonce,          @"nonce",
+             appId,          @"app",
+             hardware,       @"hardware",
+             os,             @"os",
+             idiom,          @"idiom",
+             appVersion,     @"app_version",
+             connection,     @"connection",
+             PH_SDK_VERSION, @"sdk-ios",
+             languages,      @"languages",
+             session,        @"session",
+             gid,            @"gid",
+             width,          @"width",
+             height,         @"height",
+             scale,          @"scale", nil];
 
         [combinedParams addEntriesFromDictionary:signatureParams];
         _signedParameters = combinedParams;
@@ -424,13 +426,13 @@ static NSString *sPlayHavenCustomUDID;
     return _signedParameters;
 }
 
-- (NSString *)signedParameterString
-{
+
+- (NSString *)signedParameterString {
     return [[self signedParameters] stringFromQueryComponents];
 }
 
-- (void)dealloc
-{
+
+- (void)dealloc {
     [_token release], _token = nil;
     [_secret release], _secret = nil;
     [_URL release], _URL = nil;
@@ -441,27 +443,24 @@ static NSString *sPlayHavenCustomUDID;
     [super dealloc];
 }
 
+
 #pragma mark -
 #pragma mark PHPublisherOpenRequest
 
-- (void)send
-{
-    if (!alreadySent)
-    {
+- (void)send {
+    if (!alreadySent) {
         PH_LOG(@"Sending request: %@", [self.URL absoluteString]);
         NSURLRequest *request = [NSURLRequest requestWithURL:self.URL
                                                  cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                              timeoutInterval:PH_REQUEST_TIMEOUT];
 
-        if ([PHConnectionManager createConnectionFromRequest:request forDelegate:self withContext:nil])
-            alreadySent = YES;
-        else
-            [self didFailWithError:nil]; // TODO: Create error
+        if ([PHConnectionManager createConnectionFromRequest:request forDelegate:self withContext:nil]) alreadySent = YES;
+        else [self didFailWithError:nil]; // TODO: Create error
     }
 }
 
-- (void)cancel
-{
+
+- (void)cancel {
     PH_LOG(@"%@ canceled!", NSStringFromClass([self class]));
 
     // TODO: Confirm that by moving this from 'finish' to 'cancel' doesn't break anything
@@ -469,19 +468,19 @@ static NSString *sPlayHavenCustomUDID;
     [self finish];
 }
 
+
 /*
  * Internal cleanup method
  */
-- (void)finish
-{
+- (void)finish {
     // REQUEST_RELEASE see REQUEST_RETAIN
     [[PHAPIRequest allRequests] removeObject:self];
 }
 
-#pragma mark -
-#pragma mark NSURLConnectionDelegate PHConnectionManagerDelegate
-- (void)connectionDidFinishLoadingWithRequest:(NSURLRequest *)request response:(NSURLResponse *)response data:(NSData *)data context:(id)context
-{
+
+#pragma mark - NSURLConnectionDelegate PHConnectionManagerDelegate
+
+- (void)connectionDidFinishLoadingWithRequest:(NSURLRequest *)request response:(NSURLResponse *)response data:(NSData *)data context:(id)context {
     PH_NOTE(@"Request finished!");
 
     if ([self.delegate respondsToSelector:@selector(requestDidFinishLoading:)]) {
@@ -508,18 +507,17 @@ static NSString *sPlayHavenCustomUDID;
     }
 
     PH_SBJSONPARSER_CLASS *parser           = [[[PH_SBJSONPARSER_CLASS alloc] init] autorelease];
-    NSDictionary          *resultDictionary = [parser objectWithString:responseString];
+    NSDictionary *resultDictionary = [parser objectWithString:responseString];
 
     [self processRequestResponse:resultDictionary];
 }
 
-- (void)afterConnectionDidFinishLoading
-{
 
+- (void)afterConnectionDidFinishLoading {
 }
 
-- (void)connectionDidFailWithError:(NSError *)error request:(NSURLRequest *)request context:(id)context
-{
+
+- (void)connectionDidFailWithError:(NSError *)error request:(NSURLRequest *)request context:(id)context {
     PH_LOG(@"Request failed with error: %@", [error localizedDescription]);
     [self didFailWithError:error];
 
@@ -528,9 +526,10 @@ static NSString *sPlayHavenCustomUDID;
     // TODO: Investigate this further. Having it here causes crash, and removing it makes things work more as expected. Why else would it be needed?
 }
 
+
 #pragma mark -
-- (void)processRequestResponse:(NSDictionary *)responseData
-{
+
+- (void)processRequestResponse:(NSDictionary *)responseData {
     id errorValue = [responseData valueForKey:@"error"];
     if (!!errorValue && ![errorValue isEqual:[NSNull null]]) {
         PH_LOG(@"Error response: %@", errorValue);
@@ -545,8 +544,8 @@ static NSString *sPlayHavenCustomUDID;
     }
 }
 
-- (void)didSucceedWithResponse:(NSDictionary *)responseData
-{
+
+- (void)didSucceedWithResponse:(NSDictionary *)responseData {
     if ([self.delegate respondsToSelector:@selector(request:didSucceedWithResponse:)]) {
         [self.delegate performSelector:@selector(request:didSucceedWithResponse:) withObject:self withObject:responseData];
     }
@@ -554,12 +553,13 @@ static NSString *sPlayHavenCustomUDID;
     [self finish];
 }
 
-- (void)didFailWithError:(NSError *)error
-{
+
+- (void)didFailWithError:(NSError *)error {
     if ([self.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
         [self.delegate performSelector:@selector(request:didFailWithError:) withObject:self withObject:error];
     }
 
     [self finish];
 }
+
 @end

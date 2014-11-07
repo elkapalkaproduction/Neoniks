@@ -10,6 +10,7 @@
 #import "AudioPlayer.h"
 #import "UIImage+Helps.h"
 #import "AdsManager.h"
+#import "StartVideoViewController.h"
 
 @interface LogoViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
@@ -26,14 +27,7 @@
 }
 
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [[AudioPlayer sharedPlayer] play];
-}
-
-
 - (void)updateImages {
-
     [_logoImageView setImage:[UIImage imageWithName:@"logo"]];
 }
 
@@ -44,12 +38,13 @@
          _logoImageView.alpha = 1.f;
      } completion:^(BOOL finished) {
          [UIView animateWithDuration:timeInterval delay:timeInterval options:UIViewAnimationOptionCurveEaseIn animations:^{
-             _logoImageView.alpha = 0.f;
-         } completion:^(BOOL finished) {
-             AdsManager *manager = [AdsManager sharedManager];
-             [manager showOnStartAds];
-             [self.navigationController popToRootViewControllerAnimated:NO];
-         }];
+              _logoImageView.alpha = 0.f;
+          } completion:^(BOOL finished) {
+              AdsManager *manager = [AdsManager sharedManager];
+              [manager showOnStartAds];
+              StartVideoViewController *startVideo = [[StartVideoViewController alloc] init];
+              [self.navigationController pushViewController:startVideo animated:NO];
+          }];
      }];
 }
 

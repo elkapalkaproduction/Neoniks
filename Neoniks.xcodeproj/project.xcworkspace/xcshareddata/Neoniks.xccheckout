@@ -14,7 +14,7 @@
 		<string>ssh://github.com/elkapalkaproduction/Neoniks.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Neoniks.xcodeproj/project.xcworkspace</string>
+	<string>Neoniks.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>412E20387DDCA234841CCE27F2354BBC660DE0FD</key>

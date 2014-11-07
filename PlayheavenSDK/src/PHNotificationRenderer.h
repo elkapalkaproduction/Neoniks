@@ -55,4 +55,5 @@
  *   The size needed to draw the notification
  **/
 - (CGSize)sizeForNotification:(NSDictionary *)notificationData;
+
 @end

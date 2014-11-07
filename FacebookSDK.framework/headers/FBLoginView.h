@@ -26,7 +26,7 @@
  @typedef
  @abstract Indicates the desired login tooltip behavior.
  */
-typedef NS_ENUM(NSUInteger, FBLoginViewTooltipBehavior) {
+typedef NS_ENUM (NSUInteger, FBLoginViewTooltipBehavior) {
     /*! The default behavior. The tooltip will only be displayed if
      the app is eligible (determined by server round trip) */
     FBLoginViewTooltipBehaviorDefault = 0,
@@ -60,7 +60,7 @@ typedef NS_ENUM(NSUInteger, FBLoginViewTooltipBehavior) {
  @discussion Methods and properties that specify permissions without a read or publish
  qualification are deprecated; use of a read-qualified or publish-qualified alternative is preferred.
  */
-@property (readwrite, copy) NSArray *permissions __attribute__((deprecated));
+@property (readwrite, copy) NSArray * permissions __attribute__((deprecated));
 
 /*!
  @abstract
@@ -161,7 +161,7 @@ typedef NS_ENUM(NSUInteger, FBLoginViewTooltipBehavior) {
  @abstract
  The delegate object that receives updates for selection and display control.
  */
-@property (nonatomic, assign) IBOutlet id<FBLoginViewDelegate> delegate;
+@property (nonatomic, assign) IBOutlet id <FBLoginViewDelegate> delegate;
 
 @end
 
@@ -198,7 +198,7 @@ typedef NS_ENUM(NSUInteger, FBLoginViewTooltipBehavior) {
  @param user        The user info object describing the logged in user
  */
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user;
+                            user:(id <FBGraphUser> )user;
 
 /*!
  @abstract

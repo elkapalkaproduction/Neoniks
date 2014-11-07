@@ -37,4 +37,5 @@
                                                        and should correspond to unlockables recognized by the publisher's game */
 @property (nonatomic, assign) NSInteger quantity; /**< Quantity of the reward to unlock */
 @property (nonatomic, copy)   NSString *receipt;  /**< Unique receipt value, used for reward validation in the SDK */
+
 @end

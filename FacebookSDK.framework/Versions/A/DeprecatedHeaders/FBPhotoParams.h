@@ -48,4 +48,5 @@
  @param photos the array of UIImages
 */
 - (instancetype)initWithPhotos:(NSArray *)photos;
+
 @end

@@ -23,10 +23,10 @@
  * Constants defining logging behavior.  Use with <[FBSettings setLoggingBehavior]>.
  */
 
-/*! Log requests from FBRequest* classes */
+/*! Log requests from FBRequest *classes */
 FBSDK_EXTERN NSString *const FBLoggingBehaviorFBRequests;
 
-/*! Log requests from FBURLConnection* classes */
+/*! Log requests from FBURLConnection *classes */
 FBSDK_EXTERN NSString *const FBLoggingBehaviorFBURLConnections;
 
 /*! Include access token in logging. */
@@ -57,7 +57,7 @@ FBSDK_EXTERN NSString *const FBLoggingBehaviorDeveloperErrors;
  and are therefore only enabled for DEBUG builds. Beta features should not be enabled
  in release builds.
  */
-typedef NS_ENUM(NSUInteger, FBBetaFeatures) {
+typedef NS_ENUM (NSUInteger, FBBetaFeatures) {
     FBBetaFeaturesNone                  = 0,
 #if defined(DEBUG) || defined(FB_BUILD_ONLY)
     FBBetaFeaturesLikeButton            = 1 << 2,
@@ -68,7 +68,7 @@ typedef NS_ENUM(NSUInteger, FBBetaFeatures) {
  @typedef
  @abstract Indicates if this app should be restricted
  */
-typedef NS_ENUM(NSUInteger, FBRestrictedTreatment) {
+typedef NS_ENUM (NSUInteger, FBRestrictedTreatment) {
     /*! The default treatment indicating the app is not restricted. */
     FBRestrictedTreatmentNO = 0,
 
@@ -116,7 +116,7 @@ typedef NS_ENUM(NSUInteger, FBRestrictedTreatment) {
  @abstract
  This method is deprecated -- App Events favors using bundle identifiers to this.
  */
-+ (NSString *)appVersion __attribute__ ((deprecated("App Events favors use of bundle identifiers for version identification.")));
++ (NSString *)appVersion __attribute__((deprecated("App Events favors use of bundle identifiers for version identification.")));
 
 /*!
  @method
@@ -124,7 +124,7 @@ typedef NS_ENUM(NSUInteger, FBRestrictedTreatment) {
  @abstract
  This method is deprecated -- App Events favors using bundle identifiers to this.
  */
-+ (void)setAppVersion:(NSString *)appVersion __attribute__ ((deprecated("App Events favors use of bundle identifiers for version identification.")));
++ (void)setAppVersion:(NSString *)appVersion __attribute__((deprecated("App Events favors use of bundle identifiers for version identification.")));
 
 /*!
  @method

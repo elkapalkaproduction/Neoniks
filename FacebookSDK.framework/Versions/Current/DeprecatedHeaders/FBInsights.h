@@ -38,6 +38,7 @@ FBSDK_EXTERN NSString *const FBInsightsLoggingResultNotification __attribute__((
  @abstract This class has been deprecated in favor of FBAppEvents.
  */
 __attribute__ ((deprecated("Use the FBAppEvents class instead")))
+
 @interface FBInsights : NSObject
 
 + (NSString *)appVersion __attribute__((deprecated));

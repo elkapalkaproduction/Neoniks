@@ -34,14 +34,12 @@
 #define PH_CONTENT_ADDRESS @"http://media.playhaven.com"
 #endif
 
-
 /**
  * PHContentView notification that a callback is ready for processing
  **/
 // TODO: Can we safely rename this to put a space between the PH and CONTENTVIEW words?
 #define PHCONTENTVIEW_CALLBACK_NOTIFICATION  @"PHContentViewPHCallbackNotification"
 #define PH_PREFETCH_CALLBACK_NOTIFICATION   @"PHPrecacherPHCallbackNotification"
-
 
 /**
  * Defines characteristics of the requests that get sent from content units to
@@ -94,7 +92,6 @@
 #define PH_USE_STOREKIT 1
 #endif
 
-
 /**
  * By default, PlayHaven will require the AdSupport framework. Projects using a version of
  * Xcode older than 4.5 may define \c PH_USE_AD_SUPPORT to be 0.
@@ -105,14 +102,13 @@
 #define PH_USE_AD_SUPPORT 1
 #endif
 
-
 /**
  * @name Namespacing
  * The Unity3D plugin requires namespaced classes so that they may co-exist
  * alongside libraries that use the same classes. However, source builds that are
  * also using these classes should be able to use the existing implementations.
  **/
-/*@{*/
+/*@{ */
 #ifdef PH_NAMESPACE_LIBS
 #define PH_NAMESPACE_SBJSON     1
 #define PH_NAMESPACE_SDURLCACHE 1
@@ -162,11 +158,11 @@
 #endif
 
 // Macros
-#define PH_URL(PATH) [PH_BASE_URL stringByAppendingString:@#PATH]
-#define PH_URL_FMT(PATH,FMT) [PH_BASE_URL stringByAppendingFormat:@#PATH, FMT]
+#define PH_URL(PATH) [PH_BASE_URL stringByAppendingString : @#PATH]
+#define PH_URL_FMT(PATH, FMT) [PH_BASE_URL stringByAppendingFormat : @#PATH, FMT]
 
 #ifndef PH_LOG
-#define PH_LOG(COMMENT,...) NSLog(@"[PlayHaven-%@] %@", PH_SDK_VERSION, [NSString stringWithFormat:COMMENT, __VA_ARGS__])
+#define PH_LOG(COMMENT, ...) NSLog(@"[PlayHaven-%@] %@", PH_SDK_VERSION, [NSString stringWithFormat:COMMENT, __VA_ARGS__])
 #endif
 
 #ifndef PH_NOTE
@@ -178,14 +174,14 @@
 #endif
 
 #if PH_DEBUG_LOG == 1
-#define PH_DEBUG(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define PH_DEBUG(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ## __VA_ARGS__)
 #else
 #define PH_DEBUG(...)
 #endif
 
 #define PH_MULTITASKING_SUPPORTED [[UIDevice currentDevice] respondsToSelector:@selector(isMultitaskingSupported)] && [[UIDevice currentDevice] isMultitaskingSupported]
 
-NSString *PHGID(void);
+NSString * PHGID(void);
 void PHClearGID(void);
 
 // Errors
@@ -199,8 +195,7 @@ typedef enum {
     PHRequestDigestErrorType,
 } PHErrorType;
 
-NSError *PHCreateError(PHErrorType errorType);
-
+NSError * PHCreateError(PHErrorType errorType);
 
 /**
  * Determines the status of the device's connectivity.
@@ -212,7 +207,7 @@ NSError *PHCreateError(PHErrorType errorType);
  **/
 int PHNetworkStatus(void);
 
-NSString *PHAgnosticStringValue(id object);
+NSString * PHAgnosticStringValue(id object);
 
 // Caching constant definitions
 
@@ -231,24 +226,22 @@ typedef struct {
     int height;
     int length;
     char data[];
-
 } playHavenImage;
-
 
 /**
  * Play Haven default image helper functions
  **/
-UIImage *convertByteDataToUIImage(playHavenImage *phImage);
+UIImage * convertByteDataToUIImage(playHavenImage * phImage);
 
 /**
  * Return true if the device has a retina display, false otherwise. Use this to load @2x images
  **/
-#define IS_RETINA_DISPLAY() [[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2.0f
+#define IS_RETINA_DISPLAY() [[UIScreen mainScreen] respondsToSelector : @selector(scale)] && [[UIScreen mainScreen] scale] == 2.0f
 
 extern const playHavenImage badge_image;
 extern const playHavenImage badge_2x_image;
 extern const playHavenImage close_image;
 extern const playHavenImage close_active_image;
 
-NSString *PHGID();
+NSString * PHGID();
 void PHClearGID();

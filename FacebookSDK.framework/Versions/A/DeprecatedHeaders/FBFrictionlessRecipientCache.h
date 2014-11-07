@@ -31,7 +31,7 @@
  point where a dialog is presented. The cache is also updated with each presentation of the request
  dialog using the cache instance.
  */
-@interface FBFrictionlessRecipientCache : FBCacheDescriptor<FBWebDialogsDelegate>
+@interface FBFrictionlessRecipientCache : FBCacheDescriptor <FBWebDialogsDelegate>
 
 /*! @abstract An array containing the list of known FBIDs for recipients enabled for frictionless requests */
 @property (nonatomic, readwrite, copy) NSArray *recipientIDs;

@@ -87,6 +87,5 @@
  */
 - (void)loginTooltipViewWillNotAppear:(FBLoginTooltipView *)view;
 
-
 @end
 

@@ -26,7 +26,6 @@
 @class FBSession;
 @class UIImage;
 
-
 /*!
  @attribute beta true
 
@@ -38,7 +37,7 @@
 
  See FBError.h and FBErrorUtility.h for error category and user message details.
  */
-typedef NS_ENUM(NSUInteger, FBRequestConnectionErrorBehavior) {
+typedef NS_ENUM (NSUInteger, FBRequestConnectionErrorBehavior) {
     /*! The default behavior of none */
     FBRequestConnectionErrorBehaviorNone                   = 0,
 
@@ -104,7 +103,7 @@ FBSDK_EXTERN NSString *const FBNonJSONResponseProperty;
  */
 typedef void (^FBRequestHandler)(FBRequestConnection *connection,
                                  id result,
-                                 NSError *error);
+                                 NSError * error);
 
 /*!
  @protocol
@@ -196,7 +195,7 @@ typedef void (^FBRequestHandler)(FBRequestConnection *connection,
  @param connection      The request connection that successfully completed a network request
  @param retryConnection The new request connection that will retry the failed <FBRequest>s
  */
-- (void)     requestConnection:(FBRequestConnection *)connection
+- (void)requestConnection:(FBRequestConnection *)connection
 willRetryWithRequestConnection:(FBRequestConnection *)retryConnection;
 
 /*!
@@ -313,7 +312,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
  */
 @property (nonatomic, assign) FBRequestConnectionErrorBehavior errorBehavior;
 
-@property (nonatomic, assign) id<FBRequestConnectionDelegate> delegate;
+@property (nonatomic, assign) id <FBRequestConnectionDelegate> delegate;
 
 /*!
  @methodgroup Adding requests
@@ -513,7 +512,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
  */
 + (FBRequestConnection *)startForPostStatusUpdate:(NSString *)message
                                             place:(id)place
-                                             tags:(id<NSFastEnumeration>)tags
+                                             tags:(id <NSFastEnumeration> )tags
                                 completionHandler:(FBRequestHandler)handler;
 
 /*!
@@ -629,7 +628,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
  posting an open graph object (without an action), consider using `startForPostOpenGraphObject:completionHandler:`
  */
 + (FBRequestConnection *)startForPostWithGraphPath:(NSString *)graphPath
-                                       graphObject:(id<FBGraphObject>)graphObject
+                                       graphObject:(id <FBGraphObject> )graphObject
                                  completionHandler:(FBRequestHandler)handler;
 
 /*!
@@ -668,7 +667,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
 
  @param handler          The handler block to call when the request completes with a success, error, or cancel action.
  */
-+ (FBRequestConnection *)startForPostOpenGraphObject:(id<FBOpenGraphObject>)object
++ (FBRequestConnection *)startForPostOpenGraphObject:(id <FBOpenGraphObject> )object
                                    completionHandler:(FBRequestHandler)handler;
 
 /*!
@@ -709,7 +708,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
 
  @param handler          The handler block to call when the request completes with a success, error, or cancel action.
  */
-+ (FBRequestConnection *)startForUpdateOpenGraphObject:(id<FBOpenGraphObject>)object
++ (FBRequestConnection *)startForUpdateOpenGraphObject:(id <FBOpenGraphObject> )object
                                      completionHandler:(FBRequestHandler)handler;
 
 /*!

@@ -52,12 +52,11 @@
  */
 @property (nonatomic, copy) NSString *attribute5;
 
-
 /** @name Methods to create MATEventItem objects.*/
 
 /*!
  Method to create an event item. Revenue will be calculated using (quantity * unitPrice).
- 
+
  @param name name of the event item
  @param unitPrice unit price of the event item
  @param quantity quantity of the event item
@@ -107,4 +106,5 @@
                          attribute3:(NSString *)attribute3
                          attribute4:(NSString *)attribute4
                          attribute5:(NSString *)attribute5;
+
 @end

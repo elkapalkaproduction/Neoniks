@@ -54,7 +54,7 @@ FBSDK_EXTERN NSString *const FBAppEventsLoggingResultNotification;
 
 // General purpose
 
-/*! Deprecated: use [FBAppEvents activateApp] instead. */
+
 FBSDK_EXTERN NSString *const FBAppEventNameActivatedApp __attribute__ ((deprecated("use [FBAppEvents activateApp] instead")));
 
 /*! Log this event when a user has completed registration with the app. */
@@ -86,7 +86,7 @@ FBSDK_EXTERN NSString *const FBAppEventNameInitiatedCheckout;
 /*! Log this event when the user has entered their payment info. */
 FBSDK_EXTERN NSString *const FBAppEventNameAddedPaymentInfo;
 
-/*! Deprecated: use [FBAppEvents logPurchase:currency:] or [FBAppEvents logPurchase:currency:parameters:] instead */
+
 FBSDK_EXTERN NSString *const FBAppEventNamePurchased __attribute__ ((deprecated("use [FBAppEvents logPurchase:currency:] or [FBAppEvents logPurchase:currency:parameters:] instead")));
 
 // Gaming related
@@ -146,7 +146,7 @@ FBSDK_EXTERN NSString *const FBAppEventParameterNameDescription;
 /*! Yes-valued parameter value to be used with parameter keys that need a Yes/No value */
 FBSDK_EXTERN NSString *const FBAppEventParameterValueYes;
 
-/*! No-valued parameter value to be used with parameter keys that need a Yes/No value */
+
 FBSDK_EXTERN NSString *const FBAppEventParameterValueNo;
 
 

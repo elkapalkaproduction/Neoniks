@@ -31,4 +31,5 @@
 // TODO: Move this out of a category.
 @interface UIDevice (HardwareString)
 - (NSString *)hardware;
+
 @end

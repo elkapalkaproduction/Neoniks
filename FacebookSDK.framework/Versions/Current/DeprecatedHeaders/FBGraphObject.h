@@ -190,7 +190,7 @@
  `FBGraphObject` protocol, used by the Facebook SDK. Application code should not use the `FBGraphObject` class to
  access instances and instance members, favoring the protocol.
  */
-@interface FBGraphObject : NSMutableDictionary<FBGraphObject>
+@interface FBGraphObject : NSMutableDictionary <FBGraphObject>
 
 /*!
  @method
@@ -264,6 +264,5 @@
  @param anotherObject     the `FBGraphObject` to compare it against
  */
 + (BOOL)isGraphObjectID:(id<FBGraphObject>)anObject sameAs:(id<FBGraphObject>)anotherObject;
-
 
 @end

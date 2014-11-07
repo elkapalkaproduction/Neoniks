@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 
-@interface CBPostInstallAnalyticsTracker:NSObject
+@interface CBPostInstallAnalyticsTracker : NSObject
 
-+ (CBPostInstallAnalyticsTracker *) shared;
++ (CBPostInstallAnalyticsTracker *)shared;
 
 - (void)trackInAppPurchaseEvent:(NSData *)receipt product:(SKProduct *)product;
 

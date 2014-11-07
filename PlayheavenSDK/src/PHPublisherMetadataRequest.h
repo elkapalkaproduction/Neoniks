@@ -52,5 +52,6 @@
  **/
 + (id)requestForApp:(NSString *)token secret:(NSString *)secret placement:(NSString *)placement delegate:(id)delegate;
 
-@property (nonatomic,copy) NSString *placement; /**< The placement id for this request */
+@property (nonatomic, copy) NSString *placement; /**< The placement id for this request */
+
 @end

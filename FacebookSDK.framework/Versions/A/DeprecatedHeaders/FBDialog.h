@@ -25,7 +25,6 @@
  *
  * Facebook dialog interface for start the facebook webView UIServer Dialog.
  */
-
 @interface FBDialog : UIView <UIWebViewDelegate> {
     id<FBDialogDelegate> _delegate;
     NSMutableDictionary *_params;
@@ -55,11 +54,11 @@
 
 - (NSString *)getStringFromUrl:(NSString *)url needle:(NSString *)needle;
 
-- (id)      initWithURL:(NSString *)loadingURL
-                 params:(NSMutableDictionary *)params
-        isViewInvisible:(BOOL)isViewInvisible
-   frictionlessSettings:(FBFrictionlessRequestSettings *)frictionlessSettings
-               delegate:(id<FBDialogDelegate>)delegate;
+- (id)initWithURL:(NSString *)loadingURL
+           params:(NSMutableDictionary *)params
+  isViewInvisible:(BOOL)isViewInvisible
+frictionlessSettings:(FBFrictionlessRequestSettings *)frictionlessSettings
+         delegate:(id<FBDialogDelegate>)delegate;
 
 /**
  * Displays the view with an animation.
@@ -114,6 +113,7 @@
  * Implementations must call dismissWithSuccess:YES at some point to hide the dialog.
  */
 - (void)dialogDidCancel:(NSURL *)url;
+
 @end
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

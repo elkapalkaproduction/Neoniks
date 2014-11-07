@@ -28,7 +28,7 @@
 
  @discussion Note `FBWebDialogResultDialogCompleted` is also used for cancelled operations.
 */
-typedef NS_ENUM(NSUInteger, FBWebDialogResult) {
+typedef NS_ENUM (NSUInteger, FBWebDialogResult) {
     /*! Indicates that the dialog action completed successfully. Note, that cancel operations represent completed dialog operations.
      The url argument may be used to distinguish between success and user-cancelled cases */
     FBWebDialogResultDialogCompleted = 0,
@@ -42,10 +42,9 @@ typedef NS_ENUM(NSUInteger, FBWebDialogResult) {
  @abstract Defines a handler that will be called in response to the web dialog
  being dismissed
  */
-typedef void (^FBWebDialogHandler)(
-    FBWebDialogResult result,
-    NSURL *resultURL,
-    NSError *error);
+typedef void (^FBWebDialogHandler)(FBWebDialogResult result,
+                                   NSURL * resultURL,
+                                   NSError * error);
 
 /*!
  @class FBWebDialogs
@@ -97,7 +96,7 @@ typedef void (^FBWebDialogHandler)(
                                  dialog:(NSString *)dialog
                              parameters:(NSDictionary *)parameters
                                 handler:(FBWebDialogHandler)handler
-                               delegate:(id<FBWebDialogsDelegate>)delegate;
+                               delegate:(id <FBWebDialogsDelegate> )delegate;
 
 /*!
  @abstract
@@ -173,7 +172,7 @@ typedef void (^FBWebDialogHandler)(
  `FBFrictionlessRequestFriendCache` class implements this protocol to add frictionless
  behaviors to a presentation of the request dialog.
  */
-@protocol FBWebDialogsDelegate<NSObject>
+@protocol FBWebDialogsDelegate <NSObject>
 
 @optional
 

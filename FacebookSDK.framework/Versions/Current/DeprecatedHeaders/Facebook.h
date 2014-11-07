@@ -41,7 +41,7 @@
  * and Graph APIs, and start user interface interactions (such as
  * pop-ups promoting for credentials, permissions, stream posts, etc.)
  */
-@interface Facebook : NSObject<FBLoginDialogDelegate>
+@interface Facebook : NSObject <FBLoginDialogDelegate>
 
 @property (nonatomic, copy) NSString *accessToken;
 @property (nonatomic, copy) NSDate *expirationDate;
@@ -167,7 +167,6 @@ enum {
 // Summary
 // The deprecated category is used to maintain back compat and ease migration
 // to the revised SDK for iOS
-
 /**
  * Do not use this interface directly, instead, use method in Facebook.h
  */

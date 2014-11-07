@@ -32,6 +32,7 @@
     NSArray *CFBundleURLTypes = infoDictionary[@"CFBundleURLTypes"];
     NSDictionary *firstRow = CFBundleURLTypes[0];
     NSArray *CFBundleURLSchemes = firstRow[@"CFBundleURLSchemes"];
+
     return CFBundleURLSchemes[0];
 }
 

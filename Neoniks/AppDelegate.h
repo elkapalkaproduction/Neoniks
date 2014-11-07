@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LogoViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

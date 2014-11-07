@@ -29,7 +29,7 @@
  @discussion
  Usage of this type requires a client token. See `[FBSettings setClientToken:]`.
  */
-@interface FBAppLinkResolver : NSObject<BFAppLinkResolving>
+@interface FBAppLinkResolver : NSObject <BFAppLinkResolving>
 
 /*!
  @abstract Asynchronously resolves App Link data for multiple URLs.

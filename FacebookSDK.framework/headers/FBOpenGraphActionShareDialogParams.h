@@ -24,6 +24,7 @@
  @abstract Deprecated. Use `FBOpenGraphActionParams` instead.
  */
 __attribute__((deprecated))
+
 @interface FBOpenGraphActionShareDialogParams : FBOpenGraphActionParams
 
 @end

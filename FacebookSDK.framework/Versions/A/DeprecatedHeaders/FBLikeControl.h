@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, FBLikeControlAuxiliaryPosition)
 /*!
  @abstract Converts an FBLikeControlAuxiliaryPosition to an NSString.
  */
-FBSDK_EXTERN NSString *NSStringFromFBLikeControlAuxiliaryPosition(FBLikeControlAuxiliaryPosition auxiliaryPosition);
+FBSDK_EXTERN NSString * NSStringFromFBLikeControlAuxiliaryPosition(FBLikeControlAuxiliaryPosition auxiliaryPosition);
 
 /*!
  @typedef NS_ENUM(NSUInteger, FBLikeControlHorizontalAlignment)
@@ -57,7 +57,7 @@ typedef NS_ENUM(NSUInteger, FBLikeControlHorizontalAlignment)
 /*!
  @abstract Converts an FBLikeControlHorizontalAlignment to an NSString.
  */
-FBSDK_EXTERN NSString *NSStringFromFBLikeControlHorizontalAlignment(FBLikeControlHorizontalAlignment horizontalAlignment);
+FBSDK_EXTERN NSString * NSStringFromFBLikeControlHorizontalAlignment(FBLikeControlHorizontalAlignment horizontalAlignment);
 
 /*!
  @typedef NS_ENUM (NSUInteger, FBLikeControlStyle)
@@ -77,7 +77,7 @@ typedef NS_ENUM(NSUInteger, FBLikeControlStyle)
 /*!
  @abstract Converts an FBLikeControlStyle to an NSString.
  */
-FBSDK_EXTERN NSString *NSStringFromFBLikeControlStyle(FBLikeControlStyle style);
+FBSDK_EXTERN NSString * NSStringFromFBLikeControlStyle(FBLikeControlStyle style);
 
 /*!
  @class FBLikeControl

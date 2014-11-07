@@ -68,9 +68,9 @@ typedef void (^FBOSIntegratedShareDialogHandler)(FBOSIntegratedShareDialogResult
 
  */
 typedef void (^FBDialogAppCallCompletionHandler)(
-                                                 FBAppCall *call,
-                                                 NSDictionary *results,
-                                                 NSError *error);
+                                                 FBAppCall * call,
+                                                 NSDictionary * results,
+                                                 NSError * error);
 
 /*!
  @class FBDialogs

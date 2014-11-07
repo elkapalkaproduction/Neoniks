@@ -33,9 +33,10 @@
  **/
 @interface PHPublisherSubContentRequest : PHAPIRequest {
     PHContentView *_source;
-    NSString      *_callback;
+    NSString *_callback;
 }
 
 @property (nonatomic, assign) PHContentView *source;   /**< Originating content view instance */
-@property (nonatomic, copy)   NSString      *callback; /**< Originating callback id */
+@property (nonatomic, copy)   NSString *callback;      /**< Originating callback id */
+
 @end

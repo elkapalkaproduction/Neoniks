@@ -213,9 +213,9 @@ didReceiveResponse:(NSURLResponse *)response {
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSString *responseString = [[NSString alloc] initWithData:self.dataFromConnection
                                                      encoding:NSASCIIStringEncoding];
-
+    
     self.dataFromConnection = nil;
-
+    
     if ([responseString isEqualToString:@"YES"]) {
         if (self.onReceiptVerificationSucceeded) {
             self.onReceiptVerificationSucceeded();
@@ -272,7 +272,7 @@ didReceiveResponse:(NSURLResponse *)response {
 
 
 + (void)connection:(NSURLConnection *)connection
-  didFailWithError:(NSError *)error {
+    didFailWithError:(NSError *)error {
     sDataFromConnection = nil;
 
     if (onReviewRequestVerificationFailed) {

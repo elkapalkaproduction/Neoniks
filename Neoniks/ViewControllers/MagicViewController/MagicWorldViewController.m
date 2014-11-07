@@ -63,32 +63,32 @@
 - (IBAction)right:(id)sender {
     __weak MagicWorldViewController *weakSelf = self;
     [Utils animationForAppear:NO fromRight:YES forView:self.contentView withCompletionBlock:^{
-        [weakSelf.delegate next:1 isPrev:NO];
-    }];
+         [weakSelf.delegate next:1 isPrev:NO];
+     }];
 }
 
 
 - (IBAction)left:(id)sender {
     __weak MagicWorldViewController *weakSelf = self;
     [Utils animationForAppear:NO fromRight:NO forView:self.contentView withCompletionBlock:^{
-        [weakSelf.delegate next:23 isPrev:YES];
-    }];
+         [weakSelf.delegate next:23 isPrev:YES];
+     }];
 }
 
 
 - (IBAction)magic:(id)sender {
     __weak MagicWorldViewController *weakSelf = self;
     [Utils animationForAppear:NO fromRight:YES forView:self.contentView withCompletionBlock:^{
-        [weakSelf.delegate next:[sender tag] isPrev:NO];
-    }];
+         [weakSelf.delegate next:[sender tag] isPrev:NO];
+     }];
 }
 
 
 - (IBAction)close:(id)sender {
     __weak MagicWorldViewController *weakSelf = self;
     [Utils animationForAppear:NO forView:self.contentView withCompletionBlock:^(BOOL finished) {
-        [weakSelf.delegate close];
-    }];
+         [weakSelf.delegate close];
+     }];
 }
 
 
@@ -114,13 +114,11 @@
 - (void)startAnimation {
     if (self.isInitialView) {
         [Utils animationForAppear:YES forView:self.contentView withCompletionBlock:^(BOOL finished) {
-            
-        }];
+         }];
     } else {
         [self.view setHidden:NO];
         [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView withCompletionBlock:^{
-            
-        }];
+         }];
     }
 }
 

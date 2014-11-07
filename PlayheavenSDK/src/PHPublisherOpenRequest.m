@@ -29,13 +29,13 @@
 @interface PHAPIRequest (Private)
 - (void)finish;
 + (void)setSession:(NSString *)session;
+
 @end
 
 @implementation PHPublisherOpenRequest
 //@synthesize customUDID = _customUDID;
 
-+ (void)initialize
-{
++ (void)initialize {
     if (self == [PHPublisherOpenRequest class]) {
         // Initializes pre-fetching and webview caching
         PH_SDURLCACHE_CLASS *urlCache = [[PH_SDURLCACHE_CLASS alloc] initWithMemoryCapacity:PH_MAX_SIZE_MEMORY_CACHE
@@ -46,8 +46,8 @@
     }
 }
 
-- (NSDictionary *)additionalParameters
-{
+
+- (NSDictionary *)additionalParameters {
     NSMutableDictionary *additionalParameters = [NSMutableDictionary dictionary];
 
     [additionalParameters setValue:[NSNumber numberWithInt:[[PHTimeInGame getInstance] getCountSessions]]
@@ -55,30 +55,30 @@
     [additionalParameters setValue:[NSNumber numberWithInt:(int)floor([[PHTimeInGame getInstance] getSumSessionDuration])]
                             forKey:@"ssum"];
 
-    return  additionalParameters;
+    return additionalParameters;
 }
 
-- (NSString *)urlPath
-{
-    return PH_URL(/v3/publisher/open/);
+
+- (NSString *)urlPath {
+    return PH_URL( / v3 / publisher / open / );
 }
+
 
 #pragma mark - PHAPIRequest response delegate
-- (void)send
-{
+
+- (void)send {
     [super send];
     [[PHTimeInGame getInstance] gameSessionStarted];
 }
 
-- (void)didSucceedWithResponse:(NSDictionary *)responseData
-{
+
+- (void)didSucceedWithResponse:(NSDictionary *)responseData {
     id urlArray = [responseData valueForKey:@"precache"];
 
     if (urlArray && [urlArray isKindOfClass:[NSArray class]])
-        for (id url in urlArray)
-            if ([url isKindOfClass:[NSString class]])
-                [PHResourceCacher prefetchObject:url];
-
+        for (id url in urlArray) {
+            if ([url isKindOfClass:[NSString class]]) [PHResourceCacher prefetchObject:url];
+        }
 
     NSString *session = (NSString *)[responseData valueForKey:@"session"];
     if (!!session) {
@@ -95,12 +95,14 @@
     [self finish];
 }
 
+
 #pragma mark - NSObject
 
-- (void)dealloc
-{
+- (void)dealloc {
     [super dealloc];
 }
 
+
 #pragma mark - NSOperationQueue observer
+
 @end

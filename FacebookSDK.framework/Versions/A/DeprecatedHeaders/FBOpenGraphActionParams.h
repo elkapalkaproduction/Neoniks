@@ -51,4 +51,5 @@ FBSDK_EXTERN NSString *const FBPostObject;
    this would be "book".
 */
 - (instancetype)initWithAction:(id<FBOpenGraphAction>)action actionType:(NSString *)actionType previewPropertyName:(NSString *)previewPropertyName;
+
 @end

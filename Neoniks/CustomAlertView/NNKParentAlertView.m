@@ -24,7 +24,7 @@
 - (instancetype)initCustomPopWithFrame:(CGRect)frame
                        completionBlock:(ActionBlock)completionBlock {
     self = (NNKParentAlertView *)[[UINib nibWithNibName:@"NNKParentAlertView" bundle:nil]
-                               instantiateWithOwner:self options:nil][0];
+                                  instantiateWithOwner:self options:nil][0];
     if (self) {
         self.frame = frame;
         _completionBlock = completionBlock;
@@ -63,21 +63,20 @@
         numbersDict = @{@"Две тысячи пятьсот пятьдесят два" : @2552,
                         @"Пять тысяч семьсот двадцать пять" : @5725,
                         @"Семь тысяч сто восемьдесят два" : @7182};
-        
+
         dict[@"title"] = @"Только для родителей!\nВведи номер цифрами:";
         dict[@"okButton"] = @"Проверить";
         dict[@"cancelButton"] = @"Отмена";
-
     } else {
         numbersDict = @{@"Two Thousand Five Hundred Fifty-Two" : @2552,
                         @"Five Thousand Seven Hundred Twenty-Five" : @5725,
                         @"Seven Thousand One Hundred Eighty-Two" : @7182};
-        
+
         dict[@"title"] = @"Grown-ups Only!\nEnter this number numerically:";
         dict[@"okButton"] = @"OK";
         dict[@"cancelButton"] = @"Cancel";
     }
-    
+
     NSInteger i = arc4random() % 3;
     NSArray *numbers = [numbersDict allKeys];
     dict[@"number"] = numbers[i];

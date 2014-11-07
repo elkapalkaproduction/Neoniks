@@ -22,7 +22,6 @@
 
 @protocol FBFriendPickerDelegate;
 
-
 /*!
  @class
 

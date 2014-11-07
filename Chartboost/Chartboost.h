@@ -31,7 +31,7 @@ typedef enum {
  * - Control of ad targeting and frequency
  * - Better reporting
  */
-typedef NSString * const CBLocation;
+typedef NSString *const CBLocation;
 
 extern CBLocation const CBLocationStartup; /** initial startup of your app */
 extern CBLocation const CBLocationHomeScreen; /** home screen the player first sees */
@@ -62,7 +62,7 @@ extern CBLocation const CBLocationQuit; /** Screen display right before the play
 + (Chartboost *)sharedChartboost;
 
 /// Start chartboost with required appId, appSignature and delegate.  This call also starts a new session.
-+ (void)startWithAppId:(NSString*)appId appSignature:(NSString*)appSignature delegate:(id<ChartboostDelegate>)delegate;
++ (void)startWithAppId:(NSString *)appId appSignature:(NSString *)appSignature delegate:(id <ChartboostDelegate> )delegate;
 
 /// Implement this to check if an interstitial is stored in cache for a specific location
 - (BOOL)hasCachedInterstitial:(CBLocation)location;
@@ -177,7 +177,6 @@ extern CBLocation const CBLocationQuit; /** Screen display right before the play
  */
 - (void)showInterstitial __attribute__((deprecated("As of version 4.4, use showInterstitial:(CBLocation)location")));
 
-
 /// show the more apps page (no location)
 /**
  * @deprecated Use showMoreApps:(CBLocation)location
@@ -185,7 +184,6 @@ extern CBLocation const CBLocationQuit; /** Screen display right before the play
 - (void)showMoreApps __attribute__((deprecated("As of version 4.4, use showMoreApps:(CBLocation)location")));
 
 @end
-
 
 @protocol ChartboostDelegate <NSObject>
 @optional
@@ -207,7 +205,7 @@ extern CBLocation const CBLocationQuit; /** Screen display right before the play
 - (void)didCacheInterstitial:(CBLocation)location;
 
 /// Called when an interstitial has failed to come back from the server
-- (void)didFailToLoadInterstitial:(CBLocation)location  withError:(CBLoadError)error;
+- (void)didFailToLoadInterstitial:(CBLocation)location withError:(CBLoadError)error;
 
 /// Called when a click is registered, but the user is not fowrwarded to the App Store
 - (void)didFailToRecordClick:(CBLocation)location withError:(CBLoadError)error;
@@ -269,5 +267,4 @@ extern CBLocation const CBLocationQuit; /** Screen display right before the play
 - (void)didLoadInPlay;
 
 @end
-
 

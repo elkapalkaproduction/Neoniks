@@ -70,7 +70,7 @@
 /**
  * @name String digest and encoding functions
  **/
-/*@{*/
+/*@{ */
 /**
  * String digest and encoding functions, mostly for signatures
  **/
@@ -79,5 +79,5 @@
 + (NSString *)hexEncodedStringForData:(NSData *)data;
 + (NSString *)hexDigestForString:(NSString *)input;
 + (NSString *)b64DigestForString:(NSString *)input;
-/*@}*/
+/*@} */
 @end

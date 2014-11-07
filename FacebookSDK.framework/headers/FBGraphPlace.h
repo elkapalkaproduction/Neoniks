@@ -32,13 +32,13 @@
  Facebook place object. It may be used to access an `NSDictionary` object that has
  been wrapped with an <FBGraphObject> facade.
  */
-@protocol FBGraphPlace<FBGraphObject>
+@protocol FBGraphPlace <FBGraphObject>
 
 /*!
  @abstract use objectID instead
  @deprecated use objectID instead
  */
-@property (retain, nonatomic) NSString *id __attribute__ ((deprecated("use objectID instead")));
+@property (retain, nonatomic) NSString * id __attribute__((deprecated("use objectID instead")));
 
 /*!
 @property
@@ -65,6 +65,6 @@
  @property
  @abstract Typed access to the place location.
  */
-@property (retain, nonatomic) id<FBGraphLocation> location;
+@property (retain, nonatomic) id <FBGraphLocation> location;
 
 @end

@@ -10,6 +10,7 @@
 #import "AdsManager.h"
 #import "OpenUrlHandler.h"
 #import "MainViewController.h"
+#import "LogoViewController.h"
 #ifdef NeoniksFree
 #import "MKStoreManager.h"
 #endif
@@ -35,7 +36,7 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    LogoViewController *logoViewController = [[LogoViewController alloc] initWithNibName:@"LogoViewController" bundle:nil];
+    LogoViewController *logoViewController = [[LogoViewController alloc] initWithNibName:NSStringFromClass([LogoViewController class]) bundle:nil];
     self.viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     [self.navController pushViewController:logoViewController animated:NO];
@@ -82,20 +83,18 @@
         if ([[url host] isEqualToString:@"place"]) {
             [[OpenUrlHandler sharedHandler] parsePlaces:[url path]
                                withNavigationController:self.navController];
-            
         } else if ([[url host] isEqualToString:@"traditions"]) {
             [[OpenUrlHandler sharedHandler] parseTraditions:[url path]
                                    withNavigationController:self.navController];
-            
         } else if ([[url host] isEqualToString:@"character"]) {
             [[OpenUrlHandler sharedHandler] parseCharacters:[url path]
                                    withNavigationController:self.navController];
         }
-        
+
         return YES;
     }
     [[AdsManager sharedManager] matOpenURL:url sourceApplication:sourceApplication];
-    
+
     return YES;
 }
 
@@ -104,7 +103,7 @@
     if (!_supportedURLScheme) {
         _supportedURLScheme = [NSString urlScheme];
     }
-    
+
     return _supportedURLScheme;
 }
 

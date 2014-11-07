@@ -73,4 +73,5 @@
  * Returns current session duration, in seconds
  **/
 - (CFAbsoluteTime)getCurrentSessionDuration;
+
 @end

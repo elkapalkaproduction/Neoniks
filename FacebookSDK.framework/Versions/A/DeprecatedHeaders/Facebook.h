@@ -41,21 +41,21 @@
  * and Graph APIs, and start user interface interactions (such as
  * pop-ups promoting for credentials, permissions, stream posts, etc.)
  */
-@interface Facebook : NSObject<FBLoginDialogDelegate>
+@interface Facebook : NSObject <FBLoginDialogDelegate>
 
 @property (nonatomic, copy) NSString *accessToken;
 @property (nonatomic, copy) NSDate *expirationDate;
-@property (nonatomic, assign) id<FBSessionDelegate> sessionDelegate;
+@property (nonatomic, assign) id <FBSessionDelegate> sessionDelegate;
 @property (nonatomic, copy) NSString *urlSchemeSuffix;
 @property (nonatomic, readonly) BOOL isFrictionlessRequestsEnabled;
 @property (nonatomic, readonly, retain) FBSession *session;
 
 - (instancetype)initWithAppId:(NSString *)appId
-                  andDelegate:(id<FBSessionDelegate>)delegate;
+                  andDelegate:(id <FBSessionDelegate> )delegate;
 
 - (instancetype)initWithAppId:(NSString *)appId
               urlSchemeSuffix:(NSString *)urlSchemeSuffix
-                  andDelegate:(id<FBSessionDelegate>)delegate;
+                  andDelegate:(id <FBSessionDelegate> )delegate;
 
 - (void)authorize:(NSArray *)permissions;
 
@@ -69,34 +69,34 @@
 
 - (void)logout;
 
-- (void)logout:(id<FBSessionDelegate>)delegate;
+- (void)logout:(id <FBSessionDelegate> )delegate;
 
 - (FBRequest *)requestWithParams:(NSMutableDictionary *)params
-                     andDelegate:(id<FBRequestDelegate>)delegate;
+                     andDelegate:(id <FBRequestDelegate> )delegate;
 
 - (FBRequest *)requestWithMethodName:(NSString *)methodName
                            andParams:(NSMutableDictionary *)params
                        andHttpMethod:(NSString *)httpMethod
-                         andDelegate:(id<FBRequestDelegate>)delegate;
+                         andDelegate:(id <FBRequestDelegate> )delegate;
 
 - (FBRequest *)requestWithGraphPath:(NSString *)graphPath
-                        andDelegate:(id<FBRequestDelegate>)delegate;
+                        andDelegate:(id <FBRequestDelegate> )delegate;
 
 - (FBRequest *)requestWithGraphPath:(NSString *)graphPath
                           andParams:(NSMutableDictionary *)params
-                        andDelegate:(id<FBRequestDelegate>)delegate;
+                        andDelegate:(id <FBRequestDelegate> )delegate;
 
 - (FBRequest *)requestWithGraphPath:(NSString *)graphPath
                           andParams:(NSMutableDictionary *)params
                       andHttpMethod:(NSString *)httpMethod
-                        andDelegate:(id<FBRequestDelegate>)delegate;
+                        andDelegate:(id <FBRequestDelegate> )delegate;
 
 - (void)dialog:(NSString *)action
-   andDelegate:(id<FBDialogDelegate>)delegate;
+   andDelegate:(id <FBDialogDelegate> )delegate;
 
 - (void)dialog:(NSString *)action
      andParams:(NSMutableDictionary *)params
-   andDelegate:(id<FBDialogDelegate>)delegate;
+   andDelegate:(id <FBDialogDelegate> )delegate;
 
 - (BOOL)isSessionValid;
 
@@ -167,13 +167,12 @@ enum {
 // Summary
 // The deprecated category is used to maintain back compat and ease migration
 // to the revised SDK for iOS
-
 /**
  * Do not use this interface directly, instead, use method in Facebook.h
  */
 @interface FBRequest (Deprecated)
 
-@property (nonatomic, assign) id<FBRequestDelegate> delegate;
+@property (nonatomic, assign) id <FBRequestDelegate> delegate;
 
 /**
  * The URL which will be contacted to execute the request.
@@ -265,5 +264,4 @@ enum {
 - (void)request:(FBRequest *)request didLoadRawResponse:(NSData *)data;
 
 @end
-
 

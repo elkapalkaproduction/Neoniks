@@ -104,7 +104,7 @@ FBSDK_EXTERN NSString *const FBNonJSONResponseProperty;
  */
 typedef void (^FBRequestHandler)(FBRequestConnection *connection,
                                  id result,
-                                 NSError *error);
+                                 NSError * error);
 
 /*!
  @protocol
@@ -196,7 +196,7 @@ typedef void (^FBRequestHandler)(FBRequestConnection *connection,
  @param connection      The request connection that successfully completed a network request
  @param retryConnection The new request connection that will retry the failed <FBRequest>s
  */
-- (void)     requestConnection:(FBRequestConnection *)connection
+- (void)requestConnection:(FBRequestConnection *)connection
 willRetryWithRequestConnection:(FBRequestConnection *)retryConnection;
 
 /*!

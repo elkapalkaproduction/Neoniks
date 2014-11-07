@@ -46,7 +46,6 @@ typedef NS_ENUM(NSUInteger, FBFriendDisplayOrdering) {
     FBFriendDisplayByLastName,
 };
 
-
 /*!
  @class
 

@@ -42,19 +42,19 @@
  * device's GID, and checks for a valid X-PH-DIGEST response signature.
  **/
 @interface PHAPIRequest : NSObject <PHConnectionManagerDelegate> {
-    NSURL           *_URL;
-    NSString        *_token, *_secret;
-    NSDictionary    *_signedParameters;
-    NSDictionary    *_additionalParameters;
-    NSString        *_urlPath;
-    int              _hashCode;
+    NSURL *_URL;
+    NSString *_token, *_secret;
+    NSDictionary *_signedParameters;
+    NSDictionary *_additionalParameters;
+    NSString *_urlPath;
+    int _hashCode;
 
     BOOL alreadySent;
 //    NSURLConnection *_connection;
 //    NSMutableData   *_connectionData;
 //    NSURLResponse   *_response;
 
-    id<PHAPIRequestDelegate> _delegate;
+    id <PHAPIRequestDelegate> _delegate;
 }
 
 /**
@@ -97,19 +97,19 @@
 /**
  * @name Opt Out Status
  **/
-/*@{*/
+/*@{ */
 /**
  * Gets and sets the UDID opt-out status. If \c YES and <tt>PH_USE_UNIQUE_IDENTIFIER == 1</tt>,
  * then the device's UDID will be sent with each request. Defaults to \c YES
  **/
 + (BOOL)optOutStatus;
 + (void)setOptOutStatus:(BOOL)yesOrNo;
-/*@}*/
+/*@} */
 
 /**
  * @name Plugin Identifier
  **/
-/*@{*/
+/*@{ */
 /**
  * Gets and sets the plugin identifier. Third party plugins based on the iOS SDK should set this to a value that is
  * unique for each plugin version. That is, if you are creating a specific plugin (for Unity or AdobeAIR, e.g.) by
@@ -119,12 +119,12 @@
  **/
 + (NSString *)pluginIdentifier;
 + (void)setPluginIdentifier:(NSString *)identifier;
-/*@}*/
+/*@} */
 
 /**
  * @name Custom UDID
  **/
-/*@{*/
+/*@{ */
 /**
  * Gets and sets the custom UDID. Publishers can attach an arbitrary user identifier to a request by using the
  * PHPublisherOpenRequest#customUDID property or the PHAPIRequest#setCustomUDID:() class method. This will be appended
@@ -132,7 +132,7 @@
  **/
 + (NSString *)customUDID;
 + (void)setCustomUDID:(NSString *)customUDID;
-/*@}*/
+/*@} */
 
 /**
  * Returns a new PHAPIRequest instance with the given token and secret
@@ -168,7 +168,7 @@
  * @param delegate
  *   The delegate
  **/
-+ (void)cancelAllRequestsWithDelegate:(id<PHAPIRequestDelegate>)delegate;
++ (void)cancelAllRequestsWithDelegate:(id <PHAPIRequestDelegate> )delegate;
 
 /**
  * Cancels an existing request with a hash code value of \c hashCode.
@@ -186,7 +186,7 @@
 @property (nonatomic, readonly) NSString *secret;  /**< API secret for this request, value is set during initialization */
 @property (nonatomic, copy)     NSString *urlPath; /**< API endpoint to use for this request, subclasses will override
                                                         this with a hard-coded value */
-@property (nonatomic, readonly) NSURL    *URL;     /**< Lazily-initialized NSURL instance that contains a full request
+@property (nonatomic, readonly) NSURL *URL;        /**< Lazily-initialized NSURL instance that contains a full request
                                                         URL with signed parameters */
 @property (nonatomic, retain)   NSDictionary *additionalParameters; /**< Subclasses can override this implementation
                                                                          to add custom parameters to requests */
@@ -194,7 +194,7 @@
                                                                          parameters as well as necessary request signatures */
 @property (nonatomic, assign)   int hashCode;      /**< Unique hash code identifying this request. Used by the Unity3d plugin */
 
-@property (nonatomic, assign)   id<PHAPIRequestDelegate>  delegate; /**< Request delegate, see PHAPIRequestDelegate */
+@property (nonatomic, assign)   id <PHAPIRequestDelegate> delegate; /**< Request delegate, see PHAPIRequestDelegate */
 
 @property (nonatomic, copy) NSString *customUDID; /**< Gets and sets the custom UDID. Publishers can attach an
                                                        arbitrary user identifier to a request by using the
@@ -217,6 +217,7 @@
  * Cancel the request if it has already started
  **/
 - (void)cancel;
+
 @end
 
 /**
@@ -257,4 +258,5 @@
  * @sa PHConstants.h
  **/
 - (void)request:(PHAPIRequest *)request didFailWithError:(NSError *)error;
+
 @end

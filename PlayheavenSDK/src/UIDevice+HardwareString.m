@@ -23,8 +23,7 @@
 #include <sys/sysctl.h>
 
 @implementation UIDevice (HardwareString)
-- (NSString *)hardware
-{
+- (NSString *)hardware {
 #if TARGET_IPHONE_SIMULATOR
     // Use idiom to send appropriate string
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -40,7 +39,9 @@
     sysctlbyname("hw.machine", machine, &size, NULL, 0);
     NSString *hardware = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
     free(machine);
+
     return hardware;
 #endif
 }
+
 @end

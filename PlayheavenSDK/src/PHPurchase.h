@@ -40,7 +40,6 @@ typedef enum {
  * content unit to be informed of the resolution of this purchase request
  **/
 @interface PHPurchase : NSObject {
-
     NSString *_productIdentifier;
     NSString *_item;
     NSInteger _quantity;
@@ -75,4 +74,5 @@ typedef enum {
  *   The resolution to report
  **/
 - (void)reportResolution:(PHPurchaseResolutionType)resolution;
+
 @end

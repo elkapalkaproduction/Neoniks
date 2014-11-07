@@ -32,4 +32,5 @@
  * border, white text)
  **/
 @interface PHNotificationBadgeRenderer : PHNotificationRenderer
+
 @end

@@ -1,20 +1,20 @@
 /*
  Copyright (C) 2009 Stig Brautaset. All rights reserved.
- 
+
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
- 
+
  * Redistributions of source code must retain the above copyright notice, this
    list of conditions and the following disclaimer.
- 
+
  * Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
    and/or other materials provided with the distribution.
- 
+
  * Neither the name of the author nor the names of its contributors may be used
    to endorse or promote products derived from this software without specific
    prior written permission.
- 
+
  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -29,8 +29,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PHConstants.h"
-extern NSString * PH_SBJSONERRORDOMAIN_CONST;
-
+extern NSString *PH_SBJSONERRORDOMAIN_CONST;
 
 enum {
     EUNSUPPORTED = 1,
@@ -55,13 +54,13 @@ enum {
 @interface PH_SBJSONBASE_CLASS : NSObject {
     NSMutableArray *errorTrace;
 
-@protected
+    @protected
     NSUInteger depth, maxDepth;
 }
 
 /**
  @brief The maximum recursing depth.
- 
+
  Defaults to 512. If the input is nested deeper than this the input will be deemed to be
  malicious and the parser returns nil, signalling an error. ("Nested too deep".) You can
  turn off this security feature by setting the maxDepth value to 0.
@@ -70,15 +69,15 @@ enum {
 
 /**
  @brief Return an error trace, or nil if there was no errors.
- 
+
  Note that this method returns the trace of the last method that failed.
  You need to check the return value of the call you're making to figure out
  if the call actually failed, before you know call this method.
  */
- @property(copy,readonly) NSArray* errorTrace;
+@property (copy, readonly) NSArray *errorTrace;
 
 /// @internal for use in subclasses to add errors to the stack trace
-- (void)addErrorWithCode:(NSUInteger)code description:(NSString*)str;
+- (void)addErrorWithCode:(NSUInteger)code description:(NSString *)str;
 
 /// @internal for use in subclasess to clear the error before a new parsing attempt
 - (void)clearErrorTrace;

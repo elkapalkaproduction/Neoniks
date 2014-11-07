@@ -31,7 +31,7 @@
  @abstract
  Passed to a handler to indicate the result of a dialog being displayed to the user.
  */
-typedef NS_ENUM(NSUInteger, FBOSIntegratedShareDialogResult) {
+typedef NS_ENUM (NSUInteger, FBOSIntegratedShareDialogResult) {
     /*! Indicates that the dialog action completed successfully. */
     FBOSIntegratedShareDialogResultSucceeded = 0,
     /*! Indicates that the dialog action was cancelled (either by the user or the system). */
@@ -67,10 +67,9 @@ typedef void (^FBOSIntegratedShareDialogHandler)(FBOSIntegratedShareDialogResult
  present purely for convenience, and is the exact same value as call.error.
 
  */
-typedef void (^FBDialogAppCallCompletionHandler)(
-                                                 FBAppCall *call,
-                                                 NSDictionary *results,
-                                                 NSError *error);
+typedef void (^FBDialogAppCallCompletionHandler)(FBAppCall *call,
+                                                 NSDictionary * results,
+                                                 NSError * error);
 
 /*!
  @class FBDialogs
@@ -474,7 +473,7 @@ typedef void (^FBDialogAppCallCompletionHandler)(
  canPresentShareDialogWithPhotoParams method is also returning YES for the same params.
  */
 + (FBAppCall *)presentShareDialogWithPhotos:(NSArray *)photos
-                                       handler:(FBDialogAppCallCompletionHandler)handler;
+                                    handler:(FBDialogAppCallCompletionHandler)handler;
 
 /*!
  @abstract
@@ -576,10 +575,10 @@ typedef void (^FBDialogAppCallCompletionHandler)(
 
  @discussion A non-nil FBAppCall object is only returned if the corresponding
  canPresentShareDialogWithOpenGraphActionParams method is also returning YES for the same params.
- */+ (FBAppCall *)presentShareDialogWithOpenGraphAction:(id<FBOpenGraphAction>)action
-                                             actionType:(NSString *)actionType
-                                    previewPropertyName:(NSString *)previewPropertyName
-                                                handler:(FBDialogAppCallCompletionHandler)handler;
+ */+ (FBAppCall *)presentShareDialogWithOpenGraphAction:(id <FBOpenGraphAction> )action
+                                          actionType:(NSString *)actionType
+                                 previewPropertyName:(NSString *)previewPropertyName
+                                             handler:(FBDialogAppCallCompletionHandler)handler;
 
 /*!
  @abstract
@@ -618,7 +617,7 @@ typedef void (^FBDialogAppCallCompletionHandler)(
  @discussion A non-nil FBAppCall object is only returned if the corresponding
  canPresentShareDialogWithOpenGraphActionParams method is also returning YES for the same params.
  */
-+ (FBAppCall *)presentShareDialogWithOpenGraphAction:(id<FBOpenGraphAction>)action
++ (FBAppCall *)presentShareDialogWithOpenGraphAction:(id <FBOpenGraphAction> )action
                                           actionType:(NSString *)actionType
                                  previewPropertyName:(NSString *)previewPropertyName
                                          clientState:(NSDictionary *)clientState
@@ -740,10 +739,10 @@ typedef void (^FBDialogAppCallCompletionHandler)(
 
  @discussion A non-nil FBAppCall object is only returned if the corresponding
  canPresentMessageDialogWithOpenGraphActionParams method is also returning YES for the same params.
- */+ (FBAppCall *)presentMessageDialogWithOpenGraphAction:(id<FBOpenGraphAction>)action
-                                               actionType:(NSString *)actionType
-                                      previewPropertyName:(NSString *)previewPropertyName
-                                                  handler:(FBDialogAppCallCompletionHandler)handler;
+ */+ (FBAppCall *)presentMessageDialogWithOpenGraphAction:(id <FBOpenGraphAction> )action
+                                            actionType:(NSString *)actionType
+                                   previewPropertyName:(NSString *)previewPropertyName
+                                               handler:(FBDialogAppCallCompletionHandler)handler;
 
 /*!
  @abstract
@@ -782,7 +781,7 @@ typedef void (^FBDialogAppCallCompletionHandler)(
  @discussion A non-nil FBAppCall object is only returned if the corresponding
  canPresentMessageDialogWithOpenGraphActionParams method is also returning YES for the same params.
  */
-+ (FBAppCall *)presentMessageDialogWithOpenGraphAction:(id<FBOpenGraphAction>)action
++ (FBAppCall *)presentMessageDialogWithOpenGraphAction:(id <FBOpenGraphAction> )action
                                             actionType:(NSString *)actionType
                                    previewPropertyName:(NSString *)previewPropertyName
                                            clientState:(NSDictionary *)clientState

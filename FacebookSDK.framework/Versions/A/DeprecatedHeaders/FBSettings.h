@@ -23,10 +23,10 @@
  * Constants defining logging behavior.  Use with <[FBSettings setLoggingBehavior]>.
  */
 
-/*! Log requests from FBRequest* classes */
+/*! Log requests from FBRequest *classes */
 FBSDK_EXTERN NSString *const FBLoggingBehaviorFBRequests;
 
-/*! Log requests from FBURLConnection* classes */
+/*! Log requests from FBURLConnection *classes */
 FBSDK_EXTERN NSString *const FBLoggingBehaviorFBURLConnections;
 
 /*! Include access token in logging. */

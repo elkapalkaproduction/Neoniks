@@ -51,7 +51,7 @@ FBSDK_EXTERN NSString *const FBSessionDidBecomeClosedActiveSessionNotification;
 
  @discussion
  */
-typedef NS_ENUM(NSUInteger, FBSessionState) {
+typedef NS_ENUM (NSUInteger, FBSessionState) {
     /*! One of two initial states indicating that no valid cached token was found */
     FBSessionStateCreated                   = 0,
     /*! One of two initial session states indicating that a cached token was loaded;
@@ -101,7 +101,7 @@ typedef NS_ENUM(NSUInteger, FBSessionState) {
  Facebook Login, and only falls back if needed. In rare cases, it may be preferable to disallow
  fallback Facebook Login completely, or to force a fallback login.
  */
-typedef NS_ENUM(NSUInteger, FBSessionLoginBehavior) {
+typedef NS_ENUM (NSUInteger, FBSessionLoginBehavior) {
     /*! Attempt Facebook Login, ask user for credentials if necessary */
     FBSessionLoginBehaviorWithFallbackToWebView      = 0,
     /*! Attempt Facebook Login, no direct request for credentials will be made */
@@ -126,7 +126,7 @@ typedef NS_ENUM(NSUInteger, FBSessionLoginBehavior) {
  publication ceiling for the application. This enumerated value allows the application to select which
  audience to ask the user to grant publish permission for.
  */
-typedef NS_ENUM(NSUInteger, FBSessionDefaultAudience) {
+typedef NS_ENUM (NSUInteger, FBSessionDefaultAudience) {
     /*! No audience needed; this value is useful for cases where data will only be read from Facebook */
     FBSessionDefaultAudienceNone                = 0,
     /*! Indicates that only the user is able to see posts made by the application */
@@ -150,7 +150,7 @@ typedef NS_ENUM(NSUInteger, FBSessionDefaultAudience) {
  given login does not matter, however for certain capabilities, the type of login can impact the behavior
  of other Facebook functionality.
  */
-typedef NS_ENUM(NSUInteger, FBSessionLoginType) {
+typedef NS_ENUM (NSUInteger, FBSessionLoginType) {
     /*! A login type has not yet been established */
     FBSessionLoginTypeNone                      = 0,
     /*! A system integrated account was used to log the user into the application */
@@ -208,7 +208,7 @@ typedef void (^FBSessionRequestPermissionResultHandler)(FBSession *session,
  @discussion You should use the preferred FBSessionRequestPermissionHandler typedef rather than
  this synonym, which has been deprecated.
  */
-typedef FBSessionRequestPermissionResultHandler FBSessionReauthorizeResultHandler __attribute__((deprecated));
+typedef FBSessionRequestPermissionResultHandler FBSessionReauthorizeResultHandler __attribute__ ((deprecated));
 
 /*!
  @typedef
@@ -216,7 +216,7 @@ typedef FBSessionRequestPermissionResultHandler FBSessionReauthorizeResultHandle
  @abstract Block type used to define blocks called for system credential renewals.
  @discussion
  */
-typedef void (^FBSessionRenewSystemCredentialsHandler)(ACAccountCredentialRenewResult result, NSError *error) ;
+typedef void (^FBSessionRenewSystemCredentialsHandler)(ACAccountCredentialRenewResult result, NSError *error);
 
 /*!
  @class FBSession
@@ -336,21 +336,18 @@ typedef void (^FBSessionRenewSystemCredentialsHandler)(ACAccountCredentialRenewR
 
 /*! @abstract The access token for the session object.
  @discussion Deprecated. Use the `accessTokenData` property. */
-@property(readonly, copy) NSString *accessToken
-__attribute__((deprecated));
+@property (readonly, copy) NSString *accessToken __attribute__((deprecated));
 
 /*! @abstract The expiration date of the access token for the session object.
  @discussion Deprecated. Use the `accessTokenData` property. */
-@property(readonly, copy) NSDate *expirationDate
-__attribute__((deprecated));
+@property (readonly, copy) NSDate *expirationDate __attribute__((deprecated));
 
 /*! @abstract The permissions granted to the access token during the authentication flow. */
 @property (readonly, copy) NSArray *permissions;
 
 /*! @abstract Specifies the login type used to authenticate the user.
  @discussion Deprecated. Use the `accessTokenData` property. */
-@property(readonly) FBSessionLoginType loginType
-__attribute__((deprecated));
+@property (readonly) FBSessionLoginType loginType __attribute__((deprecated));
 
 /*! @abstract Gets the FBAccessTokenData for the session */
 @property (readonly, copy) FBAccessTokenData *accessTokenData;
@@ -436,7 +433,7 @@ __attribute__((deprecated));
  @param accessTokenData The token data. See `FBAccessTokenData` for construction methods.
  @param handler A block to call with session state changes. The default is nil.
  */
-- (BOOL)openFromAccessTokenData:(FBAccessTokenData *)accessTokenData completionHandler:(FBSessionStateHandler) handler;
+- (BOOL)openFromAccessTokenData:(FBAccessTokenData *)accessTokenData completionHandler:(FBSessionStateHandler)handler;
 
 /*!
  @abstract
@@ -466,8 +463,7 @@ __attribute__((deprecated));
  */
 - (void)reauthorizeWithPermissions:(NSArray *)permissions
                           behavior:(FBSessionLoginBehavior)behavior
-                 completionHandler:(FBSessionReauthorizeResultHandler)handler
-__attribute__((deprecated));
+                 completionHandler:(FBSessionReauthorizeResultHandler)handler __attribute__((deprecated));
 
 /*!
  @abstract
@@ -482,8 +478,7 @@ __attribute__((deprecated));
  using <[FBSession requestNewReadPermissions:completionHandler:]>, which is preferred for readability.
  */
 - (void)reauthorizeWithReadPermissions:(NSArray *)readPermissions
-                     completionHandler:(FBSessionReauthorizeResultHandler)handler
-__attribute__((deprecated));
+                     completionHandler:(FBSessionReauthorizeResultHandler)handler __attribute__((deprecated));
 
 /*!
  @abstract
@@ -501,8 +496,7 @@ __attribute__((deprecated));
  */
 - (void)reauthorizeWithPublishPermissions:(NSArray *)writePermissions
                           defaultAudience:(FBSessionDefaultAudience)defaultAudience
-                        completionHandler:(FBSessionReauthorizeResultHandler)handler
-__attribute__((deprecated));
+                        completionHandler:(FBSessionReauthorizeResultHandler)handler __attribute__((deprecated));
 
 /*!
  @abstract
@@ -656,8 +650,7 @@ __attribute__((deprecated));
  */
 + (BOOL)openActiveSessionWithPermissions:(NSArray *)permissions
                             allowLoginUI:(BOOL)allowLoginUI
-                       completionHandler:(FBSessionStateHandler)handler
-__attribute__((deprecated));
+                       completionHandler:(FBSessionStateHandler)handler __attribute__((deprecated));
 
 /*!
  @abstract

@@ -36,15 +36,15 @@
     NSString *_product;
     NSInteger _quantity;
     PHPurchaseResolutionType _resolution;
-    SKProductsRequest       *_request;
+    SKProductsRequest *_request;
     NSError *_error;
-    NSData  *_receiptData;
+    NSData *_receiptData;
 }
 
 /**
  * @name Conversion cookies
  **/
-/*@{*/
+/*@{ */
 /**
  * Conversion cookie getter/setter
  * Conversion cookies are set by the SDK when a content unit initiates a
@@ -54,7 +54,7 @@
  **/
 + (void)setConversionCookie:(NSString *)cookie forProduct:(NSString *)product;
 + (NSString *)getConversionCookieForProduct:(NSString *)product;
-/*@}*/
+/*@} */
 
 /**
  * Returns a request to report a user buying or canceling an IAP product with
@@ -164,8 +164,9 @@
 
 @property (nonatomic, copy)   NSString *product;     /**< IAP bundle identifier string registered with Apple */
 @property (nonatomic, assign) NSInteger quantity;    /**< The total quantity purchased for this IAP transaction */
-@property (nonatomic, retain) NSError  *error;       /**< The error encountered by this request, if applicable */
-@property (nonatomic, retain) NSData   *receiptData; /**< iTunes transaction receipt data for this transaction */
+@property (nonatomic, retain) NSError *error;        /**< The error encountered by this request, if applicable */
+@property (nonatomic, retain) NSData *receiptData;   /**< iTunes transaction receipt data for this transaction */
 @property (nonatomic, assign) PHPurchaseResolutionType resolution; /**< The resolution of this transaction (buy, cancel, error) */
+
 @end
 #endif

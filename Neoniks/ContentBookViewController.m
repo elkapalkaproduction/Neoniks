@@ -50,6 +50,7 @@
     if ([Utils isLockedPage:currentPage]) {
         self.webView.hidden = YES;
         self.lockImage.hidden = self.restoreButton.hidden = self.buyButton.hidden = NO;
+
         return;
     } else {
         self.lockImage.hidden = self.restoreButton.hidden = self.buyButton.hidden = YES;
@@ -107,12 +108,13 @@
 
          self.currentPage = self.currentPage;
      }
+
+
                                    onCancelled:^
      {
          [SVProgressHUD dismiss];
          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchase Stopped" message:@"Either you cancelled the request or Apple reported a transaction error. Please try again later, or contact the app's customer support for assistance." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
          [alert show];
-         
      }];
 }
 
@@ -121,17 +123,16 @@
     [SVProgressHUD show];
     [AdsManager logEvent:FLURRY_IN_APP_CLICKED];
     [[MKStoreManager sharedManager] restorePreviousTransactionsOnComplete:^{
-        [SVProgressHUD dismiss];
-        self.currentPage = self.currentPage;
-        [AdsManager logEvent:FLURRY_IN_APP_MADE];
-    } onError:^(NSError *error) {
-        [SVProgressHUD dismiss];
-        NSLog(@"User Cancelled Transaction");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please try again later, or contact the app's customer support for assistance." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-        [alert show];
-        
-    }];
+         [SVProgressHUD dismiss];
+         self.currentPage = self.currentPage;
+         [AdsManager logEvent:FLURRY_IN_APP_MADE];
+     } onError:^(NSError *error) {
+         [SVProgressHUD dismiss];
+         NSLog(@"User Cancelled Transaction");
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please try again later, or contact the app's customer support for assistance." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+
+         [alert show];
+     }];
 }
 
 
@@ -143,7 +144,6 @@
 - (void)showAdsWithDelay {
     AdsManager *manager = [AdsManager sharedManager];
     [manager showOnSaysNoAds];
-
 }
 
 

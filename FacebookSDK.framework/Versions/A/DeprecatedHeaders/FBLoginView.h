@@ -60,7 +60,7 @@ typedef NS_ENUM(NSUInteger, FBLoginViewTooltipBehavior) {
  @discussion Methods and properties that specify permissions without a read or publish
  qualification are deprecated; use of a read-qualified or publish-qualified alternative is preferred.
  */
-@property (readwrite, copy) NSArray *permissions __attribute__((deprecated));
+@property (readwrite, copy) NSArray * permissions __attribute__((deprecated));
 
 /*!
  @abstract

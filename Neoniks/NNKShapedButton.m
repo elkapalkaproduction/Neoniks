@@ -1,6 +1,6 @@
 //
 //  NNKShapedButton.m
-//  
+//
 //
 //  Created by Andrei Vidrasco on 7/27/14.
 //  Copyright (c) 2014 Andrei Vidrasco. All rights reserved.
@@ -169,6 +169,5 @@ const CGFloat ShapedButtonAlphaVisibleThreshold = 0.1f;
 
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
-
 
 @end

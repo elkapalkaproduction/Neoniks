@@ -22,16 +22,16 @@
 #import "PHContent.h"
 
 @implementation PHContent
+
 @synthesize URL        = _URL;
 @synthesize transition = _transition;
 @synthesize context    = _context;
 @synthesize closeButtonDelay   = _closeButtonDelay;
 @synthesize closeButtonURLPath = _closeButtonURLPath;
 
-+ (id)contentWithDictionary:(NSDictionary *)dictionaryRepresentation
-{
++ (id)contentWithDictionary:(NSDictionary *)dictionaryRepresentation {
     BOOL
-    shouldCreateInstance = !![dictionaryRepresentation valueForKey:@"frame"];
+        shouldCreateInstance = !![dictionaryRepresentation valueForKey:@"frame"];
     shouldCreateInstance = shouldCreateInstance && !![dictionaryRepresentation valueForKey:@"url"];
     shouldCreateInstance = shouldCreateInstance && !![dictionaryRepresentation valueForKey:@"transition"];
 
@@ -52,9 +52,9 @@
         result.URL = [NSURL URLWithString:url];
 
         NSString *transition = [dictionaryRepresentation valueForKey:@"transition"];
-        if ([@"PH_MODAL" isEqualToString:transition]) {
+        if ([@"PH_MODAL" isEqualToString : transition]) {
             result.transition = PHContentTransitionModal;
-        } else if ([@"PH_DIALOG" isEqualToString:transition]) {
+        } else if ([@"PH_DIALOG" isEqualToString : transition]) {
             result.transition = PHContentTransitionDialog;
         }
 
@@ -73,20 +73,19 @@
     } else {
         return nil;
     }
-
 }
 
-- (id)init
-{
+
+- (id)init {
     if ((self = [super init])) {
         _closeButtonDelay = 10.0f;
     }
 
-    return  self;
+    return self;
 }
 
-- (void)dealloc
-{
+
+- (void)dealloc {
     [_URL release], _URL = nil;
     [_context release], _context = nil;
     [_closeButtonURLPath release], _closeButtonURLPath = nil;
@@ -94,16 +93,16 @@
     [super dealloc];
 }
 
-- (CGRect)frameForOrientation:(UIInterfaceOrientation)orientation
-{
+
+- (CGRect)frameForOrientation:(UIInterfaceOrientation)orientation {
     NSString *orientationKey = (UIInterfaceOrientationIsLandscape(orientation)) ? @"PH_LANDSCAPE" : @"PH_PORTRAIT";
     NSDictionary *frameValue = [_frameDict valueForKey:orientationKey];
 
     if (!![_frameDict valueForKey:@"PH_FULLSCREEN"]) {
         CGRect frame = [UIScreen mainScreen].applicationFrame;
         CGFloat
-        width = frame.size.width,
-        height = frame.size.height;
+            width = frame.size.width,
+            height = frame.size.height;
 
         if (UIInterfaceOrientationIsLandscape(orientation)) {
             return CGRectMake(0, 0, height, width);
@@ -111,25 +110,24 @@
             return CGRectMake(0, 0, width, height);
         }
     } else if (!!frameValue) {
-
         CGFloat
-        x = [[frameValue valueForKey:@"x"] floatValue],
-        y = [[frameValue valueForKey:@"y"] floatValue],
-        w = [[frameValue valueForKey:@"w"] floatValue],
-        h = [[frameValue valueForKey:@"h"] floatValue];
+            x = [[frameValue valueForKey:@"x"] floatValue],
+            y = [[frameValue valueForKey:@"y"] floatValue],
+            w = [[frameValue valueForKey:@"w"] floatValue],
+            h = [[frameValue valueForKey:@"h"] floatValue];
 
         return CGRectMake(x, y, w, h);
     } else {
         // No frame data for this orientation
         return CGRectNull;
     }
-
 }
 
-- (void)setFramesWithDictionary:(NSDictionary *)frameDict
-{
+
+- (void)setFramesWithDictionary:(NSDictionary *)frameDict {
     if (_frameDict != frameDict) {
         [_frameDict release], _frameDict = [frameDict retain];
     }
 }
+
 @end

@@ -17,11 +17,10 @@
 
 #define MATVERSION @"3.4.1"
 
-
 #pragma mark - enumerated types
 
 /** @name Error codes */
-typedef NS_ENUM(NSInteger, MATErrorCode)
+typedef NS_ENUM (NSInteger, MATErrorCode)
 {
     MATNoAdvertiserIDProvided       = 1101,
     MATNoConversionKeyProvided      = 1102,
@@ -32,15 +31,14 @@ typedef NS_ENUM(NSInteger, MATErrorCode)
 };
 
 /** @name Gender type constants */
-typedef NS_ENUM(NSInteger, MATGender)
+typedef NS_ENUM (NSInteger, MATGender)
 {
     MATGenderMale       = 0,                // Gender type MALE. Equals 0.
     MATGenderFemale     = 1,                // Gender type FEMALE. Equals 1.
-    
+
     MAT_GENDER_MALE     = MATGenderMale,    // Backward-compatible alias for MATGenderMale.
     MAT_GENDER_FEMALE   = MATGenderFemale   // Backward-compatible alias for MATGenderFemale.
 };
-
 
 @protocol MobileAppTrackerDelegate;
 #ifdef MAT_USE_LOCATION
@@ -53,7 +51,6 @@ typedef NS_ENUM(NSInteger, MATGender)
  */
 @interface MobileAppTracker : NSObject
 
-
 #pragma mark - Main Initializer
 
 /** @name Intitializing MobileAppTracker With Advertiser Information */
@@ -64,7 +61,6 @@ typedef NS_ENUM(NSInteger, MATGender)
  */
 + (void)initializeWithMATAdvertiserId:(NSString *)aid MATConversionKey:(NSString *)key;
 
-
 #pragma mark - Delegate
 
 /** @name MAT SDK Callback Delegate */
@@ -72,7 +68,7 @@ typedef NS_ENUM(NSInteger, MATGender)
  [MobileAppTrackerDelegate](MobileAppTrackerDelegate) : A delegate used by the MobileAppTracker
  to post success and failure callbacks from the MAT servers.
  */
-+ (void)setDelegate:(id <MobileAppTrackerDelegate>)delegate;
++ (void)setDelegate:(id <MobileAppTrackerDelegate> )delegate;
 
 #ifdef MAT_USE_LOCATION
 /** @name MAT SDK Region Delegate */
@@ -80,9 +76,8 @@ typedef NS_ENUM(NSInteger, MATGender)
  [MobileAppTrackerRegionDelegate](MobileAppTrackerRegionDelegate) : A delegate used by the MobileAppTracker
  to post geofencing boundary notifications.
  */
-+ (void)setRegionDelegate:(id <MobileAppTrackerRegionDelegate>)delegate;
++ (void)setRegionDelegate:(id <MobileAppTrackerRegionDelegate> )delegate;
 #endif
-
 
 #pragma mark - Debug And Test
 
@@ -90,22 +85,21 @@ typedef NS_ENUM(NSInteger, MATGender)
 
 /*!
  Specifies that the server responses should include debug information.
- 
+
  @warning This is only for testing. You must turn this off for release builds.
- 
+
  @param yesorno defaults to NO.
  */
 + (void)setDebugMode:(BOOL)yesorno;
 
 /*!
  Set to YES to allow duplicate requests to be registered with the MAT server.
- 
+
  @warning This is only for testing. You must turn this off for release builds.
- 
+
  @param yesorno defaults to NO.
  */
 + (void)setAllowDuplicateRequests:(BOOL)yesorno;
-
 
 #pragma mark - Data Setters
 
@@ -131,7 +125,7 @@ typedef NS_ENUM(NSInteger, MATGender)
  Set the Apple Vendor Identifier available in iOS 6.
  @param appleVendorIdentifier - Apple Vendor Identifier
  */
-+ (void)setAppleVendorIdentifier:(NSUUID * )appleVendorIdentifier;
++ (void)setAppleVendorIdentifier:(NSUUID *)appleVendorIdentifier;
 
 /*!
  Sets the currency code.
@@ -263,7 +257,6 @@ typedef NS_ENUM(NSInteger, MATGender)
  */
 + (void)setPayingUser:(BOOL)isPayingUser;
 
-
 #pragma mark - Event-specific setters
 
 /*!
@@ -271,7 +264,7 @@ typedef NS_ENUM(NSInteger, MATGender)
  Will be cleared after the next measurement call.
  @param content type
  */
-+ (void)setEventContentType:(NSString*)contentType;
++ (void)setEventContentType:(NSString *)contentType;
 
 /*!
  Set the content ID associated with the next action (International Article Number
@@ -279,7 +272,7 @@ typedef NS_ENUM(NSInteger, MATGender)
  Will be cleared after the next measurement call.
  @param content ID
  */
-+ (void)setEventContentId:(NSString*)contentId;
++ (void)setEventContentId:(NSString *)contentId;
 
 /*!
  Set the level associated with the next action (e.g., for a game).
@@ -300,7 +293,7 @@ typedef NS_ENUM(NSInteger, MATGender)
  Will be cleared after the next measurement call.
  @param search string
  */
-+ (void)setEventSearchString:(NSString*)searchString;
++ (void)setEventSearchString:(NSString *)searchString;
 
 /*!
  Set the rating associated with the next action (e.g., a user rating an item).
@@ -314,50 +307,49 @@ typedef NS_ENUM(NSInteger, MATGender)
  Will be cleared after the next measurement call.
  @param date
  */
-+ (void)setEventDate1:(NSDate*)date;
++ (void)setEventDate1:(NSDate *)date;
 
 /*!
  Set the second date associated with the next action (e.g., user's check-out time).
  Will be cleared after the next measurement call.
  @param date
  */
-+ (void)setEventDate2:(NSDate*)date;
++ (void)setEventDate2:(NSDate *)date;
 
 /*!
  Set the first attribute to be included in the next action.
  Will be cleared after the next measurement call.
  @param value
  */
-+ (void)setEventAttribute1:(NSString*)value;
++ (void)setEventAttribute1:(NSString *)value;
 
 /*!
  Set the second attribute to be included in the next action.
  Will be cleared after the next measurement call.
  @param value
  */
-+ (void)setEventAttribute2:(NSString*)value;
++ (void)setEventAttribute2:(NSString *)value;
 
 /*!
  Set the third attribute to be included in the next action.
  Will be cleared after the next measurement call.
  @param value
  */
-+ (void)setEventAttribute3:(NSString*)value;
++ (void)setEventAttribute3:(NSString *)value;
 
 /*!
  Set the fourth attribute to be included in the next action.
  Will be cleared after the next measurement call.
  @param value
  */
-+ (void)setEventAttribute4:(NSString*)value;
++ (void)setEventAttribute4:(NSString *)value;
 
 /*!
  Set the fifth attribute to be included in the next action.
  Will be cleared after the next measurement call.
  @param value
  */
-+ (void)setEventAttribute5:(NSString*)value;
-
++ (void)setEventAttribute5:(NSString *)value;
 
 #pragma mark - Data Getters
 
@@ -367,20 +359,19 @@ typedef NS_ENUM(NSInteger, MATGender)
  Get the MAT ID for this installation (mat_id).
  @return MAT ID
  */
-+ (NSString*)matId;
++ (NSString *)matId;
 
 /*!
  Get the MAT log ID for the first app open (open_log_id).
  @return open log ID
  */
-+ (NSString*)openLogId;
++ (NSString *)openLogId;
 
 /*!
  Get whether the user is revenue-generating.
  @return YES if the user has produced revenue, NO if not
  */
 + (BOOL)isPayingUser;
-
 
 #pragma mark - Show iAd advertising
 
@@ -398,7 +389,6 @@ typedef NS_ENUM(NSInteger, MATGender)
  */
 + (void)removeiAd;
 
-
 #pragma mark - Measuring Sessions
 
 /** @name Measuring Sessions */
@@ -407,7 +397,6 @@ typedef NS_ENUM(NSInteger, MATGender)
  To be called when an app opens; typically in the applicationDidBecomeActive event.
  */
 + (void)measureSession;
-
 
 #pragma mark - Measuring Actions
 
@@ -425,7 +414,6 @@ typedef NS_ENUM(NSInteger, MATGender)
  @param refId The reference ID for an event, corresponds to advertiser_ref_id on the website.
  */
 + (void)measureAction:(NSString *)eventName referenceId:(NSString *)refId;
-
 
 /*!
  Record an Action for an Event Name, revenue and currency.
@@ -483,7 +471,6 @@ typedef NS_ENUM(NSInteger, MATGender)
                      referenceId:(NSString *)refId
                    revenueAmount:(float)revenueAmount
                     currencyCode:(NSString *)currencyCode;
-
 
 #pragma mark - Measuring Actions With Event Items
 
@@ -643,7 +630,6 @@ typedef NS_ENUM(NSInteger, MATGender)
                 transactionState:(NSInteger)transactionState
                          receipt:(NSData *)receipt;
 
-
 #pragma mark - Cookie Tracking
 
 /** @name Cookie Tracking */
@@ -654,10 +640,9 @@ typedef NS_ENUM(NSInteger, MATGender)
  */
 + (void)setUseCookieTracking:(BOOL)yesorno;
 
-
 #pragma mark - App-to-app Tracking
 
-/** @name App-To-App Tracking */
+/** @name App - To - App Tracking */
 
 /*!
  Sets a url to be used with app-to-app tracking so that
@@ -673,7 +658,7 @@ typedef NS_ENUM(NSInteger, MATGender)
  @param targetAppAdvertiserId The MAT advertiser ID of the target app.
  @param offerId The MAT offer ID of the target app.
  @param publisherId The MAT publisher ID of the target app.
- @param shouldRedirect Should redirect to the download url if the tracking session was 
+ @param shouldRedirect Should redirect to the download url if the tracking session was
    successfully created. See setRedirectUrl:.
  */
 + (void)startAppToAppTracking:(NSString *)targetAppPackageName
@@ -681,7 +666,6 @@ typedef NS_ENUM(NSInteger, MATGender)
                       offerId:(NSString *)targetAdvertiserOfferId
                   publisherId:(NSString *)targetAdvertiserPublisherId
                      redirect:(BOOL)shouldRedirect;
-
 
 #pragma mark - Re-Engagement Method
 
@@ -697,7 +681,6 @@ typedef NS_ENUM(NSInteger, MATGender)
  */
 + (void)applicationDidOpenURL:(NSString *)urlString sourceApplication:(NSString *)sourceApplication;
 
-
 #ifdef MAT_USE_LOCATION
 #pragma mark - Region Monitoring
 
@@ -706,24 +689,23 @@ typedef NS_ENUM(NSInteger, MATGender)
 /*!
  Begin monitoring for an iBeacon region. Boundary-crossing events will be recorded
  by the MAT servers for event attribution.
- 
+
  When the first region is added, the user will immediately be prompted for use of
  their location, unless they have already granted it to the app.
- 
+
  @param UUID The region's universal unique identifier (required).
  @param nameId The region's name, as programmed into the beacon (required).
  @param majorId A subregion's major identifier (optional, send 0)
  @param minorId A sub-subregion's minor identifier (optional, send 0)
  */
 
-+ (void)startMonitoringForBeaconRegion:(NSUUID*)UUID
-                                nameId:(NSString*)nameId
++ (void)startMonitoringForBeaconRegion:(NSUUID *)UUID
+                                nameId:(NSString *)nameId
                                majorId:(NSUInteger)majorId
                                minorId:(NSUInteger)minorId;
 #endif
 
 @end
-
 
 #pragma mark - MobileAppTrackerDelegate
 
@@ -773,7 +755,6 @@ typedef NS_ENUM(NSInteger, MATGender)
 
 @end
 
-
 #ifdef MAT_USE_LOCATION
 #pragma mark - MobileAppTrackerRegionDelegate
 
@@ -791,13 +772,13 @@ typedef NS_ENUM(NSInteger, MATGender)
  Delegate method called when a geofenced region is entered.
  @param region The region that was entered.
  */
-- (void)mobileAppTrackerDidEnterRegion:(CLRegion*)region;
+- (void)mobileAppTrackerDidEnterRegion:(CLRegion *)region;
 
 /*!
  Delegate method called when a geofenced region is exited.
  @param region The region that was exited.
  */
-- (void)mobileAppTrackerDidExitRegion:(CLRegion*)region;
+- (void)mobileAppTrackerDidExitRegion:(CLRegion *)region;
 
 @end
 #endif

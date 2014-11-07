@@ -45,7 +45,7 @@ typedef NS_ENUM(NSUInteger, FBWebDialogResult) {
 typedef void (^FBWebDialogHandler)(
     FBWebDialogResult result,
     NSURL *resultURL,
-    NSError *error);
+    NSError * error);
 
 /*!
  @class FBWebDialogs

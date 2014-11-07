@@ -24,6 +24,7 @@
  @abstract Deprecated. Use `FBPhotoParams` instead.
 */
 __attribute__((deprecated))
+
 @interface FBShareDialogPhotoParams : FBPhotoParams
 
 @end

@@ -22,6 +22,7 @@ NSString *const rateAppId = @"899196882";
 NSString *const giftAppId = @"912236449";
 NSString *const rateAppId = @"912236449";
 #endif
+
 @interface MainViewController () <PopUpDelegate, MagicWorldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *readBookView;
@@ -168,9 +169,9 @@ NSString *const rateAppId = @"912236449";
     [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:giftAppId]];
 #else
     NNKParentAlertView *alertView = [[NNKParentAlertView alloc] initCustomPopWithFrame:self.view.frame completionBlock:^{
-        [AdsManager logEvent:FLURRY_MAKE_GIFT];
-        [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:giftAppId]];
-    }];;
+                                         [AdsManager logEvent:FLURRY_MAKE_GIFT];
+                                         [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:giftAppId]];
+                                     }];
     [alertView showInView:self.view];
 #endif
 }
@@ -181,8 +182,8 @@ NSString *const rateAppId = @"912236449";
     [[UIApplication sharedApplication] openURL:[NSURL urlForSite]];
 #else
     NNKParentAlertView *alertView = [[NNKParentAlertView alloc] initCustomPopWithFrame:self.view.frame completionBlock:^{
-        [[UIApplication sharedApplication] openURL:[NSURL urlForSite]];
-    }];;
+                                         [[UIApplication sharedApplication] openURL:[NSURL urlForSite]];
+                                     }];
     [alertView showInView:self.view];
 #endif
 }
@@ -194,12 +195,11 @@ NSString *const rateAppId = @"912236449";
     [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:rateAppId]];
 #else
     NNKParentAlertView *alertView = [[NNKParentAlertView alloc] initCustomPopWithFrame:self.view.frame completionBlock:^{
-        [AdsManager logEvent:FLURRY_RATE_US];
-        [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:rateAppId]];
-    }];;
+                                         [AdsManager logEvent:FLURRY_RATE_US];
+                                         [[UIApplication sharedApplication] openURL:[NSURL rateAppWithID:rateAppId]];
+                                     }];
     [alertView showInView:self.view];
 #endif
-
 }
 
 
@@ -216,9 +216,10 @@ NSString *const rateAppId = @"912236449";
 
 - (void)showPopUpWithTag:(NSNumber *)tag {
     [Utils animationForAppear:YES forView:self.shadowView withCompletionBlock:^(BOOL finished) {
-    }];
+     }];
     [self next:[tag integerValue] isPrev:NO isInitial:YES];
 }
+
 
 - (IBAction)popUpWindows:(id)sender {
     if (self.magicViewController || self.popUpViewController) {

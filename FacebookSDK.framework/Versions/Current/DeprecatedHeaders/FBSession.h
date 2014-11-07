@@ -180,7 +180,7 @@ typedef NS_ENUM(NSUInteger, FBSessionLoginType) {
  */
 typedef void (^FBSessionStateHandler)(FBSession *session,
                                       FBSessionState status,
-                                      NSError *error);
+                                      NSError * error);
 
 /*!
  @typedef
@@ -198,7 +198,7 @@ typedef void (^FBSessionStateHandler)(FBSession *session,
  the user performs some action).
  */
 typedef void (^FBSessionRequestPermissionResultHandler)(FBSession *session,
-                                                        NSError *error);
+                                                        NSError * error);
 
 /*!
  @typedef
@@ -336,12 +336,12 @@ typedef void (^FBSessionRenewSystemCredentialsHandler)(ACAccountCredentialRenewR
 
 /*! @abstract The access token for the session object.
  @discussion Deprecated. Use the `accessTokenData` property. */
-@property(readonly, copy) NSString *accessToken
+@property (readonly, copy) NSString *accessToken
 __attribute__((deprecated));
 
 /*! @abstract The expiration date of the access token for the session object.
  @discussion Deprecated. Use the `accessTokenData` property. */
-@property(readonly, copy) NSDate *expirationDate
+@property (readonly, copy) NSDate *expirationDate
 __attribute__((deprecated));
 
 /*! @abstract The permissions granted to the access token during the authentication flow. */
@@ -349,7 +349,7 @@ __attribute__((deprecated));
 
 /*! @abstract Specifies the login type used to authenticate the user.
  @discussion Deprecated. Use the `accessTokenData` property. */
-@property(readonly) FBSessionLoginType loginType
+@property (readonly) FBSessionLoginType loginType
 __attribute__((deprecated));
 
 /*! @abstract Gets the FBAccessTokenData for the session */
@@ -436,7 +436,7 @@ __attribute__((deprecated));
  @param accessTokenData The token data. See `FBAccessTokenData` for construction methods.
  @param handler A block to call with session state changes. The default is nil.
  */
-- (BOOL)openFromAccessTokenData:(FBAccessTokenData *)accessTokenData completionHandler:(FBSessionStateHandler) handler;
+- (BOOL)openFromAccessTokenData:(FBAccessTokenData *)accessTokenData completionHandler:(FBSessionStateHandler)handler;
 
 /*!
  @abstract
@@ -816,4 +816,5 @@ __attribute__((deprecated));
  logged in via Safari or Facebook SSO.
  */
 + (void)renewSystemCredentials:(FBSessionRenewSystemCredentialsHandler)handler;
+
 @end

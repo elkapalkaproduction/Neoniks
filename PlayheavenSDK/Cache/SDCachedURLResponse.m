@@ -12,30 +12,30 @@
 
 @synthesize response;
 
-+ (id)cachedURLResponseWithNSCachedURLResponse:(NSCachedURLResponse *)response
-{
++ (id)cachedURLResponseWithNSCachedURLResponse:(NSCachedURLResponse *)response {
     PH_SDCACHEDURLRESPONSE_CLASS *wrappedResponse = [[PH_SDCACHEDURLRESPONSE_CLASS alloc] init];
     wrappedResponse.response = response;
+
     return [wrappedResponse autorelease];
 }
 
+
 #pragma mark NSCopying Methods
 
-- (id)copyWithZone:(NSZone *)zone
-{
+- (id)copyWithZone:(NSZone *)zone {
     PH_SDCACHEDURLRESPONSE_CLASS *newResponse = [[[self class] allocWithZone:zone] init];
 
-    if (newResponse)
-    {
+    if (newResponse) {
         newResponse.response = [[self.response copyWithZone:zone] autorelease];
     }
 
     return newResponse;
 }
 
+
 #pragma mark NSCoding Methods
-- (void)encodeWithCoder:(NSCoder *)coder
-{
+
+- (void)encodeWithCoder:(NSCoder *)coder {
     // force write the data of underlying cached response
     [coder encodeDataObject:self.response.data];
     [coder encodeObject:self.response.response forKey:@"response"];
@@ -43,10 +43,9 @@
     [coder encodeInt:self.response.storagePolicy forKey:@"storagePolicy"];
 }
 
-- (id)initWithCoder:(NSCoder *)coder
-{
-    if ((self = [super init]))
-    {
+
+- (id)initWithCoder:(NSCoder *)coder {
+    if ((self = [super init])) {
         self.response = [[[NSCachedURLResponse alloc] initWithResponse:[coder decodeObjectForKey:@"response"]
                                                                   data:[coder decodeDataObject]
                                                               userInfo:[coder decodeObjectForKey:@"userInfo"]
@@ -56,8 +55,8 @@
     return self;
 }
 
-- (void)dealloc
-{
+
+- (void)dealloc {
     [response release], response = nil;
     [super dealloc];
 }

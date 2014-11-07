@@ -99,33 +99,34 @@
     NSDictionary *curentPage = allPages[nextPagesKey];
     if ([curentPage[@"isCharacter"] boolValue]) {
         [self goToGallery:nil];
+
         return;
     }
     __weak PopUpViewController *weakSelf = self;
     [Utils animationForAppear:NO forView:self.contentView withCompletionBlock:^(BOOL finished) {
-        weakSelf.view.hidden = YES;
-        [weakSelf.delegate close];
-    }];
+         weakSelf.view.hidden = YES;
+         [weakSelf.delegate close];
+     }];
 }
 
 
 - (IBAction)right:(id)sender {
     __weak PopUpViewController *weakSelf = self;
     [Utils animationForAppear:NO fromRight:YES forView:self.contentView withCompletionBlock:^{
-        weakSelf.view.hidden = YES;
+         weakSelf.view.hidden = YES;
 
-        [weakSelf.delegate next:self.nextPage isPrev:NO];
-    }];
+         [weakSelf.delegate next:self.nextPage isPrev:NO];
+     }];
 }
 
 
 - (IBAction)left:(id)sender {
     __weak PopUpViewController *weakSelf = self;
     [Utils animationForAppear:NO fromRight:NO forView:self.contentView withCompletionBlock:^{
-        weakSelf.view.hidden = YES;
+         weakSelf.view.hidden = YES;
 
-        [weakSelf.delegate next:self.prevPage isPrev:YES];
-    }];
+         [weakSelf.delegate next:self.prevPage isPrev:YES];
+     }];
 }
 
 
@@ -179,20 +180,17 @@
 - (void)startAnimation {
     if (self.isInitialView) {
         [Utils animationForAppear:YES forView:self.contentView withCompletionBlock:^(BOOL finished) {
-            
-        }];
+         }];
     } else {
         [self.view setHidden:NO];
         [Utils animationForAppear:YES fromRight:self.fromRightToLeft forView:self.contentView withCompletionBlock:^{
-            
-        }];
+         }];
     }
 }
 
 
 - (void)adjustControllerForWillPowerPage {
     self.textImage.frame = self.popUpArtImage.frame;
-    
 }
 
 

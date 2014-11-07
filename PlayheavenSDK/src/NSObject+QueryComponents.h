@@ -30,12 +30,15 @@
 - (NSString *)stringByDecodingURLFormat;
 - (NSString *)stringByEncodingURLFormat;
 - (NSMutableDictionary *)dictionaryFromQueryComponents;
+
 @end
 
 @interface NSURL (QueryComponents)
 - (NSMutableDictionary *)queryComponents;
+
 @end
 
 @interface NSDictionary (QueryComponents)
 - (NSString *)stringFromQueryComponents;
+
 @end

@@ -25,7 +25,7 @@
 
  @discussion
  */
-typedef NS_ENUM(NSUInteger, FBFriendSortOrdering) {
+typedef NS_ENUM (NSUInteger, FBFriendSortOrdering) {
     /*! Sort friends by first, middle, last names. */
     FBFriendSortByFirstName = 0,
     /*! Sort friends by last, first, middle names. */
@@ -39,13 +39,12 @@ typedef NS_ENUM(NSUInteger, FBFriendSortOrdering) {
 
  @discussion
  */
-typedef NS_ENUM(NSUInteger, FBFriendDisplayOrdering) {
+typedef NS_ENUM (NSUInteger, FBFriendDisplayOrdering) {
     /*! Display friends as First Middle Last. */
     FBFriendDisplayByFirstName = 0,
     /*! Display friends as Last First Middle. */
     FBFriendDisplayByLastName,
 };
-
 
 /*!
  @class

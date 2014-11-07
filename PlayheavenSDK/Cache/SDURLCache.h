@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PHConstants.h"
+
 @interface PH_SDURLCACHE_CLASS : NSURLCache
 {
     @private

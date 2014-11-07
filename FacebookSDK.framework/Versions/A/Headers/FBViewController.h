@@ -60,7 +60,6 @@ typedef void (^FBModalCompletionHandler)(FBViewController *sender, BOOL donePres
 
 @end
 
-
 /*!
  @class FBViewController
 
