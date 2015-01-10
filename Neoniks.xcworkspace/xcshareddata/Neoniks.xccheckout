@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EF24D28E-0926-411A-AD67-EBBFA0E9D409</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Neoniks</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>412E20387DDCA234841CCE27F2354BBC660DE0FD</key>
+		<string>ssh://github.com/elkapalkaproduction/Neoniks.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Neoniks.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>412E20387DDCA234841CCE27F2354BBC660DE0FD</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/elkapalkaproduction/Neoniks.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>412E20387DDCA234841CCE27F2354BBC660DE0FD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>412E20387DDCA234841CCE27F2354BBC660DE0FD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Neoniks</string>
+		</dict>
+	</array>
+</dict>
+</plist>

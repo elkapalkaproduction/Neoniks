@@ -14,6 +14,7 @@
 #import "Utils.h"
 #import "AdsManager.h"
 #import "NNKParentAlertView.h"
+#import "NewBookViewController.h"
 
 #ifdef NeoniksFree
 NSString *const giftAppId = @"899196882";
@@ -154,9 +155,11 @@ NSString *const rateAppId = @"912236449";
 
 - (IBAction)goToBook:(id)sender {
     [AdsManager logEvent:FLURRY_BOOK_OPEN];
-    BookViewController *bookViewController = [[BookViewController alloc] init];
-    bookViewController.isPlayingSound = [[AudioPlayer sharedPlayer] isPlaying];
-
+//    BookViewController *bookViewController = [[BookViewController alloc] init];
+//    bookViewController.isPlayingSound = [[AudioPlayer sharedPlayer] isPlaying];
+//
+    NewBookViewController *bookViewController = [[NewBookViewController alloc] initWithNibName:NSStringFromClass([NewBookViewController class]) bundle:nil];
+    
     [[AudioPlayer sharedPlayer] pause];
     [self.navigationController pushViewController:bookViewController animated:YES];
 //    [self presentViewController:bookViewController animated:YES completion:NULL];

@@ -42,8 +42,9 @@
           } completion:^(BOOL finished) {
               AdsManager *manager = [AdsManager sharedManager];
               [manager showOnStartAds];
-              StartVideoViewController *startVideo = [[StartVideoViewController alloc] init];
-              [self.navigationController pushViewController:startVideo animated:NO];
+              [self.navigationController popToRootViewControllerAnimated:YES];
+//              StartVideoViewController *startVideo = [[StartVideoViewController alloc] init];
+//              [self.navigationController pushViewController:startVideo animated:NO];
           }];
      }];
 }
