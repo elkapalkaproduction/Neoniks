@@ -11,7 +11,10 @@
 @interface UIWebView (CSSRule)
 
 - (void)runCSSRulesToWebViewWithPercentSize:(NSUInteger)fontPercentSize
-                                   fontName:(NSString *)fontName;
+                                   fontName:(NSString *)fontName
+                                  fontColor:(NSString *)fontColor
+                            backgroundColor:(NSString *)backgroundColor;
+
 @property (assign, nonatomic, readonly) NSUInteger numberOfPages;
 
 @end

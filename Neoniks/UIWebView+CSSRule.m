@@ -14,6 +14,8 @@
 #define textAlignRule @"addCSSRule('p', 'text-align: justify;')"
 #define textFontRule @"addCSSRule('p', 'font-family: %@;')"
 #define fontSizeRule @"addCSSRule('body', '-webkit-text-size-adjust: %lu%%;')"
+#define backgroundColorRule @"addCSSRule('body', 'background-color: %@;')"
+#define textColorRule @"addCSSRule('p', 'color: %@;')"
 #define imageSizeRule @"addCSSRule('img', 'max-height:%fpx;')"
 #define documentWidth @"document.documentElement.scrollWidth"
 
@@ -53,14 +55,27 @@
 }
 
 
+- (void)applyColorsWithBackgroundColor:(NSString *)backgroundColor textColor:(NSString *)textColor {
+    NSString *backgroundRule = [NSString stringWithFormat:backgroundColorRule, backgroundColor];
+    [self stringByEvaluatingJavaScriptFromString:backgroundRule];
+    
+    NSString *textRule = [NSString stringWithFormat:textColorRule, textColor];
+    [self stringByEvaluatingJavaScriptFromString:textRule];
+
+}
+
+
 - (void)runCSSRulesToWebViewWithPercentSize:(NSUInteger)fontPercentSize
-                                   fontName:(NSString *)fontName {
+                                   fontName:(NSString *)fontName
+                                  fontColor:(NSString *)fontColor
+                            backgroundColor:(NSString *)backgroundColor {
     [self stringByEvaluatingJavaScriptFromString:varMySheet];
     [self stringByEvaluatingJavaScriptFromString:addCSSRules];
     [self runFormatingTextRulesWithFontPercentSize:fontPercentSize];
     if (fontName) {
         [self runFormatingTextRulesWithFontName:fontName];
     }
+    [self applyColorsWithBackgroundColor:backgroundColor textColor:fontColor];
 }
 
 

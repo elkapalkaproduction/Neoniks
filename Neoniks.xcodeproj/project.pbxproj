@@ -1132,6 +1132,10 @@
 		75D92AD819746CB300048B95 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 75D92AD519746CB300048B95 /* README.md */; };
 		75D92ADA19746D9300048B95 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D92AD919746D9300048B95 /* CoreData.framework */; };
 		75DFFF6E1A628D6C00AC1537 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DFFF6D1A628D6C00AC1537 /* MainNavigationController.m */; };
+		75DFFF751A62ABB000AC1537 /* ChaptersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DFFF731A62ABB000AC1537 /* ChaptersViewController.m */; };
+		75DFFF761A62ABB000AC1537 /* ChaptersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75DFFF741A62ABB000AC1537 /* ChaptersViewController.xib */; };
+		75DFFF7A1A62ABCE00AC1537 /* CustomizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DFFF781A62ABCE00AC1537 /* CustomizationViewController.m */; };
+		75DFFF7B1A62ABCE00AC1537 /* CustomizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75DFFF791A62ABCE00AC1537 /* CustomizationViewController.xib */; };
 		75F2EE1019747FB400EE843A /* LICENCE in Resources */ = {isa = PBXBuildFile; fileRef = 75F2EDD319747FB400EE843A /* LICENCE */; };
 		75F2EE1119747FB400EE843A /* SDCachedURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F2EDD519747FB400EE843A /* SDCachedURLResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		75F2EE1219747FB400EE843A /* SDURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F2EDD719747FB400EE843A /* SDURLCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -1804,6 +1808,12 @@
 		75D92AD919746D9300048B95 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		75DFFF6C1A628D6C00AC1537 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
 		75DFFF6D1A628D6C00AC1537 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
+		75DFFF721A62ABB000AC1537 /* ChaptersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChaptersViewController.h; sourceTree = "<group>"; };
+		75DFFF731A62ABB000AC1537 /* ChaptersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChaptersViewController.m; sourceTree = "<group>"; };
+		75DFFF741A62ABB000AC1537 /* ChaptersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChaptersViewController.xib; sourceTree = "<group>"; };
+		75DFFF771A62ABCE00AC1537 /* CustomizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomizationViewController.h; sourceTree = "<group>"; };
+		75DFFF781A62ABCE00AC1537 /* CustomizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomizationViewController.m; sourceTree = "<group>"; };
+		75DFFF791A62ABCE00AC1537 /* CustomizationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomizationViewController.xib; sourceTree = "<group>"; };
 		75F2EDD319747FB400EE843A /* LICENCE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE; sourceTree = "<group>"; };
 		75F2EDD419747FB400EE843A /* SDCachedURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCachedURLResponse.h; sourceTree = "<group>"; };
 		75F2EDD519747FB400EE843A /* SDCachedURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCachedURLResponse.m; sourceTree = "<group>"; };
@@ -2835,6 +2845,12 @@
 				753F70E01A61DCCE004679E8 /* NewBookViewController.h */,
 				753F70E11A61DCCE004679E8 /* NewBookViewController.m */,
 				753F70E21A61DCCE004679E8 /* NewBookViewController.xib */,
+				75DFFF721A62ABB000AC1537 /* ChaptersViewController.h */,
+				75DFFF731A62ABB000AC1537 /* ChaptersViewController.m */,
+				75DFFF741A62ABB000AC1537 /* ChaptersViewController.xib */,
+				75DFFF771A62ABCE00AC1537 /* CustomizationViewController.h */,
+				75DFFF781A62ABCE00AC1537 /* CustomizationViewController.m */,
+				75DFFF791A62ABCE00AC1537 /* CustomizationViewController.xib */,
 				753F70E71A61DFE8004679E8 /* test.epub */,
 				756BF8D319A918220052BCDF /* CustomAlertView */,
 				75B744ED1975A2EF00B8FDFC /* MKStoreKit */,
@@ -3318,6 +3334,7 @@
 				75B29477195CA47500A98815 /* 6_text_rus.png in Resources */,
 				75B29456195CA47500A98815 /* 15_text_eng.png in Resources */,
 				75BE3309195E0D42009AF3EE /* portrait_7.png in Resources */,
+				75DFFF7B1A62ABCE00AC1537 /* CustomizationViewController.xib in Resources */,
 				4541BC7E19877A9F00522D5B /* 8_8_eng.html in Resources */,
 				756BF8DE19A918220052BCDF /* AlertActionButtonDown@2x.png in Resources */,
 				75B29475195CA47500A98815 /* 5_text_rus.png in Resources */,
@@ -3504,6 +3521,7 @@
 				75BE32F7195E0D42009AF3EE /* 3_name_eng.png in Resources */,
 				4541BA071986F0A900522D5B /* 4_2_rus.html in Resources */,
 				454E8C7C195CC8410052B9CC /* Icon-Small-50@2x.png in Resources */,
+				75DFFF761A62ABB000AC1537 /* ChaptersViewController.xib in Resources */,
 				75B29464195CA47500A98815 /* 22_text_eng.png in Resources */,
 				7590FA7318AD71CF000D3262 /* 1_popup_art.png in Resources */,
 				4541B9FB1986F0A900522D5B /* 3_1_rus.html in Resources */,
@@ -4318,6 +4336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75DFFF751A62ABB000AC1537 /* ChaptersViewController.m in Sources */,
 				75AFC666194483F4001AE141 /* ChapterDetails.m in Sources */,
 				75BC690718AAB2A5006D7647 /* AppDelegate.m in Sources */,
 				751CDC74192931C3003FCA0F /* BookmarksManager.m in Sources */,
@@ -4343,6 +4362,7 @@
 				7553CF2418B8FCAF00B53D48 /* MagicWorldViewController.m in Sources */,
 				753F70DE1A61DCBB004679E8 /* NNKEpubView.m in Sources */,
 				753F70DC1A61DCB6004679E8 /* NNKChapter.m in Sources */,
+				75DFFF7A1A62ABCE00AC1537 /* CustomizationViewController.m in Sources */,
 				75AE77081928258C0085A26A /* NSString+Helps.m in Sources */,
 				7593126B1A0D440D00D8C01C /* StartVideoViewController.m in Sources */,
 				75AE7702192820450085A26A /* UIImage+Helps.m in Sources */,

@@ -38,7 +38,10 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [webView runCSSRulesToWebViewWithPercentSize:[self.delegate currentTextSize] fontName:[self.delegate fontName]];
+    [webView runCSSRulesToWebViewWithPercentSize:[self.delegate currentTextSize]
+                                        fontName:[self.delegate fontName]
+                                       fontColor:[self.delegate textColor]
+                                 backgroundColor:[self.delegate backgroundColor]];
     
     self.pageCount = webView.numberOfPages;
     self.webView = nil;

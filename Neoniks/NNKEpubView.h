@@ -14,6 +14,7 @@
 - (void)paginationDidStart;
 - (void)paginationDidFinish;
 - (void)pageDidChange;
+- (void)showOrHideMenu;
 
 @end
 
@@ -23,6 +24,7 @@
 - (void)loadSpine:(NSUInteger)spineIndex atPageIndex:(NSUInteger)pageIndex;
 - (void)increaseTextSize;
 - (void)decreaseTextSize;
+- (void)changeColorToColor:(NSString *)color;
 
 @property (weak, nonatomic) id<NNKEpubViewDelegate> delegate;
 @property (assign, nonatomic) NSUInteger currentPageNumber;

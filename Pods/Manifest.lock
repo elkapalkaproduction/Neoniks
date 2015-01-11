@@ -1,13 +1,16 @@
 PODS:
   - TouchXML (0.1)
+  - WYPopoverController (0.3.5)
   - ZipArchive (1.3.0)
 
 DEPENDENCIES:
   - TouchXML
+  - WYPopoverController
   - ZipArchive
 
 SPEC CHECKSUMS:
   TouchXML: fa552bd1f8b98cb5233be61622655796765fe535
+  WYPopoverController: d5350da9e8aa98d607bbc9a2e299b5982938e77b
   ZipArchive: acd54f7131c2d2f45dc3f41c4f854501f222269f
 
 COCOAPODS: 0.34.4

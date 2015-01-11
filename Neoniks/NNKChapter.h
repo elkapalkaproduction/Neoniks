@@ -16,6 +16,8 @@
 - (NSString *)fontName;
 - (NSUInteger)currentTextSize;
 - (CGRect)bounds;
+- (NSString *)textColor;
+- (NSString *)backgroundColor;
 
 @end
 

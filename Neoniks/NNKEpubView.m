@@ -15,7 +15,7 @@
 #define kMaxTextSize 200
 #define kChangeTextStep 25
 
-@interface NNKEpubView () <ChapterDelegate, UIWebViewDelegate>
+@interface NNKEpubView () <ChapterDelegate, UIWebViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong, readwrite) NSArray *chapters;
 @property (nonatomic, strong) UIWebView *webView;
@@ -24,6 +24,8 @@
 @property (assign, nonatomic) NSUInteger currentPageInSpineIndex;
 @property (assign, nonatomic) NSUInteger pagesInCurrentSpineCount;
 @property (assign, nonatomic) NSUInteger currentTextSize;
+@property (strong, nonatomic) NSString *textColor;
+@property (strong, nonatomic) NSString *backgroundColor;
 @property (assign, nonatomic, readwrite) NSUInteger totalPagesCount;
 @property (assign, nonatomic) BOOL paginating;
 
@@ -119,6 +121,13 @@
 }
 
 
+- (void)changeColorToColor:(NSString *)color {
+    self.textColor = [color isEqual:@"black"] ? @"white" : @"black";
+    self.backgroundColor = color;
+    [self updatePagination];
+}
+
+
 #pragma mark - Chapters Delegate
 
 - (void)chapterDidFinishLoad:(NNKChapter *)chapter {
@@ -143,11 +152,18 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)theWebView {
     [self updateCurrentSpineIndexBasedOnWebView:theWebView];
-    [self.webView runCSSRulesToWebViewWithPercentSize:self.currentTextSize fontName:self.fontName];
+    [self.webView runCSSRulesToWebViewWithPercentSize:self.currentTextSize
+                                             fontName:self.fontName
+                                            fontColor:self.textColor
+                                      backgroundColor:self.backgroundColor];
     self.pagesInCurrentSpineCount = self.webView.numberOfPages;
     [self gotoPageInCurrentSpine:self.currentPageInSpineIndex];
 }
 
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer*)otherGestureRecognizer {
+    return YES;
+}
 
 #pragma mark - Custom Accessors
 
@@ -165,7 +181,10 @@
         }
     } else {
         if ([self.delegate respondsToSelector:@selector(paginationDidFinish)]) {
-            [self.webView runCSSRulesToWebViewWithPercentSize:self.currentTextSize fontName:self.fontName];
+            [self.webView runCSSRulesToWebViewWithPercentSize:self.currentTextSize
+                                                     fontName:self.fontName
+                                                    fontColor:self.textColor
+                                              backgroundColor:self.backgroundColor];
             [self.delegate paginationDidFinish];
         }
     }
@@ -219,6 +238,24 @@
 }
 
 
+- (NSString *)textColor {
+    if (!_textColor) {
+        _textColor = @"black";
+    }
+    
+    return _textColor;
+}
+
+
+- (NSString *)backgroundColor {
+    if (!_backgroundColor) {
+        _backgroundColor = @"white";
+    }
+    
+    return _backgroundColor;
+}
+
+
 #pragma mark - Private Methods
 
 - (void)disableScrollOnSubviews {
@@ -243,6 +280,11 @@
 
     [self.webView addGestureRecognizer:rightSwipeRecognizer];
     [self.webView addGestureRecognizer:leftSwipeRecognizer];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:@selector(showOrHideMenu)];
+    tapGesture.delegate = self;
+    [self.webView addGestureRecognizer:tapGesture];
 }
 
 
@@ -275,6 +317,13 @@
         if ([[chapter spinePath] isEqualToString:path] && self.currentSpineIndex != chapter.chapterIndex) {
             self.currentSpineIndex = chapter.chapterIndex;
         }
+    }
+}
+
+
+- (void)showOrHideMenu {
+    if ([self.delegate respondsToSelector:@selector(showOrHideMenu)]) {
+        [self.delegate showOrHideMenu];
     }
 }
 
