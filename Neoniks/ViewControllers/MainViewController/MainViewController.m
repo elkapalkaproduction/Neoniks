@@ -161,8 +161,8 @@ NSString *const rateAppId = @"912236449";
     NewBookViewController *bookViewController = [[NewBookViewController alloc] initWithNibName:NSStringFromClass([NewBookViewController class]) bundle:nil];
     
     [[AudioPlayer sharedPlayer] pause];
-    [self.navigationController pushViewController:bookViewController animated:YES];
-//    [self presentViewController:bookViewController animated:YES completion:NULL];
+//    [self.navigationController pushViewController:bookViewController animated:YES];
+    [self presentViewController:bookViewController animated:YES completion:NULL];
 }
 
 

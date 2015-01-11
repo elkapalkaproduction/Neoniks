@@ -138,24 +138,6 @@
 }
 
 
-- (NSString *)fontName {
-    if (!_fontName) {
-        _fontName = @"\"Arial\", Georgia, Serif";
-    }
-    return _fontName;
-}
-
-
-- (CGRect)windowsSize {
-    return self.bounds;
-}
-
-
-- (NSUInteger)fontPercentSize {
-    return self.currentTextSize;
-}
-
-
 #pragma mark - WebView Delegate
 
 
@@ -183,6 +165,7 @@
         }
     } else {
         if ([self.delegate respondsToSelector:@selector(paginationDidFinish)]) {
+            [self.webView runCSSRulesToWebViewWithPercentSize:self.currentTextSize fontName:self.fontName];
             [self.delegate paginationDidFinish];
         }
     }

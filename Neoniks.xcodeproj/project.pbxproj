@@ -1131,6 +1131,7 @@
 		75D92AD719746CB300048B95 /* libChartboost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D92AD419746CB300048B95 /* libChartboost.a */; };
 		75D92AD819746CB300048B95 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 75D92AD519746CB300048B95 /* README.md */; };
 		75D92ADA19746D9300048B95 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D92AD919746D9300048B95 /* CoreData.framework */; };
+		75DFFF6E1A628D6C00AC1537 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DFFF6D1A628D6C00AC1537 /* MainNavigationController.m */; };
 		75F2EE1019747FB400EE843A /* LICENCE in Resources */ = {isa = PBXBuildFile; fileRef = 75F2EDD319747FB400EE843A /* LICENCE */; };
 		75F2EE1119747FB400EE843A /* SDCachedURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F2EDD519747FB400EE843A /* SDCachedURLResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		75F2EE1219747FB400EE843A /* SDURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F2EDD719747FB400EE843A /* SDURLCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -1801,6 +1802,8 @@
 		75D92AD419746CB300048B95 /* libChartboost.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libChartboost.a; sourceTree = "<group>"; };
 		75D92AD519746CB300048B95 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		75D92AD919746D9300048B95 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		75DFFF6C1A628D6C00AC1537 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
+		75DFFF6D1A628D6C00AC1537 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		75F2EDD319747FB400EE843A /* LICENCE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE; sourceTree = "<group>"; };
 		75F2EDD419747FB400EE843A /* SDCachedURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCachedURLResponse.h; sourceTree = "<group>"; };
 		75F2EDD519747FB400EE843A /* SDCachedURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCachedURLResponse.m; sourceTree = "<group>"; };
@@ -2871,6 +2874,8 @@
 				751CDC73192931C3003FCA0F /* BookmarksManager.m */,
 				754843F71984F08300A0E496 /* NNKShapedButton.h */,
 				754843F81984F08300A0E496 /* NNKShapedButton.m */,
+				75DFFF6C1A628D6C00AC1537 /* MainNavigationController.h */,
+				75DFFF6D1A628D6C00AC1537 /* MainNavigationController.m */,
 				75BC693218AAB930006D7647 /* images */,
 				75BC68FD18AAB2A5006D7647 /* Supporting Files */,
 			);
@@ -4327,6 +4332,7 @@
 				754843F91984F08300A0E496 /* NNKShapedButton.m in Sources */,
 				751CDC78192945C9003FCA0F /* AllBookmarsViewController.m in Sources */,
 				751CDC7C19294E0A003FCA0F /* UIPopoverController+iPhone.m in Sources */,
+				75DFFF6E1A628D6C00AC1537 /* MainNavigationController.m in Sources */,
 				75D92A9919745AA600048B95 /* AdsManager.m in Sources */,
 				756AEC591927CD0200DE8E6F /* PageDetails.m in Sources */,
 				75AFC6691944845F001AE141 /* ChaptersCollection.m in Sources */,

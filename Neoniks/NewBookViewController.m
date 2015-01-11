@@ -42,18 +42,25 @@
 }
 
 
-- (IBAction)arial:(id)sender {
-    self.epubView.fontName = @"Arial";
+- (void)pageDidChange {
+    self.label.text = [NSString stringWithFormat:@"%lu/%lu",
+                       (unsigned long)self.epubView.currentPageNumber,
+                       (unsigned long)self.epubView.totalPagesCount];
+    self.slider.value = (float)self.epubView.currentPageNumber / (float)self.epubView.totalPagesCount;
 }
 
 
-- (IBAction)timesNewRoman:(id)sender {
-    self.epubView.fontName = @"Times New Roman";
+- (IBAction)finishChangingValue:(id)sender {
+    self.epubView.currentPageNumber = self.slider.value * self.epubView.totalPagesCount;
+
 }
 
 
-- (IBAction)courier:(id)sender {
-    self.epubView.fontName = @"Courier";
+- (IBAction)valueChanged:(id)sender {
+    NSUInteger currentPage = self.slider.value * self.epubView.totalPagesCount;
+    self.label.text = [NSString stringWithFormat:@"%lu/%lu",
+                       currentPage,
+                       (unsigned long)self.epubView.totalPagesCount];
 }
 
 
@@ -73,17 +80,11 @@
 
 
 - (IBAction)close:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
-
 - (NSUInteger)supportedInterfaceOrientations {
-    if (isIphone()) {
-        return UIInterfaceOrientationMaskPortrait;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
-    
+    return UIInterfaceOrientationMaskAll;
 }
 
 @end

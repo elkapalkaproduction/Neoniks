@@ -14,8 +14,8 @@
 @protocol ChapterDelegate <NSObject>
 - (void)chapterDidFinishLoad:(NNKChapter *)chapter;
 - (NSString *)fontName;
-- (NSUInteger)fontPercentSize;
-- (CGRect)windowsSize;
+- (NSUInteger)currentTextSize;
+- (CGRect)bounds;
 
 @end
 

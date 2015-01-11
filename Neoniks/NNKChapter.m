@@ -31,14 +31,14 @@
 
 - (void)loadChapter {
     
-    self.webView = [[UIWebView alloc] initWithFrame:[self.delegate windowsSize]];
+    self.webView = [[UIWebView alloc] initWithFrame:[self.delegate bounds]];
     [self.webView setDelegate:self];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:self.spinePath]];
     [self.webView loadRequest:urlRequest];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [webView runCSSRulesToWebViewWithPercentSize:[self.delegate fontPercentSize] fontName:[self.delegate fontName]];
+    [webView runCSSRulesToWebViewWithPercentSize:[self.delegate currentTextSize] fontName:[self.delegate fontName]];
     
     self.pageCount = webView.numberOfPages;
     self.webView = nil;

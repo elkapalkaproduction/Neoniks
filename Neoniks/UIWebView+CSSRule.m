@@ -58,7 +58,9 @@
     [self stringByEvaluatingJavaScriptFromString:varMySheet];
     [self stringByEvaluatingJavaScriptFromString:addCSSRules];
     [self runFormatingTextRulesWithFontPercentSize:fontPercentSize];
-    [self runFormatingTextRulesWithFontName:fontName];
+    if (fontName) {
+        [self runFormatingTextRulesWithFontName:fontName];
+    }
 }
 
 
