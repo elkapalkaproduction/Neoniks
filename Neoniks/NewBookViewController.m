@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *epubFilepath = [[NSBundle mainBundle] pathForResource:[NSString neoniksLocalizedString:@"test"] ofType:@"epub"];
+    NSString *epubFilepath = [[NSBundle mainBundle] pathForResource:[NSString neoniksLocalizedString:@"book"] ofType:@"epub"];
     self.epubView.delegate = self;
     [self.epubView loadEpub:epubFilepath];
 

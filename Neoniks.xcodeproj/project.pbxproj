@@ -472,6 +472,8 @@
 		756BF8E319A918220052BCDF /* CustomPopView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 756BF8DB19A918220052BCDF /* CustomPopView@2x.png */; };
 		756BF8E419A918220052BCDF /* DimScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 756BF8DC19A918220052BCDF /* DimScreen.png */; };
 		756BF8E919A933570052BCDF /* NNKParentAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756BF8E819A933570052BCDF /* NNKParentAlertView.xib */; };
+		75802E451A6AF8EE00D0C86E /* book_rus.epub in Resources */ = {isa = PBXBuildFile; fileRef = 75802E441A6AF8EE00D0C86E /* book_rus.epub */; };
+		75802E461A6AF8EE00D0C86E /* book_rus.epub in Resources */ = {isa = PBXBuildFile; fileRef = 75802E441A6AF8EE00D0C86E /* book_rus.epub */; };
 		758D916A18FA811400025523 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758D916818FA811400025523 /* BookViewController.m */; };
 		758D916B18FA811400025523 /* BookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758D916918FA811400025523 /* BookViewController.xib */; };
 		758D916D18FA812800025523 /* BookViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758D916C18FA812800025523 /* BookViewController~ipad.xib */; };
@@ -1463,6 +1465,7 @@
 		756BF8DB19A918220052BCDF /* CustomPopView@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CustomPopView@2x.png"; sourceTree = "<group>"; };
 		756BF8DC19A918220052BCDF /* DimScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DimScreen.png; sourceTree = "<group>"; };
 		756BF8E819A933570052BCDF /* NNKParentAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NNKParentAlertView.xib; sourceTree = "<group>"; };
+		75802E441A6AF8EE00D0C86E /* book_rus.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = book_rus.epub; sourceTree = "<group>"; };
 		758D916718FA811400025523 /* BookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookViewController.h; path = ViewControllers/BookViewController/BookViewController.h; sourceTree = "<group>"; };
 		758D916818FA811400025523 /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookViewController.m; path = ViewControllers/BookViewController/BookViewController.m; sourceTree = "<group>"; };
 		758D916918FA811400025523 /* BookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookViewController.xib; path = ViewControllers/BookViewController/BookViewController.xib; sourceTree = "<group>"; };
@@ -2852,6 +2855,7 @@
 				75DFFF781A62ABCE00AC1537 /* CustomizationViewController.m */,
 				75DFFF791A62ABCE00AC1537 /* CustomizationViewController.xib */,
 				753F70E71A61DFE8004679E8 /* book_eng.epub */,
+				75802E441A6AF8EE00D0C86E /* book_rus.epub */,
 				756BF8D319A918220052BCDF /* CustomAlertView */,
 				75B744ED1975A2EF00B8FDFC /* MKStoreKit */,
 				75B744FF1975A2EF00B8FDFC /* SVProgressHUD */,
@@ -3465,6 +3469,7 @@
 				7590F9BD18AD4DDF000D3262 /* 26_title_rus.png in Resources */,
 				75BE32FB195E0D42009AF3EE /* 8_name_eng.png in Resources */,
 				75B29479195CA47500A98815 /* 7_text_rus.png in Resources */,
+				75802E451A6AF8EE00D0C86E /* book_rus.epub in Resources */,
 				4541BA011986F0A900522D5B /* 3_4_rus.html in Resources */,
 				7590F9C818AD4DDF000D3262 /* 4_title_eng.png in Resources */,
 				7590FA6B18AD71CF000D3262 /* 10_popup_art.png in Resources */,
@@ -3775,6 +3780,7 @@
 				75D928BF1974560400048B95 /* 13_text_rus.png in Resources */,
 				4541B8061986F08400522D5B /* chapters_rus.plist in Resources */,
 				4541BC4D19877A9F00522D5B /* 4_4_eng.html in Resources */,
+				75802E461A6AF8EE00D0C86E /* book_rus.epub in Resources */,
 				4541BBE119877A9F00522D5B /* 10_6_eng.html in Resources */,
 				75D928C01974560400048B95 /* 17_text_eng.png in Resources */,
 				4541BC6719877A9F00522D5B /* 7_3_eng.html in Resources */,
