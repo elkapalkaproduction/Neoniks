@@ -440,8 +440,8 @@
 		753F70E41A61DCCE004679E8 /* NewBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 753F70E11A61DCCE004679E8 /* NewBookViewController.m */; };
 		753F70E51A61DCCE004679E8 /* NewBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 753F70E21A61DCCE004679E8 /* NewBookViewController.xib */; };
 		753F70E61A61DCCE004679E8 /* NewBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 753F70E21A61DCCE004679E8 /* NewBookViewController.xib */; };
-		753F70E81A61DFE8004679E8 /* test.epub in Resources */ = {isa = PBXBuildFile; fileRef = 753F70E71A61DFE8004679E8 /* test.epub */; };
-		753F70E91A61DFE8004679E8 /* test.epub in Resources */ = {isa = PBXBuildFile; fileRef = 753F70E71A61DFE8004679E8 /* test.epub */; };
+		753F70E81A61DFE8004679E8 /* book_eng.epub in Resources */ = {isa = PBXBuildFile; fileRef = 753F70E71A61DFE8004679E8 /* book_eng.epub */; };
+		753F70E91A61DFE8004679E8 /* book_eng.epub in Resources */ = {isa = PBXBuildFile; fileRef = 753F70E71A61DFE8004679E8 /* book_eng.epub */; };
 		753F70EC1A61E3C1004679E8 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 753F70EB1A61E3C1004679E8 /* DejalActivityView.m */; };
 		753F70ED1A61E3C1004679E8 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 753F70EB1A61E3C1004679E8 /* DejalActivityView.m */; };
 		754843F91984F08300A0E496 /* NNKShapedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 754843F81984F08300A0E496 /* NNKShapedButton.m */; };
@@ -1425,7 +1425,7 @@
 		753F70E01A61DCCE004679E8 /* NewBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewBookViewController.h; sourceTree = "<group>"; };
 		753F70E11A61DCCE004679E8 /* NewBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewBookViewController.m; sourceTree = "<group>"; };
 		753F70E21A61DCCE004679E8 /* NewBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBookViewController.xib; sourceTree = "<group>"; };
-		753F70E71A61DFE8004679E8 /* test.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.epub; sourceTree = "<group>"; };
+		753F70E71A61DFE8004679E8 /* book_eng.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = book_eng.epub; sourceTree = "<group>"; };
 		753F70EA1A61E3C1004679E8 /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		753F70EB1A61E3C1004679E8 /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		754843F71984F08300A0E496 /* NNKShapedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNKShapedButton.h; sourceTree = "<group>"; };
@@ -2851,7 +2851,7 @@
 				75DFFF771A62ABCE00AC1537 /* CustomizationViewController.h */,
 				75DFFF781A62ABCE00AC1537 /* CustomizationViewController.m */,
 				75DFFF791A62ABCE00AC1537 /* CustomizationViewController.xib */,
-				753F70E71A61DFE8004679E8 /* test.epub */,
+				753F70E71A61DFE8004679E8 /* book_eng.epub */,
 				756BF8D319A918220052BCDF /* CustomAlertView */,
 				75B744ED1975A2EF00B8FDFC /* MKStoreKit */,
 				75B744FF1975A2EF00B8FDFC /* SVProgressHUD */,
@@ -3502,7 +3502,7 @@
 				4541B9BB1986F0A900522D5B /* 12_5_rus.html in Resources */,
 				75BE32ED195E0D42009AF3EE /* 19_name_eng.png in Resources */,
 				75B29470195CA47500A98815 /* 3_text_eng.png in Resources */,
-				753F70E81A61DFE8004679E8 /* test.epub in Resources */,
+				753F70E81A61DFE8004679E8 /* book_eng.epub in Resources */,
 				7590FA7D18AD71CF000D3262 /* 7_popup_art.png in Resources */,
 				7590F9B318AD4DDF000D3262 /* 21_title_rus.png in Resources */,
 				4541B9991986F0A900522D5B /* 10_4_rus.html in Resources */,
@@ -4002,7 +4002,7 @@
 				75D9297B1974560400048B95 /* 8_name_eng.png in Resources */,
 				4541BBE519877A9F00522D5B /* 11_1_eng.html in Resources */,
 				4541BC3F19877A9F00522D5B /* 3_2_eng.html in Resources */,
-				753F70E91A61DFE8004679E8 /* test.epub in Resources */,
+				753F70E91A61DFE8004679E8 /* book_eng.epub in Resources */,
 				75D9297C1974560400048B95 /* 7_text_rus.png in Resources */,
 				75D9297D1974560400048B95 /* 4_title_eng.png in Resources */,
 				75D9297E1974560400048B95 /* 10_popup_art.png in Resources */,
